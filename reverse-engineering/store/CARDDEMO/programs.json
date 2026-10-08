@@ -1,0 +1,5509 @@
+{
+  "meta": {
+    "module": "CARDDEMO",
+    "generated_at": "2026-10-08T04:11:43Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "src": [
+        "../app/cbl"
+      ],
+      "copybooks": [
+        "../app/cpy",
+        "../app/cpy-bms"
+      ]
+    }
+  },
+  "audit": {
+    "call_tokens_unaccounted": [],
+    "skipped_files": []
+  },
+  "sources": [
+    {
+      "path": "../app/cpy-bms/.gitkeep",
+      "kind": "copybook",
+      "lines": 0,
+      "code_lines": 0
+    },
+    {
+      "path": "../app/cpy-bms/COACTUP.CPY",
+      "kind": "copybook",
+      "lines": 668,
+      "code_lines": 652
+    },
+    {
+      "path": "../app/cpy-bms/COACTVW.CPY",
+      "kind": "copybook",
+      "lines": 464,
+      "code_lines": 448
+    },
+    {
+      "path": "../app/cpy-bms/COADM01.CPY",
+      "kind": "copybook",
+      "lines": 260,
+      "code_lines": 244
+    },
+    {
+      "path": "../app/cpy/COADM02Y.cpy",
+      "kind": "copybook",
+      "lines": 62,
+      "code_lines": 32
+    },
+    {
+      "path": "../app/cpy-bms/COBIL00.CPY",
+      "kind": "copybook",
+      "lines": 140,
+      "code_lines": 124
+    },
+    {
+      "path": "../app/cpy/COCOM01Y.cpy",
+      "kind": "copybook",
+      "lines": 47,
+      "code_lines": 26
+    },
+    {
+      "path": "../app/cpy-bms/COCRDLI.CPY",
+      "kind": "copybook",
+      "lines": 560,
+      "code_lines": 544
+    },
+    {
+      "path": "../app/cpy-bms/COCRDSL.CPY",
+      "kind": "copybook",
+      "lines": 200,
+      "code_lines": 184
+    },
+    {
+      "path": "../app/cpy-bms/COCRDUP.CPY",
+      "kind": "copybook",
+      "lines": 224,
+      "code_lines": 208
+    },
+    {
+      "path": "../app/cpy/CODATECN.cpy",
+      "kind": "copybook",
+      "lines": 52,
+      "code_lines": 36
+    },
+    {
+      "path": "../app/cpy-bms/COMEN01.CPY",
+      "kind": "copybook",
+      "lines": 260,
+      "code_lines": 244
+    },
+    {
+      "path": "../app/cpy/COMEN02Y.cpy",
+      "kind": "copybook",
+      "lines": 101,
+      "code_lines": 64
+    },
+    {
+      "path": "../app/cpy-bms/CORPT00.CPY",
+      "kind": "copybook",
+      "lines": 224,
+      "code_lines": 208
+    },
+    {
+      "path": "../app/cpy-bms/COSGN00.CPY",
+      "kind": "copybook",
+      "lines": 152,
+      "code_lines": 136
+    },
+    {
+      "path": "../app/cpy/COSTM01.CPY",
+      "kind": "copybook",
+      "lines": 38,
+      "code_lines": 17
+    },
+    {
+      "path": "../app/cpy-bms/COTRN00.CPY",
+      "kind": "copybook",
+      "lines": 728,
+      "code_lines": 712
+    },
+    {
+      "path": "../app/cpy-bms/COTRN01.CPY",
+      "kind": "copybook",
+      "lines": 272,
+      "code_lines": 256
+    },
+    {
+      "path": "../app/cpy-bms/COTRN02.CPY",
+      "kind": "copybook",
+      "lines": 272,
+      "code_lines": 256
+    },
+    {
+      "path": "../app/cpy/COTTL01Y.cpy",
+      "kind": "copybook",
+      "lines": 27,
+      "code_lines": 7
+    },
+    {
+      "path": "../app/cpy-bms/COUSR00.CPY",
+      "kind": "copybook",
+      "lines": 728,
+      "code_lines": 712
+    },
+    {
+      "path": "../app/cpy-bms/COUSR01.CPY",
+      "kind": "copybook",
+      "lines": 164,
+      "code_lines": 148
+    },
+    {
+      "path": "../app/cpy-bms/COUSR02.CPY",
+      "kind": "copybook",
+      "lines": 164,
+      "code_lines": 148
+    },
+    {
+      "path": "../app/cpy-bms/COUSR03.CPY",
+      "kind": "copybook",
+      "lines": 152,
+      "code_lines": 136
+    },
+    {
+      "path": "../app/cpy/CSDAT01Y.cpy",
+      "kind": "copybook",
+      "lines": 58,
+      "code_lines": 39
+    },
+    {
+      "path": "../app/cpy/CSLKPCDY.cpy",
+      "kind": "copybook",
+      "lines": 1318,
+      "code_lines": 1283
+    },
+    {
+      "path": "../app/cpy/CSMSG01Y.cpy",
+      "kind": "copybook",
+      "lines": 24,
+      "code_lines": 5
+    },
+    {
+      "path": "../app/cpy/CSMSG02Y.cpy",
+      "kind": "copybook",
+      "lines": 35,
+      "code_lines": 9
+    },
+    {
+      "path": "../app/cpy/CSSETATY.cpy",
+      "kind": "copybook",
+      "lines": 30,
+      "code_lines": 10
+    },
+    {
+      "path": "../app/cpy/CSSTRPFY.cpy",
+      "kind": "copybook",
+      "lines": 85,
+      "code_lines": 63
+    },
+    {
+      "path": "../app/cpy/CSUSR01Y.cpy",
+      "kind": "copybook",
+      "lines": 26,
+      "code_lines": 7
+    },
+    {
+      "path": "../app/cpy/CSUTLDPY.cpy",
+      "kind": "copybook",
+      "lines": 375,
+      "code_lines": 289
+    },
+    {
+      "path": "../app/cpy/CSUTLDWY.cpy",
+      "kind": "copybook",
+      "lines": 89,
+      "code_lines": 82
+    },
+    {
+      "path": "../app/cpy/CUSTREC.cpy",
+      "kind": "copybook",
+      "lines": 26,
+      "code_lines": 20
+    },
+    {
+      "path": "../app/cpy/CVACT01Y.cpy",
+      "kind": "copybook",
+      "lines": 20,
+      "code_lines": 14
+    },
+    {
+      "path": "../app/cpy/CVACT02Y.cpy",
+      "kind": "copybook",
+      "lines": 14,
+      "code_lines": 8
+    },
+    {
+      "path": "../app/cpy/CVACT03Y.cpy",
+      "kind": "copybook",
+      "lines": 11,
+      "code_lines": 5
+    },
+    {
+      "path": "../app/cpy/CVCRD01Y.cpy",
+      "kind": "copybook",
+      "lines": 46,
+      "code_lines": 34
+    },
+    {
+      "path": "../app/cpy/CVCUS01Y.cpy",
+      "kind": "copybook",
+      "lines": 26,
+      "code_lines": 20
+    },
+    {
+      "path": "../app/cpy/CVEXPORT.cpy",
+      "kind": "copybook",
+      "lines": 103,
+      "code_lines": 72
+    },
+    {
+      "path": "../app/cpy/CVTRA01Y.cpy",
+      "kind": "copybook",
+      "lines": 13,
+      "code_lines": 7
+    },
+    {
+      "path": "../app/cpy/CVTRA02Y.cpy",
+      "kind": "copybook",
+      "lines": 13,
+      "code_lines": 7
+    },
+    {
+      "path": "../app/cpy/CVTRA03Y.cpy",
+      "kind": "copybook",
+      "lines": 10,
+      "code_lines": 4
+    },
+    {
+      "path": "../app/cpy/CVTRA04Y.cpy",
+      "kind": "copybook",
+      "lines": 12,
+      "code_lines": 6
+    },
+    {
+      "path": "../app/cpy/CVTRA05Y.cpy",
+      "kind": "copybook",
+      "lines": 21,
+      "code_lines": 15
+    },
+    {
+      "path": "../app/cpy/CVTRA06Y.cpy",
+      "kind": "copybook",
+      "lines": 21,
+      "code_lines": 15
+    },
+    {
+      "path": "../app/cpy/CVTRA07Y.cpy",
+      "kind": "copybook",
+      "lines": 73,
+      "code_lines": 57
+    },
+    {
+      "path": "../app/cpy/UNUSED1Y.cpy",
+      "kind": "copybook",
+      "lines": 10,
+      "code_lines": 7
+    },
+    {
+      "path": "../app/cbl/CBACT01C.cbl",
+      "kind": "program",
+      "lines": 430,
+      "code_lines": 358
+    },
+    {
+      "path": "../app/cbl/CBACT02C.cbl",
+      "kind": "program",
+      "lines": 178,
+      "code_lines": 129
+    },
+    {
+      "path": "../app/cbl/CBACT03C.cbl",
+      "kind": "program",
+      "lines": 178,
+      "code_lines": 130
+    },
+    {
+      "path": "../app/cbl/CBACT04C.cbl",
+      "kind": "program",
+      "lines": 652,
+      "code_lines": 552
+    },
+    {
+      "path": "../app/cbl/CBCUS01C.cbl",
+      "kind": "program",
+      "lines": 178,
+      "code_lines": 130
+    },
+    {
+      "path": "../app/cbl/CBEXPORT.cbl",
+      "kind": "program",
+      "lines": 582,
+      "code_lines": 396
+    },
+    {
+      "path": "../app/cbl/CBIMPORT.cbl",
+      "kind": "program",
+      "lines": 487,
+      "code_lines": 337
+    },
+    {
+      "path": "../app/cbl/CBSTM03A.CBL",
+      "kind": "program",
+      "lines": 924,
+      "code_lines": 773
+    },
+    {
+      "path": "../app/cbl/CBSTM03B.CBL",
+      "kind": "program",
+      "lines": 230,
+      "code_lines": 162
+    },
+    {
+      "path": "../app/cbl/CBTRN01C.cbl",
+      "kind": "program",
+      "lines": 494,
+      "code_lines": 415
+    },
+    {
+      "path": "../app/cbl/CBTRN02C.cbl",
+      "kind": "program",
+      "lines": 731,
+      "code_lines": 619
+    },
+    {
+      "path": "../app/cbl/CBTRN03C.cbl",
+      "kind": "program",
+      "lines": 649,
+      "code_lines": 545
+    },
+    {
+      "path": "../app/cbl/COACTUPC.cbl",
+      "kind": "program",
+      "lines": 4236,
+      "code_lines": 3368
+    },
+    {
+      "path": "../app/cbl/COACTVWC.cbl",
+      "kind": "program",
+      "lines": 941,
+      "code_lines": 703
+    },
+    {
+      "path": "../app/cbl/COADM01C.cbl",
+      "kind": "program",
+      "lines": 288,
+      "code_lines": 189
+    },
+    {
+      "path": "../app/cbl/COBIL00C.cbl",
+      "kind": "program",
+      "lines": 572,
+      "code_lines": 420
+    },
+    {
+      "path": "../app/cbl/COBSWAIT.cbl",
+      "kind": "program",
+      "lines": 41,
+      "code_lines": 13
+    },
+    {
+      "path": "../app/cbl/COCRDLIC.cbl",
+      "kind": "program",
+      "lines": 1459,
+      "code_lines": 1093
+    },
+    {
+      "path": "../app/cbl/COCRDSLC.cbl",
+      "kind": "program",
+      "lines": 887,
+      "code_lines": 642
+    },
+    {
+      "path": "../app/cbl/COCRDUPC.cbl",
+      "kind": "program",
+      "lines": 1560,
+      "code_lines": 1194
+    },
+    {
+      "path": "../app/cbl/COMEN01C.cbl",
+      "kind": "program",
+      "lines": 308,
+      "code_lines": 213
+    },
+    {
+      "path": "../app/cbl/CORPT00C.cbl",
+      "kind": "program",
+      "lines": 649,
+      "code_lines": 498
+    },
+    {
+      "path": "../app/cbl/COSGN00C.cbl",
+      "kind": "program",
+      "lines": 260,
+      "code_lines": 172
+    },
+    {
+      "path": "../app/cbl/COTRN00C.cbl",
+      "kind": "program",
+      "lines": 699,
+      "code_lines": 529
+    },
+    {
+      "path": "../app/cbl/COTRN01C.cbl",
+      "kind": "program",
+      "lines": 330,
+      "code_lines": 231
+    },
+    {
+      "path": "../app/cbl/COTRN02C.cbl",
+      "kind": "program",
+      "lines": 783,
+      "code_lines": 614
+    },
+    {
+      "path": "../app/cbl/COUSR00C.cbl",
+      "kind": "program",
+      "lines": 695,
+      "code_lines": 531
+    },
+    {
+      "path": "../app/cbl/COUSR01C.cbl",
+      "kind": "program",
+      "lines": 299,
+      "code_lines": 198
+    },
+    {
+      "path": "../app/cbl/COUSR02C.cbl",
+      "kind": "program",
+      "lines": 414,
+      "code_lines": 303
+    },
+    {
+      "path": "../app/cbl/COUSR03C.cbl",
+      "kind": "program",
+      "lines": 359,
+      "code_lines": 251
+    },
+    {
+      "path": "../app/cbl/CSUTLDTC.cbl",
+      "kind": "program",
+      "lines": 157,
+      "code_lines": 114
+    }
+  ],
+  "missing_copybooks": [],
+  "programs": [
+    {
+      "id": ".GITKEEP",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/.gitkeep",
+      "lines": 0,
+      "code_lines": 0,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COACTUP",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COACTUP.CPY",
+      "lines": 668,
+      "code_lines": 652,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COACTVW",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COACTVW.CPY",
+      "lines": 464,
+      "code_lines": 448,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COADM01",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COADM01.CPY",
+      "lines": 260,
+      "code_lines": 244,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COADM02Y",
+      "kind": "copybook",
+      "path": "../app/cpy/COADM02Y.cpy",
+      "lines": 62,
+      "code_lines": 32,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COBIL00",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COBIL00.CPY",
+      "lines": 140,
+      "code_lines": 124,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COCOM01Y",
+      "kind": "copybook",
+      "path": "../app/cpy/COCOM01Y.cpy",
+      "lines": 47,
+      "code_lines": 26,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COCRDLI",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COCRDLI.CPY",
+      "lines": 560,
+      "code_lines": 544,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COCRDSL",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COCRDSL.CPY",
+      "lines": 200,
+      "code_lines": 184,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COCRDUP",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COCRDUP.CPY",
+      "lines": 224,
+      "code_lines": 208,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CODATECN",
+      "kind": "copybook",
+      "path": "../app/cpy/CODATECN.cpy",
+      "lines": 52,
+      "code_lines": 36,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COMEN01",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COMEN01.CPY",
+      "lines": 260,
+      "code_lines": 244,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COMEN02Y",
+      "kind": "copybook",
+      "path": "../app/cpy/COMEN02Y.cpy",
+      "lines": 101,
+      "code_lines": 64,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CORPT00",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/CORPT00.CPY",
+      "lines": 224,
+      "code_lines": 208,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COSGN00",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COSGN00.CPY",
+      "lines": 152,
+      "code_lines": 136,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COSTM01",
+      "kind": "copybook",
+      "path": "../app/cpy/COSTM01.CPY",
+      "lines": 38,
+      "code_lines": 17,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COTRN00",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COTRN00.CPY",
+      "lines": 728,
+      "code_lines": 712,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COTRN01",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COTRN01.CPY",
+      "lines": 272,
+      "code_lines": 256,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COTRN02",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COTRN02.CPY",
+      "lines": 272,
+      "code_lines": 256,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COTTL01Y",
+      "kind": "copybook",
+      "path": "../app/cpy/COTTL01Y.cpy",
+      "lines": 27,
+      "code_lines": 7,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COUSR00",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COUSR00.CPY",
+      "lines": 728,
+      "code_lines": 712,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COUSR01",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COUSR01.CPY",
+      "lines": 164,
+      "code_lines": 148,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COUSR02",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COUSR02.CPY",
+      "lines": 164,
+      "code_lines": 148,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COUSR03",
+      "kind": "copybook",
+      "path": "../app/cpy-bms/COUSR03.CPY",
+      "lines": 152,
+      "code_lines": 136,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CSDAT01Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CSDAT01Y.cpy",
+      "lines": 58,
+      "code_lines": 39,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CSLKPCDY",
+      "kind": "copybook",
+      "path": "../app/cpy/CSLKPCDY.cpy",
+      "lines": 1318,
+      "code_lines": 1283,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CSMSG01Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CSMSG01Y.cpy",
+      "lines": 24,
+      "code_lines": 5,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CSMSG02Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CSMSG02Y.cpy",
+      "lines": 35,
+      "code_lines": 9,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CSSETATY",
+      "kind": "copybook",
+      "path": "../app/cpy/CSSETATY.cpy",
+      "lines": 30,
+      "code_lines": 10,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CSSTRPFY",
+      "kind": "copybook",
+      "path": "../app/cpy/CSSTRPFY.cpy",
+      "lines": 85,
+      "code_lines": 63,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CSUSR01Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CSUSR01Y.cpy",
+      "lines": 26,
+      "code_lines": 7,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CSUTLDPY",
+      "kind": "copybook",
+      "path": "../app/cpy/CSUTLDPY.cpy",
+      "lines": 375,
+      "code_lines": 289,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [
+          {
+            "target": "CSUTLDTC",
+            "line": 293,
+            "system": false
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CSUTLDWY",
+      "kind": "copybook",
+      "path": "../app/cpy/CSUTLDWY.cpy",
+      "lines": 89,
+      "code_lines": 82,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CUSTREC",
+      "kind": "copybook",
+      "path": "../app/cpy/CUSTREC.cpy",
+      "lines": 26,
+      "code_lines": 20,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVACT01Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CVACT01Y.cpy",
+      "lines": 20,
+      "code_lines": 14,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVACT02Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CVACT02Y.cpy",
+      "lines": 14,
+      "code_lines": 8,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVACT03Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CVACT03Y.cpy",
+      "lines": 11,
+      "code_lines": 5,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVCRD01Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CVCRD01Y.cpy",
+      "lines": 46,
+      "code_lines": 34,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVCUS01Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CVCUS01Y.cpy",
+      "lines": 26,
+      "code_lines": 20,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVEXPORT",
+      "kind": "copybook",
+      "path": "../app/cpy/CVEXPORT.cpy",
+      "lines": 103,
+      "code_lines": 72,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVTRA01Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CVTRA01Y.cpy",
+      "lines": 13,
+      "code_lines": 7,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVTRA02Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CVTRA02Y.cpy",
+      "lines": 13,
+      "code_lines": 7,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVTRA03Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CVTRA03Y.cpy",
+      "lines": 10,
+      "code_lines": 4,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVTRA04Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CVTRA04Y.cpy",
+      "lines": 12,
+      "code_lines": 6,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVTRA05Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CVTRA05Y.cpy",
+      "lines": 21,
+      "code_lines": 15,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVTRA06Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CVTRA06Y.cpy",
+      "lines": 21,
+      "code_lines": 15,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CVTRA07Y",
+      "kind": "copybook",
+      "path": "../app/cpy/CVTRA07Y.cpy",
+      "lines": 73,
+      "code_lines": 57,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "UNUSED1Y",
+      "kind": "copybook",
+      "path": "../app/cpy/UNUSED1Y.cpy",
+      "lines": 10,
+      "code_lines": 7,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBACT01C",
+      "kind": "program",
+      "path": "../app/cbl/CBACT01C.cbl",
+      "lines": 430,
+      "code_lines": 358,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "ACCTFILE-FILE",
+          "assign": "ACCTFILE",
+          "organization": "INDEXED",
+          "line": 29
+        },
+        {
+          "select": "OUT-FILE",
+          "assign": "OUTFILE",
+          "organization": "SEQUENTIAL",
+          "line": 35
+        },
+        {
+          "select": "ARRY-FILE",
+          "assign": "ARRYFILE",
+          "organization": "SEQUENTIAL",
+          "line": 40
+        },
+        {
+          "select": "VBRC-FILE",
+          "assign": "VBRCFILE",
+          "organization": "SEQUENTIAL",
+          "line": 45
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "COBDATFT",
+            "line": 231,
+            "system": false
+          },
+          {
+            "target": "CEE3ABD",
+            "line": 410,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 89
+        },
+        {
+          "name": "CODATECN",
+          "mechanism": "copy",
+          "line": 90
+        }
+      ],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBACT02C",
+      "kind": "program",
+      "path": "../app/cbl/CBACT02C.cbl",
+      "lines": 178,
+      "code_lines": 129,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "CARDFILE-FILE",
+          "assign": "CARDFILE",
+          "organization": "INDEXED",
+          "line": 29
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "CEE3ABD",
+            "line": 158,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CVACT02Y",
+          "mechanism": "copy",
+          "line": 45
+        }
+      ],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBACT03C",
+      "kind": "program",
+      "path": "../app/cbl/CBACT03C.cbl",
+      "lines": 178,
+      "code_lines": 130,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "XREFFILE-FILE",
+          "assign": "XREFFILE",
+          "organization": "INDEXED",
+          "line": 29
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "CEE3ABD",
+            "line": 158,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 45
+        }
+      ],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBACT04C",
+      "kind": "program",
+      "path": "../app/cbl/CBACT04C.cbl",
+      "lines": 652,
+      "code_lines": 552,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "TCATBAL-FILE",
+          "assign": "TCATBALF",
+          "organization": "INDEXED",
+          "line": 28
+        },
+        {
+          "select": "XREF-FILE",
+          "assign": "XREFFILE",
+          "organization": "INDEXED",
+          "line": 34
+        },
+        {
+          "select": "ACCOUNT-FILE",
+          "assign": "ACCTFILE",
+          "organization": "INDEXED",
+          "line": 41
+        },
+        {
+          "select": "DISCGRP-FILE",
+          "assign": "DISCGRP",
+          "organization": "INDEXED",
+          "line": 47
+        },
+        {
+          "select": "TRANSACT-FILE",
+          "assign": "TRANSACT",
+          "organization": "SEQUENTIAL",
+          "line": 53
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "CEE3ABD",
+            "line": 632,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CVTRA01Y",
+          "mechanism": "copy",
+          "line": 97
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 102
+        },
+        {
+          "name": "CVTRA02Y",
+          "mechanism": "copy",
+          "line": 107
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 112
+        },
+        {
+          "name": "CVTRA05Y",
+          "mechanism": "copy",
+          "line": 117
+        }
+      ],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBCUS01C",
+      "kind": "program",
+      "path": "../app/cbl/CBCUS01C.cbl",
+      "lines": 178,
+      "code_lines": 130,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "CUSTFILE-FILE",
+          "assign": "CUSTFILE",
+          "organization": "INDEXED",
+          "line": 29
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "CEE3ABD",
+            "line": 158,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CVCUS01Y",
+          "mechanism": "copy",
+          "line": 45
+        }
+      ],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBEXPORT",
+      "kind": "program",
+      "path": "../app/cbl/CBEXPORT.cbl",
+      "lines": 582,
+      "code_lines": 396,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "CUSTOMER-INPUT",
+          "assign": "CUSTFILE",
+          "organization": "INDEXED",
+          "line": 35
+        },
+        {
+          "select": "ACCOUNT-INPUT",
+          "assign": "ACCTFILE",
+          "organization": "INDEXED",
+          "line": 41
+        },
+        {
+          "select": "XREF-INPUT",
+          "assign": "XREFFILE",
+          "organization": "INDEXED",
+          "line": 47
+        },
+        {
+          "select": "TRANSACTION-INPUT",
+          "assign": "TRANSACT",
+          "organization": "INDEXED",
+          "line": 53
+        },
+        {
+          "select": "CARD-INPUT",
+          "assign": "CARDFILE",
+          "organization": "INDEXED",
+          "line": 59
+        },
+        {
+          "select": "EXPORT-OUTPUT",
+          "assign": "EXPFILE",
+          "organization": "INDEXED",
+          "line": 65
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "CEE3ABD",
+            "line": 579,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CVCUS01Y",
+          "mechanism": "copy",
+          "line": 75
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 78
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 81
+        },
+        {
+          "name": "CVTRA05Y",
+          "mechanism": "copy",
+          "line": 84
+        },
+        {
+          "name": "CVACT02Y",
+          "mechanism": "copy",
+          "line": 87
+        },
+        {
+          "name": "CVEXPORT",
+          "mechanism": "copy",
+          "line": 96
+        }
+      ],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBIMPORT",
+      "kind": "program",
+      "path": "../app/cbl/CBIMPORT.cbl",
+      "lines": 487,
+      "code_lines": 337,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "EXPORT-INPUT",
+          "assign": "EXPFILE",
+          "organization": "INDEXED",
+          "line": 37
+        },
+        {
+          "select": "CUSTOMER-OUTPUT",
+          "assign": "CUSTOUT",
+          "organization": "SEQUENTIAL",
+          "line": 43
+        },
+        {
+          "select": "ACCOUNT-OUTPUT",
+          "assign": "ACCTOUT",
+          "organization": "SEQUENTIAL",
+          "line": 48
+        },
+        {
+          "select": "XREF-OUTPUT",
+          "assign": "XREFOUT",
+          "organization": "SEQUENTIAL",
+          "line": 53
+        },
+        {
+          "select": "TRANSACTION-OUTPUT",
+          "assign": "TRNXOUT",
+          "organization": "SEQUENTIAL",
+          "line": 58
+        },
+        {
+          "select": "CARD-OUTPUT",
+          "assign": "CARDOUT",
+          "organization": "SEQUENTIAL",
+          "line": 63
+        },
+        {
+          "select": "ERROR-OUTPUT",
+          "assign": "ERROUT",
+          "organization": "SEQUENTIAL",
+          "line": 68
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "CEE3ABD",
+            "line": 484,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CVCUS01Y",
+          "mechanism": "copy",
+          "line": 84
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 89
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 94
+        },
+        {
+          "name": "CVTRA05Y",
+          "mechanism": "copy",
+          "line": 99
+        },
+        {
+          "name": "CVACT02Y",
+          "mechanism": "copy",
+          "line": 104
+        },
+        {
+          "name": "CVEXPORT",
+          "mechanism": "copy",
+          "line": 113
+        }
+      ],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBSTM03A",
+      "kind": "program",
+      "path": "../app/cbl/CBSTM03A.CBL",
+      "lines": 924,
+      "code_lines": 773,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "STMT-FILE",
+          "assign": "STMTFILE",
+          "organization": "SEQUENTIAL",
+          "line": 39
+        },
+        {
+          "select": "HTML-FILE",
+          "assign": "HTMLFILE",
+          "organization": "SEQUENTIAL",
+          "line": 40
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "CBSTM03B",
+            "line": 351,
+            "system": false
+          },
+          {
+            "target": "CBSTM03B",
+            "line": 377,
+            "system": false
+          },
+          {
+            "target": "CBSTM03B",
+            "line": 401,
+            "system": false
+          },
+          {
+            "target": "CBSTM03B",
+            "line": 734,
+            "system": false
+          },
+          {
+            "target": "CBSTM03B",
+            "line": 746,
+            "system": false
+          },
+          {
+            "target": "CBSTM03B",
+            "line": 769,
+            "system": false
+          },
+          {
+            "target": "CBSTM03B",
+            "line": 787,
+            "system": false
+          },
+          {
+            "target": "CBSTM03B",
+            "line": 805,
+            "system": false
+          },
+          {
+            "target": "CBSTM03B",
+            "line": 835,
+            "system": false
+          },
+          {
+            "target": "CBSTM03B",
+            "line": 860,
+            "system": false
+          },
+          {
+            "target": "CBSTM03B",
+            "line": 877,
+            "system": false
+          },
+          {
+            "target": "CBSTM03B",
+            "line": 893,
+            "system": false
+          },
+          {
+            "target": "CBSTM03B",
+            "line": 909,
+            "system": false
+          },
+          {
+            "target": "CEE3ABD",
+            "line": 923,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "COSTM01",
+          "mechanism": "copy",
+          "line": 51
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 53
+        },
+        {
+          "name": "CUSTREC",
+          "mechanism": "copy",
+          "line": 55
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 57
+        }
+      ],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBSTM03B",
+      "kind": "program",
+      "path": "../app/cbl/CBSTM03B.CBL",
+      "lines": 230,
+      "code_lines": 162,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "TRNX-FILE",
+          "assign": "TRNXFILE",
+          "organization": "INDEXED",
+          "line": 31
+        },
+        {
+          "select": "XREF-FILE",
+          "assign": "XREFFILE",
+          "organization": "INDEXED",
+          "line": 37
+        },
+        {
+          "select": "CUST-FILE",
+          "assign": "CUSTFILE",
+          "organization": "INDEXED",
+          "line": 43
+        },
+        {
+          "select": "ACCT-FILE",
+          "assign": "ACCTFILE",
+          "organization": "INDEXED",
+          "line": 49
+        }
+      ],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBTRN01C",
+      "kind": "program",
+      "path": "../app/cbl/CBTRN01C.cbl",
+      "lines": 494,
+      "code_lines": 415,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "DALYTRAN-FILE",
+          "assign": "DALYTRAN",
+          "organization": "SEQUENTIAL",
+          "line": 29
+        },
+        {
+          "select": "CUSTOMER-FILE",
+          "assign": "CUSTFILE",
+          "organization": "INDEXED",
+          "line": 34
+        },
+        {
+          "select": "XREF-FILE",
+          "assign": "XREFFILE",
+          "organization": "INDEXED",
+          "line": 40
+        },
+        {
+          "select": "CARD-FILE",
+          "assign": "CARDFILE",
+          "organization": "INDEXED",
+          "line": 46
+        },
+        {
+          "select": "ACCOUNT-FILE",
+          "assign": "ACCTFILE",
+          "organization": "INDEXED",
+          "line": 52
+        },
+        {
+          "select": "TRANSACT-FILE",
+          "assign": "TRANFILE",
+          "organization": "INDEXED",
+          "line": 58
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "CEE3ABD",
+            "line": 473,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CVTRA06Y",
+          "mechanism": "copy",
+          "line": 99
+        },
+        {
+          "name": "CVCUS01Y",
+          "mechanism": "copy",
+          "line": 104
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 109
+        },
+        {
+          "name": "CVACT02Y",
+          "mechanism": "copy",
+          "line": 114
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 119
+        },
+        {
+          "name": "CVTRA05Y",
+          "mechanism": "copy",
+          "line": 124
+        }
+      ],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBTRN02C",
+      "kind": "program",
+      "path": "../app/cbl/CBTRN02C.cbl",
+      "lines": 731,
+      "code_lines": 619,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "DALYTRAN-FILE",
+          "assign": "DALYTRAN",
+          "organization": "SEQUENTIAL",
+          "line": 29
+        },
+        {
+          "select": "TRANSACT-FILE",
+          "assign": "TRANFILE",
+          "organization": "INDEXED",
+          "line": 34
+        },
+        {
+          "select": "XREF-FILE",
+          "assign": "XREFFILE",
+          "organization": "INDEXED",
+          "line": 40
+        },
+        {
+          "select": "DALYREJS-FILE",
+          "assign": "DALYREJS",
+          "organization": "SEQUENTIAL",
+          "line": 46
+        },
+        {
+          "select": "ACCOUNT-FILE",
+          "assign": "ACCTFILE",
+          "organization": "INDEXED",
+          "line": 51
+        },
+        {
+          "select": "TCATBAL-FILE",
+          "assign": "TCATBALF",
+          "organization": "INDEXED",
+          "line": 57
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "CEE3ABD",
+            "line": 711,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CVTRA06Y",
+          "mechanism": "copy",
+          "line": 102
+        },
+        {
+          "name": "CVTRA05Y",
+          "mechanism": "copy",
+          "line": 107
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 112
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 121
+        },
+        {
+          "name": "CVTRA01Y",
+          "mechanism": "copy",
+          "line": 126
+        }
+      ],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBTRN03C",
+      "kind": "program",
+      "path": "../app/cbl/CBTRN03C.cbl",
+      "lines": 649,
+      "code_lines": 545,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "TRANSACT-FILE",
+          "assign": "TRANFILE",
+          "organization": "SEQUENTIAL",
+          "line": 29
+        },
+        {
+          "select": "XREF-FILE",
+          "assign": "CARDXREF",
+          "organization": "INDEXED",
+          "line": 33
+        },
+        {
+          "select": "TRANTYPE-FILE",
+          "assign": "TRANTYPE",
+          "organization": "INDEXED",
+          "line": 39
+        },
+        {
+          "select": "TRANCATG-FILE",
+          "assign": "TRANCATG",
+          "organization": "INDEXED",
+          "line": 45
+        },
+        {
+          "select": "REPORT-FILE",
+          "assign": "TRANREPT",
+          "organization": "SEQUENTIAL",
+          "line": 51
+        },
+        {
+          "select": "DATE-PARMS-FILE",
+          "assign": "DATEPARM",
+          "organization": "SEQUENTIAL",
+          "line": 55
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "CEE3ABD",
+            "line": 630,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CVTRA05Y",
+          "mechanism": "copy",
+          "line": 93
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 98
+        },
+        {
+          "name": "CVTRA03Y",
+          "mechanism": "copy",
+          "line": 103
+        },
+        {
+          "name": "CVTRA04Y",
+          "mechanism": "copy",
+          "line": 108
+        },
+        {
+          "name": "CVTRA07Y",
+          "mechanism": "copy",
+          "line": 113
+        }
+      ],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COACTUPC",
+      "kind": "program",
+      "path": "../app/cbl/COACTUPC.cbl",
+      "lines": 4236,
+      "code_lines": 3368,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 956
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "CVCRD01Y",
+          "mechanism": "copy",
+          "line": 597
+        },
+        {
+          "name": "CSLKPCDY",
+          "mechanism": "copy",
+          "line": 602
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 615
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 616
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 620
+        },
+        {
+          "name": "COACTUP",
+          "mechanism": "copy",
+          "line": 623
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 626
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 629
+        },
+        {
+          "name": "CSMSG02Y",
+          "mechanism": "copy",
+          "line": 632
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 635
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 640
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 643
+        },
+        {
+          "name": "CVCUS01Y",
+          "mechanism": "copy",
+          "line": 646
+        },
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 650
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3208
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3214
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3220
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3226
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3232
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3238
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3244
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3250
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3256
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3262
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3268
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3274
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3280
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3286
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3292
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3298
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3304
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3310
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3316
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3322
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3328
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3334
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3340
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3346
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3352
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3358
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3364
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3370
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3376
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3382
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3388
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3394
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3400
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3405
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3411
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3417
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3422
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3427
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 3432
+        },
+        {
+          "name": "CSUTLDPY",
+          "mechanism": "copy",
+          "line": 4232
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "HANDLE ABEND",
+          "program": null,
+          "variable": null,
+          "line": 862
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 952
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 956
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 1015
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 1040
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 3594
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 3654
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 3703
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 3753
+        },
+        {
+          "kind": "cics",
+          "detail": "READ FILE",
+          "program": null,
+          "variable": null,
+          "line": 3894
+        },
+        {
+          "kind": "cics",
+          "detail": "READ FILE",
+          "program": null,
+          "variable": null,
+          "line": 3921
+        },
+        {
+          "kind": "cics",
+          "detail": "REWRITE FILE",
+          "program": null,
+          "variable": null,
+          "line": 4065
+        },
+        {
+          "kind": "cics",
+          "detail": "REWRITE FILE",
+          "program": null,
+          "variable": null,
+          "line": 4085
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT ROLLBACK",
+          "program": null,
+          "variable": null,
+          "line": 4099
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND FROM",
+          "program": null,
+          "variable": null,
+          "line": 4211
+        },
+        {
+          "kind": "cics",
+          "detail": "HANDLE ABEND",
+          "program": null,
+          "variable": null,
+          "line": 4218
+        },
+        {
+          "kind": "cics",
+          "detail": "ABEND ABCODE",
+          "program": null,
+          "variable": null,
+          "line": 4222
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COACTVWC",
+      "kind": "program",
+      "path": "../app/cbl/COACTVWC.cbl",
+      "lines": 941,
+      "code_lines": 703,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 349
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "CVCRD01Y",
+          "mechanism": "copy",
+          "line": 207
+        },
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 211
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 221
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 222
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 226
+        },
+        {
+          "name": "COACTVW",
+          "mechanism": "copy",
+          "line": 229
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 232
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 235
+        },
+        {
+          "name": "CSMSG02Y",
+          "mechanism": "copy",
+          "line": 238
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 241
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 244
+        },
+        {
+          "name": "CVACT02Y",
+          "mechanism": "copy",
+          "line": 248
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 251
+        },
+        {
+          "name": "CVCUS01Y",
+          "mechanism": "copy",
+          "line": 254
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "HANDLE ABEND",
+          "program": null,
+          "variable": null,
+          "line": 264
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 349
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 402
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 583
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 611
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 727
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 776
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 826
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND TEXT",
+          "program": null,
+          "variable": null,
+          "line": 878
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 885
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND TEXT",
+          "program": null,
+          "variable": null,
+          "line": 897
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 904
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND FROM",
+          "program": null,
+          "variable": null,
+          "line": 924
+        },
+        {
+          "kind": "cics",
+          "detail": "HANDLE ABEND",
+          "program": null,
+          "variable": null,
+          "line": 930
+        },
+        {
+          "kind": "cics",
+          "detail": "ABEND ABCODE",
+          "program": null,
+          "variable": null,
+          "line": 934
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COADM01C",
+      "kind": "program",
+      "path": "../app/cbl/COADM01C.cbl",
+      "lines": 288,
+      "code_lines": 189,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-ADMIN-OPT-PGMNAME",
+            "line": 145,
+            "subscripted": true
+          },
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 168
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 50
+        },
+        {
+          "name": "COADM02Y",
+          "mechanism": "copy",
+          "line": 51
+        },
+        {
+          "name": "COADM01",
+          "mechanism": "copy",
+          "line": 53
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 55
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 56
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 57
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 58
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 60
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 61
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "HANDLE CONDITION",
+          "program": null,
+          "variable": null,
+          "line": 77
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 111
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-ADMIN-OPT-PGMNAME",
+          "line": 145
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 168
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 182
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 194
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 280
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COBIL00C",
+      "kind": "program",
+      "path": "../app/cbl/COBIL00C.cbl",
+      "lines": 572,
+      "code_lines": 420,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 281
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 63
+        },
+        {
+          "name": "COBIL00",
+          "mechanism": "copy",
+          "line": 74
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 76
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 77
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 78
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 80
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 81
+        },
+        {
+          "name": "CVTRA05Y",
+          "mechanism": "copy",
+          "line": 82
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 84
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 85
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 146
+        },
+        {
+          "kind": "cics",
+          "detail": "ASKTIME ABSTIME",
+          "program": null,
+          "variable": null,
+          "line": 251
+        },
+        {
+          "kind": "cics",
+          "detail": "FORMATTIME ABSTIME",
+          "program": null,
+          "variable": null,
+          "line": 255
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 281
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 295
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 308
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 345
+        },
+        {
+          "kind": "cics",
+          "detail": "REWRITE DATASET",
+          "program": null,
+          "variable": null,
+          "line": 379
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 410
+        },
+        {
+          "kind": "cics",
+          "detail": "STARTBR DATASET",
+          "program": null,
+          "variable": null,
+          "line": 443
+        },
+        {
+          "kind": "cics",
+          "detail": "READPREV DATASET",
+          "program": null,
+          "variable": null,
+          "line": 474
+        },
+        {
+          "kind": "cics",
+          "detail": "ENDBR DATASET",
+          "program": null,
+          "variable": null,
+          "line": 503
+        },
+        {
+          "kind": "cics",
+          "detail": "WRITE DATASET",
+          "program": null,
+          "variable": null,
+          "line": 512
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COBSWAIT",
+      "kind": "program",
+      "path": "../app/cbl/COBSWAIT.cbl",
+      "lines": 41,
+      "code_lines": 13,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [
+          {
+            "target": "MVSWAIT",
+            "line": 38,
+            "system": false
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COCRDLIC",
+      "kind": "program",
+      "path": "../app/cbl/COCRDLIC.cbl",
+      "lines": 1459,
+      "code_lines": 1093,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "LIT-MENUPGM",
+            "line": 402
+          },
+          {
+            "command": "XCTL",
+            "variable": "CCARD-NEXT-PROG",
+            "line": 538
+          },
+          {
+            "command": "XCTL",
+            "variable": "CCARD-NEXT-PROG",
+            "line": 566
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "CVCRD01Y",
+          "mechanism": "copy",
+          "line": 221
+        },
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 227
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 267
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 268
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 272
+        },
+        {
+          "name": "COCRDLI",
+          "mechanism": "copy",
+          "line": 276
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 279
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 281
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 285
+        },
+        {
+          "name": "CVACT02Y",
+          "mechanism": "copy",
+          "line": 290
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "LIT-MENUPGM",
+          "line": 402
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CCARD-NEXT-PROG",
+          "line": 538
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CCARD-NEXT-PROG",
+          "line": 566
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 615
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 939
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 963
+        },
+        {
+          "kind": "cics",
+          "detail": "STARTBR DATASET",
+          "program": null,
+          "variable": null,
+          "line": 1129
+        },
+        {
+          "kind": "cics",
+          "detail": "READNEXT DATASET",
+          "program": null,
+          "variable": null,
+          "line": 1146
+        },
+        {
+          "kind": "cics",
+          "detail": "READNEXT DATASET",
+          "program": null,
+          "variable": null,
+          "line": 1197
+        },
+        {
+          "kind": "cics",
+          "detail": "ENDBR FILE",
+          "program": null,
+          "variable": null,
+          "line": 1258
+        },
+        {
+          "kind": "cics",
+          "detail": "STARTBR DATASET",
+          "program": null,
+          "variable": null,
+          "line": 1273
+        },
+        {
+          "kind": "cics",
+          "detail": "READPREV DATASET",
+          "program": null,
+          "variable": null,
+          "line": 1294
+        },
+        {
+          "kind": "cics",
+          "detail": "READPREV DATASET",
+          "program": null,
+          "variable": null,
+          "line": 1322
+        },
+        {
+          "kind": "cics",
+          "detail": "ENDBR FILE",
+          "program": null,
+          "variable": null,
+          "line": 1375
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND TEXT",
+          "program": null,
+          "variable": null,
+          "line": 1423
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 1430
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND TEXT",
+          "program": null,
+          "variable": null,
+          "line": 1442
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 1449
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COCRDSLC",
+      "kind": "program",
+      "path": "../app/cbl/COCRDSLC.cbl",
+      "lines": 887,
+      "code_lines": 642,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 331
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "CVCRD01Y",
+          "mechanism": "copy",
+          "line": 194
+        },
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 198
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 208
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 209
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 213
+        },
+        {
+          "name": "COCRDSL",
+          "mechanism": "copy",
+          "line": 215
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 218
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 221
+        },
+        {
+          "name": "CSMSG02Y",
+          "mechanism": "copy",
+          "line": 224
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 227
+        },
+        {
+          "name": "CVACT02Y",
+          "mechanism": "copy",
+          "line": 234
+        },
+        {
+          "name": "CVCUS01Y",
+          "mechanism": "copy",
+          "line": 240
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "HANDLE ABEND",
+          "program": null,
+          "variable": null,
+          "line": 250
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 331
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 402
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 569
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 597
+        },
+        {
+          "kind": "cics",
+          "detail": "READ FILE",
+          "program": null,
+          "variable": null,
+          "line": 742
+        },
+        {
+          "kind": "cics",
+          "detail": "READ FILE",
+          "program": null,
+          "variable": null,
+          "line": 783
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND TEXT",
+          "program": null,
+          "variable": null,
+          "line": 821
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 828
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND TEXT",
+          "program": null,
+          "variable": null,
+          "line": 839
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 846
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND FROM",
+          "program": null,
+          "variable": null,
+          "line": 865
+        },
+        {
+          "kind": "cics",
+          "detail": "HANDLE ABEND",
+          "program": null,
+          "variable": null,
+          "line": 871
+        },
+        {
+          "kind": "cics",
+          "detail": "ABEND ABCODE",
+          "program": null,
+          "variable": null,
+          "line": 875
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COCRDUPC",
+      "kind": "program",
+      "path": "../app/cbl/COCRDUPC.cbl",
+      "lines": 1560,
+      "code_lines": 1194,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 473
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "CVCRD01Y",
+          "mechanism": "copy",
+          "line": 268
+        },
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 272
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 327
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 328
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 332
+        },
+        {
+          "name": "COCRDUP",
+          "mechanism": "copy",
+          "line": 334
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 337
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 340
+        },
+        {
+          "name": "CSMSG02Y",
+          "mechanism": "copy",
+          "line": 343
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 346
+        },
+        {
+          "name": "CVACT02Y",
+          "mechanism": "copy",
+          "line": 353
+        },
+        {
+          "name": "CVCUS01Y",
+          "mechanism": "copy",
+          "line": 359
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "HANDLE ABEND",
+          "program": null,
+          "variable": null,
+          "line": 370
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 469
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 473
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 554
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 579
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 1329
+        },
+        {
+          "kind": "cics",
+          "detail": "READ FILE",
+          "program": null,
+          "variable": null,
+          "line": 1382
+        },
+        {
+          "kind": "cics",
+          "detail": "READ FILE",
+          "program": null,
+          "variable": null,
+          "line": 1427
+        },
+        {
+          "kind": "cics",
+          "detail": "REWRITE FILE",
+          "program": null,
+          "variable": null,
+          "line": 1477
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND FROM",
+          "program": null,
+          "variable": null,
+          "line": 1539
+        },
+        {
+          "kind": "cics",
+          "detail": "HANDLE ABEND",
+          "program": null,
+          "variable": null,
+          "line": 1546
+        },
+        {
+          "kind": "cics",
+          "detail": "ABEND ABCODE",
+          "program": null,
+          "variable": null,
+          "line": 1550
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COMEN01C",
+      "kind": "program",
+      "path": "../app/cbl/COMEN01C.cbl",
+      "lines": 308,
+      "code_lines": 213,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-MENU-OPT-PGMNAME",
+            "line": 156,
+            "subscripted": true
+          },
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-MENU-OPT-PGMNAME",
+            "line": 184,
+            "subscripted": true
+          },
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 201
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 50
+        },
+        {
+          "name": "COMEN02Y",
+          "mechanism": "copy",
+          "line": 51
+        },
+        {
+          "name": "COMEN01",
+          "mechanism": "copy",
+          "line": 53
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 55
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 56
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 57
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 58
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 60
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 61
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 107
+        },
+        {
+          "kind": "cics",
+          "detail": "INQUIRE PROGRAM",
+          "program": null,
+          "variable": "CDEMO-MENU-OPT-PGMNAME",
+          "line": 148
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-MENU-OPT-PGMNAME",
+          "line": 156
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-MENU-OPT-PGMNAME",
+          "line": 184
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 201
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 215
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 227
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CORPT00C",
+      "kind": "program",
+      "path": "../app/cbl/CORPT00C.cbl",
+      "lines": 649,
+      "code_lines": 498,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [
+          {
+            "target": "CSUTLDTC",
+            "line": 392,
+            "system": false
+          },
+          {
+            "target": "CSUTLDTC",
+            "line": 412,
+            "system": false
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 548
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 138
+        },
+        {
+          "name": "CORPT00",
+          "mechanism": "copy",
+          "line": 140
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 142
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 143
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 144
+        },
+        {
+          "name": "CVTRA05Y",
+          "mechanism": "copy",
+          "line": 146
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 148
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 149
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 199
+        },
+        {
+          "kind": "cics",
+          "detail": "WRITEQ TD",
+          "program": null,
+          "variable": null,
+          "line": 517
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 548
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 563
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 571
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 587
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 598
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COSGN00C",
+      "kind": "program",
+      "path": "../app/cbl/COSGN00C.cbl",
+      "lines": 260,
+      "code_lines": 172,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 48
+        },
+        {
+          "name": "COSGN00",
+          "mechanism": "copy",
+          "line": 50
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 52
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 53
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 54
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 55
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 57
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 58
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 98
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 110
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 151
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND TEXT",
+          "program": null,
+          "variable": null,
+          "line": 164
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 171
+        },
+        {
+          "kind": "cics",
+          "detail": "ASSIGN APPLID",
+          "program": null,
+          "variable": null,
+          "line": 198
+        },
+        {
+          "kind": "cics",
+          "detail": "ASSIGN SYSID",
+          "program": null,
+          "variable": null,
+          "line": 202
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 211
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": "COADM01C",
+          "variable": null,
+          "line": 231
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": "COMEN01C",
+          "variable": null,
+          "line": 236
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COTRN00C",
+      "kind": "program",
+      "path": "../app/cbl/COTRN00C.cbl",
+      "lines": 699,
+      "code_lines": 529,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 192
+          },
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 518
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 61
+        },
+        {
+          "name": "COTRN00",
+          "mechanism": "copy",
+          "line": 72
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 74
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 75
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 76
+        },
+        {
+          "name": "CVTRA05Y",
+          "mechanism": "copy",
+          "line": 78
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 80
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 81
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 138
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 192
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 518
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 534
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 542
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 556
+        },
+        {
+          "kind": "cics",
+          "detail": "STARTBR DATASET",
+          "program": null,
+          "variable": null,
+          "line": 593
+        },
+        {
+          "kind": "cics",
+          "detail": "READNEXT DATASET",
+          "program": null,
+          "variable": null,
+          "line": 626
+        },
+        {
+          "kind": "cics",
+          "detail": "READPREV DATASET",
+          "program": null,
+          "variable": null,
+          "line": 660
+        },
+        {
+          "kind": "cics",
+          "detail": "ENDBR DATASET",
+          "program": null,
+          "variable": null,
+          "line": 694
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COTRN01C",
+      "kind": "program",
+      "path": "../app/cbl/COTRN01C.cbl",
+      "lines": 330,
+      "code_lines": 231,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 205
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 52
+        },
+        {
+          "name": "COTRN01",
+          "mechanism": "copy",
+          "line": 63
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 65
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 66
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 67
+        },
+        {
+          "name": "CVTRA05Y",
+          "mechanism": "copy",
+          "line": 69
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 71
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 72
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 136
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 205
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 219
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 232
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 269
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COTRN02C",
+      "kind": "program",
+      "path": "../app/cbl/COTRN02C.cbl",
+      "lines": 783,
+      "code_lines": 614,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [
+          {
+            "target": "CSUTLDTC",
+            "line": 393,
+            "system": false
+          },
+          {
+            "target": "CSUTLDTC",
+            "line": 413,
+            "system": false
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 508
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 71
+        },
+        {
+          "name": "COTRN02",
+          "mechanism": "copy",
+          "line": 82
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 84
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 85
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 86
+        },
+        {
+          "name": "CVTRA05Y",
+          "mechanism": "copy",
+          "line": 88
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 89
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 90
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 92
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 93
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 156
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 508
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 522
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 530
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 541
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 578
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 611
+        },
+        {
+          "kind": "cics",
+          "detail": "STARTBR DATASET",
+          "program": null,
+          "variable": null,
+          "line": 644
+        },
+        {
+          "kind": "cics",
+          "detail": "READPREV DATASET",
+          "program": null,
+          "variable": null,
+          "line": 675
+        },
+        {
+          "kind": "cics",
+          "detail": "ENDBR DATASET",
+          "program": null,
+          "variable": null,
+          "line": 704
+        },
+        {
+          "kind": "cics",
+          "detail": "WRITE DATASET",
+          "program": null,
+          "variable": null,
+          "line": 713
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COUSR00C",
+      "kind": "program",
+      "path": "../app/cbl/COUSR00C.cbl",
+      "lines": 695,
+      "code_lines": 531,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 196
+          },
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 206
+          },
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 514
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 66
+        },
+        {
+          "name": "COUSR00",
+          "mechanism": "copy",
+          "line": 76
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 78
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 79
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 80
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 81
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 83
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 84
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 141
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 196
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 206
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 514
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 529
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 537
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 551
+        },
+        {
+          "kind": "cics",
+          "detail": "STARTBR DATASET",
+          "program": null,
+          "variable": null,
+          "line": 588
+        },
+        {
+          "kind": "cics",
+          "detail": "READNEXT DATASET",
+          "program": null,
+          "variable": null,
+          "line": 621
+        },
+        {
+          "kind": "cics",
+          "detail": "READPREV DATASET",
+          "program": null,
+          "variable": null,
+          "line": 655
+        },
+        {
+          "kind": "cics",
+          "detail": "ENDBR DATASET",
+          "program": null,
+          "variable": null,
+          "line": 689
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COUSR01C",
+      "kind": "program",
+      "path": "../app/cbl/COUSR01C.cbl",
+      "lines": 299,
+      "code_lines": 198,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 175
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 46
+        },
+        {
+          "name": "COUSR01",
+          "mechanism": "copy",
+          "line": 48
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 50
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 51
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 52
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 53
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 55
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 56
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 107
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 175
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 190
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 203
+        },
+        {
+          "kind": "cics",
+          "detail": "WRITE DATASET",
+          "program": null,
+          "variable": null,
+          "line": 240
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COUSR02C",
+      "kind": "program",
+      "path": "../app/cbl/COUSR02C.cbl",
+      "lines": 414,
+      "code_lines": 303,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 258
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 49
+        },
+        {
+          "name": "COUSR02",
+          "mechanism": "copy",
+          "line": 60
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 62
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 63
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 64
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 65
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 67
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 68
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 135
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 258
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 272
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 285
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 322
+        },
+        {
+          "kind": "cics",
+          "detail": "REWRITE DATASET",
+          "program": null,
+          "variable": null,
+          "line": 360
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COUSR03C",
+      "kind": "program",
+      "path": "../app/cbl/COUSR03C.cbl",
+      "lines": 359,
+      "code_lines": 251,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 205
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 49
+        },
+        {
+          "name": "COUSR03",
+          "mechanism": "copy",
+          "line": 60
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 62
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 63
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 64
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 65
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 67
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 68
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 134
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 205
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 219
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 232
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 269
+        },
+        {
+          "kind": "cics",
+          "detail": "DELETE DATASET",
+          "program": null,
+          "variable": null,
+          "line": 307
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CSUTLDTC",
+      "kind": "program",
+      "path": "../app/cbl/CSUTLDTC.cbl",
+      "lines": 157,
+      "code_lines": 114,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [
+          {
+            "target": "CEEDAYS",
+            "line": 116,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    }
+  ]
+}

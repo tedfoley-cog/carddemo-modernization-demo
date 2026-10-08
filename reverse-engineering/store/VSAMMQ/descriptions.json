@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "module": "VSAMMQ",
+    "generated_at": "2026-10-08T04:11:46Z",
+    "tool": "mftb 0.2.1",
+    "inputs": [
+      "programs.json",
+      "jobs.json"
+    ]
+  },
+  "author": "agent",
+  "summary": {
+    "subjects": 2,
+    "written": 2,
+    "unknown": 0,
+    "by_kind": {
+      "program": 2,
+      "jcl": 0,
+      "proc": 0
+    },
+    "with_key_points": 0,
+    "overviews": 1,
+    "overviews_written": 1
+  },
+  "overviews": [
+    {
+      "kind": "module",
+      "name": "VSAMMQ",
+      "key_points": [
+        "Integration extension: MQ request/reply services that expose the account file and the system date to non-mainframe callers."
+      ],
+      "basis": [
+        "app/app-vsam-mq/cbl/COACCT01.cbl:17-23",
+        "app/app-vsam-mq/cbl/CODATE01.cbl:17-23"
+      ],
+      "written_by": "agent"
+    }
+  ],
+  "descriptions": [
+    {
+      "kind": "program",
+      "name": "COACCT01",
+      "path": "../app/app-vsam-mq/cbl/COACCT01.cbl",
+      "description": "MQ request/reply server: answers account inquiries from the VSAM account file over response/error/reply queues",
+      "key_points": [],
+      "basis": [
+        "app/app-vsam-mq/cbl/COACCT01.cbl:17-23"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CODATE01",
+      "path": "../app/app-vsam-mq/cbl/CODATE01.cbl",
+      "description": "MQ request/reply server: returns the system date over response/error/reply queues",
+      "key_points": [],
+      "basis": [
+        "app/app-vsam-mq/cbl/CODATE01.cbl:17-39"
+      ],
+      "written_by": "agent"
+    }
+  ]
+}

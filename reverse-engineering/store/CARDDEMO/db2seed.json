@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "module": "CARDDEMO",
+    "generated_at": "2026-10-08T04:11:43Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "sql": [
+        "../app/catlg"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "path": "../app/catlg/LISTCAT.txt",
+      "kind": "sql",
+      "lines": 3956,
+      "code_lines": 3956
+    }
+  ],
+  "tables": [],
+  "unparsed": []
+}

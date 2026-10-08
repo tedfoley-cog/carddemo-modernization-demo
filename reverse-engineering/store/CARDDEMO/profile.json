@@ -1,0 +1,731 @@
+{
+  "meta": {
+    "module": "CARDDEMO",
+    "generated_at": "2026-10-08T04:11:45Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "answers": false,
+      "defaults": true
+    }
+  },
+  "summary": {
+    "fields": 29,
+    "detected": 10,
+    "answered": 0,
+    "inherited": 0,
+    "defaulted": 9,
+    "unanswered": 10,
+    "contradicted": 0,
+    "build_paths": 2,
+    "steps_without_library_evidence": 0,
+    "asks": 21
+  },
+  "site": {
+    "database_managers": {
+      "value": "IBM Db2 for z/OS 12",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "IBM Db2 for z/OS",
+          "version": "12",
+          "version_source": "default"
+        }
+      ]
+    },
+    "environment_topology": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "file_transfer": {
+      "value": "TCP/IP FTP",
+      "source": "detected",
+      "evidence": [
+        "../app/jcl/FTPJCL.JCL:30"
+      ],
+      "confidence": "proven",
+      "basis": "EXEC PGM= transfer utility (FILE_TRANSFER_PROGRAMS)"
+    },
+    "library_manager": {
+      "value": "Broadcom Endevor",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "Broadcom Endevor",
+          "version": null,
+          "version_source": "default"
+        }
+      ]
+    },
+    "masking_policy": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "online_monitors": {
+      "value": "IBM CICS Transaction Server",
+      "source": "detected",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:1",
+        "../app/cbl/COACTUPC.cbl:956",
+        "../app/cbl/COACTVWC.cbl:1",
+        "../app/cbl/COACTVWC.cbl:349",
+        "../app/cbl/COADM01C.cbl:1",
+        "../app/cbl/COADM01C.cbl:145",
+        "../app/cbl/COADM01C.cbl:168",
+        "../app/cbl/COBIL00C.cbl:1",
+        "../app/cbl/COBIL00C.cbl:281",
+        "../app/cbl/COCRDLIC.cbl:1",
+        "../app/cbl/COCRDLIC.cbl:402",
+        "../app/cbl/COCRDLIC.cbl:538",
+        "../app/cbl/COCRDLIC.cbl:566",
+        "../app/cbl/COCRDSLC.cbl:1",
+        "../app/cbl/COCRDSLC.cbl:331",
+        "../app/cbl/COCRDUPC.cbl:1",
+        "../app/cbl/COCRDUPC.cbl:473",
+        "../app/cbl/COMEN01C.cbl:1",
+        "../app/cbl/COMEN01C.cbl:156",
+        "../app/cbl/COMEN01C.cbl:184",
+        "../app/cbl/COMEN01C.cbl:201",
+        "../app/cbl/CORPT00C.cbl:1",
+        "../app/cbl/CORPT00C.cbl:548",
+        "../app/cbl/COSGN00C.cbl:1",
+        "../app/cbl/COSGN00C.cbl:231",
+        "../app/cbl/COSGN00C.cbl:236",
+        "../app/cbl/COTRN00C.cbl:1",
+        "../app/cbl/COTRN00C.cbl:192",
+        "../app/cbl/COTRN00C.cbl:518",
+        "../app/cbl/COTRN01C.cbl:1",
+        "../app/cbl/COTRN01C.cbl:205",
+        "../app/cbl/COTRN02C.cbl:1",
+        "../app/cbl/COTRN02C.cbl:508",
+        "../app/cbl/COUSR00C.cbl:1",
+        "../app/cbl/COUSR00C.cbl:196",
+        "../app/cbl/COUSR00C.cbl:206",
+        "../app/cbl/COUSR00C.cbl:514",
+        "../app/cbl/COUSR01C.cbl:1",
+        "../app/cbl/COUSR01C.cbl:175",
+        "../app/cbl/COUSR02C.cbl:1",
+        "../app/cbl/COUSR02C.cbl:258",
+        "../app/cbl/COUSR03C.cbl:1",
+        "../app/cbl/COUSR03C.cbl:205"
+      ],
+      "confidence": "derived",
+      "basis": "EXEC CICS evidence and IMS message/batch-message regions in connections.json; a lower bound on what the estate runs",
+      "products": [
+        {
+          "product": "IBM CICS Transaction Server",
+          "version": null,
+          "version_source": null
+        }
+      ]
+    },
+    "output_manager": {
+      "value": "Broadcom CA View",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "Broadcom CA View",
+          "version": null,
+          "version_source": "default"
+        }
+      ]
+    },
+    "scheduler_product": {
+      "value": "BMC Control-M, Broadcom CA 7",
+      "source": "detected",
+      "evidence": [
+        "../app/scheduler/CardDemo.ca7:1",
+        "../app/scheduler/CardDemo.controlm:1"
+      ],
+      "confidence": "proven",
+      "basis": "scheduler export dialect matched by scan-schedule (SCHEDULER_PRODUCTS)"
+    },
+    "security_manager": {
+      "value": "IBM RACF",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "IBM RACF",
+          "version": null,
+          "version_source": "default"
+        }
+      ]
+    },
+    "sort_product": {
+      "value": "IBM DFSORT",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "IBM DFSORT",
+          "version": null,
+          "version_source": "default"
+        }
+      ]
+    },
+    "standard_compiler": {
+      "value": "IBM Enterprise COBOL for z/OS 6.3",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "IBM Enterprise COBOL for z/OS",
+          "version": "6.3",
+          "version_source": "default"
+        }
+      ]
+    },
+    "standard_compiler_options": {
+      "value": "RENT,NUMPROC(NOPFD),TRUNC(STD),ARCH(8),SSRANGE(NO)",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true
+    },
+    "tape_manager": {
+      "value": "Broadcom CA 1",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "Broadcom CA 1",
+          "version": null,
+          "version_source": "default"
+        }
+      ]
+    },
+    "test_lpar": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "zos_version": {
+      "value": "IBM z/OS 2.5",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "IBM z/OS",
+          "version": "2.5",
+          "version_source": "default"
+        }
+      ]
+    }
+  },
+  "module": {
+    "batch_window": {
+      "value": "CLOSEFIL: until 23:00; COMBTRAN: until 23:00; DISCGRP: until 23:00; INTCALC: until 23:00; MNTTRDB2: until 23:00; OPENFIL: until 23:00; TRANBKP: until 23:00; TRANEXTR: until 23:00; WAITSTEP: until 23:00",
+      "source": "detected",
+      "evidence": [
+        "../app/scheduler/CardDemo.controlm:1"
+      ],
+      "confidence": "derived",
+      "basis": "TIMEFROM / TIMEUNTIL / DUE OUT of the scheduler definitions (scheduling times, not measured elapsed)"
+    },
+    "compiler": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "compiler_options": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "copybook_library_concatenation": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "db2_library_level": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "db2_plans": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "db2_subsystem": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "dynamic_call_convention": {
+      "value": "24 dynamic call site(s) (CICS-XCTL), 3 resolved by literal assignment, 0 open",
+      "source": "detected",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:956",
+        "../app/cbl/COACTVWC.cbl:349",
+        "../app/cbl/COADM01C.cbl:145",
+        "../app/cbl/COADM01C.cbl:168",
+        "../app/cbl/COBIL00C.cbl:281",
+        "../app/cbl/COCRDLIC.cbl:402",
+        "../app/cbl/COCRDLIC.cbl:538",
+        "../app/cbl/COCRDLIC.cbl:566",
+        "../app/cbl/COCRDSLC.cbl:331",
+        "../app/cbl/COCRDUPC.cbl:473",
+        "../app/cbl/COMEN01C.cbl:156",
+        "../app/cbl/COMEN01C.cbl:184",
+        "../app/cbl/COMEN01C.cbl:201",
+        "../app/cbl/CORPT00C.cbl:548",
+        "../app/cbl/COTRN00C.cbl:192",
+        "../app/cbl/COTRN00C.cbl:518",
+        "../app/cbl/COTRN01C.cbl:205",
+        "../app/cbl/COTRN02C.cbl:508",
+        "../app/cbl/COUSR00C.cbl:196",
+        "../app/cbl/COUSR00C.cbl:206",
+        "../app/cbl/COUSR00C.cbl:514",
+        "../app/cbl/COUSR01C.cbl:175",
+        "../app/cbl/COUSR02C.cbl:258",
+        "../app/cbl/COUSR03C.cbl:205"
+      ],
+      "confidence": "derived",
+      "basis": "dyncalls.json: the call-name ladder the dynamic-call pass walked"
+    },
+    "interfaces": {
+      "value": "2 module(s) called but not owned (COBDATFT, MVSWAIT)",
+      "source": "detected",
+      "evidence": [
+        "../app/cbl/CBACT01C.cbl:231",
+        "../app/cbl/COBSWAIT.cbl:38"
+      ],
+      "confidence": "derived",
+      "basis": "external modules, MQ calls and remote CICS links in connections.json"
+    },
+    "load_library_concatenation": {
+      "value": "AWS.M2.CARDDEMO.LOADLIB (BP01); AWS.M2.LBD.TXT2PDF.LOAD (BP02)",
+      "source": "detected",
+      "evidence": [
+        "../app/jcl/CBEXPORT.jcl:44",
+        "../app/jcl/CBIMPORT.jcl:23",
+        "../app/jcl/CREASTMT.JCL:80",
+        "../app/jcl/INTCALC.jcl:23",
+        "../app/jcl/POSTTRAN.jcl:24",
+        "../app/jcl/READACCT.jcl:33",
+        "../app/jcl/READCARD.jcl:23",
+        "../app/jcl/READCUST.jcl:22",
+        "../app/jcl/READXREF.jcl:23",
+        "../app/jcl/TRANREPT.jcl:60",
+        "../app/jcl/TXT2PDF1.JCL:28",
+        "../app/jcl/WAITSTEP.jcl:23"
+      ],
+      "confidence": "proven",
+      "basis": "STEPLIB / JOBLIB / DSN RUN LIB concatenation of the module's steps"
+    },
+    "non_relational_stores": {
+      "value": "VSAM (15 cluster(s)), sequential datasets (33)",
+      "source": "detected",
+      "evidence": [
+        "../app/jcl/ACCTFILE.jcl:36",
+        "../app/jcl/ACCTFILE.jcl:56",
+        "../app/jcl/CARDFILE.jcl:50",
+        "../app/jcl/CBEXPORT.jcl:30",
+        "../app/jcl/CBIMPORT.jcl:38",
+        "../app/jcl/CREASTMT.JCL:29",
+        "../app/jcl/CUSTFILE.jcl:46",
+        "../app/jcl/DEFCUST.jcl:35",
+        "../app/jcl/DISCGRP.jcl:36",
+        "../app/jcl/DUSRSECJ.jcl:64",
+        "../app/jcl/ESDSRRDS.jcl:65",
+        "../app/jcl/ESDSRRDS.jcl:99",
+        "../app/jcl/READACCT.jcl:37",
+        "../app/jcl/READACCT.jcl:41",
+        "../app/jcl/TCATBALF.jcl:36",
+        "../app/jcl/TRANCATG.jcl:36",
+        "../app/jcl/TRANFILE.jcl:49",
+        "../app/jcl/TRANTYPE.jcl:36",
+        "../app/jcl/XREFFILE.jcl:39"
+      ],
+      "confidence": "derived",
+      "basis": "dataset classification and DL/I / IDMS evidence in connections.json"
+    },
+    "shared_code_boundary": {
+      "value": "candidates: 2 called module(s) outside the scan (COBDATFT, MVSWAIT)",
+      "source": "detected",
+      "evidence": [
+        "../app/cbl/CBACT01C.cbl:231",
+        "../app/cbl/COBSWAIT.cbl:38"
+      ],
+      "confidence": "derived",
+      "basis": "copybooks and call targets the module uses but the scan does not contain \u2014 candidates for shared estate code, confirmed by a person"
+    },
+    "transaction_monitor": {
+      "value": "CICS (17 program(s) issue EXEC CICS)",
+      "source": "detected",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:1",
+        "../app/cbl/COACTUPC.cbl:956",
+        "../app/cbl/COACTVWC.cbl:1",
+        "../app/cbl/COACTVWC.cbl:349",
+        "../app/cbl/COADM01C.cbl:1",
+        "../app/cbl/COADM01C.cbl:145",
+        "../app/cbl/COADM01C.cbl:168",
+        "../app/cbl/COBIL00C.cbl:1",
+        "../app/cbl/COBIL00C.cbl:281",
+        "../app/cbl/COCRDLIC.cbl:1",
+        "../app/cbl/COCRDLIC.cbl:402",
+        "../app/cbl/COCRDLIC.cbl:538",
+        "../app/cbl/COCRDLIC.cbl:566",
+        "../app/cbl/COCRDSLC.cbl:1",
+        "../app/cbl/COCRDSLC.cbl:331",
+        "../app/cbl/COCRDUPC.cbl:1",
+        "../app/cbl/COCRDUPC.cbl:473",
+        "../app/cbl/COMEN01C.cbl:1",
+        "../app/cbl/COMEN01C.cbl:156",
+        "../app/cbl/COMEN01C.cbl:184",
+        "../app/cbl/COMEN01C.cbl:201",
+        "../app/cbl/CORPT00C.cbl:1",
+        "../app/cbl/CORPT00C.cbl:548",
+        "../app/cbl/COSGN00C.cbl:1",
+        "../app/cbl/COSGN00C.cbl:231",
+        "../app/cbl/COSGN00C.cbl:236",
+        "../app/cbl/COTRN00C.cbl:1",
+        "../app/cbl/COTRN00C.cbl:192",
+        "../app/cbl/COTRN00C.cbl:518",
+        "../app/cbl/COTRN01C.cbl:1",
+        "../app/cbl/COTRN01C.cbl:205",
+        "../app/cbl/COTRN02C.cbl:1",
+        "../app/cbl/COTRN02C.cbl:508",
+        "../app/cbl/COUSR00C.cbl:1",
+        "../app/cbl/COUSR00C.cbl:196",
+        "../app/cbl/COUSR00C.cbl:206",
+        "../app/cbl/COUSR00C.cbl:514",
+        "../app/cbl/COUSR01C.cbl:1",
+        "../app/cbl/COUSR01C.cbl:175",
+        "../app/cbl/COUSR02C.cbl:1",
+        "../app/cbl/COUSR02C.cbl:258",
+        "../app/cbl/COUSR03C.cbl:1",
+        "../app/cbl/COUSR03C.cbl:205"
+      ],
+      "confidence": "proven",
+      "basis": "EXEC CICS / DL/I evidence in connections.json (batch-only modules have none)"
+    },
+    "volumes": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    }
+  },
+  "build_paths": [
+    {
+      "id": "BP01",
+      "load_libraries": [
+        "AWS.M2.CARDDEMO.LOADLIB"
+      ],
+      "db2_libraries": [],
+      "db2_library_level": null,
+      "db2_subsystem": null,
+      "compiler": null,
+      "compiler_options": null,
+      "copybook_libraries": [],
+      "built_by": [],
+      "programs": [
+        "CBACT01C",
+        "CBACT02C",
+        "CBACT03C",
+        "CBACT04C",
+        "CBCUS01C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBSTM03A",
+        "CBTRN02C",
+        "CBTRN03C",
+        "COBSWAIT"
+      ],
+      "steps": [
+        "CBEXPORT.STEP02",
+        "CBIMPORT.STEP01",
+        "CREASTMT.STEP040",
+        "INTCALC.STEP15",
+        "POSTTRAN.STEP15",
+        "READACCT.STEP05",
+        "READCARD.STEP05",
+        "READCUST.STEP05",
+        "READXREF.STEP05",
+        "TRANREPT.STEP10R",
+        "WAITSTEP.WAIT"
+      ],
+      "evidence": [
+        "../app/jcl/CBEXPORT.jcl:44",
+        "../app/jcl/CBIMPORT.jcl:23",
+        "../app/jcl/CREASTMT.JCL:80",
+        "../app/jcl/INTCALC.jcl:23",
+        "../app/jcl/POSTTRAN.jcl:24",
+        "../app/jcl/READACCT.jcl:33",
+        "../app/jcl/READCARD.jcl:23",
+        "../app/jcl/READCUST.jcl:22",
+        "../app/jcl/READXREF.jcl:23",
+        "../app/jcl/TRANREPT.jcl:60",
+        "../app/jcl/WAITSTEP.jcl:23"
+      ]
+    },
+    {
+      "id": "BP02",
+      "load_libraries": [
+        "AWS.M2.LBD.TXT2PDF.LOAD"
+      ],
+      "db2_libraries": [],
+      "db2_library_level": null,
+      "db2_subsystem": null,
+      "compiler": null,
+      "compiler_options": null,
+      "copybook_libraries": [],
+      "built_by": [],
+      "programs": [
+        "IKJEFT1B"
+      ],
+      "steps": [
+        "TXT2PDF1.TXT2PDF"
+      ],
+      "evidence": [
+        "../app/jcl/TXT2PDF1.JCL:28"
+      ]
+    }
+  ],
+  "asks": [
+    {
+      "kind": "profile-compiler",
+      "severity": "medium",
+      "message": "CARDDEMO profile: compiler is not in the store \u2014 which compiler builds the module",
+      "evidence": [],
+      "request": "Provide the compile JCL (Enterprise COBOL release and the PROC used) for the module"
+    },
+    {
+      "kind": "profile-compiler-options",
+      "severity": "medium",
+      "message": "CARDDEMO profile: compiler_options is not in the store \u2014 which compiler options the module is built with",
+      "evidence": [],
+      "request": "Provide the compile step PARM= (NUMPROC, TRUNC, DYNAM, ARCH, ...) the module is built with; options change behaviour, so they belong to the build path"
+    },
+    {
+      "kind": "profile-copybook-library",
+      "severity": "medium",
+      "message": "CARDDEMO profile: copybook_library_concatenation is not in the store \u2014 out of which libraries the module compiles its copybooks",
+      "evidence": [],
+      "request": "Provide the SYSLIB concatenation of the module's compile JCL (copybook library order)"
+    },
+    {
+      "kind": "profile-database-managers",
+      "severity": "medium",
+      "message": "CARDDEMO profile: database_managers is not in the store \u2014 which database systems the estate runs, and at which level \u2014 assumed 'IBM Db2 for z/OS 12' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "List the database systems installed (Db2, IMS DL/I, IDMS, Adabas, ...) with their versions: the scan proves only what this module touches, which is a lower bound"
+    },
+    {
+      "kind": "profile-db2-library-level",
+      "severity": "medium",
+      "message": "CARDDEMO profile: db2_library_level is not in the store \u2014 which DB2 level the module is built and run against",
+      "evidence": [],
+      "request": "Provide the DB2 library concatenation (SDSNLOAD / SDSNEXIT) of the module's steps, which names the DB2 level"
+    },
+    {
+      "kind": "profile-db2-plans",
+      "severity": "medium",
+      "message": "CARDDEMO profile: db2_plans is not in the store \u2014 which plans the module runs under",
+      "evidence": [],
+      "request": "Provide the plan / package names the module runs under (DSN RUN cards or the bind JCL)"
+    },
+    {
+      "kind": "profile-db2-subsystem",
+      "severity": "medium",
+      "message": "CARDDEMO profile: db2_subsystem is not in the store \u2014 which DB2 subsystem the module binds and runs against",
+      "evidence": [],
+      "request": "State the DB2 subsystem id the module runs against in production"
+    },
+    {
+      "kind": "profile-environment-topology",
+      "severity": "high",
+      "message": "CARDDEMO profile: environment_topology is not in the store \u2014 which LPARs and environments (production / test / DR) the estate has \u2014 the scanned JCL allocates datasets under the high-level qualifier(s) AWS, OEM: a naming observation, which is not proof of which LPAR or environment runs them",
+      "evidence": [
+        "../app/jcl/ACCTFILE.jcl:56",
+        "../app/jcl/ACCTFILE.jcl:58",
+        "../app/jcl/CARDFILE.jcl:70",
+        "../app/jcl/CARDFILE.jcl:72",
+        "../app/jcl/CBEXPORT.jcl:44",
+        "../app/jcl/CBEXPORT.jcl:49",
+        "../app/jcl/CBEXPORT.jcl:51",
+        "../app/jcl/CBEXPORT.jcl:53"
+      ],
+      "request": "State the LPARs and environments, how a dataset or job name says which one it belongs to, and which sysplex they sit in: the scan can only list the qualifiers it saw"
+    },
+    {
+      "kind": "profile-library-manager",
+      "severity": "medium",
+      "message": "CARDDEMO profile: library_manager is not in the store \u2014 which source / change manager holds the members \u2014 assumed 'Broadcom Endevor' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the source library manager (Endevor, ChangeMan, Panvalet, Librarian, plain PDS) and how a member is promoted to production"
+    },
+    {
+      "kind": "profile-masking-policy",
+      "severity": "high",
+      "message": "CARDDEMO profile: masking_policy is not in the store \u2014 what may leave the estate, and in what shape",
+      "evidence": [],
+      "request": "State the data-masking policy for extracted test data (which fields must be masked, whether production data may leave the estate at all)"
+    },
+    {
+      "kind": "profile-multiple-build-paths",
+      "severity": "info",
+      "message": "CARDDEMO is built and run under 2 build paths: BP01 = AWS.M2.CARDDEMO.LOADLIB; BP02 = AWS.M2.LBD.TXT2PDF.LOAD \u2014 the module is not one unit of migration, each path is",
+      "evidence": [
+        "../app/jcl/CBEXPORT.jcl:44",
+        "../app/jcl/CBIMPORT.jcl:23",
+        "../app/jcl/CREASTMT.JCL:80",
+        "../app/jcl/INTCALC.jcl:23",
+        "../app/jcl/POSTTRAN.jcl:24",
+        "../app/jcl/READACCT.jcl:33",
+        "../app/jcl/READCARD.jcl:23",
+        "../app/jcl/READCUST.jcl:22",
+        "../app/jcl/READXREF.jcl:23",
+        "../app/jcl/TRANREPT.jcl:60",
+        "../app/jcl/TXT2PDF1.JCL:28",
+        "../app/jcl/WAITSTEP.jcl:23"
+      ],
+      "request": "Confirm that the 2 build paths are intended (different DB2 level, load concatenation or compile options inside one module) and which one the migration targets"
+    },
+    {
+      "kind": "profile-online-monitors",
+      "severity": "medium",
+      "message": "CARDDEMO profile: online_monitors reads IBM CICS Transaction Server from this module's store, which is what this module proves and not what the estate has \u2014 which transaction monitors the estate runs, and at which level",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:1",
+        "../app/cbl/COACTUPC.cbl:956",
+        "../app/cbl/COACTVWC.cbl:1",
+        "../app/cbl/COACTVWC.cbl:349",
+        "../app/cbl/COADM01C.cbl:1",
+        "../app/cbl/COADM01C.cbl:145",
+        "../app/cbl/COADM01C.cbl:168",
+        "../app/cbl/COBIL00C.cbl:1"
+      ],
+      "request": "List the online monitors installed (CICS TS, IMS TM, none) with their versions: the scan proves only what this module uses, which is a lower bound"
+    },
+    {
+      "kind": "profile-output-manager",
+      "severity": "medium",
+      "message": "CARDDEMO profile: output_manager is not in the store \u2014 which product owns the printed output once it leaves the spool \u2014 118 DD(s) write to SYSOUT: the jobs print, but a spool class never names the product that archives or delivers the output \u2014 assumed 'Broadcom CA View' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [
+        "../app/jcl/ACCTFILE.jcl:23",
+        "../app/jcl/ACCTFILE.jcl:34",
+        "../app/jcl/ACCTFILE.jcl:55",
+        "../app/jcl/CARDFILE.jcl:108",
+        "../app/jcl/CARDFILE.jcl:119",
+        "../app/jcl/CARDFILE.jcl:120",
+        "../app/jcl/CARDFILE.jcl:23",
+        "../app/jcl/CARDFILE.jcl:24"
+      ],
+      "request": "State the output / report manager (CA View, CA Deliver, Control-D, CA Spool) and what it does with each SYSOUT class the jobs write to"
+    },
+    {
+      "kind": "profile-security-manager",
+      "severity": "medium",
+      "message": "CARDDEMO profile: security_manager is not in the store \u2014 which external security manager guards the datasets \u2014 assumed 'IBM RACF' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the security manager (RACF, CA ACF2, CA Top Secret) and who owns the dataset profiles"
+    },
+    {
+      "kind": "profile-sort-product",
+      "severity": "medium",
+      "message": "CARDDEMO profile: sort_product is not in the store \u2014 which sort product PGM=SORT resolves to \u2014 4 step(s) run PGM=SORT, the site linkage alias: a sort runs, the product is unnamed \u2014 assumed 'IBM DFSORT' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [
+        "../app/jcl/COMBTRAN.jcl:22",
+        "../app/jcl/CREASTMT.JCL:44",
+        "../app/jcl/PRTCATBL.jcl:43",
+        "../app/jcl/TRANREPT.jcl:37"
+      ],
+      "request": "State the sort product installed (IBM DFSORT or Syncsort MFX): PGM=SORT is a linkage alias and does not say which one runs"
+    },
+    {
+      "kind": "profile-standard-compiler",
+      "severity": "medium",
+      "message": "CARDDEMO profile: standard_compiler is not in the store \u2014 which compiler the shop builds production code with \u2014 assumed 'IBM Enterprise COBOL for z/OS 6.3' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the shop-standard compiler and release (Enterprise COBOL 6.x, ...); a single module's compile step is that module's, not the estate's"
+    },
+    {
+      "kind": "profile-standard-compiler-options",
+      "severity": "medium",
+      "message": "CARDDEMO profile: standard_compiler_options is not in the store \u2014 which compile options the shop builds production code with \u2014 assumed 'RENT,NUMPROC(NOPFD),TRUNC(STD),ARCH(8),SSRANGE(NO)' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the shop-standard compile options (NUMPROC, TRUNC, ARCH, RENT, SSRANGE, ...) a module is expected to be built with"
+    },
+    {
+      "kind": "profile-tape-manager",
+      "severity": "medium",
+      "message": "CARDDEMO profile: tape_manager is not in the store \u2014 which tape manager owns the volumes the jobs allocate \u2014 assumed 'Broadcom CA 1' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the tape / removable-media manager (CA 1, CA TLMS, DFSMSrmm) and the retention rules it applies: UNIT=TAPE proves tape is used, never which catalogue owns it"
+    },
+    {
+      "kind": "profile-test-lpar",
+      "severity": "high",
+      "message": "CARDDEMO profile: test_lpar is not in the store \u2014 whether a test LPAR is available to run the migrated code against",
+      "evidence": [],
+      "request": "Confirm whether a test LPAR (or a sandbox subsystem) is available for parallel runs, and who can grant access"
+    },
+    {
+      "kind": "profile-volumes",
+      "severity": "medium",
+      "message": "CARDDEMO profile: volumes is not in the store \u2014 how much data the module moves per run",
+      "evidence": [],
+      "request": "Provide the production volumes (records in / out per run, DB2 row counts, file sizes) the module handles"
+    },
+    {
+      "kind": "profile-zos-version",
+      "severity": "medium",
+      "message": "CARDDEMO profile: zos_version is not in the store \u2014 which z/OS release the estate runs \u2014 assumed 'IBM z/OS 2.5' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the z/OS release of the production LPAR (D IPLINFO, or the release the shop is on)"
+    }
+  ]
+}

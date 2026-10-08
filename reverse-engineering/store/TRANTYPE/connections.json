@@ -1,0 +1,2758 @@
+{
+  "meta": {
+    "module": "TRANTYPE",
+    "generated_at": "2026-10-08T04:11:56Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "csd": [
+        "../app/app-transaction-type-db2/csd"
+      ],
+      "ims": []
+    }
+  },
+  "summary": {
+    "db2_tables": 3,
+    "sql_statements": 27,
+    "db2_binds": 0,
+    "db2_subsystems": 1,
+    "files": 1,
+    "files_bound": 1,
+    "files_unbound": 0,
+    "files_dynamic": 0,
+    "datasets": 12,
+    "vsam_defined": 0,
+    "cics_commands": 24,
+    "cics_programs": 2,
+    "cics_files": 0,
+    "cics_ts_queues": 0,
+    "cics_td_queues": 0,
+    "cics_program_links": 3,
+    "csd_definitions": 9,
+    "external_callees": 0,
+    "external_modules": 0,
+    "candidate_modules": 0,
+    "modules_unsupplied": 0,
+    "ims_programs": 0,
+    "ims_regions": 0,
+    "ims_psbs": 0,
+    "idms_programs": 0,
+    "idms_subschemas": 0,
+    "idms_run_mode": null,
+    "mq_calls": 0,
+    "dynamic_call_sites": 3,
+    "utility_steps": 9,
+    "asks": 2
+  },
+  "db2": {
+    "subsystems": [
+      {
+        "id": "DAZ1",
+        "evidence": [
+          "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:29",
+          "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:87",
+          "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:118"
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "CARDDEMO.TRANSACTION_TYPE",
+        "programs": [
+          {
+            "program": "COBTUPDT",
+            "ops": {
+              "DCLGEN": 1,
+              "INSERT": 1,
+              "UPDATE": 1,
+              "DELETE": 1
+            },
+            "sources": [
+              "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:28-31",
+              "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:137-148",
+              "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:171-175",
+              "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:201-204"
+            ],
+            "basis": "dclgen",
+            "host_origins": [
+              {
+                "kind": "program",
+                "name": null,
+                "hosts": [
+                  "INPUT-REC-DESC",
+                  "INPUT-REC-NUMBER"
+                ],
+                "source": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:74"
+              }
+            ],
+            "type_checks": {
+              "ok": 5,
+              "mismatch": 0,
+              "unchecked": 0
+            }
+          },
+          {
+            "program": "COTRTLIC",
+            "ops": {
+              "DCLGEN": 1,
+              "CURSOR": 2,
+              "FETCH": 3,
+              "SELECT": 1,
+              "UPDATE": 1,
+              "DELETE": 1
+            },
+            "sources": [
+              "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:28-31",
+              "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:338-352",
+              "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:354-368",
+              "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1626-1630",
+              "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1661-1665",
+              "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1753-1757",
+              "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1803-1815",
+              "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1846-1850",
+              "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1900-1903"
+            ],
+            "basis": "dclgen",
+            "host_origins": [
+              {
+                "kind": "dclgen",
+                "name": "DCLTRTYP",
+                "hosts": [
+                  "DCL-TR-DESCRIPTION",
+                  "DCL-TR-TYPE"
+                ],
+                "source": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:38"
+              },
+              {
+                "kind": "program",
+                "name": null,
+                "hosts": [
+                  "WS-EDIT-DESC-FLAG",
+                  "WS-EDIT-TYPE-FLAG",
+                  "WS-RECORDS-COUNT",
+                  "WS-START-KEY",
+                  "WS-TYPE-CD-FILTER",
+                  "WS-TYPE-DESC-FILTER"
+                ],
+                "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:103"
+              }
+            ],
+            "type_checks": {
+              "ok": 14,
+              "mismatch": 0,
+              "unchecked": 0
+            }
+          },
+          {
+            "program": "COTRTUPC",
+            "ops": {
+              "DCLGEN": 1,
+              "SELECT": 1,
+              "UPDATE": 1,
+              "INSERT": 1,
+              "DELETE": 1
+            },
+            "sources": [
+              "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:28-31",
+              "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1475-1482",
+              "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1544-1548",
+              "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1597-1602",
+              "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1627-1630"
+            ],
+            "basis": "dclgen",
+            "host_origins": [
+              {
+                "kind": "dclgen",
+                "name": "DCLTRTYP",
+                "hosts": [
+                  "DCL-TR-DESCRIPTION",
+                  "DCL-TR-TYPE"
+                ],
+                "source": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:38"
+              }
+            ],
+            "type_checks": {
+              "ok": 8,
+              "mismatch": 0,
+              "unchecked": 0
+            }
+          }
+        ],
+        "reads": 4,
+        "writes": 8,
+        "ddl": [
+          "../app/app-transaction-type-db2/ctl/DB2CREAT.ctl:35",
+          "../app/app-transaction-type-db2/ddl/TRNTYPE.ddl:1"
+        ],
+        "columns": 2,
+        "seed_rows": 0,
+        "schema": {
+          "basis": "ddl",
+          "ddl": [
+            "../app/app-transaction-type-db2/ctl/DB2CREAT.ctl:35",
+            "../app/app-transaction-type-db2/ddl/TRNTYPE.ddl:1"
+          ],
+          "dclgen": [
+            {
+              "program": "COBTUPDT",
+              "member": "DCLTRTYP",
+              "source": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:28-31",
+              "columns": 2,
+              "host_structure": "DCLTRANSACTION-TYPE",
+              "host_structure_source": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:35",
+              "agrees_with_ddl": true,
+              "differences": []
+            },
+            {
+              "program": "COTRTLIC",
+              "member": "DCLTRTYP",
+              "source": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:28-31",
+              "columns": 2,
+              "host_structure": "DCLTRANSACTION-TYPE",
+              "host_structure_source": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:35",
+              "agrees_with_ddl": true,
+              "differences": []
+            },
+            {
+              "program": "COTRTUPC",
+              "member": "DCLTRTYP",
+              "source": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:28-31",
+              "columns": 2,
+              "host_structure": "DCLTRANSACTION-TYPE",
+              "host_structure_source": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:35",
+              "agrees_with_ddl": true,
+              "differences": []
+            }
+          ],
+          "program_basis": {
+            "dclgen": 3,
+            "copybook": 0,
+            "program": 0,
+            "none": 0
+          },
+          "type_checks": {
+            "ok": 27,
+            "mismatch": 0,
+            "unchecked": 0
+          },
+          "mismatches": []
+        }
+      },
+      {
+        "name": "CARDDEMO.TRANSACTION_TYPE_CATEGORY",
+        "programs": [
+          {
+            "program": "COTRTUPC",
+            "ops": {
+              "DCLGEN": 1
+            },
+            "sources": [
+              "../app/app-transaction-type-db2/dcl/DCLTRCAT.dcl:28-32"
+            ],
+            "basis": "dclgen",
+            "host_origins": [],
+            "type_checks": {
+              "ok": 0,
+              "mismatch": 0,
+              "unchecked": 0
+            }
+          }
+        ],
+        "reads": 0,
+        "writes": 0,
+        "ddl": [
+          "../app/app-transaction-type-db2/ctl/DB2CREAT.ctl:75",
+          "../app/app-transaction-type-db2/ddl/TRNTYCAT.ddl:1"
+        ],
+        "columns": 3,
+        "seed_rows": 0,
+        "schema": {
+          "basis": "ddl",
+          "ddl": [
+            "../app/app-transaction-type-db2/ctl/DB2CREAT.ctl:75",
+            "../app/app-transaction-type-db2/ddl/TRNTYCAT.ddl:1"
+          ],
+          "dclgen": [
+            {
+              "program": "COTRTUPC",
+              "member": "DCLTRCAT",
+              "source": "../app/app-transaction-type-db2/dcl/DCLTRCAT.dcl:28-32",
+              "columns": 3,
+              "host_structure": "DCLTRANSACTION-TYPE-CATEGORY",
+              "host_structure_source": "../app/app-transaction-type-db2/dcl/DCLTRCAT.dcl:36",
+              "agrees_with_ddl": true,
+              "differences": []
+            }
+          ],
+          "program_basis": {
+            "dclgen": 1,
+            "copybook": 0,
+            "program": 0,
+            "none": 0
+          },
+          "type_checks": {
+            "ok": 0,
+            "mismatch": 0,
+            "unchecked": 0
+          },
+          "mismatches": []
+        }
+      },
+      {
+        "name": "SYSIBM.SYSDUMMY1",
+        "programs": [
+          {
+            "program": "COTRTLIC",
+            "ops": {
+              "SELECT": 1
+            },
+            "sources": [
+              "../app/app-transaction-type-db2/cpy/CSDB2RPY.cpy:23-28"
+            ],
+            "basis": "copybook",
+            "host_origins": [
+              {
+                "kind": "copybook",
+                "name": "CSDB2RWY",
+                "hosts": [
+                  "WS-DUMMY-DB2-INT"
+                ],
+                "source": "../app/app-transaction-type-db2/cpy/CSDB2RWY.cpy:23"
+              }
+            ],
+            "type_checks": {
+              "ok": 0,
+              "mismatch": 0,
+              "unchecked": 0
+            }
+          }
+        ],
+        "reads": 1,
+        "writes": 0,
+        "ddl": [],
+        "columns": null,
+        "seed_rows": null,
+        "supplied_by": "DB2 catalog",
+        "schema": {
+          "basis": "sql-only",
+          "ddl": [],
+          "dclgen": [],
+          "program_basis": {
+            "dclgen": 0,
+            "copybook": 1,
+            "program": 0,
+            "none": 0
+          },
+          "type_checks": {
+            "ok": 0,
+            "mismatch": 0,
+            "unchecked": 0
+          },
+          "mismatches": []
+        }
+      }
+    ],
+    "statements": [
+      {
+        "program": "COBTUPDT",
+        "verb": "INCLUDE",
+        "tables": [],
+        "writes": [],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:50-52",
+        "end_line": 52,
+        "kind": "include",
+        "include": "SQLCA",
+        "host_map": []
+      },
+      {
+        "program": "COBTUPDT",
+        "verb": "DECLARE",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:28-31",
+        "end_line": 31,
+        "kind": "table-declare",
+        "declared_columns": [
+          {
+            "name": "TR_TYPE",
+            "type": "CHAR(2)"
+          },
+          {
+            "name": "TR_DESCRIPTION",
+            "type": "VARCHAR(50)"
+          }
+        ],
+        "host_map": []
+      },
+      {
+        "program": "COBTUPDT",
+        "verb": "INSERT",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [
+          "INPUT-REC-DESC",
+          "INPUT-REC-NUMBER"
+        ],
+        "columns": [
+          "TR_TYPE",
+          "TR_DESCRIPTION"
+        ],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:137-148",
+        "end_line": 148,
+        "kind": "write",
+        "host_map": [
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "INPUT-REC-NUMBER",
+            "role": "value"
+          },
+          {
+            "column": "TR_DESCRIPTION",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "INPUT-REC-DESC",
+            "role": "value"
+          }
+        ]
+      },
+      {
+        "program": "COBTUPDT",
+        "verb": "UPDATE",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [
+          "INPUT-REC-DESC",
+          "INPUT-REC-NUMBER"
+        ],
+        "columns": [
+          "TR_DESCRIPTION"
+        ],
+        "joins": [],
+        "where": "TR_TYPE = :INPUT-REC-NUMBER",
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:171-175",
+        "end_line": 175,
+        "kind": "write",
+        "host_map": [
+          {
+            "column": "TR_DESCRIPTION",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "INPUT-REC-DESC",
+            "role": "set"
+          },
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "INPUT-REC-NUMBER",
+            "role": "predicate"
+          }
+        ]
+      },
+      {
+        "program": "COBTUPDT",
+        "verb": "DELETE",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [
+          "INPUT-REC-NUMBER"
+        ],
+        "columns": [],
+        "joins": [],
+        "where": "TR_TYPE = :INPUT-REC-NUMBER",
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:201-204",
+        "end_line": 204,
+        "kind": "write",
+        "host_map": [
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "INPUT-REC-NUMBER",
+            "role": "predicate"
+          }
+        ]
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "INCLUDE",
+        "tables": [],
+        "writes": [],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:331",
+        "end_line": 331,
+        "kind": "include",
+        "include": "SQLCA",
+        "host_map": []
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "DECLARE",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:28-31",
+        "end_line": 31,
+        "kind": "table-declare",
+        "declared_columns": [
+          {
+            "name": "TR_TYPE",
+            "type": "CHAR(2)"
+          },
+          {
+            "name": "TR_DESCRIPTION",
+            "type": "VARCHAR(50)"
+          }
+        ],
+        "host_map": []
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "DECLARE",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [],
+        "reads": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "cursor": "C-TR-TYPE-FORWARD",
+        "host_vars": [
+          "WS-EDIT-DESC-FLAG",
+          "WS-EDIT-TYPE-FLAG",
+          "WS-START-KEY",
+          "WS-TYPE-CD-FILTER",
+          "WS-TYPE-DESC-FILTER"
+        ],
+        "columns": [
+          "TR_TYPE",
+          "TR_DESCRIPTION"
+        ],
+        "joins": [],
+        "where": "TR_TYPE >= :WS-START-KEY AND ((:WS-EDIT-TYPE-FLAG = '1' AND TR_TYPE = :WS-TYPE-CD-FILTER) OR (:WS-EDIT-TYPE-FLAG <> '1')) AND ((:WS-EDIT-DESC-FLAG = '1' AND TR_DESCRIPTION LIKE TRIM(:WS-TYPE-DESC-FILTER)) OR (:WS-EDIT-DESC-FLAG <> '1'))",
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:338-352",
+        "end_line": 352,
+        "kind": "cursor-declare",
+        "host_map": [
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "WS-START-KEY",
+            "role": "predicate"
+          },
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "WS-TYPE-CD-FILTER",
+            "role": "predicate"
+          }
+        ]
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "DECLARE",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [],
+        "reads": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "cursor": "C-TR-TYPE-BACKWARD",
+        "host_vars": [
+          "WS-EDIT-DESC-FLAG",
+          "WS-EDIT-TYPE-FLAG",
+          "WS-START-KEY",
+          "WS-TYPE-CD-FILTER",
+          "WS-TYPE-DESC-FILTER"
+        ],
+        "columns": [
+          "TR_TYPE",
+          "TR_DESCRIPTION"
+        ],
+        "joins": [],
+        "where": "TR_TYPE < :WS-START-KEY and ((:WS-EDIT-TYPE-FLAG = '1' and TR_TYPE = :WS-TYPE-CD-FILTER) OR (:WS-EDIT-TYPE-FLAG <> '1')) AND ((:WS-EDIT-DESC-FLAG = '1' AND TR_DESCRIPTION LIKE TRIM(:WS-TYPE-DESC-FILTER)) OR (:WS-EDIT-DESC-FLAG <> '1'))",
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:354-368",
+        "end_line": 368,
+        "kind": "cursor-declare",
+        "host_map": [
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "WS-START-KEY",
+            "role": "predicate"
+          },
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "WS-TYPE-CD-FILTER",
+            "role": "predicate"
+          }
+        ]
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "FETCH",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [],
+        "reads": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "cursor": "C-TR-TYPE-FORWARD",
+        "host_vars": [
+          "DCL-TR-DESCRIPTION",
+          "DCL-TR-TYPE"
+        ],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1626-1630",
+        "end_line": 1630,
+        "kind": "cursor-fetch",
+        "host_map": [
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-TYPE",
+            "role": "fetch-into"
+          },
+          {
+            "column": "TR_DESCRIPTION",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-DESCRIPTION",
+            "role": "fetch-into"
+          }
+        ]
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "FETCH",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [],
+        "reads": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "cursor": "C-TR-TYPE-FORWARD",
+        "host_vars": [
+          "DCL-TR-DESCRIPTION",
+          "DCL-TR-TYPE"
+        ],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1661-1665",
+        "end_line": 1665,
+        "kind": "cursor-fetch",
+        "host_map": [
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-TYPE",
+            "role": "fetch-into"
+          },
+          {
+            "column": "TR_DESCRIPTION",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-DESCRIPTION",
+            "role": "fetch-into"
+          }
+        ]
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "FETCH",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [],
+        "reads": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "cursor": "C-TR-TYPE-BACKWARD",
+        "host_vars": [
+          "DCL-TR-DESCRIPTION",
+          "DCL-TR-TYPE"
+        ],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1753-1757",
+        "end_line": 1757,
+        "kind": "cursor-fetch",
+        "host_map": [
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-TYPE",
+            "role": "fetch-into"
+          },
+          {
+            "column": "TR_DESCRIPTION",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-DESCRIPTION",
+            "role": "fetch-into"
+          }
+        ]
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "SELECT",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [],
+        "reads": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "cursor": null,
+        "host_vars": [
+          "WS-EDIT-DESC-FLAG",
+          "WS-EDIT-TYPE-FLAG",
+          "WS-RECORDS-COUNT",
+          "WS-TYPE-CD-FILTER",
+          "WS-TYPE-DESC-FILTER"
+        ],
+        "columns": [],
+        "joins": [],
+        "where": "((:WS-EDIT-TYPE-FLAG = '1' AND TR_TYPE = :WS-TYPE-CD-FILTER) OR :WS-EDIT-TYPE-FLAG <> '1') AND ((:WS-EDIT-DESC-FLAG = '1' AND TR_DESCRIPTION LIKE TRIM(:WS-TYPE-DESC-FILTER)) OR :WS-EDIT-DESC-FLAG <> '1')",
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1803-1815",
+        "end_line": 1815,
+        "kind": "read",
+        "host_map": [
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "WS-TYPE-CD-FILTER",
+            "role": "predicate"
+          }
+        ]
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "UPDATE",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [
+          "DCL-TR-DESCRIPTION",
+          "DCL-TR-TYPE"
+        ],
+        "columns": [
+          "TR_DESCRIPTION"
+        ],
+        "joins": [],
+        "where": "TR_TYPE = :DCL-TR-TYPE",
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1846-1850",
+        "end_line": 1850,
+        "kind": "write",
+        "host_map": [
+          {
+            "column": "TR_DESCRIPTION",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-DESCRIPTION",
+            "role": "set"
+          },
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-TYPE",
+            "role": "predicate"
+          }
+        ]
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "DELETE",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [
+          "DCL-TR-TYPE"
+        ],
+        "columns": [],
+        "joins": [],
+        "where": "TR_TYPE = :DCL-TR-TYPE",
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1900-1903",
+        "end_line": 1903,
+        "kind": "write",
+        "host_map": [
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-TYPE",
+            "role": "predicate"
+          }
+        ]
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "OPEN",
+        "tables": [],
+        "writes": [],
+        "reads": [],
+        "cursor": "C-TR-TYPE-FORWARD",
+        "host_vars": [],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1943-1945",
+        "end_line": 1945,
+        "kind": "cursor-open",
+        "host_map": []
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "CLOSE",
+        "tables": [],
+        "writes": [],
+        "reads": [],
+        "cursor": "C-TR-TYPE-FORWARD",
+        "host_vars": [],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1971-1973",
+        "end_line": 1973,
+        "kind": "cursor-close",
+        "host_map": []
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "OPEN",
+        "tables": [],
+        "writes": [],
+        "reads": [],
+        "cursor": "C-TR-TYPE-BACKWARD",
+        "host_vars": [],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1998-2000",
+        "end_line": 2000,
+        "kind": "cursor-open",
+        "host_map": []
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "CLOSE",
+        "tables": [],
+        "writes": [],
+        "reads": [],
+        "cursor": "C-TR-TYPE-BACKWARD",
+        "host_vars": [],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:2027-2029",
+        "end_line": 2029,
+        "kind": "cursor-close",
+        "host_map": []
+      },
+      {
+        "program": "COTRTLIC",
+        "verb": "SELECT",
+        "tables": [
+          "SYSIBM.SYSDUMMY1"
+        ],
+        "writes": [],
+        "reads": [
+          "SYSIBM.SYSDUMMY1"
+        ],
+        "cursor": null,
+        "host_vars": [
+          "WS-DUMMY-DB2-INT"
+        ],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cpy/CSDB2RPY.cpy:23-28",
+        "end_line": 28,
+        "kind": "read",
+        "host_map": []
+      },
+      {
+        "program": "COTRTUPC",
+        "verb": "INCLUDE",
+        "tables": [],
+        "writes": [],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:282-284",
+        "end_line": 284,
+        "kind": "include",
+        "include": "SQLCA",
+        "host_map": []
+      },
+      {
+        "program": "COTRTUPC",
+        "verb": "DECLARE",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:28-31",
+        "end_line": 31,
+        "kind": "table-declare",
+        "declared_columns": [
+          {
+            "name": "TR_TYPE",
+            "type": "CHAR(2)"
+          },
+          {
+            "name": "TR_DESCRIPTION",
+            "type": "VARCHAR(50)"
+          }
+        ],
+        "host_map": []
+      },
+      {
+        "program": "COTRTUPC",
+        "verb": "DECLARE",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE_CATEGORY"
+        ],
+        "writes": [],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [],
+        "columns": [],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/dcl/DCLTRCAT.dcl:28-32",
+        "end_line": 32,
+        "kind": "table-declare",
+        "declared_columns": [
+          {
+            "name": "TRC_TYPE_CODE",
+            "type": "CHAR(2)"
+          },
+          {
+            "name": "TRC_TYPE_CATEGORY",
+            "type": "CHAR(4)"
+          },
+          {
+            "name": "TRC_CAT_DATA",
+            "type": "VARCHAR(50)"
+          }
+        ],
+        "host_map": []
+      },
+      {
+        "program": "COTRTUPC",
+        "verb": "SELECT",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [],
+        "reads": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "cursor": null,
+        "host_vars": [
+          "DCL-TR-DESCRIPTION",
+          "DCL-TR-TYPE"
+        ],
+        "columns": [
+          "TR_TYPE",
+          "TR_DESCRIPTION"
+        ],
+        "joins": [],
+        "where": "TR_TYPE = :DCL-TR-TYPE",
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1475-1482",
+        "end_line": 1482,
+        "kind": "read",
+        "host_map": [
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-TYPE",
+            "role": "into"
+          },
+          {
+            "column": "TR_DESCRIPTION",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-DESCRIPTION",
+            "role": "into"
+          },
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-TYPE",
+            "role": "predicate"
+          }
+        ]
+      },
+      {
+        "program": "COTRTUPC",
+        "verb": "UPDATE",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [
+          "DCL-TR-DESCRIPTION",
+          "DCL-TR-TYPE"
+        ],
+        "columns": [
+          "TR_DESCRIPTION"
+        ],
+        "joins": [],
+        "where": "TR_TYPE = :DCL-TR-TYPE",
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1544-1548",
+        "end_line": 1548,
+        "kind": "write",
+        "host_map": [
+          {
+            "column": "TR_DESCRIPTION",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-DESCRIPTION",
+            "role": "set"
+          },
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-TYPE",
+            "role": "predicate"
+          }
+        ]
+      },
+      {
+        "program": "COTRTUPC",
+        "verb": "INSERT",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [
+          "DCL-TR-DESCRIPTION",
+          "DCL-TR-TYPE"
+        ],
+        "columns": [
+          "TR_TYPE",
+          "TR_DESCRIPTION"
+        ],
+        "joins": [],
+        "where": null,
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1597-1602",
+        "end_line": 1602,
+        "kind": "write",
+        "host_map": [
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-TYPE",
+            "role": "value"
+          },
+          {
+            "column": "TR_DESCRIPTION",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-DESCRIPTION",
+            "role": "value"
+          }
+        ]
+      },
+      {
+        "program": "COTRTUPC",
+        "verb": "DELETE",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "writes": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "reads": [],
+        "cursor": null,
+        "host_vars": [
+          "DCL-TR-TYPE"
+        ],
+        "columns": [],
+        "joins": [],
+        "where": "TR_TYPE = :DCL-TR-TYPE",
+        "dynamic": false,
+        "procedure": null,
+        "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1627-1630",
+        "end_line": 1630,
+        "kind": "write",
+        "host_map": [
+          {
+            "column": "TR_TYPE",
+            "table": "CARDDEMO.TRANSACTION_TYPE",
+            "host": "DCL-TR-TYPE",
+            "role": "predicate"
+          }
+        ]
+      }
+    ],
+    "cursors": [
+      {
+        "program": "COTRTLIC",
+        "cursor": "C-TR-TYPE-FORWARD",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "for_update": false,
+        "with_hold": false,
+        "select_list": [
+          "TR_TYPE",
+          "TR_DESCRIPTION"
+        ],
+        "declared": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:338",
+        "opened": [
+          "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1943-1945"
+        ],
+        "fetched": [
+          "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1626-1630",
+          "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1661-1665"
+        ],
+        "closed": [
+          "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1971-1973"
+        ]
+      },
+      {
+        "program": "COTRTLIC",
+        "cursor": "C-TR-TYPE-BACKWARD",
+        "tables": [
+          "CARDDEMO.TRANSACTION_TYPE"
+        ],
+        "for_update": false,
+        "with_hold": false,
+        "select_list": [
+          "TR_TYPE",
+          "TR_DESCRIPTION"
+        ],
+        "declared": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:354",
+        "opened": [
+          "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1998-2000"
+        ],
+        "fetched": [
+          "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1753-1757"
+        ],
+        "closed": [
+          "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:2027-2029"
+        ]
+      }
+    ],
+    "binds": [],
+    "plans": [],
+    "procedures": []
+  },
+  "dbms": {
+    "db2": {
+      "present": true,
+      "programs": [
+        "COBTUPDT",
+        "COTRTLIC",
+        "COTRTUPC"
+      ],
+      "statement": "DB2: 3 program(s) issue EXEC SQL"
+    },
+    "ims": {
+      "present": false,
+      "programs": [],
+      "looked_for": "EXEC DLI or CALL to AIBTDLI/ASMTDLI/CBLTDLI/CEETDLI",
+      "statement": "IMS DB (DL/I) not found: EXEC DLI or CALL to AIBTDLI/ASMTDLI/CBLTDLI/CEETDLI in none of the 3 scanned program(s)"
+    },
+    "idms": {
+      "present": false,
+      "programs": [],
+      "looked_for": "EXEC IDMS, COPY IDMS or CALL to IDMS/IDMSCALC/IDMSIN01",
+      "statement": "IDMS not found: EXEC IDMS, COPY IDMS or CALL to IDMS/IDMSCALC/IDMSIN01 in none of the 3 scanned program(s)"
+    },
+    "other_exec_dialects": []
+  },
+  "ims": {
+    "present": false,
+    "statement": "IMS DB not found: no CALL to AIBTDLI/ASMTDLI/CBLTDLI/CEETDLI, no EXEC DLI and no EXEC PGM=DFSRRC00 step in the scanned artifacts",
+    "programs": [],
+    "regions": [],
+    "dds": [],
+    "psbs": [],
+    "psbgen": [],
+    "dbdgen": [],
+    "psbgen_scanned": false
+  },
+  "idms": {
+    "present": false,
+    "statement": "IDMS not found: no EXEC IDMS, no COPY IDMS, no CALL to IDMS/IDMSCALC/IDMSIN01 and no IDMS DD/utility step in the scanned artifacts",
+    "run_mode": null,
+    "programs": [],
+    "dds": [],
+    "utilities": [],
+    "parameters": [],
+    "subschemas": []
+  },
+  "files": [
+    {
+      "file": "TR-RECORD",
+      "dd": "INPFILE",
+      "organization": "SEQUENTIAL",
+      "organization_stated": true,
+      "assign_class": null,
+      "access": "SEQUENTIAL",
+      "record_key": null,
+      "alternate_keys": [],
+      "relative_key": null,
+      "file_status": "WS-INF-STATUS",
+      "sort_work": false,
+      "records": [
+        "WS-INPUT-VARS"
+      ],
+      "record_length": 53,
+      "open_modes": [
+        "INPUT"
+      ],
+      "ops": {
+        "OPEN": 1,
+        "CLOSE": 1,
+        "READ": 1
+      },
+      "op_sites": [
+        {
+          "op": "OPEN",
+          "mode": "INPUT",
+          "source": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:83"
+        },
+        {
+          "op": "CLOSE",
+          "mode": null,
+          "source": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:235"
+        },
+        {
+          "op": "READ",
+          "mode": null,
+          "source": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:101"
+        }
+      ],
+      "source": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:31",
+      "program": "COBTUPDT",
+      "bindings": [
+        {
+          "job": "MNTTRDB2",
+          "step": "STEP1",
+          "via": [],
+          "program_run": "COBTUPDT",
+          "dynamic_site": null,
+          "dd": "INPFILE",
+          "dsn": "INPFILE",
+          "disp": "SHR",
+          "kind": "dataset",
+          "concat": [],
+          "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:27"
+        }
+      ],
+      "reached": "static",
+      "binding_status": "bound"
+    }
+  ],
+  "datasets": [
+    {
+      "dsn": "&HLQ..TRANCATG.PS",
+      "type": "sequential (no catalog evidence)",
+      "type_basis": {
+        "kind": "no-catalog-evidence",
+        "detail": "only DD statements reference it (no DCB/RECFM/RECORG/AMP on any of them); no IDCAMS DEFINE or LISTCAT in the scan says which \u2014 QSAM is the usual reading, ESDS is not excluded",
+        "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:45"
+      },
+      "definition": null,
+      "deleted_by": [],
+      "alternate_indexes": [],
+      "paths": [],
+      "steps": [
+        {
+          "job": "TRANEXTR",
+          "step": "STEP20",
+          "dd": "SYSUT1",
+          "dsn": "&HLQ..TRANCATG.PS",
+          "disp": "SHR",
+          "program": "IEBGENER",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:45"
+        },
+        {
+          "job": "TRANEXTR",
+          "step": "STEP30",
+          "dd": "DD02",
+          "dsn": "&HLQ..TRANCATG.PS",
+          "disp": "(MOD,DELETE,DELETE)",
+          "program": "IEFBR14",
+          "step_kind": "utility",
+          "attrs": {
+            "UNIT": "SYSDA"
+          },
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:58"
+        },
+        {
+          "job": "TRANEXTR",
+          "step": "STEP50",
+          "dd": "SYSREC00",
+          "dsn": "&HLQ..TRANCATG.PS",
+          "disp": "(NEW,CATLG,DELETE)",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:102"
+        }
+      ],
+      "programs": [],
+      "cics_files": [],
+      "cics_tdqueues": [],
+      "utility_use": []
+    },
+    {
+      "dsn": "&HLQ..TRANCATG.PS.BKUP",
+      "type": "sequential (QSAM by DD DCB)",
+      "type_basis": {
+        "kind": "dd-dcb",
+        "detail": "DD SYSUT2 in TRANEXTR.STEP20 allocates it with DCB=(LRECL=60,RECFM=FB,BLKSIZE=600): a non-VSAM (QSAM/BSAM) dataset",
+        "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:46"
+      },
+      "definition": null,
+      "deleted_by": [],
+      "alternate_indexes": [],
+      "paths": [],
+      "steps": [
+        {
+          "job": "TRANEXTR",
+          "step": "STEP20",
+          "dd": "SYSUT2",
+          "dsn": "&HLQ..TRANCATG.PS.BKUP(+1)",
+          "disp": "(NEW,CATLG)",
+          "program": "IEBGENER",
+          "step_kind": "utility",
+          "attrs": {
+            "DCB": "(LRECL=60,RECFM=FB,BLKSIZE=600)"
+          },
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:46"
+        }
+      ],
+      "programs": [],
+      "cics_files": [],
+      "cics_tdqueues": [],
+      "utility_use": []
+    },
+    {
+      "dsn": "&HLQ..TRANTYPE.BKUP",
+      "type": "sequential (QSAM by DD DCB)",
+      "type_basis": {
+        "kind": "dd-dcb",
+        "detail": "DD SYSUT2 in TRANEXTR.STEP10 allocates it with DCB=(LRECL=60,RECFM=FB,BLKSIZE=600): a non-VSAM (QSAM/BSAM) dataset",
+        "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:35"
+      },
+      "definition": null,
+      "deleted_by": [],
+      "alternate_indexes": [],
+      "paths": [],
+      "steps": [
+        {
+          "job": "TRANEXTR",
+          "step": "STEP10",
+          "dd": "SYSUT2",
+          "dsn": "&HLQ..TRANTYPE.BKUP(+1)",
+          "disp": "(NEW,CATLG)",
+          "program": "IEBGENER",
+          "step_kind": "utility",
+          "attrs": {
+            "DCB": "(LRECL=60,RECFM=FB,BLKSIZE=600)"
+          },
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:35"
+        }
+      ],
+      "programs": [],
+      "cics_files": [],
+      "cics_tdqueues": [],
+      "utility_use": []
+    },
+    {
+      "dsn": "&HLQ..TRANTYPE.PS",
+      "type": "sequential (no catalog evidence)",
+      "type_basis": {
+        "kind": "no-catalog-evidence",
+        "detail": "only DD statements reference it (no DCB/RECFM/RECORG/AMP on any of them); no IDCAMS DEFINE or LISTCAT in the scan says which \u2014 QSAM is the usual reading, ESDS is not excluded",
+        "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:34"
+      },
+      "definition": null,
+      "deleted_by": [],
+      "alternate_indexes": [],
+      "paths": [],
+      "steps": [
+        {
+          "job": "TRANEXTR",
+          "step": "STEP10",
+          "dd": "SYSUT1",
+          "dsn": "&HLQ..TRANTYPE.PS",
+          "disp": "SHR",
+          "program": "IEBGENER",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:34"
+        },
+        {
+          "job": "TRANEXTR",
+          "step": "STEP30",
+          "dd": "DD01",
+          "dsn": "&HLQ..TRANTYPE.PS",
+          "disp": "(MOD,DELETE,DELETE)",
+          "program": "IEFBR14",
+          "step_kind": "utility",
+          "attrs": {
+            "UNIT": "SYSDA"
+          },
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:54"
+        },
+        {
+          "job": "TRANEXTR",
+          "step": "STEP40",
+          "dd": "SYSREC00",
+          "dsn": "&HLQ..TRANTYPE.PS",
+          "disp": "(NEW,CATLG,DELETE)",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:72"
+        }
+      ],
+      "programs": [],
+      "cics_files": [],
+      "cics_tdqueues": [],
+      "utility_use": []
+    },
+    {
+      "dsn": "&LBNM..CNTL",
+      "type": "PDS member",
+      "type_basis": {
+        "kind": "dsn-member",
+        "detail": "DD SYSTSIN in CREADB2.FREEPLN names member &LBNM..CNTL(DB2FREE)",
+        "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:46"
+      },
+      "definition": null,
+      "deleted_by": [],
+      "alternate_indexes": [],
+      "paths": [],
+      "steps": [
+        {
+          "job": "CREADB2",
+          "step": "FREEPLN",
+          "dd": "SYSTSIN",
+          "dsn": "&LBNM..CNTL(DB2FREE)",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "launcher",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:46"
+        },
+        {
+          "job": "CREADB2",
+          "step": "CRCRDDB",
+          "dd": "SYSTSIN",
+          "dsn": "&LBNM..CNTL(DB2TIAD1)",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:58"
+        },
+        {
+          "job": "CREADB2",
+          "step": "CRCRDDB",
+          "dd": "SYSIN",
+          "dsn": "&LBNM..CNTL(DB2CREAT)",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:59"
+        },
+        {
+          "job": "CREADB2",
+          "step": "RUNTEP2",
+          "dd": "SYSTSIN",
+          "dsn": "&LBNM..CNTL(DB2TEP41)",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:71"
+        },
+        {
+          "job": "CREADB2",
+          "step": "RUNTEP2",
+          "dd": "SYSIN",
+          "dsn": "&LBNM..CNTL(DB2LTTYP)",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:72"
+        },
+        {
+          "job": "CREADB2",
+          "step": "LDTCCAT",
+          "dd": "SYSTSIN",
+          "dsn": "&LBNM..CNTL(DB2TEP41)",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:83"
+        },
+        {
+          "job": "CREADB2",
+          "step": "LDTCCAT",
+          "dd": "SYSIN",
+          "dsn": "&LBNM..CNTL(DB2LTCAT)",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:84"
+        }
+      ],
+      "programs": [],
+      "cics_files": [],
+      "cics_tdqueues": [],
+      "utility_use": []
+    },
+    {
+      "dsn": "AWS.M2.CARDDEMO.DBRMLIB",
+      "type": "sequential (no catalog evidence)",
+      "type_basis": {
+        "kind": "no-catalog-evidence",
+        "detail": "only DD statements reference it (no DCB/RECFM/RECORG/AMP on any of them); no IDCAMS DEFINE or LISTCAT in the scan says which \u2014 QSAM is the usual reading, ESDS is not excluded",
+        "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:25"
+      },
+      "definition": null,
+      "deleted_by": [],
+      "alternate_indexes": [],
+      "paths": [],
+      "steps": [
+        {
+          "job": "MNTTRDB2",
+          "step": "STEP1",
+          "dd": "DBRMLIB",
+          "dsn": "AWS.M2.CARDDEMO.DBRMLIB",
+          "disp": "SHR",
+          "program": "COBTUPDT",
+          "step_kind": "launcher",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:25"
+        }
+      ],
+      "programs": [],
+      "cics_files": [],
+      "cics_tdqueues": [],
+      "utility_use": []
+    },
+    {
+      "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+      "type": "sequential (no catalog evidence)",
+      "type_basis": {
+        "kind": "no-catalog-evidence",
+        "detail": "only DD statements reference it (no DCB/RECFM/RECORG/AMP on any of them); no IDCAMS DEFINE or LISTCAT in the scan says which \u2014 QSAM is the usual reading, ESDS is not excluded",
+        "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:24"
+      },
+      "definition": null,
+      "deleted_by": [],
+      "alternate_indexes": [],
+      "paths": [],
+      "steps": [
+        {
+          "job": "MNTTRDB2",
+          "step": "STEP1",
+          "dd": "STEPLIB",
+          "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+          "disp": "SHR",
+          "program": "COBTUPDT",
+          "step_kind": "launcher",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:24"
+        }
+      ],
+      "programs": [],
+      "cics_files": [],
+      "cics_tdqueues": [],
+      "utility_use": []
+    },
+    {
+      "dsn": "INPFILE",
+      "type": "sequential (no catalog evidence)",
+      "type_basis": {
+        "kind": "no-catalog-evidence",
+        "detail": "program COBTUPDT declares file TR-RECORD ORGANIZATION SEQUENTIAL, which fits QSAM and VSAM ESDS alike; no IDCAMS DEFINE or LISTCAT in the scan says which \u2014 QSAM is the usual reading, ESDS is not excluded",
+        "source": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:31"
+      },
+      "definition": null,
+      "deleted_by": [],
+      "alternate_indexes": [],
+      "paths": [],
+      "steps": [
+        {
+          "job": "MNTTRDB2",
+          "step": "STEP1",
+          "dd": "INPFILE",
+          "dsn": "INPFILE",
+          "disp": "SHR",
+          "program": "COBTUPDT",
+          "step_kind": "launcher",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:27"
+        }
+      ],
+      "programs": [
+        {
+          "program": "COBTUPDT",
+          "file": "TR-RECORD",
+          "dd": "INPFILE",
+          "organization": "SEQUENTIAL",
+          "organization_stated": true,
+          "assign_class": null,
+          "access": "SEQUENTIAL",
+          "open_modes": [
+            "INPUT"
+          ],
+          "job": "MNTTRDB2",
+          "step": "STEP1",
+          "dynamic": false,
+          "source": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:31"
+        }
+      ],
+      "cics_files": [],
+      "cics_tdqueues": [],
+      "utility_use": []
+    },
+    {
+      "dsn": "OEM.DB2.&DB2S..RUNLIB.LOAD",
+      "type": "sequential (no catalog evidence)",
+      "type_basis": {
+        "kind": "no-catalog-evidence",
+        "detail": "only DD statements reference it (no DCB/RECFM/RECORG/AMP on any of them); no IDCAMS DEFINE or LISTCAT in the scan says which \u2014 QSAM is the usual reading, ESDS is not excluded",
+        "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:53"
+      },
+      "definition": null,
+      "deleted_by": [],
+      "alternate_indexes": [],
+      "paths": [],
+      "steps": [
+        {
+          "job": "CREADB2",
+          "step": "CRCRDDB",
+          "dd": "STEPLIB",
+          "dsn": "OEM.DB2.&DB2S..RUNLIB.LOAD",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:53"
+        },
+        {
+          "job": "CREADB2",
+          "step": "RUNTEP2",
+          "dd": "STEPLIB",
+          "dsn": "OEM.DB2.&DB2S..RUNLIB.LOAD",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:66"
+        },
+        {
+          "job": "CREADB2",
+          "step": "LDTCCAT",
+          "dd": "STEPLIB",
+          "dsn": "OEM.DB2.&DB2S..RUNLIB.LOAD",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:78"
+        }
+      ],
+      "programs": [],
+      "cics_files": [],
+      "cics_tdqueues": [],
+      "utility_use": []
+    },
+    {
+      "dsn": "OEM.DB2.DAZ1.RUNLIB.LOAD",
+      "type": "sequential (no catalog evidence)",
+      "type_basis": {
+        "kind": "no-catalog-evidence",
+        "detail": "only DD statements reference it (no DCB/RECFM/RECORG/AMP on any of them); no IDCAMS DEFINE or LISTCAT in the scan says which \u2014 QSAM is the usual reading, ESDS is not excluded",
+        "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:66"
+      },
+      "definition": null,
+      "deleted_by": [],
+      "alternate_indexes": [],
+      "paths": [],
+      "steps": [
+        {
+          "job": "TRANEXTR",
+          "step": "STEP40",
+          "dd": "STEPLIB",
+          "dsn": "OEM.DB2.DAZ1.RUNLIB.LOAD",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:66"
+        },
+        {
+          "job": "TRANEXTR",
+          "step": "STEP50",
+          "dd": "STEPLIB",
+          "dsn": "OEM.DB2.DAZ1.RUNLIB.LOAD",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:96"
+        }
+      ],
+      "programs": [],
+      "cics_files": [],
+      "cics_tdqueues": [],
+      "utility_use": []
+    },
+    {
+      "dsn": "OEM.DB2.DAZ1.SDSNEXIT",
+      "type": "sequential (no catalog evidence)",
+      "type_basis": {
+        "kind": "no-catalog-evidence",
+        "detail": "only DD statements reference it (no DCB/RECFM/RECORG/AMP on any of them); no IDCAMS DEFINE or LISTCAT in the scan says which \u2014 QSAM is the usual reading, ESDS is not excluded",
+        "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:41"
+      },
+      "definition": null,
+      "deleted_by": [],
+      "alternate_indexes": [],
+      "paths": [],
+      "steps": [
+        {
+          "job": "CREADB2",
+          "step": "FREEPLN",
+          "dd": "STEPLIB",
+          "dsn": "OEM.DB2.DAZ1.SDSNEXIT",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "launcher",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:41"
+        },
+        {
+          "job": "MNTTRDB2",
+          "step": "STEP1",
+          "dd": "STEPLIB",
+          "dsn": "OEM.DB2.DAZ1.SDSNEXIT",
+          "disp": "SHR",
+          "program": "COBTUPDT",
+          "step_kind": "launcher",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:22"
+        }
+      ],
+      "programs": [],
+      "cics_files": [],
+      "cics_tdqueues": [],
+      "utility_use": []
+    },
+    {
+      "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+      "type": "sequential (no catalog evidence)",
+      "type_basis": {
+        "kind": "no-catalog-evidence",
+        "detail": "only DD statements reference it (no DCB/RECFM/RECORG/AMP on any of them); no IDCAMS DEFINE or LISTCAT in the scan says which \u2014 QSAM is the usual reading, ESDS is not excluded",
+        "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:42"
+      },
+      "definition": null,
+      "deleted_by": [],
+      "alternate_indexes": [],
+      "paths": [],
+      "steps": [
+        {
+          "job": "CREADB2",
+          "step": "FREEPLN",
+          "dd": "STEPLIB",
+          "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "launcher",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:42"
+        },
+        {
+          "job": "CREADB2",
+          "step": "CRCRDDB",
+          "dd": "STEPLIB",
+          "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:54"
+        },
+        {
+          "job": "CREADB2",
+          "step": "RUNTEP2",
+          "dd": "STEPLIB",
+          "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:67"
+        },
+        {
+          "job": "CREADB2",
+          "step": "LDTCCAT",
+          "dd": "STEPLIB",
+          "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:79"
+        },
+        {
+          "job": "MNTTRDB2",
+          "step": "STEP1",
+          "dd": "STEPLIB",
+          "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+          "disp": "SHR",
+          "program": "COBTUPDT",
+          "step_kind": "launcher",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:23"
+        },
+        {
+          "job": "TRANEXTR",
+          "step": "STEP40",
+          "dd": "STEPLIB",
+          "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:67"
+        },
+        {
+          "job": "TRANEXTR",
+          "step": "STEP50",
+          "dd": "STEPLIB",
+          "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+          "disp": "SHR",
+          "program": "IKJEFT01",
+          "step_kind": "utility",
+          "attrs": {},
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:97"
+        }
+      ],
+      "programs": [],
+      "cics_files": [],
+      "cics_tdqueues": [],
+      "utility_use": []
+    }
+  ],
+  "cics": {
+    "files": [],
+    "ts_queues": [],
+    "td_queues": [],
+    "program_links": [
+      {
+        "program": "COTRTLIC",
+        "command": "XCTL",
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+        "resource_kind": "program",
+        "resource": null,
+        "resolution": "variable",
+        "resolution_detail": "CDEMO-TO-PROGRAM is not defined in the scanned program/copybooks",
+        "commarea": true,
+        "channel": null,
+        "sysid": null,
+        "commarea_item": "CARDDEMO-COMMAREA",
+        "commarea_length": null,
+        "variable": "CDEMO-TO-PROGRAM",
+        "in_inventory": null,
+        "csd": null
+      },
+      {
+        "program": "COTRTLIC",
+        "command": "XCTL",
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648",
+        "resource_kind": "program",
+        "resource": "COTRTUPC",
+        "resolution": "constant",
+        "resolution_detail": "LIT-ADDTPGM VALUE at ../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:50",
+        "commarea": true,
+        "channel": null,
+        "sysid": null,
+        "commarea_item": "CARDDEMO-COMMAREA",
+        "commarea_length": null,
+        "in_inventory": true,
+        "csd": {
+          "group": "CARDDEMO",
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:18",
+          "attrs": {
+            "LANGUAGE": "COBOL",
+            "RESIDENT": "NO",
+            "STATUS": "ENABLED",
+            "DATALOCATION": "ANY",
+            "EXECKEY": "USER",
+            "CONCURRENCY": "QUASIRENT",
+            "DYNAMIC": "NO"
+          }
+        }
+      },
+      {
+        "program": "COTRTUPC",
+        "command": "XCTL",
+        "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457",
+        "resource_kind": "program",
+        "resource": null,
+        "resolution": "variable",
+        "resolution_detail": "CDEMO-TO-PROGRAM is not defined in the scanned program/copybooks",
+        "commarea": true,
+        "channel": null,
+        "sysid": null,
+        "commarea_item": "CARDDEMO-COMMAREA",
+        "commarea_length": null,
+        "variable": "CDEMO-TO-PROGRAM",
+        "in_inventory": null,
+        "csd": null
+      }
+    ],
+    "transactions": [
+      {
+        "transid": "CTLI",
+        "uses": [
+          {
+            "program": "COTRTLIC",
+            "command": "RETURN",
+            "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:910",
+            "resource_kind": "transaction",
+            "resource": "CTLI",
+            "resolution": "constant",
+            "resolution_detail": "LIT-THISTRANID VALUE at ../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:44",
+            "commarea": true,
+            "channel": null,
+            "sysid": null,
+            "commarea_item": "WS-COMMAREA",
+            "commarea_length": "LENGTH OF WS-COMMAREA",
+            "options": {
+              "LENGTH": "LENGTH OF WS-COMMAREA"
+            }
+          }
+        ],
+        "csd": {
+          "program": "COTRTLIC",
+          "group": "CARDDEMO",
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:25",
+          "remote": null
+        }
+      },
+      {
+        "transid": "CTTU",
+        "uses": [
+          {
+            "program": "COTRTUPC",
+            "command": "RETURN",
+            "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:567",
+            "resource_kind": "transaction",
+            "resource": "CTTU",
+            "resolution": "constant",
+            "resolution_detail": "LIT-THISTRANID VALUE at ../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:203",
+            "commarea": true,
+            "channel": null,
+            "sysid": null,
+            "commarea_item": "WS-COMMAREA",
+            "commarea_length": "LENGTH OF WS-COMMAREA",
+            "options": {
+              "LENGTH": "LENGTH OF WS-COMMAREA"
+            }
+          }
+        ],
+        "csd": {
+          "program": "COTRTUPC",
+          "group": "CARDDEMO",
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:35",
+          "remote": null
+        }
+      }
+    ],
+    "maps": [
+      {
+        "mapset": "COTRTLI",
+        "uses": [
+          {
+            "program": "COTRTLIC",
+            "command": "RECEIVE MAP",
+            "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:931",
+            "resource_kind": "map",
+            "resource": "COTRTLI",
+            "resolution": "constant",
+            "resolution_detail": "LIT-THISMAPSET VALUE at ../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:45",
+            "commarea": false,
+            "channel": null,
+            "sysid": null,
+            "commarea_item": null,
+            "commarea_length": null,
+            "map": "CTRTLIA"
+          },
+          {
+            "program": "COTRTLIC",
+            "command": "SEND MAP",
+            "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1588",
+            "resource_kind": "map",
+            "resource": "COTRTLI",
+            "resolution": "constant",
+            "resolution_detail": "LIT-THISMAPSET VALUE at ../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:45",
+            "commarea": false,
+            "channel": null,
+            "sysid": null,
+            "commarea_item": null,
+            "commarea_length": null,
+            "map": "CTRTLIA"
+          }
+        ],
+        "csd": {
+          "group": "CARDDEMO",
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:1",
+          "attrs": {
+            "DESCRIPTION": "CREDIT CARD TRAN TYPE INQ MAP",
+            "RESIDENT": "NO"
+          }
+        }
+      },
+      {
+        "mapset": "COTRTUP",
+        "uses": [
+          {
+            "program": "COTRTUPC",
+            "command": "RECEIVE MAP",
+            "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:642",
+            "resource_kind": "map",
+            "resource": "COTRTUP",
+            "resolution": "constant",
+            "resolution_detail": "LIT-THISMAPSET VALUE at ../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:205",
+            "commarea": false,
+            "channel": null,
+            "sysid": null,
+            "commarea_item": null,
+            "commarea_length": null,
+            "map": "CTRTUPA"
+          }
+        ],
+        "csd": {
+          "group": "CARDDEMO",
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:6",
+          "attrs": {
+            "DESCRIPTION": "CREDIT CARD TRAN TYPE MAINT MAP",
+            "RESIDENT": "NO"
+          }
+        }
+      },
+      {
+        "mapset": null,
+        "uses": [
+          {
+            "program": "COTRTUPC",
+            "command": "SEND MAP",
+            "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1433",
+            "resource_kind": "map",
+            "resource": null,
+            "resolution": "variable",
+            "resolution_detail": "CCARD-NEXT-MAPSET is not defined in the scanned program/copybooks",
+            "commarea": false,
+            "channel": null,
+            "sysid": null,
+            "commarea_item": null,
+            "commarea_length": null,
+            "variable": "CCARD-NEXT-MAPSET",
+            "map": "CCARD-NEXT-MAP"
+          }
+        ],
+        "csd": null
+      }
+    ],
+    "external": [
+      {
+        "type": "DB2ENTRY",
+        "name": "CARDDEMO",
+        "attrs": {
+          "DESCRIPTION": "DB2 RETRY FOR CARDDEMO PLAN",
+          "AUTHTYPE": "USERID",
+          "PLAN": "CARDDEMO",
+          "THREADLIMIT": "1"
+        },
+        "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:45"
+      },
+      {
+        "type": "DB2TRAN",
+        "name": "CTLITRAN",
+        "attrs": {
+          "DESCRIPTION": "DB2TRAN FOR CTLI TRANSACTION",
+          "ENTRY": "CARDDEMO",
+          "TRANSID": "CTLI"
+        },
+        "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:51"
+      },
+      {
+        "type": "DB2TRAN",
+        "name": "CTTUTRAN",
+        "attrs": {
+          "DESCRIPTION": "DB2TRAN FOR CTTU TRANSACTION",
+          "ENTRY": "CARDDEMO",
+          "TRANSID": "CTTU"
+        },
+        "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:56"
+      }
+    ],
+    "csd": {
+      "MAPSET": [
+        {
+          "action": "DEFINE",
+          "type": "MAPSET",
+          "name": "COTRTLI",
+          "group": "CARDDEMO",
+          "attrs": {
+            "DESCRIPTION": "CREDIT CARD TRAN TYPE INQ MAP",
+            "RESIDENT": "NO"
+          },
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:1"
+        },
+        {
+          "action": "DEFINE",
+          "type": "MAPSET",
+          "name": "COTRTUP",
+          "group": "CARDDEMO",
+          "attrs": {
+            "DESCRIPTION": "CREDIT CARD TRAN TYPE MAINT MAP",
+            "RESIDENT": "NO"
+          },
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:6"
+        }
+      ],
+      "PROGRAM": [
+        {
+          "action": "DEFINE",
+          "type": "PROGRAM",
+          "name": "COTRTLIC",
+          "group": "CARDDEMO",
+          "attrs": {
+            "LANGUAGE": "COBOL",
+            "RESIDENT": "NO",
+            "STATUS": "ENABLED",
+            "DATALOCATION": "ANY",
+            "EXECKEY": "USER",
+            "CONCURRENCY": "QUASIRENT",
+            "DYNAMIC": "NO"
+          },
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:11"
+        },
+        {
+          "action": "DEFINE",
+          "type": "PROGRAM",
+          "name": "COTRTUPC",
+          "group": "CARDDEMO",
+          "attrs": {
+            "LANGUAGE": "COBOL",
+            "RESIDENT": "NO",
+            "STATUS": "ENABLED",
+            "DATALOCATION": "ANY",
+            "EXECKEY": "USER",
+            "CONCURRENCY": "QUASIRENT",
+            "DYNAMIC": "NO"
+          },
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:18"
+        }
+      ],
+      "TRANSACTION": [
+        {
+          "action": "DEFINE",
+          "type": "TRANSACTION",
+          "name": "CTLI",
+          "group": "CARDDEMO",
+          "attrs": {
+            "PROGRAM": "COTRTLIC",
+            "TWASIZE": "0",
+            "PROFILE": "DFHCICST",
+            "TASKDATALOC": "ANY",
+            "DYNAMIC": "NO"
+          },
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:25"
+        },
+        {
+          "action": "DEFINE",
+          "type": "TRANSACTION",
+          "name": "CTTU",
+          "group": "CARDDEMO",
+          "attrs": {
+            "PROGRAM": "COTRTUPC",
+            "TWASIZE": "0",
+            "PROFILE": "DFHCICST",
+            "TASKDATALOC": "ANY",
+            "DYNAMIC": "NO"
+          },
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:35"
+        }
+      ],
+      "DB2ENTRY": [
+        {
+          "action": "DEFINE",
+          "type": "DB2ENTRY",
+          "name": "CARDDEMO",
+          "group": "CARDDEMO",
+          "attrs": {
+            "DESCRIPTION": "DB2 RETRY FOR CARDDEMO PLAN",
+            "AUTHTYPE": "USERID",
+            "PLAN": "CARDDEMO",
+            "THREADLIMIT": "1"
+          },
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:45"
+        }
+      ],
+      "DB2TRAN": [
+        {
+          "action": "DEFINE",
+          "type": "DB2TRAN",
+          "name": "CTLITRAN",
+          "group": "CARDDEMO",
+          "attrs": {
+            "DESCRIPTION": "DB2TRAN FOR CTLI TRANSACTION",
+            "ENTRY": "CARDDEMO",
+            "TRANSID": "CTLI"
+          },
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:51"
+        },
+        {
+          "action": "DEFINE",
+          "type": "DB2TRAN",
+          "name": "CTTUTRAN",
+          "group": "CARDDEMO",
+          "attrs": {
+            "DESCRIPTION": "DB2TRAN FOR CTTU TRANSACTION",
+            "ENTRY": "CARDDEMO",
+            "TRANSID": "CTTU"
+          },
+          "source": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:56"
+        }
+      ]
+    },
+    "csd_scanned": true,
+    "commands_by_program": {
+      "COTRTLIC": {
+        "SYNCPOINT": 3,
+        "XCTL": 2,
+        "RETURN": 3,
+        "RECEIVE MAP": 1,
+        "SEND MAP": 1,
+        "SEND TEXT": 2
+      },
+      "COTRTUPC": {
+        "HANDLE ABEND": 2,
+        "SYNCPOINT": 4,
+        "XCTL": 1,
+        "RETURN": 1,
+        "RECEIVE MAP": 1,
+        "SEND MAP": 1,
+        "SEND": 1,
+        "ABEND": 1
+      }
+    },
+    "submits": []
+  },
+  "external": {
+    "static_calls": [],
+    "dynamic_calls": [
+      {
+        "program": "COTRTLIC",
+        "construct": "CICS-XCTL",
+        "variable": "CDEMO-TO-PROGRAM",
+        "status": "open",
+        "candidates": [],
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620"
+      },
+      {
+        "program": "COTRTLIC",
+        "construct": "CICS-XCTL",
+        "variable": "LIT-ADDTPGM",
+        "status": "resolved",
+        "candidates": [
+          "COTRTUPC"
+        ],
+        "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648"
+      },
+      {
+        "program": "COTRTUPC",
+        "construct": "CICS-XCTL",
+        "variable": "CDEMO-TO-PROGRAM",
+        "status": "open",
+        "candidates": [],
+        "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457"
+      }
+    ],
+    "mq": [],
+    "utility_steps": [
+      {
+        "job": "CREADB2",
+        "step": "CRCRDDB",
+        "utility": "IKJEFT01",
+        "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:52",
+        "dds": [
+          {
+            "dd": "STEPLIB",
+            "dsn": "OEM.DB2.&DB2S..RUNLIB.LOAD",
+            "disp": "SHR"
+          },
+          {
+            "dd": "SYSTSPRT",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSUDUMP",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSPRINT",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSTSIN",
+            "dsn": "&LBNM..CNTL(DB2TIAD1)",
+            "disp": "SHR"
+          },
+          {
+            "dd": "SYSIN",
+            "dsn": "&LBNM..CNTL(DB2CREAT)",
+            "disp": "SHR"
+          }
+        ]
+      },
+      {
+        "job": "CREADB2",
+        "step": "LDTTYPE",
+        "utility": "IEFBR14",
+        "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:64",
+        "dds": []
+      },
+      {
+        "job": "CREADB2",
+        "step": "RUNTEP2",
+        "utility": "IKJEFT01",
+        "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:65",
+        "dds": [
+          {
+            "dd": "STEPLIB",
+            "dsn": "OEM.DB2.&DB2S..RUNLIB.LOAD",
+            "disp": "SHR"
+          },
+          {
+            "dd": "SYSTSPRT",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSUDUMP",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSPRINT",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSTSIN",
+            "dsn": "&LBNM..CNTL(DB2TEP41)",
+            "disp": "SHR"
+          },
+          {
+            "dd": "SYSIN",
+            "dsn": "&LBNM..CNTL(DB2LTTYP)",
+            "disp": "SHR"
+          }
+        ]
+      },
+      {
+        "job": "CREADB2",
+        "step": "LDTCCAT",
+        "utility": "IKJEFT01",
+        "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:77",
+        "dds": [
+          {
+            "dd": "STEPLIB",
+            "dsn": "OEM.DB2.&DB2S..RUNLIB.LOAD",
+            "disp": "SHR"
+          },
+          {
+            "dd": "SYSTSPRT",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSUDUMP",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSPRINT",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSTSIN",
+            "dsn": "&LBNM..CNTL(DB2TEP41)",
+            "disp": "SHR"
+          },
+          {
+            "dd": "SYSIN",
+            "dsn": "&LBNM..CNTL(DB2LTCAT)",
+            "disp": "SHR"
+          }
+        ]
+      },
+      {
+        "job": "TRANEXTR",
+        "step": "STEP10",
+        "utility": "IEBGENER",
+        "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:31",
+        "dds": [
+          {
+            "dd": "SYSPRINT",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSIN",
+            "dsn": null,
+            "disp": null
+          },
+          {
+            "dd": "SYSUT1",
+            "dsn": "&HLQ..TRANTYPE.PS",
+            "disp": "SHR"
+          },
+          {
+            "dd": "SYSUT2",
+            "dsn": "&HLQ..TRANTYPE.BKUP(+1)",
+            "disp": "(NEW,CATLG)"
+          }
+        ]
+      },
+      {
+        "job": "TRANEXTR",
+        "step": "STEP20",
+        "utility": "IEBGENER",
+        "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:42",
+        "dds": [
+          {
+            "dd": "SYSPRINT",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSIN",
+            "dsn": null,
+            "disp": null
+          },
+          {
+            "dd": "SYSUT1",
+            "dsn": "&HLQ..TRANCATG.PS",
+            "disp": "SHR"
+          },
+          {
+            "dd": "SYSUT2",
+            "dsn": "&HLQ..TRANCATG.PS.BKUP(+1)",
+            "disp": "(NEW,CATLG)"
+          }
+        ]
+      },
+      {
+        "job": "TRANEXTR",
+        "step": "STEP30",
+        "utility": "IEFBR14",
+        "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:53",
+        "dds": [
+          {
+            "dd": "DD01",
+            "dsn": "&HLQ..TRANTYPE.PS",
+            "disp": "(MOD,DELETE,DELETE)"
+          },
+          {
+            "dd": "DD02",
+            "dsn": "&HLQ..TRANCATG.PS",
+            "disp": "(MOD,DELETE,DELETE)"
+          }
+        ]
+      },
+      {
+        "job": "TRANEXTR",
+        "step": "STEP40",
+        "utility": "IKJEFT01",
+        "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:65",
+        "dds": [
+          {
+            "dd": "STEPLIB",
+            "dsn": "OEM.DB2.DAZ1.RUNLIB.LOAD",
+            "disp": "SHR"
+          },
+          {
+            "dd": "SYSTSPRT",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSPRINT",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSUDUMP",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSPUNCH",
+            "dsn": null,
+            "disp": null
+          },
+          {
+            "dd": "SYSREC00",
+            "dsn": "&HLQ..TRANTYPE.PS",
+            "disp": "(NEW,CATLG,DELETE)"
+          },
+          {
+            "dd": "SYSIN",
+            "dsn": "*",
+            "disp": null
+          },
+          {
+            "dd": "SYSTSIN",
+            "dsn": "*",
+            "disp": null
+          }
+        ]
+      },
+      {
+        "job": "TRANEXTR",
+        "step": "STEP50",
+        "utility": "IKJEFT01",
+        "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:95",
+        "dds": [
+          {
+            "dd": "STEPLIB",
+            "dsn": "OEM.DB2.DAZ1.RUNLIB.LOAD",
+            "disp": "SHR"
+          },
+          {
+            "dd": "SYSTSPRT",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSPRINT",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSUDUMP",
+            "dsn": "SYSOUT=*",
+            "disp": null
+          },
+          {
+            "dd": "SYSPUNCH",
+            "dsn": null,
+            "disp": null
+          },
+          {
+            "dd": "SYSREC00",
+            "dsn": "&HLQ..TRANCATG.PS",
+            "disp": "(NEW,CATLG,DELETE)"
+          },
+          {
+            "dd": "SYSIN",
+            "dsn": "*",
+            "disp": null
+          },
+          {
+            "dd": "SYSTSIN",
+            "dsn": "*",
+            "disp": null
+          }
+        ]
+      }
+    ],
+    "launcher_steps": [
+      {
+        "job": "CREADB2",
+        "step": "FREEPLN",
+        "launcher": "IKJEFT01",
+        "program": null,
+        "plan": null,
+        "resolution": "db2-command",
+        "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:40",
+        "tso_commands": []
+      },
+      {
+        "job": "MNTTRDB2",
+        "step": "STEP1",
+        "launcher": "IKJEFT01",
+        "program": "COBTUPDT",
+        "plan": "CARDDEMO",
+        "resolution": "systsin-inline",
+        "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:21",
+        "tso_commands": []
+      }
+    ],
+    "modules": [],
+    "candidate_modules": [],
+    "runtime_routines": []
+  },
+  "asks": [
+    {
+      "kind": "cics-resource-variable",
+      "severity": "medium",
+      "message": "program COTRTUPC: EXEC CICS SEND MAP names its map through data item CCARD-NEXT-MAPSET; CCARD-NEXT-MAPSET is not defined in the scanned program/copybooks",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1433"
+      ],
+      "request": "Determine the value(s) CCARD-NEXT-MAPSET holds when COTRTUPC runs EXEC CICS SEND MAP (trace its writers; it may come from a COMMAREA, a table or a control file)"
+    },
+    {
+      "kind": "db2-no-dclgen",
+      "severity": "info",
+      "message": "table SYSIBM.SYSDUMMY1: COTRTLIC access it without a DECLARE TABLE (DCLGEN); host variables come from copybook CSDB2RWY, so the precompiler never checked them against the table. Checked here against nothing (no DDL scanned, no DCLGEN): 0 ok / 0 mismatch / 0 unchecked",
+      "evidence": [
+        "../app/app-transaction-type-db2/cpy/CSDB2RPY.cpy:23-28"
+      ],
+      "request": "No action if the DDL check is clean; otherwise regenerate DCLGEN members from the live catalog and INCLUDE them so the precompiler enforces the layouts"
+    }
+  ]
+}

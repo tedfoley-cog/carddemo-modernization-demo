@@ -1,0 +1,781 @@
+{
+  "meta": {
+    "module": "TRANTYPE",
+    "generated_at": "2026-10-08T04:11:55Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "src": [
+        "../app/app-transaction-type-db2/cbl"
+      ],
+      "copybooks": [
+        "../app/app-transaction-type-db2/cpy",
+        "../app/app-transaction-type-db2/cpy-bms",
+        "../app/app-transaction-type-db2/dcl"
+      ]
+    }
+  },
+  "audit": {
+    "call_tokens_unaccounted": [],
+    "skipped_files": []
+  },
+  "sources": [
+    {
+      "path": "../app/app-transaction-type-db2/cpy-bms/COTRTLI.cpy",
+      "kind": "copybook",
+      "lines": 500,
+      "code_lines": 484
+    },
+    {
+      "path": "../app/app-transaction-type-db2/cpy-bms/COTRTUP.cpy",
+      "kind": "copybook",
+      "lines": 200,
+      "code_lines": 184
+    },
+    {
+      "path": "../app/app-transaction-type-db2/cpy/CSDB2RPY.cpy",
+      "kind": "copybook",
+      "lines": 89,
+      "code_lines": 51
+    },
+    {
+      "path": "../app/app-transaction-type-db2/cpy/CSDB2RWY.cpy",
+      "kind": "copybook",
+      "lines": 46,
+      "code_lines": 22
+    },
+    {
+      "path": "../app/app-transaction-type-db2/dcl/DCLTRCAT.dcl",
+      "kind": "copybook",
+      "lines": 54,
+      "code_lines": 14
+    },
+    {
+      "path": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl",
+      "kind": "copybook",
+      "lines": 49,
+      "code_lines": 11
+    },
+    {
+      "path": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl",
+      "kind": "program",
+      "lines": 237,
+      "code_lines": 177
+    },
+    {
+      "path": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+      "kind": "program",
+      "lines": 2098,
+      "code_lines": 1597
+    },
+    {
+      "path": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl",
+      "kind": "program",
+      "lines": 1702,
+      "code_lines": 1241
+    }
+  ],
+  "missing_copybooks": [
+    {
+      "member": "COCOM01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COTRTLIC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:375"
+        },
+        {
+          "program": "COTRTUPC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:292"
+        }
+      ]
+    },
+    {
+      "member": "COTTL01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COTRTLIC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:430"
+        },
+        {
+          "program": "COTRTUPC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:262"
+        }
+      ]
+    },
+    {
+      "member": "CSDAT01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COTRTLIC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:480"
+        },
+        {
+          "program": "COTRTUPC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:268"
+        }
+      ]
+    },
+    {
+      "member": "CSMSG01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COTRTLIC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:482"
+        },
+        {
+          "program": "COTRTUPC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:271"
+        }
+      ]
+    },
+    {
+      "member": "CSMSG02Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COTRTUPC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:274"
+        }
+      ]
+    },
+    {
+      "member": "CSSETATY",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COTRTUPC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1358"
+        }
+      ]
+    },
+    {
+      "member": "CSUSR01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COTRTLIC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:485"
+        },
+        {
+          "program": "COTRTUPC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:277"
+        }
+      ]
+    },
+    {
+      "member": "CVACT02Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COTRTLIC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:490"
+        }
+      ]
+    },
+    {
+      "member": "CVCRD01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COTRTLIC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:327"
+        },
+        {
+          "program": "COTRTUPC",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:241"
+        }
+      ]
+    }
+  ],
+  "programs": [
+    {
+      "id": "COTRTLI",
+      "kind": "copybook",
+      "path": "../app/app-transaction-type-db2/cpy-bms/COTRTLI.cpy",
+      "lines": 500,
+      "code_lines": 484,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COTRTUP",
+      "kind": "copybook",
+      "path": "../app/app-transaction-type-db2/cpy-bms/COTRTUP.cpy",
+      "lines": 200,
+      "code_lines": 184,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CSDB2RPY",
+      "kind": "copybook",
+      "path": "../app/app-transaction-type-db2/cpy/CSDB2RPY.cpy",
+      "lines": 89,
+      "code_lines": 51,
+      "uses_sql": true,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [
+          {
+            "variable": "LIT-DSNTIAC",
+            "line": 57
+          }
+        ],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CSDB2RWY",
+      "kind": "copybook",
+      "path": "../app/app-transaction-type-db2/cpy/CSDB2RWY.cpy",
+      "lines": 46,
+      "code_lines": 22,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "DCLTRCAT",
+      "kind": "copybook",
+      "path": "../app/app-transaction-type-db2/dcl/DCLTRCAT.dcl",
+      "lines": 54,
+      "code_lines": 14,
+      "uses_sql": true,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "DCLTRTYP",
+      "kind": "copybook",
+      "path": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl",
+      "lines": 49,
+      "code_lines": 11,
+      "uses_sql": true,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COBTUPDT",
+      "kind": "program",
+      "path": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl",
+      "lines": 237,
+      "code_lines": 177,
+      "uses_sql": true,
+      "files": [
+        {
+          "select": "TR-RECORD",
+          "assign": "INPFILE",
+          "organization": "SEQUENTIAL",
+          "line": 31
+        }
+      ],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "SQLCA",
+          "mechanism": "sql-include",
+          "line": 50
+        },
+        {
+          "name": "DCLTRTYP",
+          "mechanism": "sql-include",
+          "line": 54
+        }
+      ],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COTRTLIC",
+      "kind": "program",
+      "path": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+      "lines": 2098,
+      "code_lines": 1597,
+      "uses_sql": true,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 620
+          },
+          {
+            "command": "XCTL",
+            "variable": "LIT-ADDTPGM",
+            "line": 648
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "CSDB2RWY",
+          "mechanism": "sql-include",
+          "line": 304
+        },
+        {
+          "name": "CVCRD01Y",
+          "mechanism": "copy",
+          "line": 327
+        },
+        {
+          "name": "SQLCA",
+          "mechanism": "sql-include",
+          "line": 331
+        },
+        {
+          "name": "DCLTRTYP",
+          "mechanism": "sql-include",
+          "line": 333
+        },
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 375
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 425
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 426
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 430
+        },
+        {
+          "name": "COTRTLI",
+          "mechanism": "copy",
+          "line": 433
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 480
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 482
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 485
+        },
+        {
+          "name": "CVACT02Y",
+          "mechanism": "copy",
+          "line": 490
+        },
+        {
+          "name": "CSDB2RPY",
+          "mechanism": "sql-include",
+          "line": 2055
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 616
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 620
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "LIT-ADDTPGM",
+          "line": 648
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 910
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 931
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 1588
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": null,
+          "line": 1856
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": null,
+          "line": 1909
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND TEXT",
+          "program": null,
+          "variable": null,
+          "line": 2067
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 2074
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND TEXT",
+          "program": null,
+          "variable": null,
+          "line": 2086
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 2093
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COTRTUPC",
+      "kind": "program",
+      "path": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl",
+      "lines": 1702,
+      "code_lines": 1241,
+      "uses_sql": true,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 457
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "CVCRD01Y",
+          "mechanism": "copy",
+          "line": 241
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 257
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 258
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 262
+        },
+        {
+          "name": "COTRTUP",
+          "mechanism": "copy",
+          "line": 265
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 268
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 271
+        },
+        {
+          "name": "CSMSG02Y",
+          "mechanism": "copy",
+          "line": 274
+        },
+        {
+          "name": "CSUSR01Y",
+          "mechanism": "copy",
+          "line": 277
+        },
+        {
+          "name": "SQLCA",
+          "mechanism": "sql-include",
+          "line": 282
+        },
+        {
+          "name": "DCLTRTYP",
+          "mechanism": "sql-include",
+          "line": 286
+        },
+        {
+          "name": "DCLTRCAT",
+          "mechanism": "sql-include",
+          "line": 288
+        },
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 292
+        },
+        {
+          "name": "CSSETATY",
+          "mechanism": "copy",
+          "line": 1358
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "HANDLE ABEND",
+          "program": null,
+          "variable": null,
+          "line": 348
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 453
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 457
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 567
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 642
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 1433
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": null,
+          "line": 1557
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": null,
+          "line": 1606
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": null,
+          "line": 1637
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND FROM",
+          "program": null,
+          "variable": null,
+          "line": 1684
+        },
+        {
+          "kind": "cics",
+          "detail": "HANDLE ABEND",
+          "program": null,
+          "variable": null,
+          "line": 1691
+        },
+        {
+          "kind": "cics",
+          "detail": "ABEND ABCODE",
+          "program": null,
+          "variable": null,
+          "line": 1695
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "meta": {
+    "module": "VSAMMQ",
+    "generated_at": "2026-10-08T04:11:46Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "programs": {
+        "src": [
+          "../app/app-vsam-mq/cbl"
+        ],
+        "copybooks": []
+      },
+      "jobs": {
+        "jcl": [],
+        "procs": [],
+        "cntl": []
+      }
+    }
+  },
+  "summary": {
+    "programs": 2,
+    "boundaries": 4,
+    "steps": 0,
+    "edges": 18,
+    "edges_by_kind": {
+      "static-call": 18
+    },
+    "edges_by_certainty": {
+      "proven": 18
+    },
+    "boundaries_by_class": {
+      "mq": 4
+    },
+    "missing_artifacts": 0,
+    "missing_by_class": {},
+    "roots": 2,
+    "open_ends": 0,
+    "unreached_programs": 0,
+    "cycles": 0
+  },
+  "nodes": [
+    {
+      "id": "COACCT01",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-vsam-mq/cbl/COACCT01.cbl",
+      "in_inventory": true,
+      "cics": true,
+      "sql": false
+    },
+    {
+      "id": "CODATE01",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-vsam-mq/cbl/CODATE01.cbl",
+      "in_inventory": true,
+      "cics": true,
+      "sql": false
+    },
+    {
+      "id": "MQCLOSE",
+      "kind": "boundary",
+      "class": "mq",
+      "detail": "IBM MQ API stub",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": null
+    },
+    {
+      "id": "MQGET",
+      "kind": "boundary",
+      "class": "mq",
+      "detail": "IBM MQ API stub",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": null
+    },
+    {
+      "id": "MQOPEN",
+      "kind": "boundary",
+      "class": "mq",
+      "detail": "IBM MQ API stub",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": null
+    },
+    {
+      "id": "MQPUT",
+      "kind": "boundary",
+      "class": "mq",
+      "detail": "IBM MQ API stub",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "COACCT01",
+      "to": "MQCLOSE",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:557",
+      "detail": "CALL 'MQCLOSE'",
+      "blocked_by": null
+    },
+    {
+      "from": "COACCT01",
+      "to": "MQCLOSE",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:579",
+      "detail": "CALL 'MQCLOSE'",
+      "blocked_by": null
+    },
+    {
+      "from": "COACCT01",
+      "to": "MQCLOSE",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:602",
+      "detail": "CALL 'MQCLOSE'",
+      "blocked_by": null
+    },
+    {
+      "from": "COACCT01",
+      "to": "MQGET",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:352",
+      "detail": "CALL 'MQGET'",
+      "blocked_by": null
+    },
+    {
+      "from": "COACCT01",
+      "to": "MQOPEN",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:233",
+      "detail": "CALL 'MQOPEN'",
+      "blocked_by": null
+    },
+    {
+      "from": "COACCT01",
+      "to": "MQOPEN",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:267",
+      "detail": "CALL 'MQOPEN'",
+      "blocked_by": null
+    },
+    {
+      "from": "COACCT01",
+      "to": "MQOPEN",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:302",
+      "detail": "CALL 'MQOPEN'",
+      "blocked_by": null
+    },
+    {
+      "from": "COACCT01",
+      "to": "MQPUT",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:479",
+      "detail": "CALL 'MQPUT'",
+      "blocked_by": null
+    },
+    {
+      "from": "COACCT01",
+      "to": "MQPUT",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:516",
+      "detail": "CALL 'MQPUT'",
+      "blocked_by": null
+    },
+    {
+      "from": "CODATE01",
+      "to": "MQCLOSE",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:461",
+      "detail": "CALL 'MQCLOSE'",
+      "blocked_by": null
+    },
+    {
+      "from": "CODATE01",
+      "to": "MQCLOSE",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:483",
+      "detail": "CALL 'MQCLOSE'",
+      "blocked_by": null
+    },
+    {
+      "from": "CODATE01",
+      "to": "MQCLOSE",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:506",
+      "detail": "CALL 'MQCLOSE'",
+      "blocked_by": null
+    },
+    {
+      "from": "CODATE01",
+      "to": "MQGET",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:301",
+      "detail": "CALL 'MQGET'",
+      "blocked_by": null
+    },
+    {
+      "from": "CODATE01",
+      "to": "MQOPEN",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:182",
+      "detail": "CALL 'MQOPEN'",
+      "blocked_by": null
+    },
+    {
+      "from": "CODATE01",
+      "to": "MQOPEN",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:216",
+      "detail": "CALL 'MQOPEN'",
+      "blocked_by": null
+    },
+    {
+      "from": "CODATE01",
+      "to": "MQOPEN",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:251",
+      "detail": "CALL 'MQOPEN'",
+      "blocked_by": null
+    },
+    {
+      "from": "CODATE01",
+      "to": "MQPUT",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:383",
+      "detail": "CALL 'MQPUT'",
+      "blocked_by": null
+    },
+    {
+      "from": "CODATE01",
+      "to": "MQPUT",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:420",
+      "detail": "CALL 'MQPUT'",
+      "blocked_by": null
+    }
+  ],
+  "roots": [
+    {
+      "kind": "cics-program",
+      "job": null,
+      "step": null,
+      "program": "COACCT01",
+      "step_kind": null,
+      "source": "../app/app-vsam-mq/cbl/COACCT01.cbl",
+      "reaches": [
+        {
+          "node": "COACCT01",
+          "depth": 0,
+          "via": null
+        },
+        {
+          "node": "MQOPEN",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "COACCT01",
+            "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:233"
+          }
+        },
+        {
+          "node": "MQGET",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "COACCT01",
+            "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:352"
+          }
+        },
+        {
+          "node": "MQPUT",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "COACCT01",
+            "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:479"
+          }
+        },
+        {
+          "node": "MQCLOSE",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "COACCT01",
+            "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:557"
+          }
+        }
+      ],
+      "stops": [
+        {
+          "node": "MQOPEN",
+          "why": "IBM MQ API stub",
+          "class": "mq"
+        },
+        {
+          "node": "MQGET",
+          "why": "IBM MQ API stub",
+          "class": "mq"
+        },
+        {
+          "node": "MQPUT",
+          "why": "IBM MQ API stub",
+          "class": "mq"
+        },
+        {
+          "node": "MQCLOSE",
+          "why": "IBM MQ API stub",
+          "class": "mq"
+        }
+      ]
+    },
+    {
+      "kind": "cics-program",
+      "job": null,
+      "step": null,
+      "program": "CODATE01",
+      "step_kind": null,
+      "source": "../app/app-vsam-mq/cbl/CODATE01.cbl",
+      "reaches": [
+        {
+          "node": "CODATE01",
+          "depth": 0,
+          "via": null
+        },
+        {
+          "node": "MQOPEN",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "CODATE01",
+            "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:182"
+          }
+        },
+        {
+          "node": "MQGET",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "CODATE01",
+            "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:301"
+          }
+        },
+        {
+          "node": "MQPUT",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "CODATE01",
+            "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:383"
+          }
+        },
+        {
+          "node": "MQCLOSE",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "CODATE01",
+            "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:461"
+          }
+        }
+      ],
+      "stops": [
+        {
+          "node": "MQOPEN",
+          "why": "IBM MQ API stub",
+          "class": "mq"
+        },
+        {
+          "node": "MQGET",
+          "why": "IBM MQ API stub",
+          "class": "mq"
+        },
+        {
+          "node": "MQPUT",
+          "why": "IBM MQ API stub",
+          "class": "mq"
+        },
+        {
+          "node": "MQCLOSE",
+          "why": "IBM MQ API stub",
+          "class": "mq"
+        }
+      ]
+    }
+  ],
+  "open_ends": [],
+  "cycles": [],
+  "unreached": {
+    "programs": [],
+    "note": "no scanned JCL step reaches these programs through a proven or candidate control edge (CICS-only programs are entered by a transaction, not by a step)"
+  }
+}

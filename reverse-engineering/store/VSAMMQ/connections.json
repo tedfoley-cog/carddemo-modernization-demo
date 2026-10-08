@@ -1,0 +1,378 @@
+{
+  "meta": {
+    "module": "VSAMMQ",
+    "generated_at": "2026-10-08T04:11:46Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "csd": [
+        "../app/app-vsam-mq/csd"
+      ],
+      "ims": []
+    }
+  },
+  "summary": {
+    "db2_tables": 0,
+    "sql_statements": 0,
+    "db2_binds": 0,
+    "db2_subsystems": 0,
+    "files": 0,
+    "files_bound": 0,
+    "files_unbound": 0,
+    "files_dynamic": 0,
+    "datasets": 0,
+    "vsam_defined": 0,
+    "cics_commands": 9,
+    "cics_programs": 2,
+    "cics_files": 1,
+    "cics_ts_queues": 0,
+    "cics_td_queues": 0,
+    "cics_program_links": 0,
+    "csd_definitions": 5,
+    "external_callees": 0,
+    "external_modules": 0,
+    "candidate_modules": 0,
+    "modules_unsupplied": 0,
+    "ims_programs": 0,
+    "ims_regions": 0,
+    "ims_psbs": 0,
+    "idms_programs": 0,
+    "idms_subschemas": 0,
+    "idms_run_mode": null,
+    "mq_calls": 18,
+    "dynamic_call_sites": 0,
+    "utility_steps": 0,
+    "asks": 2
+  },
+  "db2": {
+    "subsystems": [],
+    "tables": [],
+    "statements": [],
+    "cursors": [],
+    "binds": [],
+    "plans": [],
+    "procedures": []
+  },
+  "dbms": {
+    "db2": {
+      "present": false,
+      "programs": [],
+      "statement": "DB2 not found: EXEC SQL in none of the 2 scanned program(s)"
+    },
+    "ims": {
+      "present": false,
+      "programs": [],
+      "looked_for": "EXEC DLI or CALL to AIBTDLI/ASMTDLI/CBLTDLI/CEETDLI",
+      "statement": "IMS DB (DL/I) not found: EXEC DLI or CALL to AIBTDLI/ASMTDLI/CBLTDLI/CEETDLI in none of the 2 scanned program(s)"
+    },
+    "idms": {
+      "present": false,
+      "programs": [],
+      "looked_for": "EXEC IDMS, COPY IDMS or CALL to IDMS/IDMSCALC/IDMSIN01",
+      "statement": "IDMS not found: EXEC IDMS, COPY IDMS or CALL to IDMS/IDMSCALC/IDMSIN01 in none of the 2 scanned program(s)"
+    },
+    "other_exec_dialects": []
+  },
+  "ims": {
+    "present": false,
+    "statement": "IMS DB not found: no CALL to AIBTDLI/ASMTDLI/CBLTDLI/CEETDLI, no EXEC DLI and no EXEC PGM=DFSRRC00 step in the scanned artifacts",
+    "programs": [],
+    "regions": [],
+    "dds": [],
+    "psbs": [],
+    "psbgen": [],
+    "dbdgen": [],
+    "psbgen_scanned": false
+  },
+  "idms": {
+    "present": false,
+    "statement": "IDMS not found: no EXEC IDMS, no COPY IDMS, no CALL to IDMS/IDMSCALC/IDMSIN01 and no IDMS DD/utility step in the scanned artifacts",
+    "run_mode": null,
+    "programs": [],
+    "dds": [],
+    "utilities": [],
+    "parameters": [],
+    "subschemas": []
+  },
+  "files": [],
+  "datasets": [],
+  "cics": {
+    "files": [
+      {
+        "name": "ACCTDAT",
+        "uses": [
+          {
+            "program": "COACCT01",
+            "command": "READ",
+            "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:396",
+            "resource_kind": "file",
+            "resource": "ACCTDAT",
+            "resolution": "constant",
+            "resolution_detail": "LIT-ACCTFILENAME VALUE at ../app/app-vsam-mq/cbl/COACCT01.cbl:115",
+            "commarea": false,
+            "channel": null,
+            "sysid": null,
+            "commarea_item": null,
+            "commarea_length": "LENGTH OF ACCOUNT-RECORD"
+          }
+        ],
+        "csd": null
+      }
+    ],
+    "ts_queues": [],
+    "td_queues": [],
+    "program_links": [],
+    "transactions": [
+      {
+        "transid": "CDRA",
+        "uses": [],
+        "csd": {
+          "program": "COACCT01",
+          "group": "CARDDEMO",
+          "source": "../app/app-vsam-mq/csd/CRDDEMOM.csd:17",
+          "remote": null
+        }
+      },
+      {
+        "transid": "CDRD",
+        "uses": [],
+        "csd": {
+          "program": "CODATE01",
+          "group": "CARDDEMO",
+          "source": "../app/app-vsam-mq/csd/CRDDEMOM.csd:27",
+          "remote": null
+        }
+      }
+    ],
+    "maps": [],
+    "external": [],
+    "csd": {
+      "PROGRAM": [
+        {
+          "action": "DEFINE",
+          "type": "PROGRAM",
+          "name": "COACCT01",
+          "group": "CARDDEMO",
+          "attrs": {
+            "DESCRIPTION": "LIST CARDS",
+            "RESIDENT": "NO",
+            "STATUS": "ENABLED",
+            "DATALOCATION": "ANY",
+            "EXECKEY": "USER",
+            "CONCURRENCY": "QUASIRENT",
+            "DYNAMIC": "NO"
+          },
+          "source": "../app/app-vsam-mq/csd/CRDDEMOM.csd:1"
+        },
+        {
+          "action": "DEFINE",
+          "type": "PROGRAM",
+          "name": "CODATE01",
+          "group": "CARDDEMO",
+          "attrs": {
+            "DESCRIPTION": "LIST CARDS",
+            "RESIDENT": "NO",
+            "STATUS": "ENABLED",
+            "DATALOCATION": "ANY",
+            "EXECKEY": "USER",
+            "CONCURRENCY": "QUASIRENT",
+            "DYNAMIC": "NO"
+          },
+          "source": "../app/app-vsam-mq/csd/CRDDEMOM.csd:9"
+        }
+      ],
+      "TRANSACTION": [
+        {
+          "action": "DEFINE",
+          "type": "TRANSACTION",
+          "name": "CDRA",
+          "group": "CARDDEMO",
+          "attrs": {
+            "PROGRAM": "COACCT01",
+            "TWASIZE": "0",
+            "PROFILE": "DFHCICST",
+            "TASKDATALOC": "ANY",
+            "DYNAMIC": "NO"
+          },
+          "source": "../app/app-vsam-mq/csd/CRDDEMOM.csd:17"
+        },
+        {
+          "action": "DEFINE",
+          "type": "TRANSACTION",
+          "name": "CDRD",
+          "group": "CARDDEMO",
+          "attrs": {
+            "PROGRAM": "CODATE01",
+            "TWASIZE": "0",
+            "PROFILE": "DFHCICST",
+            "TASKDATALOC": "ANY",
+            "DYNAMIC": "NO"
+          },
+          "source": "../app/app-vsam-mq/csd/CRDDEMOM.csd:27"
+        }
+      ],
+      "LIBRARY": [
+        {
+          "action": "DEFINE",
+          "type": "LIBRARY",
+          "name": "CARDDLIB",
+          "group": "CARDDEMO",
+          "attrs": {
+            "RANKING": "50",
+            "CRITICAL": "NO",
+            "STATUS": "ENABLED",
+            "DSNAME01": "AWS.M2.CARDDEMO.LOADLIB",
+            "DEFINETIME": "23/03/23 15:10:46",
+            "CHANGETIME": "23/03/23 15:10:46",
+            "CHANGEUSRID": "GILBION",
+            "CHANGEAGENT": "CSDBATCH",
+            "CHANGEAGREL": "0730"
+          },
+          "source": "../app/app-vsam-mq/csd/CRDDEMOM.csd:37"
+        }
+      ]
+    },
+    "csd_scanned": true,
+    "commands_by_program": {
+      "COACCT01": {
+        "RETRIEVE": 1,
+        "SYNCPOINT": 1,
+        "READ": 1,
+        "RETURN": 1
+      },
+      "CODATE01": {
+        "RETRIEVE": 1,
+        "SYNCPOINT": 1,
+        "ASKTIME": 1,
+        "FORMATTIME": 1,
+        "RETURN": 1
+      }
+    },
+    "submits": []
+  },
+  "external": {
+    "static_calls": [],
+    "dynamic_calls": [],
+    "mq": [
+      {
+        "program": "COACCT01",
+        "api": "MQOPEN",
+        "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:233"
+      },
+      {
+        "program": "COACCT01",
+        "api": "MQOPEN",
+        "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:267"
+      },
+      {
+        "program": "COACCT01",
+        "api": "MQOPEN",
+        "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:302"
+      },
+      {
+        "program": "COACCT01",
+        "api": "MQGET",
+        "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:352"
+      },
+      {
+        "program": "COACCT01",
+        "api": "MQPUT",
+        "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:479"
+      },
+      {
+        "program": "COACCT01",
+        "api": "MQPUT",
+        "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:516"
+      },
+      {
+        "program": "COACCT01",
+        "api": "MQCLOSE",
+        "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:557"
+      },
+      {
+        "program": "COACCT01",
+        "api": "MQCLOSE",
+        "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:579"
+      },
+      {
+        "program": "COACCT01",
+        "api": "MQCLOSE",
+        "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:602"
+      },
+      {
+        "program": "CODATE01",
+        "api": "MQOPEN",
+        "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:182"
+      },
+      {
+        "program": "CODATE01",
+        "api": "MQOPEN",
+        "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:216"
+      },
+      {
+        "program": "CODATE01",
+        "api": "MQOPEN",
+        "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:251"
+      },
+      {
+        "program": "CODATE01",
+        "api": "MQGET",
+        "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:301"
+      },
+      {
+        "program": "CODATE01",
+        "api": "MQPUT",
+        "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:383"
+      },
+      {
+        "program": "CODATE01",
+        "api": "MQPUT",
+        "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:420"
+      },
+      {
+        "program": "CODATE01",
+        "api": "MQCLOSE",
+        "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:461"
+      },
+      {
+        "program": "CODATE01",
+        "api": "MQCLOSE",
+        "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:483"
+      },
+      {
+        "program": "CODATE01",
+        "api": "MQCLOSE",
+        "source": "../app/app-vsam-mq/cbl/CODATE01.cbl:506"
+      }
+    ],
+    "utility_steps": [],
+    "launcher_steps": [],
+    "modules": [],
+    "candidate_modules": [],
+    "runtime_routines": []
+  },
+  "asks": [
+    {
+      "kind": "cics-file-undefined",
+      "severity": "medium",
+      "message": "CICS FILE ACCTDAT is used by COACCT01 but no DEFINE FILE(ACCTDAT) exists in the scanned CSD input",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:396"
+      ],
+      "request": "Provide the CSD definition (CEDA VIEW FILE(ACCTDAT)) or confirm the resource is remote/defined elsewhere"
+    },
+    {
+      "kind": "mq-usage",
+      "severity": "medium",
+      "message": "program(s) COACCT01, CODATE01 call the MQ API (MQCLOSE, MQGET, MQOPEN, MQPUT) \u2014 queue manager and queue names are MQOD/MQCNO fields set at run time",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:233",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:267",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:302",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:352",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:479",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:516"
+      ],
+      "request": "Provide the queue manager name(s) and queue definitions (DISPLAY QLOCAL) these programs use, or the copybook/control file that sets MQOD-OBJECTNAME"
+    }
+  ]
+}

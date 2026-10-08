@@ -1,0 +1,1976 @@
+{
+  "meta": {
+    "module": "CARDDEMO",
+    "generated_at": "2026-10-08T04:11:45Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {}
+  },
+  "findings": [
+    {
+      "kind": "file-dd-missing",
+      "severity": "high",
+      "message": "job CBIMPORT step STEP01 runs CBIMPORT, which opens file CARD-OUTPUT through DD CARDOUT, but the step allocates no DD CARDOUT",
+      "evidence": [
+        "../app/cbl/CBIMPORT.cbl:63",
+        "../app/jcl/CBIMPORT.jcl:22"
+      ],
+      "request": "Provide the DD CARDOUT allocation for job CBIMPORT step STEP01 (or the PROC/override that supplies it)",
+      "status": "open",
+      "id": "F0001",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-environment-topology",
+      "severity": "high",
+      "message": "CARDDEMO profile: environment_topology is not in the store \u2014 which LPARs and environments (production / test / DR) the estate has \u2014 the scanned JCL allocates datasets under the high-level qualifier(s) AWS, OEM: a naming observation, which is not proof of which LPAR or environment runs them",
+      "evidence": [
+        "../app/jcl/ACCTFILE.jcl:56",
+        "../app/jcl/ACCTFILE.jcl:58",
+        "../app/jcl/CARDFILE.jcl:70",
+        "../app/jcl/CARDFILE.jcl:72",
+        "../app/jcl/CBEXPORT.jcl:44",
+        "../app/jcl/CBEXPORT.jcl:49",
+        "../app/jcl/CBEXPORT.jcl:51",
+        "../app/jcl/CBEXPORT.jcl:53"
+      ],
+      "request": "State the LPARs and environments, how a dataset or job name says which one it belongs to, and which sysplex they sit in: the scan can only list the qualifiers it saw",
+      "status": "open",
+      "id": "F0002",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-masking-policy",
+      "severity": "high",
+      "message": "CARDDEMO profile: masking_policy is not in the store \u2014 what may leave the estate, and in what shape",
+      "evidence": [],
+      "request": "State the data-masking policy for extracted test data (which fields must be masked, whether production data may leave the estate at all)",
+      "status": "open",
+      "id": "F0003",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-test-lpar",
+      "severity": "high",
+      "message": "CARDDEMO profile: test_lpar is not in the store \u2014 whether a test LPAR is available to run the migrated code against",
+      "evidence": [],
+      "request": "Confirm whether a test LPAR (or a sandbox subsystem) is available for parallel runs, and who can grant access",
+      "status": "open",
+      "id": "F0004",
+      "owner": "human"
+    },
+    {
+      "kind": "chain-schedule-unknown",
+      "severity": "medium",
+      "message": "scheduler table CARDDEMO orders 17 job(s) but the export states no frequency for 17 of them, window for 17 of them, deadline for 17 of them, owner for 17 of them \u2014 unproven, and the table's name is not evidence",
+      "evidence": [
+        "../app/scheduler/CardDemo.ca7"
+      ],
+      "request": "Provide, for CARDDEMO: the calendar / run frequency (DAYS, WDAYS, a calendar member or a cyclic definition); the submission window (TIMEFROM/TIMETO, or the shift it runs in); the deadline the chain owes (DUE OUT / SLA); the user the jobs are submitted as (RUN_AS / OWNER)",
+      "status": "open",
+      "id": "F0005",
+      "owner": "human"
+    },
+    {
+      "kind": "chain-schedule-unknown",
+      "severity": "medium",
+      "message": "scheduler table MONTHLY-InterestCalculation orders 5 job(s) but the export states no frequency for 5 of them, deadline for 5 of them, runtime for 5 of them \u2014 unproven, and the table's name is not evidence",
+      "evidence": [
+        "../app/scheduler/CardDemo.controlm"
+      ],
+      "request": "Provide, for MONTHLY-InterestCalculation: the calendar / run frequency (DAYS, WDAYS, a calendar member or a cyclic definition); the deadline the chain owes (DUE OUT / SLA); the expected CPU and elapsed time per job",
+      "status": "open",
+      "id": "F0006",
+      "owner": "human"
+    },
+    {
+      "kind": "chain-schedule-unknown",
+      "severity": "medium",
+      "message": "scheduler table WEEKLY-TransactionTypesDBRefresh orders 1 job(s) but the export states no frequency for 1 of them, deadline for 1 of them, runtime for 1 of them \u2014 unproven, and the table's name is not evidence",
+      "evidence": [
+        "../app/scheduler/CardDemo.controlm"
+      ],
+      "request": "Provide, for WEEKLY-TransactionTypesDBRefresh: the calendar / run frequency (DAYS, WDAYS, a calendar member or a cyclic definition); the deadline the chain owes (DUE OUT / SLA); the expected CPU and elapsed time per job",
+      "status": "open",
+      "id": "F0007",
+      "owner": "human"
+    },
+    {
+      "kind": "cics-internal-reader-unconfirmed",
+      "severity": "medium",
+      "message": "program CORPT00C writes JCL for job TRNRPT00 (PROC TRANREPT) to TDQUEUE JOBS, an extrapartition output queue on DDNAME INREADER \u2014 the submit only reaches JES if that DD is the internal reader, which is declared in the region startup JCL, not in any scanned input",
+      "evidence": [
+        "../app/cbl/CORPT00C.cbl:517",
+        "../app/csd/CARDDEMO.CSD:499"
+      ],
+      "request": "Provide the CICS region startup JCL (or confirm) that DD INREADER is SYSOUT=(,INTRDR)",
+      "status": "open",
+      "id": "F0008",
+      "owner": "human"
+    },
+    {
+      "kind": "cics-resource-variable",
+      "severity": "medium",
+      "message": "program COACTUPC: EXEC CICS SEND MAP names its map through data item CCARD-NEXT-MAPSET; CCARD-NEXT-MAPSET is written at ../app/cbl/COACTUPC.cbl:1032, ../app/cbl/COACTUPC.cbl:3591 (value is run-time data)",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:3594"
+      ],
+      "request": "Determine the value(s) CCARD-NEXT-MAPSET holds when COACTUPC runs EXEC CICS SEND MAP (trace its writers; it may come from a COMMAREA, a table or a control file)",
+      "status": "open",
+      "id": "F0009",
+      "owner": "agent"
+    },
+    {
+      "kind": "cics-resource-variable",
+      "severity": "medium",
+      "message": "program COACTVWC: EXEC CICS SEND MAP names its map through data item CCARD-NEXT-MAPSET; CCARD-NEXT-MAPSET is written at ../app/cbl/COACTVWC.cbl:579, ../app/cbl/COACTVWC.cbl:603 (value is run-time data)",
+      "evidence": [
+        "../app/cbl/COACTVWC.cbl:583"
+      ],
+      "request": "Determine the value(s) CCARD-NEXT-MAPSET holds when COACTVWC runs EXEC CICS SEND MAP (trace its writers; it may come from a COMMAREA, a table or a control file)",
+      "status": "open",
+      "id": "F0010",
+      "owner": "agent"
+    },
+    {
+      "kind": "cics-resource-variable",
+      "severity": "medium",
+      "message": "program COCRDSLC: EXEC CICS SEND MAP names its map through data item CCARD-NEXT-MAPSET; CCARD-NEXT-MAPSET is written at ../app/cbl/COCRDSLC.cbl:565, ../app/cbl/COCRDSLC.cbl:589 (value is run-time data)",
+      "evidence": [
+        "../app/cbl/COCRDSLC.cbl:569"
+      ],
+      "request": "Determine the value(s) CCARD-NEXT-MAPSET holds when COCRDSLC runs EXEC CICS SEND MAP (trace its writers; it may come from a COMMAREA, a table or a control file)",
+      "status": "open",
+      "id": "F0011",
+      "owner": "agent"
+    },
+    {
+      "kind": "cics-resource-variable",
+      "severity": "medium",
+      "message": "program COCRDUPC: EXEC CICS SEND MAP names its map through data item CCARD-NEXT-MAPSET; CCARD-NEXT-MAPSET is written at ../app/cbl/COCRDUPC.cbl:1326, ../app/cbl/COCRDUPC.cbl:571 (value is run-time data)",
+      "evidence": [
+        "../app/cbl/COCRDUPC.cbl:1329"
+      ],
+      "request": "Determine the value(s) CCARD-NEXT-MAPSET holds when COCRDUPC runs EXEC CICS SEND MAP (trace its writers; it may come from a COMMAREA, a table or a control file)",
+      "status": "open",
+      "id": "F0012",
+      "owner": "agent"
+    },
+    {
+      "kind": "cics-submitted-jcl-open",
+      "severity": "medium",
+      "message": "program CORPT00C: the JCL written to TDQUEUE JOBS is only partly resolved \u2014 JOB-LINES OCCURS 1000 but JOB-DATA-1 only initialises 17 occurrence(s)",
+      "evidence": [
+        "../app/cbl/CORPT00C.cbl:82"
+      ],
+      "request": "Determine how occurrence(s) 18..1000 of JOB-LINES are loaded",
+      "status": "open",
+      "id": "F0013",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "2 sites (../app/cbl/COMEN01C.cbl:156, ../app/cbl/COMEN01C.cbl:184): CDEMO-MENU-OPT OCCURS 12 but CDEMO-MENU-OPTIONS-DATA only initialises 11 occurrence(s) [feeds CDEMO-MENU-OPT-PGMNAME] \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COMEN01C.cbl:156",
+        "../app/cbl/COMEN01C.cbl:184",
+        "../app/cpy/COMEN02Y.cpy:22"
+      ],
+      "request": "Determine how occurrence(s) 12..12 of CDEMO-MENU-OPT are loaded",
+      "status": "open",
+      "site": "../app/cbl/COMEN01C.cbl:156",
+      "sites": [
+        "../app/cbl/COMEN01C.cbl:156",
+        "../app/cbl/COMEN01C.cbl:184"
+      ],
+      "end_kind": "table-values-partial",
+      "id": "F0014",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "2 sites (../app/cbl/COTRN00C.cbl:192, ../app/cbl/COTRN00C.cbl:518): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COTRN00C.cbl:192",
+        "../app/cbl/COTRN00C.cbl:518",
+        "../app/cbl/COTRN00C.cbl:87"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COTRN00C.cbl:192",
+      "sites": [
+        "../app/cbl/COTRN00C.cbl:192",
+        "../app/cbl/COTRN00C.cbl:518"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0015",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "3 sites (../app/cbl/COUSR00C.cbl:196, ../app/cbl/COUSR00C.cbl:206, ../app/cbl/COUSR00C.cbl:514): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COUSR00C.cbl:196",
+        "../app/cbl/COUSR00C.cbl:206",
+        "../app/cbl/COUSR00C.cbl:514",
+        "../app/cbl/COUSR00C.cbl:90"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COUSR00C.cbl:196",
+      "sites": [
+        "../app/cbl/COUSR00C.cbl:196",
+        "../app/cbl/COUSR00C.cbl:206",
+        "../app/cbl/COUSR00C.cbl:514"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0016",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COACTUPC CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COACTUPC.cbl:956): CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:956",
+        "../app/cbl/COACTUPC.cbl:854"
+      ],
+      "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COACTUPC.cbl:956",
+      "sites": [
+        "../app/cbl/COACTUPC.cbl:956"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0017",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COACTUPC CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COACTUPC.cbl:956): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:956",
+        "../app/cbl/COACTUPC.cbl:854"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COACTUPC.cbl:956",
+      "sites": [
+        "../app/cbl/COACTUPC.cbl:956"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0018",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COACTVWC CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COACTVWC.cbl:349): CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COACTVWC.cbl:349",
+        "../app/cbl/COACTVWC.cbl:257"
+      ],
+      "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COACTVWC.cbl:349",
+      "sites": [
+        "../app/cbl/COACTVWC.cbl:349"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0019",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COACTVWC CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COACTVWC.cbl:349): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COACTVWC.cbl:349",
+        "../app/cbl/COACTVWC.cbl:257"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COACTVWC.cbl:349",
+      "sites": [
+        "../app/cbl/COACTVWC.cbl:349"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0020",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COADM01C CICS-XCTL CDEMO-ADMIN-OPT-PGMNAME (../app/cbl/COADM01C.cbl:145): CDEMO-ADMIN-OPT OCCURS 9 but CDEMO-ADMIN-OPTIONS-DATA only initialises 6 occurrence(s) [feeds CDEMO-ADMIN-OPT-PGMNAME] \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COADM01C.cbl:145",
+        "../app/cpy/COADM02Y.cpy:24"
+      ],
+      "request": "Determine how occurrence(s) 7..9 of CDEMO-ADMIN-OPT are loaded",
+      "status": "open",
+      "site": "../app/cbl/COADM01C.cbl:145",
+      "sites": [
+        "../app/cbl/COADM01C.cbl:145"
+      ],
+      "end_kind": "table-values-partial",
+      "id": "F0021",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COADM01C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COADM01C.cbl:168): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COADM01C.cbl:168",
+        "../app/cbl/COADM01C.cbl:67"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COADM01C.cbl:168",
+      "sites": [
+        "../app/cbl/COADM01C.cbl:168"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0022",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COBIL00C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COBIL00C.cbl:281): CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COBIL00C.cbl:281",
+        "../app/cbl/COBIL00C.cbl:91"
+      ],
+      "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COBIL00C.cbl:281",
+      "sites": [
+        "../app/cbl/COBIL00C.cbl:281"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0023",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COBIL00C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COBIL00C.cbl:281): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COBIL00C.cbl:281",
+        "../app/cbl/COBIL00C.cbl:91"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COBIL00C.cbl:281",
+      "sites": [
+        "../app/cbl/COBIL00C.cbl:281"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0024",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COCRDSLC CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COCRDSLC.cbl:331): CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COCRDSLC.cbl:331",
+        "../app/cbl/COCRDSLC.cbl:243"
+      ],
+      "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COCRDSLC.cbl:331",
+      "sites": [
+        "../app/cbl/COCRDSLC.cbl:331"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0025",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COCRDSLC CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COCRDSLC.cbl:331): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COCRDSLC.cbl:331",
+        "../app/cbl/COCRDSLC.cbl:243"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COCRDSLC.cbl:331",
+      "sites": [
+        "../app/cbl/COCRDSLC.cbl:331"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0026",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COCRDUPC CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COCRDUPC.cbl:473): CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COCRDUPC.cbl:473",
+        "../app/cbl/COCRDUPC.cbl:362"
+      ],
+      "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COCRDUPC.cbl:473",
+      "sites": [
+        "../app/cbl/COCRDUPC.cbl:473"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0027",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COCRDUPC CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COCRDUPC.cbl:473): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COCRDUPC.cbl:473",
+        "../app/cbl/COCRDUPC.cbl:362"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COCRDUPC.cbl:473",
+      "sites": [
+        "../app/cbl/COCRDUPC.cbl:473"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0028",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COMEN01C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COMEN01C.cbl:201): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COMEN01C.cbl:201",
+        "../app/cbl/COMEN01C.cbl:67"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COMEN01C.cbl:201",
+      "sites": [
+        "../app/cbl/COMEN01C.cbl:201"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0029",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "CORPT00C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/CORPT00C.cbl:548): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/CORPT00C.cbl:548",
+        "../app/cbl/CORPT00C.cbl:155"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/CORPT00C.cbl:548",
+      "sites": [
+        "../app/cbl/CORPT00C.cbl:548"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0030",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COTRN01C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COTRN01C.cbl:205): CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COTRN01C.cbl:205",
+        "../app/cbl/COTRN01C.cbl:78"
+      ],
+      "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COTRN01C.cbl:205",
+      "sites": [
+        "../app/cbl/COTRN01C.cbl:205"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0031",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COTRN01C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COTRN01C.cbl:205): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COTRN01C.cbl:205",
+        "../app/cbl/COTRN01C.cbl:78"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COTRN01C.cbl:205",
+      "sites": [
+        "../app/cbl/COTRN01C.cbl:205"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0032",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COTRN02C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COTRN02C.cbl:508): CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COTRN02C.cbl:508",
+        "../app/cbl/COTRN02C.cbl:99"
+      ],
+      "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COTRN02C.cbl:508",
+      "sites": [
+        "../app/cbl/COTRN02C.cbl:508"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0033",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COTRN02C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COTRN02C.cbl:508): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COTRN02C.cbl:508",
+        "../app/cbl/COTRN02C.cbl:99"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COTRN02C.cbl:508",
+      "sites": [
+        "../app/cbl/COTRN02C.cbl:508"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0034",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COUSR01C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COUSR01C.cbl:175): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COUSR01C.cbl:175",
+        "../app/cbl/COUSR01C.cbl:63"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COUSR01C.cbl:175",
+      "sites": [
+        "../app/cbl/COUSR01C.cbl:175"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0035",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COUSR02C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COUSR02C.cbl:258): CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COUSR02C.cbl:258",
+        "../app/cbl/COUSR02C.cbl:74"
+      ],
+      "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COUSR02C.cbl:258",
+      "sites": [
+        "../app/cbl/COUSR02C.cbl:258"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0036",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COUSR02C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COUSR02C.cbl:258): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COUSR02C.cbl:258",
+        "../app/cbl/COUSR02C.cbl:74"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COUSR02C.cbl:258",
+      "sites": [
+        "../app/cbl/COUSR02C.cbl:258"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0037",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COUSR03C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COUSR03C.cbl:205): CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COUSR03C.cbl:205",
+        "../app/cbl/COUSR03C.cbl:74"
+      ],
+      "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COUSR03C.cbl:205",
+      "sites": [
+        "../app/cbl/COUSR03C.cbl:205"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0038",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COUSR03C CICS-XCTL CDEMO-TO-PROGRAM (../app/cbl/COUSR03C.cbl:205): CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/cbl/COUSR03C.cbl:205",
+        "../app/cbl/COUSR03C.cbl:74"
+      ],
+      "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+      "status": "open",
+      "site": "../app/cbl/COUSR03C.cbl:205",
+      "sites": [
+        "../app/cbl/COUSR03C.cbl:205"
+      ],
+      "end_kind": "layout-mismatch",
+      "id": "F0039",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-unknown-target",
+      "severity": "medium",
+      "message": "COADM01C CICS-XCTL CDEMO-ADMIN-OPT-PGMNAME (../app/cbl/COADM01C.cbl:145): candidate target(s) COTRTLIC, COTRTUPC are not in the scanned sources",
+      "evidence": [
+        "../app/cbl/COADM01C.cbl:145",
+        "../app/cpy/COADM02Y.cpy:24"
+      ],
+      "request": "Confirm ownership of COTRTLIC, COTRTUPC and provide the source if it belongs to this module",
+      "status": "open",
+      "site": "../app/cbl/COADM01C.cbl:145",
+      "id": "F0040",
+      "owner": "human"
+    },
+    {
+      "kind": "dynamic-call-unknown-target",
+      "severity": "medium",
+      "message": "COMEN01C CICS-XCTL CDEMO-MENU-OPT-PGMNAME (../app/cbl/COMEN01C.cbl:156): candidate target(s) COPAUS0C are not in the scanned sources",
+      "evidence": [
+        "../app/cbl/COMEN01C.cbl:156",
+        "../app/cpy/COMEN02Y.cpy:22"
+      ],
+      "request": "Confirm ownership of COPAUS0C and provide the source if it belongs to this module",
+      "status": "open",
+      "site": "../app/cbl/COMEN01C.cbl:156",
+      "id": "F0041",
+      "owner": "human"
+    },
+    {
+      "kind": "dynamic-call-unknown-target",
+      "severity": "medium",
+      "message": "COMEN01C CICS-XCTL CDEMO-MENU-OPT-PGMNAME (../app/cbl/COMEN01C.cbl:184): candidate target(s) COPAUS0C are not in the scanned sources",
+      "evidence": [
+        "../app/cbl/COMEN01C.cbl:184",
+        "../app/cpy/COMEN02Y.cpy:22"
+      ],
+      "request": "Confirm ownership of COPAUS0C and provide the source if it belongs to this module",
+      "status": "open",
+      "site": "../app/cbl/COMEN01C.cbl:184",
+      "id": "F0042",
+      "owner": "human"
+    },
+    {
+      "kind": "external-control-cards",
+      "severity": "medium",
+      "message": "job PRTCATBL step STEP05R runs IDCAMS with SYSIN from AWS.M2.CARDDEMO.CNTL(REPROCT) \u2014 the cluster/GDG definitions it applies are not in the repo",
+      "evidence": [
+        "../app/proc/REPROC.prc:21"
+      ],
+      "request": "Provide the contents of AWS.M2.CARDDEMO.CNTL(REPROCT)",
+      "status": "open",
+      "id": "F0043",
+      "owner": "human"
+    },
+    {
+      "kind": "external-control-cards",
+      "severity": "medium",
+      "message": "job TRANBKP step STEP05R runs IDCAMS with SYSIN from AWS.M2.CARDDEMO.CNTL(REPROCT) \u2014 the cluster/GDG definitions it applies are not in the repo",
+      "evidence": [
+        "../app/proc/REPROC.prc:21"
+      ],
+      "request": "Provide the contents of AWS.M2.CARDDEMO.CNTL(REPROCT)",
+      "status": "open",
+      "id": "F0044",
+      "owner": "human"
+    },
+    {
+      "kind": "external-control-cards",
+      "severity": "medium",
+      "message": "job TRANREPT step STEP05R runs IDCAMS with SYSIN from AWS.M2.CARDDEMO.CNTL(REPROCT) \u2014 the cluster/GDG definitions it applies are not in the repo",
+      "evidence": [
+        "../app/proc/REPROC.prc:21"
+      ],
+      "request": "Provide the contents of AWS.M2.CARDDEMO.CNTL(REPROCT)",
+      "status": "open",
+      "id": "F0045",
+      "owner": "human"
+    },
+    {
+      "kind": "file-dd-unbound",
+      "severity": "medium",
+      "message": "program CBTRN01C declares file ACCOUNT-FILE (DD ACCTFILE, INDEXED) but no scanned job step runs it, a program that statically CALLs it, or a program whose dynamic-call candidates include it, so the DD is bound to no dataset",
+      "evidence": [
+        "../app/cbl/CBTRN01C.cbl:52"
+      ],
+      "request": "Provide the JCL that runs CBTRN01C (to bind DD ACCTFILE)",
+      "status": "open",
+      "id": "F0046",
+      "owner": "human"
+    },
+    {
+      "kind": "file-dd-unbound",
+      "severity": "medium",
+      "message": "program CBTRN01C declares file CARD-FILE (DD CARDFILE, INDEXED) but no scanned job step runs it, a program that statically CALLs it, or a program whose dynamic-call candidates include it, so the DD is bound to no dataset",
+      "evidence": [
+        "../app/cbl/CBTRN01C.cbl:46"
+      ],
+      "request": "Provide the JCL that runs CBTRN01C (to bind DD CARDFILE)",
+      "status": "open",
+      "id": "F0047",
+      "owner": "human"
+    },
+    {
+      "kind": "file-dd-unbound",
+      "severity": "medium",
+      "message": "program CBTRN01C declares file CUSTOMER-FILE (DD CUSTFILE, INDEXED) but no scanned job step runs it, a program that statically CALLs it, or a program whose dynamic-call candidates include it, so the DD is bound to no dataset",
+      "evidence": [
+        "../app/cbl/CBTRN01C.cbl:34"
+      ],
+      "request": "Provide the JCL that runs CBTRN01C (to bind DD CUSTFILE)",
+      "status": "open",
+      "id": "F0048",
+      "owner": "human"
+    },
+    {
+      "kind": "file-dd-unbound",
+      "severity": "medium",
+      "message": "program CBTRN01C declares file DALYTRAN-FILE (DD DALYTRAN, SEQUENTIAL) but no scanned job step runs it, a program that statically CALLs it, or a program whose dynamic-call candidates include it, so the DD is bound to no dataset",
+      "evidence": [
+        "../app/cbl/CBTRN01C.cbl:29"
+      ],
+      "request": "Provide the JCL that runs CBTRN01C (to bind DD DALYTRAN)",
+      "status": "open",
+      "id": "F0049",
+      "owner": "human"
+    },
+    {
+      "kind": "file-dd-unbound",
+      "severity": "medium",
+      "message": "program CBTRN01C declares file TRANSACT-FILE (DD TRANFILE, INDEXED) but no scanned job step runs it, a program that statically CALLs it, or a program whose dynamic-call candidates include it, so the DD is bound to no dataset",
+      "evidence": [
+        "../app/cbl/CBTRN01C.cbl:58"
+      ],
+      "request": "Provide the JCL that runs CBTRN01C (to bind DD TRANFILE)",
+      "status": "open",
+      "id": "F0050",
+      "owner": "human"
+    },
+    {
+      "kind": "file-dd-unbound",
+      "severity": "medium",
+      "message": "program CBTRN01C declares file XREF-FILE (DD XREFFILE, INDEXED) but no scanned job step runs it, a program that statically CALLs it, or a program whose dynamic-call candidates include it, so the DD is bound to no dataset",
+      "evidence": [
+        "../app/cbl/CBTRN01C.cbl:40"
+      ],
+      "request": "Provide the JCL that runs CBTRN01C (to bind DD XREFFILE)",
+      "status": "open",
+      "id": "F0051",
+      "owner": "human"
+    },
+    {
+      "kind": "module-outside-scan",
+      "severity": "medium",
+      "message": "module COBDATFT (in-estate-catalogued) is reached by CALL from CBACT01C: its source is ../app/asm/COBDATFT.asm, catalogued in the estate but not in this module's roots",
+      "evidence": [
+        "../app/asm/COBDATFT.asm:17",
+        "../app/cbl/CBACT01C.cbl:231"
+      ],
+      "request": "Scan ../app/asm/COBDATFT.asm as part of the module that owns COBDATFT (the estate catalog already has the member), or add it to this module's roots",
+      "status": "open",
+      "target": "COBDATFT",
+      "classification": "in-estate-catalogued",
+      "impact": "input-incomplete",
+      "id": "F0052",
+      "owner": "toolbox"
+    },
+    {
+      "kind": "module-outside-scan",
+      "severity": "medium",
+      "message": "module MVSWAIT (in-estate-catalogued) is reached by CALL from COBSWAIT: its source is ../app/asm/MVSWAIT.asm, catalogued in the estate but not in this module's roots",
+      "evidence": [
+        "../app/asm/MVSWAIT.asm:17",
+        "../app/cbl/COBSWAIT.cbl:38"
+      ],
+      "request": "Scan ../app/asm/MVSWAIT.asm as part of the module that owns MVSWAIT (the estate catalog already has the member), or add it to this module's roots",
+      "status": "open",
+      "target": "MVSWAIT",
+      "classification": "in-estate-catalogued",
+      "impact": "input-incomplete",
+      "id": "F0053",
+      "owner": "toolbox"
+    },
+    {
+      "kind": "profile-compiler",
+      "severity": "medium",
+      "message": "CARDDEMO profile: compiler is not in the store \u2014 which compiler builds the module",
+      "evidence": [],
+      "request": "Provide the compile JCL (Enterprise COBOL release and the PROC used) for the module",
+      "status": "open",
+      "id": "F0054",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-compiler-options",
+      "severity": "medium",
+      "message": "CARDDEMO profile: compiler_options is not in the store \u2014 which compiler options the module is built with",
+      "evidence": [],
+      "request": "Provide the compile step PARM= (NUMPROC, TRUNC, DYNAM, ARCH, ...) the module is built with; options change behaviour, so they belong to the build path",
+      "status": "open",
+      "id": "F0055",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-copybook-library",
+      "severity": "medium",
+      "message": "CARDDEMO profile: copybook_library_concatenation is not in the store \u2014 out of which libraries the module compiles its copybooks",
+      "evidence": [],
+      "request": "Provide the SYSLIB concatenation of the module's compile JCL (copybook library order)",
+      "status": "open",
+      "id": "F0056",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-database-managers",
+      "severity": "medium",
+      "message": "CARDDEMO profile: database_managers is not in the store \u2014 which database systems the estate runs, and at which level \u2014 assumed 'IBM Db2 for z/OS 12' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "List the database systems installed (Db2, IMS DL/I, IDMS, Adabas, ...) with their versions: the scan proves only what this module touches, which is a lower bound",
+      "status": "open",
+      "id": "F0057",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-db2-library-level",
+      "severity": "medium",
+      "message": "CARDDEMO profile: db2_library_level is not in the store \u2014 which DB2 level the module is built and run against",
+      "evidence": [],
+      "request": "Provide the DB2 library concatenation (SDSNLOAD / SDSNEXIT) of the module's steps, which names the DB2 level",
+      "status": "open",
+      "id": "F0058",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-db2-plans",
+      "severity": "medium",
+      "message": "CARDDEMO profile: db2_plans is not in the store \u2014 which plans the module runs under",
+      "evidence": [],
+      "request": "Provide the plan / package names the module runs under (DSN RUN cards or the bind JCL)",
+      "status": "open",
+      "id": "F0059",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-db2-subsystem",
+      "severity": "medium",
+      "message": "CARDDEMO profile: db2_subsystem is not in the store \u2014 which DB2 subsystem the module binds and runs against",
+      "evidence": [],
+      "request": "State the DB2 subsystem id the module runs against in production",
+      "status": "open",
+      "id": "F0060",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-library-manager",
+      "severity": "medium",
+      "message": "CARDDEMO profile: library_manager is not in the store \u2014 which source / change manager holds the members \u2014 assumed 'Broadcom Endevor' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the source library manager (Endevor, ChangeMan, Panvalet, Librarian, plain PDS) and how a member is promoted to production",
+      "status": "open",
+      "id": "F0061",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-online-monitors",
+      "severity": "medium",
+      "message": "CARDDEMO profile: online_monitors reads IBM CICS Transaction Server from this module's store, which is what this module proves and not what the estate has \u2014 which transaction monitors the estate runs, and at which level",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:1",
+        "../app/cbl/COACTUPC.cbl:956",
+        "../app/cbl/COACTVWC.cbl:1",
+        "../app/cbl/COACTVWC.cbl:349",
+        "../app/cbl/COADM01C.cbl:1",
+        "../app/cbl/COADM01C.cbl:145",
+        "../app/cbl/COADM01C.cbl:168",
+        "../app/cbl/COBIL00C.cbl:1"
+      ],
+      "request": "List the online monitors installed (CICS TS, IMS TM, none) with their versions: the scan proves only what this module uses, which is a lower bound",
+      "status": "open",
+      "id": "F0062",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-output-manager",
+      "severity": "medium",
+      "message": "CARDDEMO profile: output_manager is not in the store \u2014 which product owns the printed output once it leaves the spool \u2014 118 DD(s) write to SYSOUT: the jobs print, but a spool class never names the product that archives or delivers the output \u2014 assumed 'Broadcom CA View' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [
+        "../app/jcl/ACCTFILE.jcl:23",
+        "../app/jcl/ACCTFILE.jcl:34",
+        "../app/jcl/ACCTFILE.jcl:55",
+        "../app/jcl/CARDFILE.jcl:108",
+        "../app/jcl/CARDFILE.jcl:119",
+        "../app/jcl/CARDFILE.jcl:120",
+        "../app/jcl/CARDFILE.jcl:23",
+        "../app/jcl/CARDFILE.jcl:24"
+      ],
+      "request": "State the output / report manager (CA View, CA Deliver, Control-D, CA Spool) and what it does with each SYSOUT class the jobs write to",
+      "status": "open",
+      "id": "F0063",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-security-manager",
+      "severity": "medium",
+      "message": "CARDDEMO profile: security_manager is not in the store \u2014 which external security manager guards the datasets \u2014 assumed 'IBM RACF' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the security manager (RACF, CA ACF2, CA Top Secret) and who owns the dataset profiles",
+      "status": "open",
+      "id": "F0064",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-sort-product",
+      "severity": "medium",
+      "message": "CARDDEMO profile: sort_product is not in the store \u2014 which sort product PGM=SORT resolves to \u2014 4 step(s) run PGM=SORT, the site linkage alias: a sort runs, the product is unnamed \u2014 assumed 'IBM DFSORT' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [
+        "../app/jcl/COMBTRAN.jcl:22",
+        "../app/jcl/CREASTMT.JCL:44",
+        "../app/jcl/PRTCATBL.jcl:43",
+        "../app/jcl/TRANREPT.jcl:37"
+      ],
+      "request": "State the sort product installed (IBM DFSORT or Syncsort MFX): PGM=SORT is a linkage alias and does not say which one runs",
+      "status": "open",
+      "id": "F0065",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-standard-compiler",
+      "severity": "medium",
+      "message": "CARDDEMO profile: standard_compiler is not in the store \u2014 which compiler the shop builds production code with \u2014 assumed 'IBM Enterprise COBOL for z/OS 6.3' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the shop-standard compiler and release (Enterprise COBOL 6.x, ...); a single module's compile step is that module's, not the estate's",
+      "status": "open",
+      "id": "F0066",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-standard-compiler-options",
+      "severity": "medium",
+      "message": "CARDDEMO profile: standard_compiler_options is not in the store \u2014 which compile options the shop builds production code with \u2014 assumed 'RENT,NUMPROC(NOPFD),TRUNC(STD),ARCH(8),SSRANGE(NO)' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the shop-standard compile options (NUMPROC, TRUNC, ARCH, RENT, SSRANGE, ...) a module is expected to be built with",
+      "status": "open",
+      "id": "F0067",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-tape-manager",
+      "severity": "medium",
+      "message": "CARDDEMO profile: tape_manager is not in the store \u2014 which tape manager owns the volumes the jobs allocate \u2014 assumed 'Broadcom CA 1' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the tape / removable-media manager (CA 1, CA TLMS, DFSMSrmm) and the retention rules it applies: UNIT=TAPE proves tape is used, never which catalogue owns it",
+      "status": "open",
+      "id": "F0068",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-volumes",
+      "severity": "medium",
+      "message": "CARDDEMO profile: volumes is not in the store \u2014 how much data the module moves per run",
+      "evidence": [],
+      "request": "Provide the production volumes (records in / out per run, DB2 row counts, file sizes) the module handles",
+      "status": "open",
+      "id": "F0069",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-zos-version",
+      "severity": "medium",
+      "message": "CARDDEMO profile: zos_version is not in the store \u2014 which z/OS release the estate runs \u2014 assumed 'IBM z/OS 2.5' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the z/OS release of the production LPAR (D IPLINFO, or the release the shop is on)",
+      "status": "open",
+      "id": "F0070",
+      "owner": "human"
+    },
+    {
+      "kind": "scheduled-job-missing",
+      "severity": "medium",
+      "message": "scheduler table CARDDEMO orders job CBPAUP0J (no desc) but its JCL member was not found in the scanned libraries",
+      "evidence": [
+        "../app/scheduler/CardDemo.ca7:43"
+      ],
+      "request": "Provide JCL member CBPAUP0J from the production JCL library",
+      "status": "open",
+      "id": "F0071",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job ACCTFILE appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/ACCTFILE.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders ACCTFILE, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0072",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job CARDFILE appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/CARDFILE.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders CARDFILE, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0073",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job CBADMCDJ appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/CBADMCDJ.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders CBADMCDJ, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0074",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job CBEXPORT appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/CBEXPORT.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders CBEXPORT, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0075",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job CBIMPORT appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/CBIMPORT.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders CBIMPORT, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0076",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job CUSTFILE appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/CUSTFILE.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders CUSTFILE, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0077",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job DALYREJS appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/DALYREJS.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders DALYREJS, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0078",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job DEFCUST appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/DEFCUST.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders DEFCUST, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0079",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job DEFGDGB appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/DEFGDGB.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders DEFGDGB, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0080",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job DEFGDGD appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/DEFGDGD.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders DEFGDGD, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0081",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job DUSRSECJ appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/DUSRSECJ.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders DUSRSECJ, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0082",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job ESDSRRDS appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/ESDSRRDS.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders ESDSRRDS, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0083",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job FTPJCLS appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/FTPJCL.JCL"
+      ],
+      "request": "Provide the scheduler definition that orders FTPJCLS, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0084",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job INTRDRJ1 appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/INTRDRJ1.JCL"
+      ],
+      "request": "Provide the scheduler definition that orders INTRDRJ1, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0085",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job INTRDRJ2 appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/INTRDRJ2.JCL"
+      ],
+      "request": "Provide the scheduler definition that orders INTRDRJ2, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0086",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job REPTFILE appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/REPTFILE.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders REPTFILE, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0087",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job TRANFILE appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/TRANFILE.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders TRANFILE, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0088",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job TRANIDX appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/TRANIDX.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders TRANIDX, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0089",
+      "owner": "human"
+    },
+    {
+      "kind": "unscheduled-job",
+      "severity": "medium",
+      "message": "job XREFFILE appears in no provided scheduler table \u2014 its batch entry point is unproven (per the inventory contract, entry points need a runtime declaration)",
+      "evidence": [
+        "../app/jcl/XREFFILE.jcl"
+      ],
+      "request": "Provide the scheduler definition that orders XREFFILE, or confirm how it is triggered",
+      "status": "open",
+      "id": "F0090",
+      "owner": "human"
+    },
+    {
+      "kind": "chain-schedule-unknown",
+      "severity": "info",
+      "message": "scheduler table DAILY-TransactionBackup orders 4 job(s) but the export states no deadline for 4 of them, runtime for 4 of them \u2014 unproven, and the table's name is not evidence",
+      "evidence": [
+        "../app/scheduler/CardDemo.controlm"
+      ],
+      "request": "Provide, for DAILY-TransactionBackup: the deadline the chain owes (DUE OUT / SLA); the expected CPU and elapsed time per job",
+      "status": "open",
+      "id": "F0091",
+      "owner": "human"
+    },
+    {
+      "kind": "chain-schedule-unknown",
+      "severity": "info",
+      "message": "scheduler table DisclosureGroupsRefresh orders 4 job(s) but the export states no deadline for 4 of them, runtime for 4 of them \u2014 unproven, and the table's name is not evidence",
+      "evidence": [
+        "../app/scheduler/CardDemo.controlm"
+      ],
+      "request": "Provide, for DisclosureGroupsRefresh: the deadline the chain owes (DUE OUT / SLA); the expected CPU and elapsed time per job",
+      "status": "open",
+      "id": "F0092",
+      "owner": "human"
+    },
+    {
+      "kind": "chain-schedule-unknown",
+      "severity": "info",
+      "message": "scheduler table TransactionTypesDBRefresh orders 1 job(s) but the export states no deadline for 1 of them, runtime for 1 of them \u2014 unproven, and the table's name is not evidence",
+      "evidence": [
+        "../app/scheduler/CardDemo.controlm"
+      ],
+      "request": "Provide, for TransactionTypesDBRefresh: the deadline the chain owes (DUE OUT / SLA); the expected CPU and elapsed time per job",
+      "status": "open",
+      "id": "F0093",
+      "owner": "human"
+    },
+    {
+      "kind": "copybook-call-sites",
+      "severity": "info",
+      "message": "copybook CSUTLDPY contains 1 call site(s); they execute inside every including program (COACTUPC) \u2014 include them in path tracing",
+      "evidence": [
+        "../app/cpy/CSUTLDPY.cpy"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0094",
+      "owner": "agent"
+    },
+    {
+      "kind": "descriptions-unwritten",
+      "severity": "info",
+      "message": "6 of 7 business-logic summary(ies) are unwritten \u2014 the report renders them blank, which is not evidence that the artifacts have no business logic",
+      "evidence": [
+        "descriptions.json"
+      ],
+      "request": "Run the description pass of the inventory-analysis skill (it reads each artifact and writes descriptions.json with cited basis), or say descriptions are not wanted",
+      "status": "open",
+      "id": "F0095",
+      "owner": "agent"
+    },
+    {
+      "kind": "external-trigger",
+      "severity": "info",
+      "message": "table DisclosureGroupsRefresh job CLOSEFIL waits on condition WEEKLY-TransactionTypesDBRefresh-MNTTRDB2 (ODAT) with no producer in the table; posted by table WEEKLY-TransactionTypesDBRefresh (MNTTRDB2)",
+      "evidence": [
+        "../app/scheduler/CardDemo.controlm"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0096",
+      "owner": "informational"
+    },
+    {
+      "kind": "job-online-submitted",
+      "severity": "info",
+      "message": "job TRANREPT is submitted from CICS: CORPT00C writes its JCL to TDQUEUE JOBS, so its batch entry point is the online region, not a scheduler table",
+      "evidence": [
+        "../app/cbl/CORPT00C.cbl:517"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0097",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COACTUPC contains 17 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:862",
+        "../app/cbl/COACTUPC.cbl:952",
+        "../app/cbl/COACTUPC.cbl:956",
+        "../app/cbl/COACTUPC.cbl:1015",
+        "../app/cbl/COACTUPC.cbl:1040"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0098",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COACTVWC contains 15 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COACTVWC.cbl:264",
+        "../app/cbl/COACTVWC.cbl:349",
+        "../app/cbl/COACTVWC.cbl:402",
+        "../app/cbl/COACTVWC.cbl:583",
+        "../app/cbl/COACTVWC.cbl:611"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0099",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COADM01C contains 7 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COADM01C.cbl:77",
+        "../app/cbl/COADM01C.cbl:111",
+        "../app/cbl/COADM01C.cbl:145",
+        "../app/cbl/COADM01C.cbl:168",
+        "../app/cbl/COADM01C.cbl:182"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0100",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COBIL00C contains 13 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COBIL00C.cbl:146",
+        "../app/cbl/COBIL00C.cbl:251",
+        "../app/cbl/COBIL00C.cbl:255",
+        "../app/cbl/COBIL00C.cbl:281",
+        "../app/cbl/COBIL00C.cbl:295"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0101",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COCRDLIC contains 18 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COCRDLIC.cbl:402",
+        "../app/cbl/COCRDLIC.cbl:538",
+        "../app/cbl/COCRDLIC.cbl:566",
+        "../app/cbl/COCRDLIC.cbl:615",
+        "../app/cbl/COCRDLIC.cbl:939"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0102",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COCRDSLC contains 14 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COCRDSLC.cbl:250",
+        "../app/cbl/COCRDSLC.cbl:331",
+        "../app/cbl/COCRDSLC.cbl:402",
+        "../app/cbl/COCRDSLC.cbl:569",
+        "../app/cbl/COCRDSLC.cbl:597"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0103",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COCRDUPC contains 12 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COCRDUPC.cbl:370",
+        "../app/cbl/COCRDUPC.cbl:469",
+        "../app/cbl/COCRDUPC.cbl:473",
+        "../app/cbl/COCRDUPC.cbl:554",
+        "../app/cbl/COCRDUPC.cbl:579"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0104",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COMEN01C contains 7 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COMEN01C.cbl:107",
+        "../app/cbl/COMEN01C.cbl:148",
+        "../app/cbl/COMEN01C.cbl:156",
+        "../app/cbl/COMEN01C.cbl:184",
+        "../app/cbl/COMEN01C.cbl:201"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0105",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program CORPT00C contains 7 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/CORPT00C.cbl:199",
+        "../app/cbl/CORPT00C.cbl:517",
+        "../app/cbl/CORPT00C.cbl:548",
+        "../app/cbl/CORPT00C.cbl:563",
+        "../app/cbl/CORPT00C.cbl:571"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0106",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COSGN00C contains 10 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COSGN00C.cbl:98",
+        "../app/cbl/COSGN00C.cbl:110",
+        "../app/cbl/COSGN00C.cbl:151",
+        "../app/cbl/COSGN00C.cbl:164",
+        "../app/cbl/COSGN00C.cbl:171"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0107",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COTRN00C contains 10 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COTRN00C.cbl:138",
+        "../app/cbl/COTRN00C.cbl:192",
+        "../app/cbl/COTRN00C.cbl:518",
+        "../app/cbl/COTRN00C.cbl:534",
+        "../app/cbl/COTRN00C.cbl:542"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0108",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COTRN01C contains 5 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COTRN01C.cbl:136",
+        "../app/cbl/COTRN01C.cbl:205",
+        "../app/cbl/COTRN01C.cbl:219",
+        "../app/cbl/COTRN01C.cbl:232",
+        "../app/cbl/COTRN01C.cbl:269"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0109",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COTRN02C contains 11 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COTRN02C.cbl:156",
+        "../app/cbl/COTRN02C.cbl:508",
+        "../app/cbl/COTRN02C.cbl:522",
+        "../app/cbl/COTRN02C.cbl:530",
+        "../app/cbl/COTRN02C.cbl:541"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0110",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COUSR00C contains 11 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COUSR00C.cbl:141",
+        "../app/cbl/COUSR00C.cbl:196",
+        "../app/cbl/COUSR00C.cbl:206",
+        "../app/cbl/COUSR00C.cbl:514",
+        "../app/cbl/COUSR00C.cbl:529"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0111",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COUSR01C contains 5 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COUSR01C.cbl:107",
+        "../app/cbl/COUSR01C.cbl:175",
+        "../app/cbl/COUSR01C.cbl:190",
+        "../app/cbl/COUSR01C.cbl:203",
+        "../app/cbl/COUSR01C.cbl:240"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0112",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COUSR02C contains 6 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COUSR02C.cbl:135",
+        "../app/cbl/COUSR02C.cbl:258",
+        "../app/cbl/COUSR02C.cbl:272",
+        "../app/cbl/COUSR02C.cbl:285",
+        "../app/cbl/COUSR02C.cbl:322"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0113",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COUSR03C contains 6 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/cbl/COUSR03C.cbl:134",
+        "../app/cbl/COUSR03C.cbl:205",
+        "../app/cbl/COUSR03C.cbl:219",
+        "../app/cbl/COUSR03C.cbl:232",
+        "../app/cbl/COUSR03C.cbl:269"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0114",
+      "owner": "informational"
+    },
+    {
+      "kind": "profile-multiple-build-paths",
+      "severity": "info",
+      "message": "CARDDEMO is built and run under 2 build paths: BP01 = AWS.M2.CARDDEMO.LOADLIB; BP02 = AWS.M2.LBD.TXT2PDF.LOAD \u2014 the module is not one unit of migration, each path is",
+      "evidence": [
+        "../app/jcl/CBEXPORT.jcl:44",
+        "../app/jcl/CBIMPORT.jcl:23",
+        "../app/jcl/CREASTMT.JCL:80",
+        "../app/jcl/INTCALC.jcl:23",
+        "../app/jcl/POSTTRAN.jcl:24",
+        "../app/jcl/READACCT.jcl:33",
+        "../app/jcl/READCARD.jcl:23",
+        "../app/jcl/READCUST.jcl:22",
+        "../app/jcl/READXREF.jcl:23",
+        "../app/jcl/TRANREPT.jcl:60",
+        "../app/jcl/TXT2PDF1.JCL:28",
+        "../app/jcl/WAITSTEP.jcl:23"
+      ],
+      "request": "Confirm that the 2 build paths are intended (different DB2 level, load concatenation or compile options inside one module) and which one the migration targets",
+      "status": "open",
+      "id": "F0115",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program CBSTM03B is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/CBSTM03B.CBL"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0116",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program CBTRN01C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/CBTRN01C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0117",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COACTUPC is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0118",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COACTVWC is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COACTVWC.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0119",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COADM01C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COADM01C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0120",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COBIL00C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COBIL00C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0121",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COCRDLIC is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COCRDLIC.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0122",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COCRDSLC is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COCRDSLC.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0123",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COCRDUPC is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COCRDUPC.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0124",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COMEN01C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COMEN01C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0125",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program CORPT00C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/CORPT00C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0126",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COSGN00C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COSGN00C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0127",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COTRN00C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COTRN00C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0128",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COTRN01C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COTRN01C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0129",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COTRN02C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COTRN02C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0130",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COUSR00C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COUSR00C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0131",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COUSR01C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COUSR01C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0132",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COUSR02C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COUSR02C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0133",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COUSR03C is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/COUSR03C.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0134",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program CSUTLDTC is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/cbl/CSUTLDTC.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0135",
+      "owner": "informational"
+    },
+    {
+      "kind": "dynamic-call-resolved",
+      "severity": "info",
+      "message": "COCRDLIC CICS-XCTL CCARD-NEXT-PROG (../app/cbl/COCRDLIC.cbl:538) resolves to COCRDLIC, COCRDSLC, COCRDUPC",
+      "evidence": [
+        "../app/cbl/COCRDLIC.cbl:538"
+      ],
+      "request": null,
+      "status": "closed",
+      "site": "../app/cbl/COCRDLIC.cbl:538",
+      "closure": {
+        "by": "scanner",
+        "how": "14 deterministic hop(s): definition CCARD-NEXT-PROG -> move-item CCARD-NEXT-PROG -> definition LIT-THISPGM -> value-clause LIT-THISPGM -> move-item CCARD-NEXT-PROG -> definition LIT-CARDDTLPGM -> value-clause LIT-CARDDTLPGM -> move-item CCARD-NEXT-PROG -> definition LIT-CARDUPDPGM -> value-clause LIT-CARDUPDPGM -> move-item CCARD-NEXT-PROG -> cycle LIT-THISPGM -> move-item CCARD-NEXT-PROG -> cycle LIT-THISPGM",
+        "evidence": [
+          "../app/cbl/COCRDLIC.cbl:179",
+          "../app/cbl/COCRDLIC.cbl:195",
+          "../app/cbl/COCRDLIC.cbl:203",
+          "../app/cbl/COCRDLIC.cbl:428",
+          "../app/cbl/COCRDLIC.cbl:526",
+          "../app/cbl/COCRDLIC.cbl:554",
+          "../app/cbl/COCRDLIC.cbl:592",
+          "../app/cbl/COCRDLIC.cbl:600",
+          "../app/cpy/CVCRD01Y.cpy:21"
+        ]
+      },
+      "id": "F0136",
+      "owner": "informational"
+    },
+    {
+      "kind": "dynamic-call-resolved",
+      "severity": "info",
+      "message": "COCRDLIC CICS-XCTL CCARD-NEXT-PROG (../app/cbl/COCRDLIC.cbl:566) resolves to COCRDLIC, COCRDSLC, COCRDUPC",
+      "evidence": [
+        "../app/cbl/COCRDLIC.cbl:566"
+      ],
+      "request": null,
+      "status": "closed",
+      "site": "../app/cbl/COCRDLIC.cbl:566",
+      "closure": {
+        "by": "scanner",
+        "how": "14 deterministic hop(s): definition CCARD-NEXT-PROG -> move-item CCARD-NEXT-PROG -> definition LIT-THISPGM -> value-clause LIT-THISPGM -> move-item CCARD-NEXT-PROG -> definition LIT-CARDDTLPGM -> value-clause LIT-CARDDTLPGM -> move-item CCARD-NEXT-PROG -> definition LIT-CARDUPDPGM -> value-clause LIT-CARDUPDPGM -> move-item CCARD-NEXT-PROG -> cycle LIT-THISPGM -> move-item CCARD-NEXT-PROG -> cycle LIT-THISPGM",
+        "evidence": [
+          "../app/cbl/COCRDLIC.cbl:179",
+          "../app/cbl/COCRDLIC.cbl:195",
+          "../app/cbl/COCRDLIC.cbl:203",
+          "../app/cbl/COCRDLIC.cbl:428",
+          "../app/cbl/COCRDLIC.cbl:526",
+          "../app/cbl/COCRDLIC.cbl:554",
+          "../app/cbl/COCRDLIC.cbl:592",
+          "../app/cbl/COCRDLIC.cbl:600",
+          "../app/cpy/CVCRD01Y.cpy:21"
+        ]
+      },
+      "id": "F0137",
+      "owner": "informational"
+    },
+    {
+      "kind": "dynamic-call-resolved",
+      "severity": "info",
+      "message": "COCRDLIC CICS-XCTL LIT-MENUPGM (../app/cbl/COCRDLIC.cbl:402) resolves to COMEN01C",
+      "evidence": [
+        "../app/cbl/COCRDLIC.cbl:402"
+      ],
+      "request": null,
+      "status": "closed",
+      "site": "../app/cbl/COCRDLIC.cbl:402",
+      "closure": {
+        "by": "scanner",
+        "how": "2 deterministic hop(s): definition LIT-MENUPGM -> value-clause LIT-MENUPGM",
+        "evidence": [
+          "../app/cbl/COCRDLIC.cbl:187"
+        ]
+      },
+      "id": "F0138",
+      "owner": "informational"
+    },
+    {
+      "kind": "tso-exec",
+      "severity": "info",
+      "message": "job TXT2PDF1 step TXT2PDF runs launcher IKJEFT1B: SYSTSIN invokes CLIST/REXX exec %TXT2PDF (SYSPROC/SYSEXEC), not a load module",
+      "evidence": [
+        "../app/jcl/TXT2PDF1.JCL:24"
+      ],
+      "request": null,
+      "status": "closed",
+      "closure": {
+        "by": "scanner",
+        "how": "the SYSTSIN stream invokes %TXT2PDF, a CLIST/REXX exec resolved from SYSPROC/SYSEXEC at run time, so no load module is named",
+        "evidence": [
+          "../app/jcl/TXT2PDF1.JCL:24"
+        ]
+      },
+      "id": "F0139",
+      "owner": "informational"
+    }
+  ]
+}

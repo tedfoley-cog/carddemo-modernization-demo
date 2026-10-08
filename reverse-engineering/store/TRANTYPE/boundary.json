@@ -1,0 +1,653 @@
+{
+  "meta": {
+    "module": "TRANTYPE",
+    "generated_at": "2026-10-08T04:11:56Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "estate": [
+        "AUTHIMS",
+        "CARDDEMO",
+        "VSAMMQ"
+      ]
+    }
+  },
+  "summary": {
+    "connections": 27,
+    "by_category": {
+      "data": 17,
+      "online": 5,
+      "interface": 3,
+      "code": 2
+    },
+    "by_status": {
+      "satisfied-in-drop": 2,
+      "must-establish": 19,
+      "unknown": 6
+    },
+    "by_direction": {
+      "both": 12,
+      "out": 4,
+      "in": 11
+    },
+    "counterpart_modules": [
+      "AUTHIMS"
+    ],
+    "estate_modules": [
+      "AUTHIMS",
+      "CARDDEMO",
+      "VSAMMQ"
+    ]
+  },
+  "slots": [
+    {
+      "category": "data",
+      "provider": "db2",
+      "detector": true,
+      "present": true,
+      "entries": 5
+    },
+    {
+      "category": "data",
+      "provider": "ims-dli",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "idms",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "detector": true,
+      "present": true,
+      "entries": 12
+    },
+    {
+      "category": "data",
+      "provider": "adabas",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "datacom",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "detector": true,
+      "present": true,
+      "entries": 5
+    },
+    {
+      "category": "online",
+      "provider": "ims-tm",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "online",
+      "provider": "idms-dc",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "interface",
+      "provider": "cics-external",
+      "detector": true,
+      "present": true,
+      "entries": 3
+    },
+    {
+      "category": "interface",
+      "provider": "file-transfer",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "detector": true,
+      "present": true,
+      "entries": 2
+    },
+    {
+      "category": "code",
+      "provider": "runtime",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "code",
+      "provider": "pli",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "code",
+      "provider": "coolgen",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "schedule",
+      "provider": "control-m",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "schedule",
+      "provider": "ca7",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "schedule",
+      "provider": "tws-opc",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    }
+  ],
+  "connections": [
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "&HLQ..TRANCATG.PS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "sequential (no catalog evidence): created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:102",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:45",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:58"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "&HLQ..TRANCATG.PS.BKUP",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:46"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "&HLQ..TRANTYPE.BKUP",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:35"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "&HLQ..TRANTYPE.PS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "sequential (no catalog evidence): created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:34",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:54",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:72"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "&LBNM..CNTL",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "PDS member: read here, produced outside the module",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:46",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:58",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:59",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:71",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:72",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:83",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:84"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.DBRMLIB",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:25"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "module",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.LOADLIB",
+        "module": "AUTHIMS"
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): created here and read by AUTHIMS, CARDDEMO",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:24"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "INPFILE",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:31",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:27"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEM.DB2.&DB2S..RUNLIB.LOAD",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:53",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:66",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:78"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEM.DB2.DAZ1.RUNLIB.LOAD",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:66",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:96"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEM.DB2.DAZ1.SDSNEXIT",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:41",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:22"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEMA.DB2.VERSIONA.SDSNLOAD",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:42",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:54",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:67",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:79",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:23",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:67",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:97"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "db2",
+      "counterpart": {
+        "level": "estate",
+        "kind": "plan",
+        "name": "CARDDEMO",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "the plan the module runs under has to be bound in the subsystem",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:21"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "db2",
+      "counterpart": {
+        "level": "estate",
+        "kind": "subsystem",
+        "name": "DAZ1",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "DB2 subsystem the module runs against",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:29",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:118",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:87"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "db2",
+      "counterpart": {
+        "level": "estate",
+        "kind": "table",
+        "name": "CARDDEMO.TRANSACTION_TYPE",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "4 read(s), 8 write(s); DDL in the scan, the table itself is in the subsystem",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:137-148",
+        "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:171-175",
+        "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:201-204",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1626-1630",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1661-1665",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1753-1757",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1803-1815",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1846-1850",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1900-1903",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:338-352",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:354-368",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1475-1482",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1544-1548",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1597-1602",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1627-1630",
+        "../app/app-transaction-type-db2/ctl/DB2CREAT.ctl:35",
+        "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl:28-31",
+        "../app/app-transaction-type-db2/ddl/TRNTYPE.ddl:1"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "db2",
+      "counterpart": {
+        "level": "estate",
+        "kind": "table",
+        "name": "CARDDEMO.TRANSACTION_TYPE_CATEGORY",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "0 read(s), 0 write(s); DDL in the scan, the table itself is in the subsystem",
+      "evidence": [
+        "../app/app-transaction-type-db2/ctl/DB2CREAT.ctl:75",
+        "../app/app-transaction-type-db2/dcl/DCLTRCAT.dcl:28-32",
+        "../app/app-transaction-type-db2/ddl/TRNTYCAT.ddl:1"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "db2",
+      "counterpart": {
+        "level": "estate",
+        "kind": "table",
+        "name": "SYSIBM.SYSDUMMY1",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "1 read(s), 0 write(s); no DDL in the scan",
+      "evidence": [
+        "../app/app-transaction-type-db2/cpy/CSDB2RPY.cpy:23-28"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COTRTLI",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1588",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:931"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COTRTUP",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:642"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "map",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "CICS map: resource name is held in a variable, so what it reaches is unresolved",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1433"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CTLI",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CTLI is defined onto COTRTLIC, so something outside the module starts it",
+      "evidence": [
+        "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:25"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CTTU",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CTTU is defined onto COTRTUPC, so something outside the module starts it",
+      "evidence": [
+        "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:35"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "cics-external",
+      "counterpart": {
+        "level": "estate",
+        "kind": "endpoint",
+        "name": "CARDDEMO",
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "DB2ENTRY: the far end is named in a URIMAP or in data, not in the source",
+      "evidence": [
+        "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:45"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "cics-external",
+      "counterpart": {
+        "level": "estate",
+        "kind": "endpoint",
+        "name": "CTLITRAN",
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "DB2TRAN: the far end is named in a URIMAP or in data, not in the source",
+      "evidence": [
+        "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:51"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "cics-external",
+      "counterpart": {
+        "level": "estate",
+        "kind": "endpoint",
+        "name": "CTTUTRAN",
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "DB2TRAN: the far end is named in a URIMAP or in data, not in the source",
+      "evidence": [
+        "../app/app-transaction-type-db2/csd/CRDDEMOD.csd:56"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COTRTLIC: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COTRTUPC: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457"
+      ]
+    }
+  ]
+}

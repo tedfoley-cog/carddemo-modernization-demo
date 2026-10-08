@@ -1,0 +1,628 @@
+{
+  "meta": {
+    "module": "TRANTYPE",
+    "generated_at": "2026-10-08T04:11:56Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "answers": false,
+      "defaults": true
+    }
+  },
+  "summary": {
+    "fields": 29,
+    "detected": 9,
+    "answered": 0,
+    "inherited": 0,
+    "defaulted": 10,
+    "unanswered": 10,
+    "contradicted": 0,
+    "build_paths": 2,
+    "steps_without_library_evidence": 0,
+    "asks": 23
+  },
+  "site": {
+    "database_managers": {
+      "value": "IBM Db2 for z/OS",
+      "source": "detected",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:29",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:118",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:87"
+      ],
+      "confidence": "derived",
+      "basis": "database systems this module connects to (connections.json dbms roster); a lower bound on what the estate runs",
+      "products": [
+        {
+          "product": "IBM Db2 for z/OS",
+          "version": null,
+          "version_source": null
+        }
+      ]
+    },
+    "environment_topology": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "file_transfer": {
+      "value": "IBM Connect:Direct",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "IBM Connect:Direct",
+          "version": null,
+          "version_source": "default"
+        }
+      ]
+    },
+    "library_manager": {
+      "value": "Broadcom Endevor",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "Broadcom Endevor",
+          "version": null,
+          "version_source": "default"
+        }
+      ]
+    },
+    "masking_policy": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "online_monitors": {
+      "value": "IBM CICS Transaction Server",
+      "source": "detected",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457"
+      ],
+      "confidence": "derived",
+      "basis": "EXEC CICS evidence and IMS message/batch-message regions in connections.json; a lower bound on what the estate runs",
+      "products": [
+        {
+          "product": "IBM CICS Transaction Server",
+          "version": null,
+          "version_source": null
+        }
+      ]
+    },
+    "output_manager": {
+      "value": "Broadcom CA View",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "Broadcom CA View",
+          "version": null,
+          "version_source": "default"
+        }
+      ]
+    },
+    "scheduler_product": {
+      "value": "BMC Control-M",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "BMC Control-M",
+          "version": null,
+          "version_source": "default"
+        }
+      ]
+    },
+    "security_manager": {
+      "value": "IBM RACF",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "IBM RACF",
+          "version": null,
+          "version_source": "default"
+        }
+      ]
+    },
+    "sort_product": {
+      "value": "IBM DFSORT",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "IBM DFSORT",
+          "version": null,
+          "version_source": "default"
+        }
+      ]
+    },
+    "standard_compiler": {
+      "value": "IBM Enterprise COBOL for z/OS 6.3",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "IBM Enterprise COBOL for z/OS",
+          "version": "6.3",
+          "version_source": "default"
+        }
+      ]
+    },
+    "standard_compiler_options": {
+      "value": "RENT,NUMPROC(NOPFD),TRUNC(STD),ARCH(8),SSRANGE(NO)",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true
+    },
+    "tape_manager": {
+      "value": "Broadcom CA 1",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "Broadcom CA 1",
+          "version": null,
+          "version_source": "default"
+        }
+      ]
+    },
+    "test_lpar": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "zos_version": {
+      "value": "IBM z/OS 2.5",
+      "source": "default",
+      "evidence": [],
+      "confidence": "assumed",
+      "basis": "no evidence and no answer: mftb's typical-z/OS-shop default (mftb/knowledge/site.py SITE_DEFAULTS), nobody confirmed it",
+      "assumption": true,
+      "products": [
+        {
+          "product": "IBM z/OS",
+          "version": "2.5",
+          "version_source": "default"
+        }
+      ]
+    }
+  },
+  "module": {
+    "batch_window": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "compiler": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "compiler_options": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "copybook_library_concatenation": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "db2_library_level": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "db2_plans": {
+      "value": "CARDDEMO, DSNTEP4, DSNTIAUL",
+      "source": "detected",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:65",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:77",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:21",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:65",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:95"
+      ],
+      "confidence": "proven",
+      "basis": "RUN PROGRAM(...) PLAN(...) cards and BIND statements in the scanned JCL"
+    },
+    "db2_subsystem": {
+      "value": "DAZ1",
+      "source": "detected",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:29",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:118",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:87"
+      ],
+      "confidence": "proven",
+      "basis": "DSN SYSTEM(...) / SSID in the scanned JCL (connections.json db2.subsystems)"
+    },
+    "dynamic_call_convention": {
+      "value": "3 dynamic call site(s) (CICS-XCTL), 1 resolved by literal assignment, 2 open",
+      "source": "detected",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457"
+      ],
+      "confidence": "derived",
+      "basis": "dyncalls.json: the call-name ladder the dynamic-call pass walked"
+    },
+    "interfaces": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    },
+    "load_library_concatenation": {
+      "value": "AWS.M2.CARDDEMO.LOADLIB (BP02)",
+      "source": "detected",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:22",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:23",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:24"
+      ],
+      "confidence": "proven",
+      "basis": "STEPLIB / JOBLIB / DSN RUN LIB concatenation of the module's steps"
+    },
+    "non_relational_stores": {
+      "value": "sequential datasets (11)",
+      "source": "detected",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:34",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:35",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:45",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:46"
+      ],
+      "confidence": "derived",
+      "basis": "dataset classification and DL/I / IDMS evidence in connections.json"
+    },
+    "shared_code_boundary": {
+      "value": "candidates: 9 copybook(s) outside the scan (COCOM01Y, COTTL01Y, CSDAT01Y, CSMSG01Y, CSMSG02Y, CSSETATY, CSUSR01Y, CVACT02Y, CVCRD01Y)",
+      "source": "detected",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:327",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:375",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:430",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:480",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:482",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:485",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:490",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1358",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:241",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:262",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:268",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:271",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:274",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:277",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:292"
+      ],
+      "confidence": "derived",
+      "basis": "copybooks and call targets the module uses but the scan does not contain \u2014 candidates for shared estate code, confirmed by a person"
+    },
+    "transaction_monitor": {
+      "value": "CICS (2 program(s) issue EXEC CICS)",
+      "source": "detected",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457"
+      ],
+      "confidence": "proven",
+      "basis": "EXEC CICS / DL/I evidence in connections.json (batch-only modules have none)"
+    },
+    "volumes": {
+      "value": null,
+      "source": null,
+      "evidence": [],
+      "confidence": "unknown",
+      "basis": null
+    }
+  },
+  "build_paths": [
+    {
+      "id": "BP01",
+      "load_libraries": [],
+      "db2_libraries": [
+        "OEM.DB2.DAZ1.SDSNEXIT",
+        "OEMA.DB2.VERSIONA.SDSNLOAD"
+      ],
+      "db2_library_level": null,
+      "db2_subsystem": null,
+      "compiler": null,
+      "compiler_options": null,
+      "copybook_libraries": [],
+      "built_by": [],
+      "programs": [
+        "IKJEFT01"
+      ],
+      "steps": [
+        "CREADB2.FREEPLN"
+      ],
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:41",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:42"
+      ]
+    },
+    {
+      "id": "BP02",
+      "load_libraries": [
+        "AWS.M2.CARDDEMO.LOADLIB"
+      ],
+      "db2_libraries": [
+        "OEM.DB2.DAZ1.SDSNEXIT",
+        "OEMA.DB2.VERSIONA.SDSNLOAD"
+      ],
+      "db2_library_level": null,
+      "db2_subsystem": "DAZ1",
+      "compiler": null,
+      "compiler_options": null,
+      "copybook_libraries": [],
+      "built_by": [],
+      "programs": [
+        "COBTUPDT"
+      ],
+      "steps": [
+        "MNTTRDB2.STEP1"
+      ],
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:22",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:23",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:24"
+      ]
+    }
+  ],
+  "asks": [
+    {
+      "kind": "profile-batch-window",
+      "severity": "medium",
+      "message": "TRANTYPE profile: batch_window is not in the store \u2014 in which window the module's batch has to finish",
+      "evidence": [],
+      "request": "Confirm the batch window (start, hard deadline) the module's jobs must fit into"
+    },
+    {
+      "kind": "profile-compiler",
+      "severity": "medium",
+      "message": "TRANTYPE profile: compiler is not in the store \u2014 which compiler builds the module",
+      "evidence": [],
+      "request": "Provide the compile JCL (Enterprise COBOL release and the PROC used) for the module"
+    },
+    {
+      "kind": "profile-compiler-options",
+      "severity": "medium",
+      "message": "TRANTYPE profile: compiler_options is not in the store \u2014 which compiler options the module is built with",
+      "evidence": [],
+      "request": "Provide the compile step PARM= (NUMPROC, TRUNC, DYNAM, ARCH, ...) the module is built with; options change behaviour, so they belong to the build path"
+    },
+    {
+      "kind": "profile-copybook-library",
+      "severity": "medium",
+      "message": "TRANTYPE profile: copybook_library_concatenation is not in the store \u2014 out of which libraries the module compiles its copybooks",
+      "evidence": [],
+      "request": "Provide the SYSLIB concatenation of the module's compile JCL (copybook library order)"
+    },
+    {
+      "kind": "profile-database-managers",
+      "severity": "medium",
+      "message": "TRANTYPE profile: database_managers reads IBM Db2 for z/OS from this module's store, which is what this module proves and not what the estate has \u2014 which database systems the estate runs, and at which level",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:29",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:118",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:87"
+      ],
+      "request": "List the database systems installed (Db2, IMS DL/I, IDMS, Adabas, ...) with their versions: the scan proves only what this module touches, which is a lower bound"
+    },
+    {
+      "kind": "profile-db2-library-level",
+      "severity": "medium",
+      "message": "TRANTYPE profile: db2_library_level is not in the store \u2014 which DB2 level the module is built and run against",
+      "evidence": [],
+      "request": "Provide the DB2 library concatenation (SDSNLOAD / SDSNEXIT) of the module's steps, which names the DB2 level"
+    },
+    {
+      "kind": "profile-environment-topology",
+      "severity": "high",
+      "message": "TRANTYPE profile: environment_topology is not in the store \u2014 which LPARs and environments (production / test / DR) the estate has \u2014 the scanned JCL allocates datasets under the high-level qualifier(s) AWS, INPFILE, OEM, OEMA: a naming observation, which is not proof of which LPAR or environment runs them",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:41",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:42",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:53",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:66",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:78",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:22",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:66",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:96"
+      ],
+      "request": "State the LPARs and environments, how a dataset or job name says which one it belongs to, and which sysplex they sit in: the scan can only list the qualifiers it saw"
+    },
+    {
+      "kind": "profile-file-transfer",
+      "severity": "medium",
+      "message": "TRANTYPE profile: file_transfer is not in the store \u2014 how files cross the boundary of the estate \u2014 assumed 'IBM Connect:Direct' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the file-transfer product (Connect:Direct, FTP/SFTP, XCOM, MFT) used to move datasets in and out"
+    },
+    {
+      "kind": "profile-interfaces",
+      "severity": "medium",
+      "message": "TRANTYPE profile: interfaces is not in the store \u2014 what the module exchanges with the world outside it",
+      "evidence": [],
+      "request": "Confirm the module's interfaces (modules it calls but does not own, MQ, remote systems, transfers) and who owns the other side"
+    },
+    {
+      "kind": "profile-library-manager",
+      "severity": "medium",
+      "message": "TRANTYPE profile: library_manager is not in the store \u2014 which source / change manager holds the members \u2014 assumed 'Broadcom Endevor' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the source library manager (Endevor, ChangeMan, Panvalet, Librarian, plain PDS) and how a member is promoted to production"
+    },
+    {
+      "kind": "profile-masking-policy",
+      "severity": "high",
+      "message": "TRANTYPE profile: masking_policy is not in the store \u2014 what may leave the estate, and in what shape",
+      "evidence": [],
+      "request": "State the data-masking policy for extracted test data (which fields must be masked, whether production data may leave the estate at all)"
+    },
+    {
+      "kind": "profile-multiple-build-paths",
+      "severity": "info",
+      "message": "TRANTYPE is built and run under 2 build paths: BP01 = no load library, DB2 OEM.DB2.DAZ1.SDSNEXIT > OEMA.DB2.VERSIONA.SDSNLOAD; BP02 = AWS.M2.CARDDEMO.LOADLIB, DB2 OEM.DB2.DAZ1.SDSNEXIT > OEMA.DB2.VERSIONA.SDSNLOAD \u2014 the module is not one unit of migration, each path is",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:41",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:42",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:22",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:23",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:24"
+      ],
+      "request": "Confirm that the 2 build paths are intended (different DB2 level, load concatenation or compile options inside one module) and which one the migration targets"
+    },
+    {
+      "kind": "profile-online-monitors",
+      "severity": "medium",
+      "message": "TRANTYPE profile: online_monitors reads IBM CICS Transaction Server from this module's store, which is what this module proves and not what the estate has \u2014 which transaction monitors the estate runs, and at which level",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457"
+      ],
+      "request": "List the online monitors installed (CICS TS, IMS TM, none) with their versions: the scan proves only what this module uses, which is a lower bound"
+    },
+    {
+      "kind": "profile-output-manager",
+      "severity": "medium",
+      "message": "TRANTYPE profile: output_manager is not in the store \u2014 which product owns the printed output once it leaves the spool \u2014 21 DD(s) write to SYSOUT: the jobs print, but a spool class never names the product that archives or delivers the output \u2014 assumed 'Broadcom CA View' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:43",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:44",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:45",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:55",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:56",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:57",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:68",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:69"
+      ],
+      "request": "State the output / report manager (CA View, CA Deliver, Control-D, CA Spool) and what it does with each SYSOUT class the jobs write to"
+    },
+    {
+      "kind": "profile-scheduler-product",
+      "severity": "medium",
+      "message": "TRANTYPE profile: scheduler_product is not in the store \u2014 which scheduler runs the batch \u2014 assumed 'BMC Control-M' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the scheduler product and version, and provide an export of the definitions (see DETECTORS.md \"Scheduler definitions\")"
+    },
+    {
+      "kind": "profile-security-manager",
+      "severity": "medium",
+      "message": "TRANTYPE profile: security_manager is not in the store \u2014 which external security manager guards the datasets \u2014 assumed 'IBM RACF' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the security manager (RACF, CA ACF2, CA Top Secret) and who owns the dataset profiles"
+    },
+    {
+      "kind": "profile-sort-product",
+      "severity": "medium",
+      "message": "TRANTYPE profile: sort_product is not in the store \u2014 which sort product PGM=SORT resolves to \u2014 assumed 'IBM DFSORT' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the sort product installed (IBM DFSORT or Syncsort MFX): PGM=SORT is a linkage alias and does not say which one runs"
+    },
+    {
+      "kind": "profile-standard-compiler",
+      "severity": "medium",
+      "message": "TRANTYPE profile: standard_compiler is not in the store \u2014 which compiler the shop builds production code with \u2014 assumed 'IBM Enterprise COBOL for z/OS 6.3' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the shop-standard compiler and release (Enterprise COBOL 6.x, ...); a single module's compile step is that module's, not the estate's"
+    },
+    {
+      "kind": "profile-standard-compiler-options",
+      "severity": "medium",
+      "message": "TRANTYPE profile: standard_compiler_options is not in the store \u2014 which compile options the shop builds production code with \u2014 assumed 'RENT,NUMPROC(NOPFD),TRUNC(STD),ARCH(8),SSRANGE(NO)' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the shop-standard compile options (NUMPROC, TRUNC, ARCH, RENT, SSRANGE, ...) a module is expected to be built with"
+    },
+    {
+      "kind": "profile-tape-manager",
+      "severity": "medium",
+      "message": "TRANTYPE profile: tape_manager is not in the store \u2014 which tape manager owns the volumes the jobs allocate \u2014 assumed 'Broadcom CA 1' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the tape / removable-media manager (CA 1, CA TLMS, DFSMSrmm) and the retention rules it applies: UNIT=TAPE proves tape is used, never which catalogue owns it"
+    },
+    {
+      "kind": "profile-test-lpar",
+      "severity": "high",
+      "message": "TRANTYPE profile: test_lpar is not in the store \u2014 whether a test LPAR is available to run the migrated code against",
+      "evidence": [],
+      "request": "Confirm whether a test LPAR (or a sandbox subsystem) is available for parallel runs, and who can grant access"
+    },
+    {
+      "kind": "profile-volumes",
+      "severity": "medium",
+      "message": "TRANTYPE profile: volumes is not in the store \u2014 how much data the module moves per run",
+      "evidence": [],
+      "request": "Provide the production volumes (records in / out per run, DB2 row counts, file sizes) the module handles"
+    },
+    {
+      "kind": "profile-zos-version",
+      "severity": "medium",
+      "message": "TRANTYPE profile: zos_version is not in the store \u2014 which z/OS release the estate runs \u2014 assumed 'IBM z/OS 2.5' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the z/OS release of the production LPAR (D IPLINFO, or the release the shop is on)"
+    }
+  ]
+}

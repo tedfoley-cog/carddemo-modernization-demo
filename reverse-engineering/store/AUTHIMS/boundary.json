@@ -1,0 +1,944 @@
+{
+  "meta": {
+    "module": "AUTHIMS",
+    "generated_at": "2026-10-08T04:11:45Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "estate": [
+        "CARDDEMO",
+        "TRANTYPE",
+        "VSAMMQ"
+      ]
+    }
+  },
+  "summary": {
+    "connections": 45,
+    "by_category": {
+      "data": 25,
+      "online": 10,
+      "interface": 6,
+      "code": 4
+    },
+    "by_status": {
+      "must-establish": 34,
+      "satisfied-in-drop": 2,
+      "unknown": 9
+    },
+    "by_direction": {
+      "out": 6,
+      "in": 21,
+      "both": 18
+    },
+    "counterpart_modules": [
+      "CARDDEMO"
+    ],
+    "estate_modules": [
+      "CARDDEMO",
+      "TRANTYPE",
+      "VSAMMQ"
+    ]
+  },
+  "slots": [
+    {
+      "category": "data",
+      "provider": "db2",
+      "detector": true,
+      "present": true,
+      "entries": 1
+    },
+    {
+      "category": "data",
+      "provider": "ims-dli",
+      "detector": true,
+      "present": true,
+      "entries": 3
+    },
+    {
+      "category": "data",
+      "provider": "idms",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "detector": true,
+      "present": true,
+      "entries": 21
+    },
+    {
+      "category": "data",
+      "provider": "adabas",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "datacom",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "detector": true,
+      "present": true,
+      "entries": 10
+    },
+    {
+      "category": "online",
+      "provider": "ims-tm",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "online",
+      "provider": "idms-dc",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "detector": true,
+      "present": true,
+      "entries": 4
+    },
+    {
+      "category": "interface",
+      "provider": "cics-external",
+      "detector": true,
+      "present": true,
+      "entries": 2
+    },
+    {
+      "category": "interface",
+      "provider": "file-transfer",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "detector": true,
+      "present": true,
+      "entries": 3
+    },
+    {
+      "category": "code",
+      "provider": "runtime",
+      "detector": true,
+      "present": true,
+      "entries": 1
+    },
+    {
+      "category": "code",
+      "provider": "pli",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "code",
+      "provider": "coolgen",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "schedule",
+      "provider": "control-m",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "schedule",
+      "provider": "ca7",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "schedule",
+      "provider": "tws-opc",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    }
+  ],
+  "connections": [
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.IMSDATA.DBPAUTP0",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): updated here, created outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:25",
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:9"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "module",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.LOADLIB",
+        "module": "CARDDEMO"
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): created here and read by CARDDEMO, TRANTYPE",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:19",
+        "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:30",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:30",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:42"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.PAUTDB.CHILD.FILEO",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "sequential (QSAM by DD DCB): created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL:32",
+        "../app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL:32",
+        "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:38",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:35",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:53"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.PAUTDB.CHILD.GSAM",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:39"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.PAUTDB.ROOT.FILEO",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "sequential (QSAM by DD DCB): created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL:26",
+        "../app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL:26",
+        "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:36",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:33",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:48"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.PAUTDB.ROOT.GSAM",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:36"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "IMS.DBDLIB",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:34"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "IMS.PROCLIB",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:29"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "IMS.PSBLIB",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:33"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "IMS.SDFSRESL",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:26",
+        "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:28",
+        "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:31"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEM.IMS.IMSP.DBDLIB",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:22",
+        "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:34",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:34",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:46"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEM.IMS.IMSP.PAUTHDB",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:31",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:42",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:58"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEM.IMS.IMSP.PAUTHDBX",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:32",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:43",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:59"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEM.IMS.IMSP.PSBLIB",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:21",
+        "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:33",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:33",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:45"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEM.IMS.IMSP.RECON1",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:40"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEM.IMS.IMSP.RECON2",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:41"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEM.IMS.IMSP.RECON3",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:42"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEMA.IMS.IMSP.SDFSRESL",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:18",
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:20",
+        "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:28",
+        "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:31",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:28",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:31",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:40",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:43"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEMA.IMS.IMSP.SDFSRESL.V151",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:29",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:29",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:41"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEMPP.IMS.V15R01MB.PROCLIB",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "PDS member: read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:33",
+        "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:44",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:46",
+        "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:62"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "XXXXXXXX.PROD.LOADLIB",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:27"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "db2",
+      "counterpart": {
+        "level": "estate",
+        "kind": "table",
+        "name": "CARDDEMO.AUTHFRDS",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "0 read(s), 2 write(s); DDL in the scan, the table itself is in the subsystem",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl:141-198",
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl:222-229",
+        "../app/app-authorization-ims-db2-mq/ddl/AUTHFRDS.ddl:1"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "ims-dli",
+      "counterpart": {
+        "level": "estate",
+        "kind": "psb",
+        "name": "DLIGSAMP",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "PSB has a PSBGEN in the scan; the databases behind it are not",
+      "evidence": []
+    },
+    {
+      "category": "data",
+      "provider": "ims-dli",
+      "counterpart": {
+        "level": "estate",
+        "kind": "psb",
+        "name": "PAUTBUNL",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "PSB has a PSBGEN in the scan; the databases behind it are not",
+      "evidence": []
+    },
+    {
+      "category": "data",
+      "provider": "ims-dli",
+      "counterpart": {
+        "level": "estate",
+        "kind": "psb",
+        "name": "PSBPAUTB",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "PSB has a PSBGEN in the scan; the databases behind it are not",
+      "evidence": []
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "ACCTDAT",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: used by the module, DEFINEd nowhere in the scanned CSD",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:525",
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:869"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "CCXREF",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: used by the module, DEFINEd nowhere in the scanned CSD",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:477"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "CUSTDAT",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: used by the module, DEFINEd nowhere in the scanned CSD",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:573",
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:920"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "CXACAIX",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: used by the module, DEFINEd nowhere in the scanned CSD",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:818"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COPAU00",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:695",
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:703",
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:715"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COPAU01",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:381",
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:389",
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:400"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "td-queue",
+        "name": "CSSL",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS td-queue: defined in the scanned CSD",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:1001"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CP00",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CP00 is defined onto COPAUA0C, so something outside the module starts it",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/csd/CRDDEMO2.csd:59"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CPVD",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CPVD is defined onto COPAUS1C, so something outside the module starts it",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/csd/CRDDEMO2.csd:39"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CPVS",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CPVS is defined onto COPAUS0C, so something outside the module starts it",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/csd/CRDDEMO2.csd:49"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "cics-external",
+      "counterpart": {
+        "level": "estate",
+        "kind": "endpoint",
+        "name": "AWS01PLN",
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "DB2ENTRY: the far end is named in a URIMAP or in data, not in the source",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/csd/CRDDEMO2.csd:69"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "cics-external",
+      "counterpart": {
+        "level": "estate",
+        "kind": "endpoint",
+        "name": "CPVDTRAN",
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "DB2TRAN: the far end is named in a URIMAP or in data, not in the source",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/csd/CRDDEMO2.csd:75"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQCLOSE in COPAUA0C: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:956"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQGET in COPAUA0C: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:400"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQOPEN in COPAUA0C: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:262"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQPUT1 in COPAUA0C: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:758"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COPAUS0C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:322"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COPAUS0C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:674"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COPAUS1C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:367"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "runtime",
+      "counterpart": {
+        "level": "estate",
+        "kind": "routine",
+        "name": "CBLTDLI",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "IMS DL/I language interface routine: supplied by the product, not by the drop",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL:222",
+        "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL:267",
+        "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL:302",
+        "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL:321",
+        "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL:244",
+        "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL:296",
+        "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL:321",
+        "../app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL:213",
+        "../app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL:257"
+      ]
+    }
+  ]
+}

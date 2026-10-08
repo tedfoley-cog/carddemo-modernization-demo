@@ -1,0 +1,3537 @@
+{
+  "meta": {
+    "module": "CARDDEMO",
+    "generated_at": "2026-10-08T04:11:44Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {}
+  },
+  "summary": {
+    "sites": 24,
+    "partial": 21,
+    "resolved": 3
+  },
+  "sites": [
+    {
+      "program": "COACTUPC",
+      "path": "../app/cbl/COACTUPC.cbl",
+      "line": 956,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COACTUPC.cbl:956",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COACTUPC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COACTUPC.cbl:533",
+              "how": "VALUE clause of LIT-THISPGM"
+            }
+          ]
+        },
+        {
+          "name": "COMEN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COACTUPC.cbl:557",
+              "how": "VALUE clause of LIT-MENUPGM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COACTUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COACTUPC.cbl:854"
+        },
+        {
+          "program": "COACTUPC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COACTUPC.cbl:854"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COACTUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COACTUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:LENGTH OF CARDDEMO-COMMAREA) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COACTUPC.cbl:888"
+        },
+        {
+          "depth": 2,
+          "program": "COACTUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COACTUPC.cbl:854"
+        },
+        {
+          "depth": 1,
+          "program": "COACTUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-MENUPGM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COACTUPC.cbl:939"
+        },
+        {
+          "depth": 2,
+          "program": "COACTUPC",
+          "item": "LIT-MENUPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-MENUPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 80..88 of WS-LITERALS",
+          "source": "../app/cbl/COACTUPC.cbl:557"
+        },
+        {
+          "depth": 3,
+          "program": "COACTUPC",
+          "item": "LIT-MENUPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COMEN01C'",
+          "source": "../app/cbl/COACTUPC.cbl:557"
+        },
+        {
+          "depth": 1,
+          "program": "COACTUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE CDEMO-FROM-PROGRAM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COACTUPC.cbl:941"
+        },
+        {
+          "depth": 2,
+          "program": "COACTUPC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-FROM-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 4..12 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:22"
+        },
+        {
+          "depth": 3,
+          "program": "COACTUPC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:LENGTH OF CARDDEMO-COMMAREA) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-FROM-PROGRAM)",
+          "source": "../app/cbl/COACTUPC.cbl:888"
+        },
+        {
+          "depth": 4,
+          "program": "COACTUPC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COACTUPC.cbl:854"
+        },
+        {
+          "depth": 3,
+          "program": "COACTUPC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-THISPGM TO CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COACTUPC.cbl:945"
+        },
+        {
+          "depth": 4,
+          "program": "COACTUPC",
+          "item": "LIT-THISPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-THISPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 0..8 of WS-LITERALS",
+          "source": "../app/cbl/COACTUPC.cbl:533"
+        },
+        {
+          "depth": 5,
+          "program": "COACTUPC",
+          "item": "LIT-THISPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COACTUPC'",
+          "source": "../app/cbl/COACTUPC.cbl:533"
+        }
+      ]
+    },
+    {
+      "program": "COACTVWC",
+      "path": "../app/cbl/COACTVWC.cbl",
+      "line": 349,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COACTVWC.cbl:349",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COACTVWC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COACTVWC.cbl:143",
+              "how": "VALUE clause of LIT-THISPGM"
+            }
+          ]
+        },
+        {
+          "name": "COMEN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COACTVWC.cbl:167",
+              "how": "VALUE clause of LIT-MENUPGM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COACTVWC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COACTVWC.cbl:257"
+        },
+        {
+          "program": "COACTVWC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COACTVWC.cbl:257"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COACTVWC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COACTVWC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:LENGTH OF CARDDEMO-COMMAREA) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COACTVWC.cbl:288"
+        },
+        {
+          "depth": 2,
+          "program": "COACTVWC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COACTVWC.cbl:257"
+        },
+        {
+          "depth": 1,
+          "program": "COACTVWC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-MENUPGM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COACTVWC.cbl:336"
+        },
+        {
+          "depth": 2,
+          "program": "COACTVWC",
+          "item": "LIT-MENUPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-MENUPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 80..88 of WS-LITERALS",
+          "source": "../app/cbl/COACTVWC.cbl:167"
+        },
+        {
+          "depth": 3,
+          "program": "COACTVWC",
+          "item": "LIT-MENUPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COMEN01C'",
+          "source": "../app/cbl/COACTVWC.cbl:167"
+        },
+        {
+          "depth": 1,
+          "program": "COACTVWC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE CDEMO-FROM-PROGRAM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COACTVWC.cbl:338"
+        },
+        {
+          "depth": 2,
+          "program": "COACTVWC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-FROM-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 4..12 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:22"
+        },
+        {
+          "depth": 3,
+          "program": "COACTVWC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:LENGTH OF CARDDEMO-COMMAREA) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-FROM-PROGRAM)",
+          "source": "../app/cbl/COACTVWC.cbl:288"
+        },
+        {
+          "depth": 4,
+          "program": "COACTVWC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COACTVWC.cbl:257"
+        },
+        {
+          "depth": 3,
+          "program": "COACTVWC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-THISPGM TO CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COACTVWC.cbl:342"
+        },
+        {
+          "depth": 4,
+          "program": "COACTVWC",
+          "item": "LIT-THISPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-THISPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 0..8 of WS-LITERALS",
+          "source": "../app/cbl/COACTVWC.cbl:143"
+        },
+        {
+          "depth": 5,
+          "program": "COACTVWC",
+          "item": "LIT-THISPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COACTVWC'",
+          "source": "../app/cbl/COACTVWC.cbl:143"
+        }
+      ]
+    },
+    {
+      "program": "COADM01C",
+      "path": "../app/cbl/COADM01C.cbl",
+      "line": 145,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-ADMIN-OPT-PGMNAME",
+      "source": "../app/cbl/COADM01C.cbl:145",
+      "subscripted": true,
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COTRTLIC",
+          "in_inventory": false,
+          "evidence": [
+            {
+              "source": "../app/cpy/COADM02Y.cpy:24",
+              "how": "occurrence of CDEMO-ADMIN-OPT-PGMNAME in CDEMO-ADMIN-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COTRTUPC",
+          "in_inventory": false,
+          "evidence": [
+            {
+              "source": "../app/cpy/COADM02Y.cpy:24",
+              "how": "occurrence of CDEMO-ADMIN-OPT-PGMNAME in CDEMO-ADMIN-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COUSR00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COADM02Y.cpy:24",
+              "how": "occurrence of CDEMO-ADMIN-OPT-PGMNAME in CDEMO-ADMIN-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COUSR01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COADM02Y.cpy:24",
+              "how": "occurrence of CDEMO-ADMIN-OPT-PGMNAME in CDEMO-ADMIN-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COUSR02C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COADM02Y.cpy:24",
+              "how": "occurrence of CDEMO-ADMIN-OPT-PGMNAME in CDEMO-ADMIN-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COUSR03C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COADM02Y.cpy:24",
+              "how": "occurrence of CDEMO-ADMIN-OPT-PGMNAME in CDEMO-ADMIN-OPTIONS-DATA"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COADM01C",
+          "item": "CDEMO-ADMIN-OPT-PGMNAME",
+          "kind": "table-values-partial",
+          "class": "GEN",
+          "detail": "CDEMO-ADMIN-OPT OCCURS 9 but CDEMO-ADMIN-OPTIONS-DATA only initialises 6 occurrence(s)",
+          "request": "Determine how occurrence(s) 7..9 of CDEMO-ADMIN-OPT are loaded",
+          "source": "../app/cpy/COADM02Y.cpy:24"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COADM01C",
+          "item": "CDEMO-ADMIN-OPT-PGMNAME",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "15 CDEMO-ADMIN-OPT-PGMNAME PIC X(08) \u2014 WORKING-STORAGE, bytes 39..47 of CARDDEMO-ADMIN-MENU-OPTIONS",
+          "source": "../app/cpy/COADM02Y.cpy:59"
+        },
+        {
+          "depth": 1,
+          "program": "COADM01C",
+          "item": "CDEMO-ADMIN-OPT-PGMNAME",
+          "kind": "table-element",
+          "class": "DET",
+          "detail": "CDEMO-ADMIN-OPT-PGMNAME is an element of CDEMO-ADMIN-OPT OCCURS 9",
+          "source": "../app/cpy/COADM02Y.cpy:56"
+        },
+        {
+          "depth": 2,
+          "program": "COADM01C",
+          "item": "CDEMO-ADMIN-OPT-PGMNAME",
+          "kind": "table-values-partial",
+          "class": "GEN",
+          "detail": "CDEMO-ADMIN-OPT OCCURS 9 but CDEMO-ADMIN-OPTIONS-DATA only initialises 6 occurrence(s)",
+          "source": "../app/cpy/COADM02Y.cpy:24"
+        },
+        {
+          "depth": 2,
+          "program": "COADM01C",
+          "item": "CDEMO-ADMIN-OPT-PGMNAME",
+          "kind": "table-slice",
+          "class": "DET",
+          "detail": "CDEMO-ADMIN-OPTIONS REDEFINES CDEMO-ADMIN-OPTIONS-DATA (18 VALUE entries) \u2192 CDEMO-ADMIN-OPT-PGMNAME(1..9) = 'COUSR00C', 'COUSR01C', 'COUSR02C', 'COUSR03C', 'COTRTLIC', 'COTRTUPC', '', '', ''",
+          "source": "../app/cpy/COADM02Y.cpy:24"
+        }
+      ]
+    },
+    {
+      "program": "COADM01C",
+      "path": "../app/cbl/COADM01C.cbl",
+      "line": 168,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COADM01C.cbl:168",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COADM01C.cbl:101",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COADM01C.cbl:166",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COADM01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COADM01C.cbl:67"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COADM01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COADM01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COADM01C.cbl:90"
+        },
+        {
+          "depth": 2,
+          "program": "COADM01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COADM01C.cbl:67"
+        },
+        {
+          "depth": 1,
+          "program": "COADM01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COADM01C.cbl:101"
+        },
+        {
+          "depth": 1,
+          "program": "COADM01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COADM01C.cbl:166"
+        }
+      ]
+    },
+    {
+      "program": "COBIL00C",
+      "path": "../app/cbl/COBIL00C.cbl",
+      "line": 281,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COBIL00C.cbl:281",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COBIL00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COBIL00C.cbl:37",
+              "how": "VALUE clause of WS-PGMNAME"
+            }
+          ]
+        },
+        {
+          "name": "COMEN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COBIL00C.cbl:130",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COBIL00C.cbl:108",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COBIL00C.cbl:276",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COBIL00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COBIL00C.cbl:91"
+        },
+        {
+          "program": "COBIL00C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COBIL00C.cbl:91"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COBIL00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COBIL00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COBIL00C.cbl:108"
+        },
+        {
+          "depth": 1,
+          "program": "COBIL00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COBIL00C.cbl:111"
+        },
+        {
+          "depth": 2,
+          "program": "COBIL00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COBIL00C.cbl:91"
+        },
+        {
+          "depth": 1,
+          "program": "COBIL00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COMEN01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COBIL00C.cbl:130"
+        },
+        {
+          "depth": 1,
+          "program": "COBIL00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE CDEMO-FROM-PROGRAM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COBIL00C.cbl:132"
+        },
+        {
+          "depth": 2,
+          "program": "COBIL00C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-FROM-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 4..12 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:22"
+        },
+        {
+          "depth": 3,
+          "program": "COBIL00C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-FROM-PROGRAM)",
+          "source": "../app/cbl/COBIL00C.cbl:111"
+        },
+        {
+          "depth": 4,
+          "program": "COBIL00C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COBIL00C.cbl:91"
+        },
+        {
+          "depth": 3,
+          "program": "COBIL00C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE WS-PGMNAME TO CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COBIL00C.cbl:279"
+        },
+        {
+          "depth": 4,
+          "program": "COBIL00C",
+          "item": "WS-PGMNAME",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 WS-PGMNAME PIC X(08) \u2014 WORKING-STORAGE, bytes 0..8 of WS-VARIABLES",
+          "source": "../app/cbl/COBIL00C.cbl:37"
+        },
+        {
+          "depth": 5,
+          "program": "COBIL00C",
+          "item": "WS-PGMNAME",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COBIL00C'",
+          "source": "../app/cbl/COBIL00C.cbl:37"
+        },
+        {
+          "depth": 1,
+          "program": "COBIL00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COBIL00C.cbl:276"
+        }
+      ]
+    },
+    {
+      "program": "COCRDLIC",
+      "path": "../app/cbl/COCRDLIC.cbl",
+      "line": 402,
+      "construct": "CICS-XCTL",
+      "variable": "LIT-MENUPGM",
+      "source": "../app/cbl/COCRDLIC.cbl:402",
+      "status": "resolved",
+      "candidates": [
+        {
+          "name": "COMEN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COCRDLIC.cbl:187",
+              "how": "VALUE clause of LIT-MENUPGM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COCRDLIC",
+          "item": "LIT-MENUPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-MENUPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 28..36 of WS-CONSTANTS",
+          "source": "../app/cbl/COCRDLIC.cbl:187"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDLIC",
+          "item": "LIT-MENUPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COMEN01C'",
+          "source": "../app/cbl/COCRDLIC.cbl:187"
+        }
+      ]
+    },
+    {
+      "program": "COCRDLIC",
+      "path": "../app/cbl/COCRDLIC.cbl",
+      "line": 538,
+      "construct": "CICS-XCTL",
+      "variable": "CCARD-NEXT-PROG",
+      "source": "../app/cbl/COCRDLIC.cbl:538",
+      "status": "resolved",
+      "candidates": [
+        {
+          "name": "COCRDLIC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COCRDLIC.cbl:179",
+              "how": "VALUE clause of LIT-THISPGM"
+            }
+          ]
+        },
+        {
+          "name": "COCRDSLC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COCRDLIC.cbl:195",
+              "how": "VALUE clause of LIT-CARDDTLPGM"
+            }
+          ]
+        },
+        {
+          "name": "COCRDUPC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COCRDLIC.cbl:203",
+              "how": "VALUE clause of LIT-CARDUPDPGM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COCRDLIC",
+          "item": "CCARD-NEXT-PROG",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CCARD-NEXT-PROG PIC X(8) \u2014 WORKING-STORAGE, bytes 5..13 of CC-WORK-AREAS",
+          "source": "../app/cpy/CVCRD01Y.cpy:21"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDLIC",
+          "item": "CCARD-NEXT-PROG",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-THISPGM TO CCARD-NEXT-PROG",
+          "source": "../app/cbl/COCRDLIC.cbl:428"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDLIC",
+          "item": "LIT-THISPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-THISPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 2..10 of WS-CONSTANTS",
+          "source": "../app/cbl/COCRDLIC.cbl:179"
+        },
+        {
+          "depth": 3,
+          "program": "COCRDLIC",
+          "item": "LIT-THISPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COCRDLIC'",
+          "source": "../app/cbl/COCRDLIC.cbl:179"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDLIC",
+          "item": "CCARD-NEXT-PROG",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-CARDDTLPGM TO CCARD-NEXT-PROG",
+          "source": "../app/cbl/COCRDLIC.cbl:526"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDLIC",
+          "item": "LIT-CARDDTLPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-CARDDTLPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 54..62 of WS-CONSTANTS",
+          "source": "../app/cbl/COCRDLIC.cbl:195"
+        },
+        {
+          "depth": 3,
+          "program": "COCRDLIC",
+          "item": "LIT-CARDDTLPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COCRDSLC'",
+          "source": "../app/cbl/COCRDLIC.cbl:195"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDLIC",
+          "item": "CCARD-NEXT-PROG",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-CARDUPDPGM TO CCARD-NEXT-PROG",
+          "source": "../app/cbl/COCRDLIC.cbl:554"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDLIC",
+          "item": "LIT-CARDUPDPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-CARDUPDPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 80..88 of WS-CONSTANTS",
+          "source": "../app/cbl/COCRDLIC.cbl:203"
+        },
+        {
+          "depth": 3,
+          "program": "COCRDLIC",
+          "item": "LIT-CARDUPDPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COCRDUPC'",
+          "source": "../app/cbl/COCRDLIC.cbl:203"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDLIC",
+          "item": "CCARD-NEXT-PROG",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-THISPGM TO CCARD-NEXT-PROG",
+          "source": "../app/cbl/COCRDLIC.cbl:592"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDLIC",
+          "item": "LIT-THISPGM",
+          "kind": "cycle",
+          "class": "DET",
+          "detail": "LIT-THISPGM already traced above",
+          "source": "../app/cbl/COCRDLIC.cbl:179"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDLIC",
+          "item": "CCARD-NEXT-PROG",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-THISPGM TO CCARD-NEXT-PROG",
+          "source": "../app/cbl/COCRDLIC.cbl:600"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDLIC",
+          "item": "LIT-THISPGM",
+          "kind": "cycle",
+          "class": "DET",
+          "detail": "LIT-THISPGM already traced above",
+          "source": "../app/cbl/COCRDLIC.cbl:179"
+        }
+      ]
+    },
+    {
+      "program": "COCRDLIC",
+      "path": "../app/cbl/COCRDLIC.cbl",
+      "line": 566,
+      "construct": "CICS-XCTL",
+      "variable": "CCARD-NEXT-PROG",
+      "source": "../app/cbl/COCRDLIC.cbl:566",
+      "status": "resolved",
+      "candidates": [
+        {
+          "name": "COCRDLIC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COCRDLIC.cbl:179",
+              "how": "VALUE clause of LIT-THISPGM"
+            }
+          ]
+        },
+        {
+          "name": "COCRDSLC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COCRDLIC.cbl:195",
+              "how": "VALUE clause of LIT-CARDDTLPGM"
+            }
+          ]
+        },
+        {
+          "name": "COCRDUPC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COCRDLIC.cbl:203",
+              "how": "VALUE clause of LIT-CARDUPDPGM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COCRDLIC",
+          "item": "CCARD-NEXT-PROG",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CCARD-NEXT-PROG PIC X(8) \u2014 WORKING-STORAGE, bytes 5..13 of CC-WORK-AREAS",
+          "source": "../app/cpy/CVCRD01Y.cpy:21"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDLIC",
+          "item": "CCARD-NEXT-PROG",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-THISPGM TO CCARD-NEXT-PROG",
+          "source": "../app/cbl/COCRDLIC.cbl:428"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDLIC",
+          "item": "LIT-THISPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-THISPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 2..10 of WS-CONSTANTS",
+          "source": "../app/cbl/COCRDLIC.cbl:179"
+        },
+        {
+          "depth": 3,
+          "program": "COCRDLIC",
+          "item": "LIT-THISPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COCRDLIC'",
+          "source": "../app/cbl/COCRDLIC.cbl:179"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDLIC",
+          "item": "CCARD-NEXT-PROG",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-CARDDTLPGM TO CCARD-NEXT-PROG",
+          "source": "../app/cbl/COCRDLIC.cbl:526"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDLIC",
+          "item": "LIT-CARDDTLPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-CARDDTLPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 54..62 of WS-CONSTANTS",
+          "source": "../app/cbl/COCRDLIC.cbl:195"
+        },
+        {
+          "depth": 3,
+          "program": "COCRDLIC",
+          "item": "LIT-CARDDTLPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COCRDSLC'",
+          "source": "../app/cbl/COCRDLIC.cbl:195"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDLIC",
+          "item": "CCARD-NEXT-PROG",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-CARDUPDPGM TO CCARD-NEXT-PROG",
+          "source": "../app/cbl/COCRDLIC.cbl:554"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDLIC",
+          "item": "LIT-CARDUPDPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-CARDUPDPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 80..88 of WS-CONSTANTS",
+          "source": "../app/cbl/COCRDLIC.cbl:203"
+        },
+        {
+          "depth": 3,
+          "program": "COCRDLIC",
+          "item": "LIT-CARDUPDPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COCRDUPC'",
+          "source": "../app/cbl/COCRDLIC.cbl:203"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDLIC",
+          "item": "CCARD-NEXT-PROG",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-THISPGM TO CCARD-NEXT-PROG",
+          "source": "../app/cbl/COCRDLIC.cbl:592"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDLIC",
+          "item": "LIT-THISPGM",
+          "kind": "cycle",
+          "class": "DET",
+          "detail": "LIT-THISPGM already traced above",
+          "source": "../app/cbl/COCRDLIC.cbl:179"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDLIC",
+          "item": "CCARD-NEXT-PROG",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-THISPGM TO CCARD-NEXT-PROG",
+          "source": "../app/cbl/COCRDLIC.cbl:600"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDLIC",
+          "item": "LIT-THISPGM",
+          "kind": "cycle",
+          "class": "DET",
+          "detail": "LIT-THISPGM already traced above",
+          "source": "../app/cbl/COCRDLIC.cbl:179"
+        }
+      ]
+    },
+    {
+      "program": "COCRDSLC",
+      "path": "../app/cbl/COCRDSLC.cbl",
+      "line": 331,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COCRDSLC.cbl:331",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COCRDSLC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COCRDSLC.cbl:163",
+              "how": "VALUE clause of LIT-THISPGM"
+            }
+          ]
+        },
+        {
+          "name": "COMEN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COCRDSLC.cbl:179",
+              "how": "VALUE clause of LIT-MENUPGM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COCRDSLC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COCRDSLC.cbl:243"
+        },
+        {
+          "program": "COCRDSLC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COCRDSLC.cbl:243"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COCRDSLC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDSLC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:LENGTH OF CARDDEMO-COMMAREA) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COCRDSLC.cbl:274"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDSLC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COCRDSLC.cbl:243"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDSLC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-MENUPGM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COCRDSLC.cbl:318"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDSLC",
+          "item": "LIT-MENUPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-MENUPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 53..61 of WS-LITERALS",
+          "source": "../app/cbl/COCRDSLC.cbl:179"
+        },
+        {
+          "depth": 3,
+          "program": "COCRDSLC",
+          "item": "LIT-MENUPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COMEN01C'",
+          "source": "../app/cbl/COCRDSLC.cbl:179"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDSLC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE CDEMO-FROM-PROGRAM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COCRDSLC.cbl:320"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDSLC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-FROM-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 4..12 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:22"
+        },
+        {
+          "depth": 3,
+          "program": "COCRDSLC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:LENGTH OF CARDDEMO-COMMAREA) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-FROM-PROGRAM)",
+          "source": "../app/cbl/COCRDSLC.cbl:274"
+        },
+        {
+          "depth": 4,
+          "program": "COCRDSLC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COCRDSLC.cbl:243"
+        },
+        {
+          "depth": 3,
+          "program": "COCRDSLC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-THISPGM TO CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COCRDSLC.cbl:324"
+        },
+        {
+          "depth": 4,
+          "program": "COCRDSLC",
+          "item": "LIT-THISPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-THISPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 0..8 of WS-LITERALS",
+          "source": "../app/cbl/COCRDSLC.cbl:163"
+        },
+        {
+          "depth": 5,
+          "program": "COCRDSLC",
+          "item": "LIT-THISPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COCRDSLC'",
+          "source": "../app/cbl/COCRDSLC.cbl:163"
+        }
+      ]
+    },
+    {
+      "program": "COCRDUPC",
+      "path": "../app/cbl/COCRDUPC.cbl",
+      "line": 473,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COCRDUPC.cbl:473",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COCRDUPC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COCRDUPC.cbl:219",
+              "how": "VALUE clause of LIT-THISPGM"
+            }
+          ]
+        },
+        {
+          "name": "COMEN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COCRDUPC.cbl:235",
+              "how": "VALUE clause of LIT-MENUPGM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COCRDUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COCRDUPC.cbl:362"
+        },
+        {
+          "program": "COCRDUPC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COCRDUPC.cbl:362"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COCRDUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:LENGTH OF CARDDEMO-COMMAREA) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COCRDUPC.cbl:396"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COCRDUPC.cbl:362"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-MENUPGM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COCRDUPC.cbl:451"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDUPC",
+          "item": "LIT-MENUPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-MENUPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 53..61 of WS-LITERALS",
+          "source": "../app/cbl/COCRDUPC.cbl:235"
+        },
+        {
+          "depth": 3,
+          "program": "COCRDUPC",
+          "item": "LIT-MENUPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COMEN01C'",
+          "source": "../app/cbl/COCRDUPC.cbl:235"
+        },
+        {
+          "depth": 1,
+          "program": "COCRDUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE CDEMO-FROM-PROGRAM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COCRDUPC.cbl:453"
+        },
+        {
+          "depth": 2,
+          "program": "COCRDUPC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-FROM-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 4..12 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:22"
+        },
+        {
+          "depth": 3,
+          "program": "COCRDUPC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:LENGTH OF CARDDEMO-COMMAREA) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-FROM-PROGRAM)",
+          "source": "../app/cbl/COCRDUPC.cbl:396"
+        },
+        {
+          "depth": 4,
+          "program": "COCRDUPC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COCRDUPC.cbl:362"
+        },
+        {
+          "depth": 3,
+          "program": "COCRDUPC",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE LIT-THISPGM TO CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COCRDUPC.cbl:457"
+        },
+        {
+          "depth": 4,
+          "program": "COCRDUPC",
+          "item": "LIT-THISPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-THISPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 0..8 of WS-LITERALS",
+          "source": "../app/cbl/COCRDUPC.cbl:219"
+        },
+        {
+          "depth": 5,
+          "program": "COCRDUPC",
+          "item": "LIT-THISPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COCRDUPC'",
+          "source": "../app/cbl/COCRDUPC.cbl:219"
+        }
+      ]
+    },
+    {
+      "program": "COMEN01C",
+      "path": "../app/cbl/COMEN01C.cbl",
+      "line": 156,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-MENU-OPT-PGMNAME",
+      "source": "../app/cbl/COMEN01C.cbl:156",
+      "subscripted": true,
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COACTUPC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COACTVWC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COBIL00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COCRDLIC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COCRDSLC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COCRDUPC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COPAUS0C",
+          "in_inventory": false,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "CORPT00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COTRN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COTRN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COTRN02C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COMEN01C",
+          "item": "CDEMO-MENU-OPT-PGMNAME",
+          "kind": "table-values-partial",
+          "class": "GEN",
+          "detail": "CDEMO-MENU-OPT OCCURS 12 but CDEMO-MENU-OPTIONS-DATA only initialises 11 occurrence(s)",
+          "request": "Determine how occurrence(s) 12..12 of CDEMO-MENU-OPT are loaded",
+          "source": "../app/cpy/COMEN02Y.cpy:22"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COMEN01C",
+          "item": "CDEMO-MENU-OPT-PGMNAME",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "15 CDEMO-MENU-OPT-PGMNAME PIC X(08) \u2014 WORKING-STORAGE, bytes 39..47 of CARDDEMO-MAIN-MENU-OPTIONS",
+          "source": "../app/cpy/COMEN02Y.cpy:97"
+        },
+        {
+          "depth": 1,
+          "program": "COMEN01C",
+          "item": "CDEMO-MENU-OPT-PGMNAME",
+          "kind": "table-element",
+          "class": "DET",
+          "detail": "CDEMO-MENU-OPT-PGMNAME is an element of CDEMO-MENU-OPT OCCURS 12",
+          "source": "../app/cpy/COMEN02Y.cpy:94"
+        },
+        {
+          "depth": 2,
+          "program": "COMEN01C",
+          "item": "CDEMO-MENU-OPT-PGMNAME",
+          "kind": "table-values-partial",
+          "class": "GEN",
+          "detail": "CDEMO-MENU-OPT OCCURS 12 but CDEMO-MENU-OPTIONS-DATA only initialises 11 occurrence(s)",
+          "source": "../app/cpy/COMEN02Y.cpy:22"
+        },
+        {
+          "depth": 2,
+          "program": "COMEN01C",
+          "item": "CDEMO-MENU-OPT-PGMNAME",
+          "kind": "table-slice",
+          "class": "DET",
+          "detail": "CDEMO-MENU-OPTIONS REDEFINES CDEMO-MENU-OPTIONS-DATA (44 VALUE entries) \u2192 CDEMO-MENU-OPT-PGMNAME(1..12) = 'COACTVWC', 'COACTUPC', 'COCRDLIC', 'COCRDSLC', 'COCRDUPC', 'COTRN00C', 'COTRN01C', 'COTRN02C', 'CORPT00C', 'COBIL00C', 'COPAUS0C', ''",
+          "source": "../app/cpy/COMEN02Y.cpy:22"
+        }
+      ]
+    },
+    {
+      "program": "COMEN01C",
+      "path": "../app/cbl/COMEN01C.cbl",
+      "line": 184,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-MENU-OPT-PGMNAME",
+      "source": "../app/cbl/COMEN01C.cbl:184",
+      "subscripted": true,
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COACTUPC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COACTVWC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COBIL00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COCRDLIC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COCRDSLC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COCRDUPC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COPAUS0C",
+          "in_inventory": false,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "CORPT00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COTRN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COTRN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        },
+        {
+          "name": "COTRN02C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cpy/COMEN02Y.cpy:22",
+              "how": "occurrence of CDEMO-MENU-OPT-PGMNAME in CDEMO-MENU-OPTIONS-DATA"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COMEN01C",
+          "item": "CDEMO-MENU-OPT-PGMNAME",
+          "kind": "table-values-partial",
+          "class": "GEN",
+          "detail": "CDEMO-MENU-OPT OCCURS 12 but CDEMO-MENU-OPTIONS-DATA only initialises 11 occurrence(s)",
+          "request": "Determine how occurrence(s) 12..12 of CDEMO-MENU-OPT are loaded",
+          "source": "../app/cpy/COMEN02Y.cpy:22"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COMEN01C",
+          "item": "CDEMO-MENU-OPT-PGMNAME",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "15 CDEMO-MENU-OPT-PGMNAME PIC X(08) \u2014 WORKING-STORAGE, bytes 39..47 of CARDDEMO-MAIN-MENU-OPTIONS",
+          "source": "../app/cpy/COMEN02Y.cpy:97"
+        },
+        {
+          "depth": 1,
+          "program": "COMEN01C",
+          "item": "CDEMO-MENU-OPT-PGMNAME",
+          "kind": "table-element",
+          "class": "DET",
+          "detail": "CDEMO-MENU-OPT-PGMNAME is an element of CDEMO-MENU-OPT OCCURS 12",
+          "source": "../app/cpy/COMEN02Y.cpy:94"
+        },
+        {
+          "depth": 2,
+          "program": "COMEN01C",
+          "item": "CDEMO-MENU-OPT-PGMNAME",
+          "kind": "table-values-partial",
+          "class": "GEN",
+          "detail": "CDEMO-MENU-OPT OCCURS 12 but CDEMO-MENU-OPTIONS-DATA only initialises 11 occurrence(s)",
+          "source": "../app/cpy/COMEN02Y.cpy:22"
+        },
+        {
+          "depth": 2,
+          "program": "COMEN01C",
+          "item": "CDEMO-MENU-OPT-PGMNAME",
+          "kind": "table-slice",
+          "class": "DET",
+          "detail": "CDEMO-MENU-OPTIONS REDEFINES CDEMO-MENU-OPTIONS-DATA (44 VALUE entries) \u2192 CDEMO-MENU-OPT-PGMNAME(1..12) = 'COACTVWC', 'COACTUPC', 'COCRDLIC', 'COCRDSLC', 'COCRDUPC', 'COTRN00C', 'COTRN01C', 'COTRN02C', 'CORPT00C', 'COBIL00C', 'COPAUS0C', ''",
+          "source": "../app/cpy/COMEN02Y.cpy:22"
+        }
+      ]
+    },
+    {
+      "program": "COMEN01C",
+      "path": "../app/cbl/COMEN01C.cbl",
+      "line": 201,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COMEN01C.cbl:201",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COMEN01C.cbl:97",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COMEN01C.cbl:199",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COMEN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COMEN01C.cbl:67"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COMEN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COMEN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COMEN01C.cbl:86"
+        },
+        {
+          "depth": 2,
+          "program": "COMEN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COMEN01C.cbl:67"
+        },
+        {
+          "depth": 1,
+          "program": "COMEN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COMEN01C.cbl:97"
+        },
+        {
+          "depth": 1,
+          "program": "COMEN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COMEN01C.cbl:199"
+        }
+      ]
+    },
+    {
+      "program": "CORPT00C",
+      "path": "../app/cbl/CORPT00C.cbl",
+      "line": 548,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/CORPT00C.cbl:548",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COMEN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/CORPT00C.cbl:188",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/CORPT00C.cbl:173",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/CORPT00C.cbl:543",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "CORPT00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/CORPT00C.cbl:155"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "CORPT00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "CORPT00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/CORPT00C.cbl:173"
+        },
+        {
+          "depth": 1,
+          "program": "CORPT00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/CORPT00C.cbl:176"
+        },
+        {
+          "depth": 2,
+          "program": "CORPT00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/CORPT00C.cbl:155"
+        },
+        {
+          "depth": 1,
+          "program": "CORPT00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COMEN01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/CORPT00C.cbl:188"
+        },
+        {
+          "depth": 1,
+          "program": "CORPT00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/CORPT00C.cbl:543"
+        }
+      ]
+    },
+    {
+      "program": "COTRN00C",
+      "path": "../app/cbl/COTRN00C.cbl",
+      "line": 192,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COTRN00C.cbl:192",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COMEN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN00C.cbl:123",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN00C.cbl:108",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COTRN00C.cbl:513",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COTRN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN00C.cbl:188",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN00C.cbl:87"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN00C.cbl:108"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COTRN00C.cbl:111"
+        },
+        {
+          "depth": 2,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COTRN00C.cbl:87"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COMEN01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN00C.cbl:123"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COTRN01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN00C.cbl:188"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN00C.cbl:513"
+        }
+      ]
+    },
+    {
+      "program": "COTRN00C",
+      "path": "../app/cbl/COTRN00C.cbl",
+      "line": 518,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COTRN00C.cbl:518",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COMEN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN00C.cbl:123",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN00C.cbl:108",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COTRN00C.cbl:513",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COTRN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN00C.cbl:188",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN00C.cbl:87"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN00C.cbl:108"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COTRN00C.cbl:111"
+        },
+        {
+          "depth": 2,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COTRN00C.cbl:87"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COMEN01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN00C.cbl:123"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COTRN01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN00C.cbl:188"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN00C.cbl:513"
+        }
+      ]
+    },
+    {
+      "program": "COTRN01C",
+      "path": "../app/cbl/COTRN01C.cbl",
+      "line": 205,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COTRN01C.cbl:205",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COMEN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN01C.cbl:117",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN01C.cbl:95",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COTRN01C.cbl:200",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COTRN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN01C.cbl:126",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COTRN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN01C.cbl:36",
+              "how": "VALUE clause of WS-PGMNAME"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COTRN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN01C.cbl:78"
+        },
+        {
+          "program": "COTRN01C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COTRN01C.cbl:78"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COTRN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN01C.cbl:95"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COTRN01C.cbl:98"
+        },
+        {
+          "depth": 2,
+          "program": "COTRN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COTRN01C.cbl:78"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COMEN01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN01C.cbl:117"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE CDEMO-FROM-PROGRAM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN01C.cbl:119"
+        },
+        {
+          "depth": 2,
+          "program": "COTRN01C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-FROM-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 4..12 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:22"
+        },
+        {
+          "depth": 3,
+          "program": "COTRN01C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-FROM-PROGRAM)",
+          "source": "../app/cbl/COTRN01C.cbl:98"
+        },
+        {
+          "depth": 4,
+          "program": "COTRN01C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COTRN01C.cbl:78"
+        },
+        {
+          "depth": 3,
+          "program": "COTRN01C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE WS-PGMNAME TO CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COTRN01C.cbl:203"
+        },
+        {
+          "depth": 4,
+          "program": "COTRN01C",
+          "item": "WS-PGMNAME",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 WS-PGMNAME PIC X(08) \u2014 WORKING-STORAGE, bytes 0..8 of WS-VARIABLES",
+          "source": "../app/cbl/COTRN01C.cbl:36"
+        },
+        {
+          "depth": 5,
+          "program": "COTRN01C",
+          "item": "WS-PGMNAME",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COTRN01C'",
+          "source": "../app/cbl/COTRN01C.cbl:36"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COTRN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN01C.cbl:126"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN01C.cbl:200"
+        }
+      ]
+    },
+    {
+      "program": "COTRN02C",
+      "path": "../app/cbl/COTRN02C.cbl",
+      "line": 508,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COTRN02C.cbl:508",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COMEN01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN02C.cbl:138",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN02C.cbl:116",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COTRN02C.cbl:503",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COTRN02C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COTRN02C.cbl:36",
+              "how": "VALUE clause of WS-PGMNAME"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COTRN02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN02C.cbl:99"
+        },
+        {
+          "program": "COTRN02C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COTRN02C.cbl:99"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COTRN02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN02C.cbl:116"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COTRN02C.cbl:119"
+        },
+        {
+          "depth": 2,
+          "program": "COTRN02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COTRN02C.cbl:99"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COMEN01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN02C.cbl:138"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE CDEMO-FROM-PROGRAM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN02C.cbl:140"
+        },
+        {
+          "depth": 2,
+          "program": "COTRN02C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-FROM-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 4..12 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:22"
+        },
+        {
+          "depth": 3,
+          "program": "COTRN02C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-FROM-PROGRAM)",
+          "source": "../app/cbl/COTRN02C.cbl:119"
+        },
+        {
+          "depth": 4,
+          "program": "COTRN02C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COTRN02C.cbl:99"
+        },
+        {
+          "depth": 3,
+          "program": "COTRN02C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE WS-PGMNAME TO CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COTRN02C.cbl:506"
+        },
+        {
+          "depth": 4,
+          "program": "COTRN02C",
+          "item": "WS-PGMNAME",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 WS-PGMNAME PIC X(08) \u2014 WORKING-STORAGE, bytes 0..8 of WS-VARIABLES",
+          "source": "../app/cbl/COTRN02C.cbl:36"
+        },
+        {
+          "depth": 5,
+          "program": "COTRN02C",
+          "item": "WS-PGMNAME",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COTRN02C'",
+          "source": "../app/cbl/COTRN02C.cbl:36"
+        },
+        {
+          "depth": 1,
+          "program": "COTRN02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COTRN02C.cbl:503"
+        }
+      ]
+    },
+    {
+      "program": "COUSR00C",
+      "path": "../app/cbl/COUSR00C.cbl",
+      "line": 196,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COUSR00C.cbl:196",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COADM01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR00C.cbl:126",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR00C.cbl:111",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COUSR00C.cbl:509",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COUSR02C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR00C.cbl:192",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COUSR03C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR00C.cbl:202",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:90"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:111"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COUSR00C.cbl:114"
+        },
+        {
+          "depth": 2,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COUSR00C.cbl:90"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COADM01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:126"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COUSR02C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:192"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COUSR03C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:202"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:509"
+        }
+      ]
+    },
+    {
+      "program": "COUSR00C",
+      "path": "../app/cbl/COUSR00C.cbl",
+      "line": 206,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COUSR00C.cbl:206",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COADM01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR00C.cbl:126",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR00C.cbl:111",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COUSR00C.cbl:509",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COUSR02C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR00C.cbl:192",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COUSR03C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR00C.cbl:202",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:90"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:111"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COUSR00C.cbl:114"
+        },
+        {
+          "depth": 2,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COUSR00C.cbl:90"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COADM01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:126"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COUSR02C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:192"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COUSR03C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:202"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:509"
+        }
+      ]
+    },
+    {
+      "program": "COUSR00C",
+      "path": "../app/cbl/COUSR00C.cbl",
+      "line": 514,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COUSR00C.cbl:514",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COADM01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR00C.cbl:126",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR00C.cbl:111",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COUSR00C.cbl:509",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COUSR02C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR00C.cbl:192",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COUSR03C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR00C.cbl:202",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:90"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:111"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COUSR00C.cbl:114"
+        },
+        {
+          "depth": 2,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COUSR00C.cbl:90"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COADM01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:126"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COUSR02C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:192"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COUSR03C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:202"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR00C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR00C.cbl:509"
+        }
+      ]
+    },
+    {
+      "program": "COUSR01C",
+      "path": "../app/cbl/COUSR01C.cbl",
+      "line": 175,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COUSR01C.cbl:175",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COADM01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR01C.cbl:94",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR01C.cbl:79",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COUSR01C.cbl:168",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COUSR01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR01C.cbl:63"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COUSR01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR01C.cbl:79"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COUSR01C.cbl:82"
+        },
+        {
+          "depth": 2,
+          "program": "COUSR01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COUSR01C.cbl:63"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COADM01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR01C.cbl:94"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR01C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR01C.cbl:168"
+        }
+      ]
+    },
+    {
+      "program": "COUSR02C",
+      "path": "../app/cbl/COUSR02C.cbl",
+      "line": 258,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COUSR02C.cbl:258",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COADM01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR02C.cbl:114",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COUSR02C.cbl:125",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR02C.cbl:91",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COUSR02C.cbl:253",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COUSR02C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR02C.cbl:36",
+              "how": "VALUE clause of WS-PGMNAME"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COUSR02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR02C.cbl:74"
+        },
+        {
+          "program": "COUSR02C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COUSR02C.cbl:74"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COUSR02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR02C.cbl:91"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COUSR02C.cbl:94"
+        },
+        {
+          "depth": 2,
+          "program": "COUSR02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COUSR02C.cbl:74"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COADM01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR02C.cbl:114"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE CDEMO-FROM-PROGRAM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR02C.cbl:116"
+        },
+        {
+          "depth": 2,
+          "program": "COUSR02C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-FROM-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 4..12 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:22"
+        },
+        {
+          "depth": 3,
+          "program": "COUSR02C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-FROM-PROGRAM)",
+          "source": "../app/cbl/COUSR02C.cbl:94"
+        },
+        {
+          "depth": 4,
+          "program": "COUSR02C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COUSR02C.cbl:74"
+        },
+        {
+          "depth": 3,
+          "program": "COUSR02C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE WS-PGMNAME TO CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COUSR02C.cbl:256"
+        },
+        {
+          "depth": 4,
+          "program": "COUSR02C",
+          "item": "WS-PGMNAME",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 WS-PGMNAME PIC X(08) \u2014 WORKING-STORAGE, bytes 0..8 of WS-VARIABLES",
+          "source": "../app/cbl/COUSR02C.cbl:36"
+        },
+        {
+          "depth": 5,
+          "program": "COUSR02C",
+          "item": "WS-PGMNAME",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COUSR02C'",
+          "source": "../app/cbl/COUSR02C.cbl:36"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COADM01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR02C.cbl:125"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR02C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR02C.cbl:253"
+        }
+      ]
+    },
+    {
+      "program": "COUSR03C",
+      "path": "../app/cbl/COUSR03C.cbl",
+      "line": 205,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/cbl/COUSR03C.cbl:205",
+      "status": "partial",
+      "candidates": [
+        {
+          "name": "COADM01C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR03C.cbl:113",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COUSR03C.cbl:124",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COSGN00C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR03C.cbl:91",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            },
+            {
+              "source": "../app/cbl/COUSR03C.cbl:200",
+              "how": "MOVE literal to CDEMO-TO-PROGRAM"
+            }
+          ]
+        },
+        {
+          "name": "COUSR03C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/cbl/COUSR03C.cbl:36",
+              "how": "VALUE clause of WS-PGMNAME"
+            }
+          ]
+        }
+      ],
+      "open_ends": [
+        {
+          "program": "COUSR03C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 16..24 of DFHCOMMAREA to the field(s) that produce CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR03C.cbl:74"
+        },
+        {
+          "program": "COUSR03C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "request": "Map bytes 4..12 of DFHCOMMAREA to the field(s) that produce CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COUSR03C.cbl:74"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COUSR03C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-TO-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:24"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR03C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR03C.cbl:91"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR03C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-TO-PROGRAM)",
+          "source": "../app/cbl/COUSR03C.cbl:94"
+        },
+        {
+          "depth": 2,
+          "program": "COUSR03C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-TO-PROGRAM occupies bytes 16..24 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COUSR03C.cbl:74"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR03C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COADM01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR03C.cbl:113"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR03C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE CDEMO-FROM-PROGRAM TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR03C.cbl:115"
+        },
+        {
+          "depth": 2,
+          "program": "COUSR03C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "10 CDEMO-FROM-PROGRAM PIC X(08) \u2014 WORKING-STORAGE, bytes 4..12 of CARDDEMO-COMMAREA",
+          "source": "../app/cpy/COCOM01Y.cpy:22"
+        },
+        {
+          "depth": 3,
+          "program": "COUSR03C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE DFHCOMMAREA(1:EIBCALEN) TO CARDDEMO-COMMAREA (CARDDEMO-COMMAREA encloses CDEMO-FROM-PROGRAM)",
+          "source": "../app/cbl/COUSR03C.cbl:94"
+        },
+        {
+          "depth": 4,
+          "program": "COUSR03C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "layout-mismatch",
+          "class": "GEN",
+          "detail": "CDEMO-FROM-PROGRAM occupies bytes 4..12 of CARDDEMO-COMMAREA but DFHCOMMAREA has no field on exactly those bytes",
+          "source": "../app/cbl/COUSR03C.cbl:74"
+        },
+        {
+          "depth": 3,
+          "program": "COUSR03C",
+          "item": "CDEMO-FROM-PROGRAM",
+          "kind": "move-item",
+          "class": "DET",
+          "detail": "MOVE WS-PGMNAME TO CDEMO-FROM-PROGRAM",
+          "source": "../app/cbl/COUSR03C.cbl:203"
+        },
+        {
+          "depth": 4,
+          "program": "COUSR03C",
+          "item": "WS-PGMNAME",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 WS-PGMNAME PIC X(08) \u2014 WORKING-STORAGE, bytes 0..8 of WS-VARIABLES",
+          "source": "../app/cbl/COUSR03C.cbl:36"
+        },
+        {
+          "depth": 5,
+          "program": "COUSR03C",
+          "item": "WS-PGMNAME",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COUSR03C'",
+          "source": "../app/cbl/COUSR03C.cbl:36"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR03C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COADM01C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR03C.cbl:124"
+        },
+        {
+          "depth": 1,
+          "program": "COUSR03C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "move-literal",
+          "class": "DET",
+          "detail": "MOVE 'COSGN00C' TO CDEMO-TO-PROGRAM",
+          "source": "../app/cbl/COUSR03C.cbl:200"
+        }
+      ]
+    }
+  ]
+}

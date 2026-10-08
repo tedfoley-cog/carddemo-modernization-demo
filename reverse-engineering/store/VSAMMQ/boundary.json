@@ -1,0 +1,508 @@
+{
+  "meta": {
+    "module": "VSAMMQ",
+    "generated_at": "2026-10-08T04:11:46Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "estate": [
+        "AUTHIMS",
+        "CARDDEMO",
+        "TRANTYPE"
+      ]
+    }
+  },
+  "summary": {
+    "connections": 21,
+    "by_category": {
+      "online": 3,
+      "interface": 18
+    },
+    "by_status": {
+      "must-establish": 3,
+      "unknown": 18
+    },
+    "by_direction": {
+      "both": 19,
+      "in": 2
+    },
+    "counterpart_modules": [],
+    "estate_modules": [
+      "AUTHIMS",
+      "CARDDEMO",
+      "TRANTYPE"
+    ]
+  },
+  "slots": [
+    {
+      "category": "data",
+      "provider": "db2",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "ims-dli",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "idms",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "adabas",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "datacom",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "detector": true,
+      "present": true,
+      "entries": 3
+    },
+    {
+      "category": "online",
+      "provider": "ims-tm",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "online",
+      "provider": "idms-dc",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "detector": true,
+      "present": true,
+      "entries": 18
+    },
+    {
+      "category": "interface",
+      "provider": "cics-external",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "interface",
+      "provider": "file-transfer",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "code",
+      "provider": "runtime",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "code",
+      "provider": "pli",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "code",
+      "provider": "coolgen",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "schedule",
+      "provider": "control-m",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "schedule",
+      "provider": "ca7",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "schedule",
+      "provider": "tws-opc",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    }
+  ],
+  "connections": [
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "ACCTDAT",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: used by the module, DEFINEd nowhere in the scanned CSD",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:396"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CDRA",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CDRA is defined onto COACCT01, so something outside the module starts it",
+      "evidence": [
+        "../app/app-vsam-mq/csd/CRDDEMOM.csd:17"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CDRD",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CDRD is defined onto CODATE01, so something outside the module starts it",
+      "evidence": [
+        "../app/app-vsam-mq/csd/CRDDEMOM.csd:27"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQCLOSE in COACCT01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:557"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQCLOSE in COACCT01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:579"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQCLOSE in COACCT01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:602"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQCLOSE in CODATE01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:461"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQCLOSE in CODATE01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:483"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQCLOSE in CODATE01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:506"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQGET in COACCT01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:352"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQGET in CODATE01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:301"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQOPEN in COACCT01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:233"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQOPEN in COACCT01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:267"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQOPEN in COACCT01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:302"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQOPEN in CODATE01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:182"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQOPEN in CODATE01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:216"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQOPEN in CODATE01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:251"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQPUT in COACCT01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:479"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQPUT in COACCT01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:516"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQPUT in CODATE01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:383"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "queue",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "MQPUT in CODATE01: the queue and queue manager are configuration, not code",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:420"
+      ]
+    }
+  ]
+}

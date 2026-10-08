@@ -1,0 +1,1330 @@
+{
+  "meta": {
+    "module": "AUTHIMS",
+    "generated_at": "2026-10-08T04:11:45Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "jcl": [
+        "../app/app-authorization-ims-db2-mq/jcl"
+      ],
+      "procs": [],
+      "cntl": []
+    }
+  },
+  "sources": [
+    {
+      "path": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl",
+      "kind": "jcl",
+      "lines": 47,
+      "code_lines": 22
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl",
+      "kind": "jcl",
+      "lines": 47,
+      "code_lines": 32
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL",
+      "kind": "jcl",
+      "lines": 51,
+      "code_lines": 19
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL",
+      "kind": "jcl",
+      "lines": 53,
+      "code_lines": 23
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL",
+      "kind": "jcl",
+      "lines": 69,
+      "code_lines": 35
+    }
+  ],
+  "procs": [],
+  "proc_defs": [],
+  "proc_facts": [],
+  "jobs": [
+    {
+      "name": "CBPAUP0J",
+      "kind": "job",
+      "path": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl",
+      "steps": [
+        {
+          "job": "CBPAUP0J",
+          "step": "STEP01",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "DFSRRC00",
+          "kind": "launcher",
+          "program": "CBPAUP0C",
+          "resolution": "ims-parm",
+          "plan": null,
+          "psb": "PSBPAUTB",
+          "parm": "'BMP,CBPAUP0C,PSBPAUTB'",
+          "cond": null,
+          "if_context": [],
+          "dds": [
+            {
+              "name": "STEPLIB",
+              "dsn": "IMS.SDFSRESL",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 26,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:26"
+            },
+            {
+              "name": "",
+              "dsn": "XXXXXXXX.PROD.LOADLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 27,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:27"
+            },
+            {
+              "name": "DFSRESLB",
+              "dsn": "IMS.SDFSRESL",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 28,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:28"
+            },
+            {
+              "name": "PROCLIB",
+              "dsn": "IMS.PROCLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 29,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:29"
+            },
+            {
+              "name": "DFSSEL",
+              "dsn": "IMS.SDFSRESL",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 31,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:31"
+            },
+            {
+              "name": "IMS",
+              "dsn": "IMS.PSBLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 33,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:33"
+            },
+            {
+              "name": "",
+              "dsn": "IMS.DBDLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 34,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:34"
+            },
+            {
+              "name": "SYSIN",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": true,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": "00,00001,00001,Y",
+              "line": 36,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:36"
+            },
+            {
+              "name": "SYSOUX",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 39,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:39"
+            },
+            {
+              "name": "SYSOUT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 40,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:40"
+            },
+            {
+              "name": "SYSABOUT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 41,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:41"
+            },
+            {
+              "name": "ABENDAID",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 42,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:42"
+            },
+            {
+              "name": "IEFRDER",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 43,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:43"
+            },
+            {
+              "name": "IMSLOGR",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 44,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:44"
+            },
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 45,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:45"
+            },
+            {
+              "name": "SYSUDUMP",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 46,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:46"
+            },
+            {
+              "name": "IMSERR",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 47,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:47"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [
+            {
+              "kind": "ims-region",
+              "region_type": "BMP",
+              "psb": "PSBPAUTB",
+              "detail": "DFSRRC00 runs CBPAUP0C in an IMS BMP (batch message processing region (attaches to the online control region)) region under PSB PSBPAUTB"
+            }
+          ],
+          "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:24"
+        }
+      ],
+      "facts": []
+    },
+    {
+      "name": "DBPAUTP0",
+      "kind": "job",
+      "path": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl",
+      "steps": [
+        {
+          "job": "DBPAUTP0",
+          "step": "STEPDEL",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IEFBR14",
+          "kind": "utility",
+          "program": null,
+          "resolution": null,
+          "plan": null,
+          "psb": null,
+          "parm": null,
+          "cond": null,
+          "if_context": [],
+          "dds": [
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 8,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:8"
+            },
+            {
+              "name": "SYSUT1",
+              "dsn": "AWS.M2.CARDDEMO.IMSDATA.DBPAUTP0",
+              "disp": "(MOD,DELETE)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {
+                "UNIT": "SYSDA"
+              },
+              "inline_text": null,
+              "line": 9,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:9"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [],
+          "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:7"
+        },
+        {
+          "job": "DBPAUTP0",
+          "step": "UNLOAD",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "DFSRRC00",
+          "kind": "utility",
+          "program": null,
+          "resolution": "ims-parm",
+          "plan": null,
+          "psb": "DBPAUTP0",
+          "parm": "(ULU,DFSURGU0,DBPAUTP0)",
+          "cond": null,
+          "if_context": [],
+          "dds": [
+            {
+              "name": "STEPLIB",
+              "dsn": "OEMA.IMS.IMSP.SDFSRESL",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 18,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:18"
+            },
+            {
+              "name": "",
+              "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 19,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:19"
+            },
+            {
+              "name": "DFSRESLB",
+              "dsn": "OEMA.IMS.IMSP.SDFSRESL",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 20,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:20"
+            },
+            {
+              "name": "IMS",
+              "dsn": "OEM.IMS.IMSP.PSBLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 21,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:21"
+            },
+            {
+              "name": "",
+              "dsn": "OEM.IMS.IMSP.DBDLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 22,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:22"
+            },
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 23,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:23"
+            },
+            {
+              "name": "DFSURGU1",
+              "dsn": "AWS.M2.CARDDEMO.IMSDATA.DBPAUTP0",
+              "disp": "(,CATLG,DELETE)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {
+                "DCB": "(LRECL=27990,RECFM=VB,BLKSIZE=0)",
+                "UNIT": "SYSDA"
+              },
+              "inline_text": null,
+              "line": 25,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:25"
+            },
+            {
+              "name": "DDPAUTP0",
+              "dsn": "OEM.IMS.IMSP.PAUTHDB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 31,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:31"
+            },
+            {
+              "name": "DDPAUTX0",
+              "dsn": "OEM.IMS.IMSP.PAUTHDBX",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 32,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:32"
+            },
+            {
+              "name": "DFSVSAMP",
+              "dsn": "OEMPP.IMS.V15R01MB.PROCLIB(DFSVSMDB)",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 33,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:33"
+            },
+            {
+              "name": "DFSCTL",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": true,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": "SBPARM ACTIV=COND",
+              "line": 34,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:34"
+            },
+            {
+              "name": "SYSUDUMP",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {
+                "DCB": "(RECFM=FBA,LRECL=133)"
+              },
+              "inline_text": null,
+              "line": 36,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:36"
+            },
+            {
+              "name": "RECON1",
+              "dsn": "OEM.IMS.IMSP.RECON1",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 40,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:40"
+            },
+            {
+              "name": "RECON2",
+              "dsn": "OEM.IMS.IMSP.RECON2",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 41,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:41"
+            },
+            {
+              "name": "RECON3",
+              "dsn": "OEM.IMS.IMSP.RECON3",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 42,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:42"
+            },
+            {
+              "name": "DFSWRK01",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 44,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:44"
+            },
+            {
+              "name": "DFSSRT01",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 45,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:45"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [
+            {
+              "kind": "launcher-utility",
+              "utility": "DFSURGU0",
+              "detail": "region controller schedules IMS utility DFSURGU0 (HD reorganization unload)"
+            },
+            {
+              "kind": "ims-region",
+              "region_type": "ULU",
+              "psb": "DBPAUTP0",
+              "detail": "DFSRRC00 runs DFSURGU0 in an IMS ULU (database utility region (local, unshared)) region under PSB DBPAUTP0"
+            }
+          ],
+          "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:15"
+        }
+      ],
+      "facts": []
+    },
+    {
+      "name": "LOADPADB",
+      "kind": "job",
+      "path": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL",
+      "steps": [
+        {
+          "job": "LOADPADB",
+          "step": "STEP01",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "DFSRRC00",
+          "kind": "launcher",
+          "program": "PAUDBLOD",
+          "resolution": "ims-parm",
+          "plan": null,
+          "psb": "PSBPAUTB",
+          "parm": "'BMP,PAUDBLOD,PSBPAUTB'",
+          "cond": null,
+          "if_context": [],
+          "dds": [
+            {
+              "name": "STEPLIB",
+              "dsn": "OEMA.IMS.IMSP.SDFSRESL",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 28,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:28"
+            },
+            {
+              "name": "",
+              "dsn": "OEMA.IMS.IMSP.SDFSRESL.V151",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 29,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:29"
+            },
+            {
+              "name": "",
+              "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 30,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:30"
+            },
+            {
+              "name": "DFSRESLB",
+              "dsn": "OEMA.IMS.IMSP.SDFSRESL",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 31,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:31"
+            },
+            {
+              "name": "IMS",
+              "dsn": "OEM.IMS.IMSP.PSBLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 33,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:33"
+            },
+            {
+              "name": "",
+              "dsn": "OEM.IMS.IMSP.DBDLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 34,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:34"
+            },
+            {
+              "name": "INFILE1",
+              "dsn": "AWS.M2.CARDDEMO.PAUTDB.ROOT.FILEO",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 36,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:36"
+            },
+            {
+              "name": "INFILE2",
+              "dsn": "AWS.M2.CARDDEMO.PAUTDB.CHILD.FILEO",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 38,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:38"
+            },
+            {
+              "name": "DFSVSAMP",
+              "dsn": "OEMPP.IMS.V15R01MB.PROCLIB(DFSVSMDB)",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 44,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:44"
+            },
+            {
+              "name": "IMSLOGR",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 46,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:46"
+            },
+            {
+              "name": "IEFRDER",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 47,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:47"
+            },
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 48,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:48"
+            },
+            {
+              "name": "SYSUDUMP",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 49,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:49"
+            },
+            {
+              "name": "IMSERR",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 50,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:50"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [
+            {
+              "kind": "ims-region",
+              "region_type": "BMP",
+              "psb": "PSBPAUTB",
+              "detail": "DFSRRC00 runs PAUDBLOD in an IMS BMP (batch message processing region (attaches to the online control region)) region under PSB PSBPAUTB"
+            }
+          ],
+          "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:26"
+        }
+      ],
+      "facts": []
+    },
+    {
+      "name": "UNLDGSAM",
+      "kind": "job",
+      "path": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL",
+      "steps": [
+        {
+          "job": "UNLDGSAM",
+          "step": "STEP01",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "DFSRRC00",
+          "kind": "launcher",
+          "program": "DBUNLDGS",
+          "resolution": "ims-parm",
+          "plan": null,
+          "psb": "DLIGSAMP",
+          "parm": "'DLI,DBUNLDGS,DLIGSAMP,,,,,,,,,,,N'",
+          "cond": null,
+          "if_context": [],
+          "dds": [
+            {
+              "name": "STEPLIB",
+              "dsn": "OEMA.IMS.IMSP.SDFSRESL",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 28,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:28"
+            },
+            {
+              "name": "",
+              "dsn": "OEMA.IMS.IMSP.SDFSRESL.V151",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 29,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:29"
+            },
+            {
+              "name": "",
+              "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 30,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:30"
+            },
+            {
+              "name": "DFSRESLB",
+              "dsn": "OEMA.IMS.IMSP.SDFSRESL",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 31,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:31"
+            },
+            {
+              "name": "IMS",
+              "dsn": "OEM.IMS.IMSP.PSBLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 33,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:33"
+            },
+            {
+              "name": "",
+              "dsn": "OEM.IMS.IMSP.DBDLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 34,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:34"
+            },
+            {
+              "name": "PASFILOP",
+              "dsn": "AWS.M2.CARDDEMO.PAUTDB.ROOT.GSAM",
+              "disp": "(OLD,KEEP,KEEP)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 36,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:36"
+            },
+            {
+              "name": "PADFILOP",
+              "dsn": "AWS.M2.CARDDEMO.PAUTDB.CHILD.GSAM",
+              "disp": "(OLD,KEEP,KEEP)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 39,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:39"
+            },
+            {
+              "name": "DDPAUTP0",
+              "dsn": "OEM.IMS.IMSP.PAUTHDB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 42,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:42"
+            },
+            {
+              "name": "DDPAUTX0",
+              "dsn": "OEM.IMS.IMSP.PAUTHDBX",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 43,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:43"
+            },
+            {
+              "name": "DFSVSAMP",
+              "dsn": "OEMPP.IMS.V15R01MB.PROCLIB(DFSVSMDB)",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 46,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:46"
+            },
+            {
+              "name": "IMSLOGR",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 48,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:48"
+            },
+            {
+              "name": "IEFRDER",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 49,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:49"
+            },
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 50,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:50"
+            },
+            {
+              "name": "SYSUDUMP",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 51,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:51"
+            },
+            {
+              "name": "IMSERR",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 52,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:52"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [
+            {
+              "kind": "ims-region",
+              "region_type": "DLI",
+              "psb": "DLIGSAMP",
+              "detail": "DFSRRC00 runs DBUNLDGS in an IMS DLI (batch DL/I region (databases read from DBDLIB, no online sharing)) region under PSB DLIGSAMP"
+            }
+          ],
+          "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:26"
+        }
+      ],
+      "facts": []
+    },
+    {
+      "name": "UNLDPADB",
+      "kind": "job",
+      "path": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL",
+      "steps": [
+        {
+          "job": "UNLDPADB",
+          "step": "STEP0",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IEFBR14",
+          "kind": "utility",
+          "program": null,
+          "resolution": null,
+          "plan": null,
+          "psb": null,
+          "parm": null,
+          "cond": null,
+          "if_context": [],
+          "dds": [
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 27,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:27"
+            },
+            {
+              "name": "SYSOUT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 29,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:29"
+            },
+            {
+              "name": "SYSDUMP",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 31,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:31"
+            },
+            {
+              "name": "DD1",
+              "dsn": "AWS.M2.CARDDEMO.PAUTDB.ROOT.FILEO",
+              "disp": "(OLD,DELETE,DELETE)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 33,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:33"
+            },
+            {
+              "name": "DD2",
+              "dsn": "AWS.M2.CARDDEMO.PAUTDB.CHILD.FILEO",
+              "disp": "(OLD,DELETE,DELETE)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 35,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:35"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [],
+          "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:25"
+        },
+        {
+          "job": "UNLDPADB",
+          "step": "STEP01",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "DFSRRC00",
+          "kind": "launcher",
+          "program": "PAUDBUNL",
+          "resolution": "ims-parm",
+          "plan": null,
+          "psb": "PAUTBUNL",
+          "parm": "'DLI,PAUDBUNL,PAUTBUNL,,,,,,,,,,,N'",
+          "cond": null,
+          "if_context": [],
+          "dds": [
+            {
+              "name": "STEPLIB",
+              "dsn": "OEMA.IMS.IMSP.SDFSRESL",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 40,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:40"
+            },
+            {
+              "name": "",
+              "dsn": "OEMA.IMS.IMSP.SDFSRESL.V151",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 41,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:41"
+            },
+            {
+              "name": "",
+              "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 42,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:42"
+            },
+            {
+              "name": "DFSRESLB",
+              "dsn": "OEMA.IMS.IMSP.SDFSRESL",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 43,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:43"
+            },
+            {
+              "name": "IMS",
+              "dsn": "OEM.IMS.IMSP.PSBLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 45,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:45"
+            },
+            {
+              "name": "",
+              "dsn": "OEM.IMS.IMSP.DBDLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 46,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:46"
+            },
+            {
+              "name": "OUTFIL1",
+              "dsn": "AWS.M2.CARDDEMO.PAUTDB.ROOT.FILEO",
+              "disp": "(NEW,CATLG,DELETE)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {
+                "DCB": "(LRECL=100,BLKSIZE=0,RECFM=FB)",
+                "UNIT": "3390"
+              },
+              "inline_text": null,
+              "line": 48,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:48"
+            },
+            {
+              "name": "OUTFIL2",
+              "dsn": "AWS.M2.CARDDEMO.PAUTDB.CHILD.FILEO",
+              "disp": "(NEW,CATLG,DELETE)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {
+                "DCB": "(LRECL=206,BLKSIZE=0,RECFM=FB)",
+                "UNIT": "3390"
+              },
+              "inline_text": null,
+              "line": 53,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:53"
+            },
+            {
+              "name": "DDPAUTP0",
+              "dsn": "OEM.IMS.IMSP.PAUTHDB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 58,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:58"
+            },
+            {
+              "name": "DDPAUTX0",
+              "dsn": "OEM.IMS.IMSP.PAUTHDBX",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 59,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:59"
+            },
+            {
+              "name": "DFSVSAMP",
+              "dsn": "OEMPP.IMS.V15R01MB.PROCLIB(DFSVSMDB)",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 62,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:62"
+            },
+            {
+              "name": "IMSLOGR",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 64,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:64"
+            },
+            {
+              "name": "IEFRDER",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 65,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:65"
+            },
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 66,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:66"
+            },
+            {
+              "name": "SYSUDUMP",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 67,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:67"
+            },
+            {
+              "name": "IMSERR",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 68,
+              "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:68"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [
+            {
+              "kind": "ims-region",
+              "region_type": "DLI",
+              "psb": "PAUTBUNL",
+              "detail": "DFSRRC00 runs PAUDBUNL in an IMS DLI (batch DL/I region (databases read from DBDLIB, no online sharing)) region under PSB PAUTBUNL"
+            }
+          ],
+          "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:38"
+        }
+      ],
+      "facts": []
+    }
+  ],
+  "missing_includes": [],
+  "unrecognized": []
+}

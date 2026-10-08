@@ -1,0 +1,2665 @@
+{
+  "meta": {
+    "module": "CARDDEMO",
+    "generated_at": "2026-10-08T04:11:45Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "estate": [
+        "AUTHIMS",
+        "TRANTYPE",
+        "VSAMMQ"
+      ]
+    }
+  },
+  "summary": {
+    "connections": 143,
+    "by_category": {
+      "data": 67,
+      "online": 47,
+      "interface": 1,
+      "code": 25,
+      "schedule": 3
+    },
+    "by_status": {
+      "unknown": 27,
+      "must-establish": 92,
+      "satisfied-in-drop": 24
+    },
+    "by_direction": {
+      "both": 56,
+      "out": 47,
+      "in": 40
+    },
+    "counterpart_modules": [
+      "AUTHIMS"
+    ],
+    "estate_modules": [
+      "AUTHIMS",
+      "TRANTYPE",
+      "VSAMMQ"
+    ]
+  },
+  "slots": [
+    {
+      "category": "data",
+      "provider": "db2",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "ims-dli",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "idms",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "detector": true,
+      "present": true,
+      "entries": 67
+    },
+    {
+      "category": "data",
+      "provider": "adabas",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "data",
+      "provider": "datacom",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "detector": true,
+      "present": true,
+      "entries": 47
+    },
+    {
+      "category": "online",
+      "provider": "ims-tm",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "online",
+      "provider": "idms-dc",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "interface",
+      "provider": "mq",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "interface",
+      "provider": "cics-external",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "interface",
+      "provider": "file-transfer",
+      "detector": true,
+      "present": true,
+      "entries": 1
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "detector": true,
+      "present": true,
+      "entries": 23
+    },
+    {
+      "category": "code",
+      "provider": "runtime",
+      "detector": true,
+      "present": true,
+      "entries": 2
+    },
+    {
+      "category": "code",
+      "provider": "pli",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "code",
+      "provider": "coolgen",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "schedule",
+      "provider": "control-m",
+      "detector": true,
+      "present": true,
+      "entries": 3
+    },
+    {
+      "category": "schedule",
+      "provider": "ca7",
+      "detector": true,
+      "present": false,
+      "entries": 0
+    },
+    {
+      "category": "schedule",
+      "provider": "tws-opc",
+      "detector": false,
+      "present": false,
+      "entries": 0
+    }
+  ],
+  "connections": [
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.CCDA.CUSTDATA.CLUSTER",
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "referenced only: named by a step, with no DISP or OPEN saying which way data flows",
+      "evidence": []
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.CUSTDATA.CLUSTER",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "KSDS: created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/jcl/DEFCUST.jcl:35"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.ACCTDATA.ARRYPS",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/cbl/CBACT01C.cbl:40",
+        "../app/jcl/READACCT.jcl:25",
+        "../app/jcl/READACCT.jcl:41"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.ACCTDATA.IMPORT",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/cbl/CBIMPORT.cbl:48",
+        "../app/jcl/CBIMPORT.jcl:38"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.ACCTDATA.PS",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/ACCTFILE.jcl:56"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.ACCTDATA.PSCOMP",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/cbl/CBACT01C.cbl:35",
+        "../app/jcl/READACCT.jcl:23",
+        "../app/jcl/READACCT.jcl:37"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.ACCTDATA.VBPS",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/cbl/CBACT01C.cbl:45",
+        "../app/jcl/READACCT.jcl:27",
+        "../app/jcl/READACCT.jcl:45"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "KSDS: created and read inside this module",
+      "evidence": [
+        "../app/cbl/CBACT01C.cbl:29",
+        "../app/cbl/CBACT04C.cbl:41",
+        "../app/cbl/CBEXPORT.cbl:41",
+        "../app/cbl/CBSTM03B.CBL:49",
+        "../app/cbl/CBTRN02C.cbl:51",
+        "../app/jcl/ACCTFILE.jcl:36",
+        "../app/jcl/ACCTFILE.jcl:58",
+        "../app/jcl/CBEXPORT.jcl:51",
+        "../app/jcl/CREASTMT.JCL:85",
+        "../app/jcl/INTCALC.jcl:33",
+        "../app/jcl/POSTTRAN.jcl:39",
+        "../app/jcl/READACCT.jcl:35"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CARDDATA.PS",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/CARDFILE.jcl:70"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CARDDATA.VSAM.AIX",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "AIX: created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/jcl/CARDFILE.jcl:83"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CARDDATA.VSAM.AIX.PATH",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "PATH: created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/jcl/CARDFILE.jcl:100"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "KSDS: created and read inside this module",
+      "evidence": [
+        "../app/cbl/CBACT02C.cbl:29",
+        "../app/cbl/CBEXPORT.cbl:59",
+        "../app/jcl/CARDFILE.jcl:50",
+        "../app/jcl/CARDFILE.jcl:72",
+        "../app/jcl/CBEXPORT.jcl:57",
+        "../app/jcl/READCARD.jcl:25"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CARDXREF.IMPORT",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/cbl/CBIMPORT.cbl:53",
+        "../app/jcl/CBIMPORT.jcl:43"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CARDXREF.PS",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/XREFFILE.jcl:59"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "AIX: created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/jcl/XREFFILE.jcl:72"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX.PATH",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "PATH: created and read inside this module",
+      "evidence": [
+        "../app/jcl/INTCALC.jcl:31",
+        "../app/jcl/XREFFILE.jcl:90"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "KSDS: created and read inside this module",
+      "evidence": [
+        "../app/cbl/CBACT03C.cbl:29",
+        "../app/cbl/CBACT04C.cbl:34",
+        "../app/cbl/CBEXPORT.cbl:47",
+        "../app/cbl/CBSTM03B.CBL:37",
+        "../app/cbl/CBTRN02C.cbl:40",
+        "../app/cbl/CBTRN03C.cbl:33",
+        "../app/jcl/CBEXPORT.jcl:53",
+        "../app/jcl/CREASTMT.JCL:84",
+        "../app/jcl/INTCALC.jcl:29",
+        "../app/jcl/POSTTRAN.jcl:32",
+        "../app/jcl/READXREF.jcl:25",
+        "../app/jcl/TRANREPT.jcl:67",
+        "../app/jcl/XREFFILE.jcl:39",
+        "../app/jcl/XREFFILE.jcl:61"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CNTL",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "PDS member: read here, produced outside the module",
+      "evidence": [
+        "../app/proc/REPROC.prc:27"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CUSTDATA.IMPORT",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/cbl/CBIMPORT.cbl:43",
+        "../app/jcl/CBIMPORT.jcl:33"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CUSTDATA.PS",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/CUSTFILE.jcl:66"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "KSDS: created and read inside this module",
+      "evidence": [
+        "../app/cbl/CBCUS01C.cbl:29",
+        "../app/cbl/CBEXPORT.cbl:35",
+        "../app/cbl/CBSTM03B.CBL:43",
+        "../app/jcl/CBEXPORT.jcl:49",
+        "../app/jcl/CREASTMT.JCL:86",
+        "../app/jcl/CUSTFILE.jcl:46",
+        "../app/jcl/CUSTFILE.jcl:68",
+        "../app/jcl/READCUST.jcl:24"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.DALYREJS",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "GDG: created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/cbl/CBTRN02C.cbl:46",
+        "../app/jcl/DALYREJS.jcl:24",
+        "../app/jcl/POSTTRAN.jcl:34"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.DALYTRAN.PS",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/cbl/CBTRN02C.cbl:29",
+        "../app/jcl/POSTTRAN.jcl:30"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.DALYTRAN.PS.INIT",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/TRANFILE.jcl:69"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.DATEPARM",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/cbl/CBTRN03C.cbl:55",
+        "../app/jcl/TRANREPT.jcl:73"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.DISCGRP.BKUP",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "GDG: created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/jcl/DEFGDGD.jcl:73",
+        "../app/jcl/DEFGDGD.jcl:86"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.DISCGRP.PS",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/DEFGDGD.jcl:85",
+        "../app/jcl/DISCGRP.jcl:56"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "KSDS: created and read inside this module",
+      "evidence": [
+        "../app/cbl/CBACT04C.cbl:47",
+        "../app/jcl/DISCGRP.jcl:36",
+        "../app/jcl/DISCGRP.jcl:58",
+        "../app/jcl/INTCALC.jcl:35"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.ESDSRRDS.PS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "sequential (QSAM by DD DCB): created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/jcl/ESDSRRDS.jcl:115",
+        "../app/jcl/ESDSRRDS.jcl:26",
+        "../app/jcl/ESDSRRDS.jcl:47",
+        "../app/jcl/ESDSRRDS.jcl:81"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.EXPORT.DATA",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "KSDS: created and read inside this module",
+      "evidence": [
+        "../app/cbl/CBEXPORT.cbl:65",
+        "../app/cbl/CBIMPORT.cbl:37",
+        "../app/jcl/CBEXPORT.jcl:30",
+        "../app/jcl/CBEXPORT.jcl:62",
+        "../app/jcl/CBIMPORT.jcl:28"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.IMPORT.ERRORS",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/cbl/CBIMPORT.cbl:68",
+        "../app/jcl/CBIMPORT.jcl:56"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.JCL",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "PDS member: read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/INTRDRJ1.JCL:17"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "module",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.LOADLIB",
+        "module": "AUTHIMS"
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): created here and read by AUTHIMS, TRANTYPE",
+      "evidence": [
+        "../app/jcl/CBEXPORT.jcl:44",
+        "../app/jcl/CBIMPORT.jcl:23",
+        "../app/jcl/CREASTMT.JCL:80",
+        "../app/jcl/INTCALC.jcl:23",
+        "../app/jcl/POSTTRAN.jcl:24",
+        "../app/jcl/READACCT.jcl:33",
+        "../app/jcl/READCARD.jcl:23",
+        "../app/jcl/READCUST.jcl:22",
+        "../app/jcl/READXREF.jcl:23",
+        "../app/jcl/TRANREPT.jcl:60",
+        "../app/jcl/WAITSTEP.jcl:23"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.STATEMNT.HTML",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/cbl/CBSTM03A.CBL:40",
+        "../app/jcl/CREASTMT.JCL:67",
+        "../app/jcl/CREASTMT.JCL:92"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.STATEMNT.PS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "sequential (QSAM by DD DCB): created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/cbl/CBSTM03A.CBL:39",
+        "../app/jcl/CREASTMT.JCL:72",
+        "../app/jcl/CREASTMT.JCL:87",
+        "../app/jcl/TXT2PDF1.JCL:33"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.SYSTRAN",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "GDG: created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/cbl/CBACT04C.cbl:53",
+        "../app/jcl/COMBTRAN.jcl:25",
+        "../app/jcl/DEFGDGB.jcl:48",
+        "../app/jcl/INTCALC.jcl:37"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TCATBALF.BKUP",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "GDG: created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/jcl/DEFGDGB.jcl:42",
+        "../app/jcl/PRTCATBL.jcl:35",
+        "../app/jcl/PRTCATBL.jcl:44"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TCATBALF.PS",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/TCATBALF.jcl:56"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TCATBALF.REPT",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/jcl/PRTCATBL.jcl:22",
+        "../app/jcl/PRTCATBL.jcl:59"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "KSDS: created and read inside this module",
+      "evidence": [
+        "../app/cbl/CBACT04C.cbl:28",
+        "../app/cbl/CBTRN02C.cbl:57",
+        "../app/jcl/INTCALC.jcl:27",
+        "../app/jcl/POSTTRAN.jcl:41",
+        "../app/jcl/PRTCATBL.jcl:32",
+        "../app/jcl/TCATBALF.jcl:36",
+        "../app/jcl/TCATBALF.jcl:58"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANCATG.PS",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/DEFGDGD.jcl:62",
+        "../app/jcl/TRANCATG.jcl:56"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANCATG.PS.BKUP",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "GDG: created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/jcl/DEFGDGD.jcl:50",
+        "../app/jcl/DEFGDGD.jcl:63"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "KSDS: created and read inside this module",
+      "evidence": [
+        "../app/cbl/CBTRN03C.cbl:45",
+        "../app/jcl/TRANCATG.jcl:36",
+        "../app/jcl/TRANCATG.jcl:58",
+        "../app/jcl/TRANREPT.jcl:71"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANREPT",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "GDG: created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/cbl/CBTRN03C.cbl:51",
+        "../app/jcl/REPTFILE.jcl:25",
+        "../app/jcl/TRANREPT.jcl:76"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANSACT.BKUP",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "GDG: created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/jcl/COMBTRAN.jcl:23",
+        "../app/jcl/DEFGDGB.jcl:24",
+        "../app/jcl/TRANBKP.jcl:29",
+        "../app/jcl/TRANREPT.jcl:29",
+        "../app/jcl/TRANREPT.jcl:38"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANSACT.COMBINED",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "GDG: created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/jcl/COMBTRAN.jcl:33",
+        "../app/jcl/COMBTRAN.jcl:43",
+        "../app/jcl/DEFGDGB.jcl:54"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANSACT.DALY",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "GDG: created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/cbl/CBTRN03C.cbl:29",
+        "../app/jcl/DEFGDGB.jcl:30",
+        "../app/jcl/TRANREPT.jcl:51",
+        "../app/jcl/TRANREPT.jcl:65"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANSACT.IMPORT",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "sequential (QSAM by DD DCB): created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/cbl/CBIMPORT.cbl:58",
+        "../app/jcl/CBIMPORT.jcl:48"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "AIX: created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/jcl/TRANIDX.jcl:25"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX.PATH",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "PATH: created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/jcl/TRANIDX.jcl:42"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "KSDS: created and read inside this module",
+      "evidence": [
+        "../app/cbl/CBEXPORT.cbl:53",
+        "../app/cbl/CBTRN02C.cbl:34",
+        "../app/jcl/CBEXPORT.jcl:55",
+        "../app/jcl/COMBTRAN.jcl:45",
+        "../app/jcl/CREASTMT.JCL:45",
+        "../app/jcl/POSTTRAN.jcl:28",
+        "../app/jcl/TRANBKP.jcl:26",
+        "../app/jcl/TRANFILE.jcl:49",
+        "../app/jcl/TRANFILE.jcl:71",
+        "../app/jcl/TRANREPT.jcl:26"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANTYPE.BKUP",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "GDG: created here; who consumes it is outside the scan",
+      "evidence": [
+        "../app/jcl/DEFGDGD.jcl:27",
+        "../app/jcl/DEFGDGD.jcl:40"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANTYPE.PS",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/DEFGDGD.jcl:39",
+        "../app/jcl/TRANTYPE.jcl:56"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "KSDS: created and read inside this module",
+      "evidence": [
+        "../app/cbl/CBTRN03C.cbl:39",
+        "../app/jcl/TRANREPT.jcl:69",
+        "../app/jcl/TRANTYPE.jcl:36",
+        "../app/jcl/TRANTYPE.jcl:58"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRXFL.SEQ",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "sequential (QSAM by DD DCB): created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/jcl/CREASTMT.JCL:48",
+        "../app/jcl/CREASTMT.JCL:58"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "KSDS: created and read inside this module",
+      "evidence": [
+        "../app/cbl/CBSTM03B.CBL:31",
+        "../app/jcl/CREASTMT.JCL:29",
+        "../app/jcl/CREASTMT.JCL:59",
+        "../app/jcl/CREASTMT.JCL:83"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.USRSEC.PS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "sequential (QSAM by DD DCB): created and read inside this module, and retained past the run, so a consumer outside the scan is not ruled out",
+      "evidence": [
+        "../app/jcl/DUSRSECJ.jcl:25",
+        "../app/jcl/DUSRSECJ.jcl:46",
+        "../app/jcl/DUSRSECJ.jcl:82"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.USRSEC.VSAM.ESDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "ESDS: created and read inside this module",
+      "evidence": [
+        "../app/jcl/ESDSRRDS.jcl:65",
+        "../app/jcl/ESDSRRDS.jcl:82"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.USRSEC.VSAM.KSDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "KSDS: created and read inside this module",
+      "evidence": [
+        "../app/jcl/DUSRSECJ.jcl:64",
+        "../app/jcl/DUSRSECJ.jcl:83"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "internal",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDDEMO.USRSEC.VSAM.RRDS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "satisfied-in-drop",
+      "detail": "RRDS: created and read inside this module",
+      "evidence": [
+        "../app/jcl/ESDSRRDS.jcl:116",
+        "../app/jcl/ESDSRRDS.jcl:99"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDEMO.FTP.TEST",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/INTRDRJ1.JCL:8"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDEMO.FTP.TEST.BKUP",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/INTRDRJ1.JCL:9",
+        "../app/jcl/INTRDRJ2.JCL:9"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.CARDEMO.FTP.TEST.BKUP.INTRDR",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/INTRDRJ2.JCL:10"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.LBD.TXT2PDF.EXEC",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/TXT2PDF1.JCL:31"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "AWS.M2.LBD.TXT2PDF.LOAD",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/TXT2PDF1.JCL:28"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEM.CICSTS.DFHCSD",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/CBADMCDJ.jcl:30"
+      ]
+    },
+    {
+      "category": "data",
+      "provider": "dataset",
+      "counterpart": {
+        "level": "estate",
+        "kind": "dataset",
+        "name": "OEM.CICSTS.V05R06M0.CICS.SDFHLOAD",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "sequential (no catalog evidence): read here, produced outside the module",
+      "evidence": [
+        "../app/jcl/CBADMCDJ.jcl:29"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "ACCTDAT",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:3703",
+        "../app/cbl/COACTUPC.cbl:3894",
+        "../app/cbl/COACTUPC.cbl:4065",
+        "../app/cbl/COACTVWC.cbl:776",
+        "../app/cbl/COBIL00C.cbl:345",
+        "../app/cbl/COBIL00C.cbl:379"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "CARDAIX",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COCRDSLC.cbl:783"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "CARDDAT",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COCRDLIC.cbl:1129",
+        "../app/cbl/COCRDLIC.cbl:1146",
+        "../app/cbl/COCRDLIC.cbl:1197",
+        "../app/cbl/COCRDLIC.cbl:1258",
+        "../app/cbl/COCRDLIC.cbl:1273",
+        "../app/cbl/COCRDLIC.cbl:1294",
+        "../app/cbl/COCRDLIC.cbl:1322",
+        "../app/cbl/COCRDLIC.cbl:1375",
+        "../app/cbl/COCRDSLC.cbl:742",
+        "../app/cbl/COCRDUPC.cbl:1382",
+        "../app/cbl/COCRDUPC.cbl:1427",
+        "../app/cbl/COCRDUPC.cbl:1477"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "CCXREF",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COTRN02C.cbl:611"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "CUSTDAT",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:3753",
+        "../app/cbl/COACTUPC.cbl:3921",
+        "../app/cbl/COACTUPC.cbl:4085",
+        "../app/cbl/COACTVWC.cbl:826"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "CXACAIX",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:3654",
+        "../app/cbl/COACTVWC.cbl:727",
+        "../app/cbl/COBIL00C.cbl:410",
+        "../app/cbl/COTRN02C.cbl:578"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "TRANSACT",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COBIL00C.cbl:443",
+        "../app/cbl/COBIL00C.cbl:474",
+        "../app/cbl/COBIL00C.cbl:503",
+        "../app/cbl/COBIL00C.cbl:512",
+        "../app/cbl/COTRN00C.cbl:593",
+        "../app/cbl/COTRN00C.cbl:626",
+        "../app/cbl/COTRN00C.cbl:660",
+        "../app/cbl/COTRN00C.cbl:694",
+        "../app/cbl/COTRN01C.cbl:269",
+        "../app/cbl/COTRN02C.cbl:644",
+        "../app/cbl/COTRN02C.cbl:675",
+        "../app/cbl/COTRN02C.cbl:704",
+        "../app/cbl/COTRN02C.cbl:713"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "file",
+        "name": "USRSEC",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS file: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COSGN00C.cbl:211",
+        "../app/cbl/COUSR00C.cbl:588",
+        "../app/cbl/COUSR00C.cbl:621",
+        "../app/cbl/COUSR00C.cbl:655",
+        "../app/cbl/COUSR00C.cbl:689",
+        "../app/cbl/COUSR01C.cbl:240",
+        "../app/cbl/COUSR02C.cbl:322",
+        "../app/cbl/COUSR02C.cbl:360",
+        "../app/cbl/COUSR03C.cbl:269",
+        "../app/cbl/COUSR03C.cbl:307"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COACTUP",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:1040"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COACTVW",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COACTVWC.cbl:611"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COADM01",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COADM01C.cbl:182",
+        "../app/cbl/COADM01C.cbl:194"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COBIL00",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COBIL00C.cbl:295",
+        "../app/cbl/COBIL00C.cbl:308"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COCRDLI",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COCRDLIC.cbl:939",
+        "../app/cbl/COCRDLIC.cbl:963"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COCRDSL",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COCRDSLC.cbl:597"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COCRDUP",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COCRDUPC.cbl:579"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COMEN01",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COMEN01C.cbl:215",
+        "../app/cbl/COMEN01C.cbl:227"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "CORPT00",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/CORPT00C.cbl:563",
+        "../app/cbl/CORPT00C.cbl:571",
+        "../app/cbl/CORPT00C.cbl:598"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COSGN00",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COSGN00C.cbl:110",
+        "../app/cbl/COSGN00C.cbl:151"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COTRN00",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COTRN00C.cbl:534",
+        "../app/cbl/COTRN00C.cbl:542",
+        "../app/cbl/COTRN00C.cbl:556"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COTRN01",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COTRN01C.cbl:219",
+        "../app/cbl/COTRN01C.cbl:232"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COTRN02",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COTRN02C.cbl:522",
+        "../app/cbl/COTRN02C.cbl:541"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COUSR00",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COUSR00C.cbl:529",
+        "../app/cbl/COUSR00C.cbl:537",
+        "../app/cbl/COUSR00C.cbl:551"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COUSR01",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COUSR01C.cbl:190",
+        "../app/cbl/COUSR01C.cbl:203"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COUSR02",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COUSR02C.cbl:272",
+        "../app/cbl/COUSR02C.cbl:285"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "map",
+        "name": "COUSR03",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS map: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/COUSR03C.cbl:219",
+        "../app/cbl/COUSR03C.cbl:232"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "map",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "CICS map: resource name is held in a variable, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:3594"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "map",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "CICS map: resource name is held in a variable, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COACTVWC.cbl:583"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "map",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "CICS map: resource name is held in a variable, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COCRDSLC.cbl:569"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "map",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "CICS map: resource name is held in a variable, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COCRDUPC.cbl:1329"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "td-queue",
+        "name": "JOBS",
+        "module": null
+      },
+      "direction": "both",
+      "status": "must-establish",
+      "detail": "CICS td-queue: defined in the scanned CSD",
+      "evidence": [
+        "../app/cbl/CORPT00C.cbl:517"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CA00",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CA00 is defined onto COADM01C, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:327"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CAUP",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CAUP is defined onto COACTUPC, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:306"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CAVW",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CAVW is defined onto COACTVWC, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:317"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CB00",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CB00 is defined onto COBIL00C, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:337"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CC00",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CC00 is defined onto COSGN00C, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:378"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CCDL",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CCDL is defined onto COCRDSLC, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:347"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CCLI",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CCLI is defined onto COCRDLIC, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:357"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CCUP",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CCUP is defined onto COCRDUPC, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:367"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CM00",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CM00 is defined onto COMEN01C, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:399"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CR00",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CR00 is defined onto CORPT00C, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:409"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CT00",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CT00 is defined onto COTRN00C, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:419"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CT01",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CT01 is defined onto COTRN01C, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:429"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CT02",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CT02 is defined onto COTRN02C, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:439"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CU00",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CU00 is defined onto COUSR00C, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:449"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CU01",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CU01 is defined onto COUSR01C, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:459"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CU02",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CU02 is defined onto COUSR02C, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:469"
+      ]
+    },
+    {
+      "category": "online",
+      "provider": "cics",
+      "counterpart": {
+        "level": "estate",
+        "kind": "transaction",
+        "name": "CU03",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANSID CU03 is defined onto COUSR03C, so something outside the module starts it",
+      "evidence": [
+        "../app/csd/CARDDEMO.CSD:479"
+      ]
+    },
+    {
+      "category": "interface",
+      "provider": "file-transfer",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "partner",
+        "name": null,
+        "module": null
+      },
+      "direction": "both",
+      "status": "unknown",
+      "detail": "FTP in FTPJCLS.STEP1 moves data across the estate boundary; the partner node is in its control cards",
+      "evidence": [
+        "../app/jcl/FTPJCL.JCL:30"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "estate",
+        "kind": "program",
+        "name": "COBDATFT",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "COBDATFT: subprogram CALLed by 1 program(s) (via CALL)",
+      "evidence": [
+        "../app/cbl/CBACT01C.cbl:231"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "estate",
+        "kind": "program",
+        "name": "MVSWAIT",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "MVSWAIT: subprogram CALLed by 1 program(s) (via CALL)",
+      "evidence": [
+        "../app/cbl/COBSWAIT.cbl:38"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-ADMIN-OPT-PGMNAME in COADM01C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COADM01C.cbl:145"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-MENU-OPT-PGMNAME in COMEN01C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COMEN01C.cbl:156"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-MENU-OPT-PGMNAME in COMEN01C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COMEN01C.cbl:184"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COACTUPC: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COACTUPC.cbl:956"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COACTVWC: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COACTVWC.cbl:349"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COADM01C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COADM01C.cbl:168"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COBIL00C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COBIL00C.cbl:281"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COCRDSLC: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COCRDSLC.cbl:331"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COCRDUPC: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COCRDUPC.cbl:473"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COMEN01C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COMEN01C.cbl:201"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in CORPT00C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/CORPT00C.cbl:548"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COTRN00C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COTRN00C.cbl:192"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COTRN00C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COTRN00C.cbl:518"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COTRN01C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COTRN01C.cbl:205"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COTRN02C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COTRN02C.cbl:508"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COUSR00C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COUSR00C.cbl:196"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COUSR00C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COUSR00C.cbl:206"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COUSR00C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COUSR00C.cbl:514"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COUSR01C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COUSR01C.cbl:175"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COUSR02C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COUSR02C.cbl:258"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "module",
+      "counterpart": {
+        "level": "unknown",
+        "kind": "program",
+        "name": null,
+        "module": null
+      },
+      "direction": "out",
+      "status": "unknown",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM in COUSR03C: the target is computed, so what it reaches is unresolved",
+      "evidence": [
+        "../app/cbl/COUSR03C.cbl:205"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "runtime",
+      "counterpart": {
+        "level": "estate",
+        "kind": "routine",
+        "name": "CEE3ABD",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "Language Environment callable services routine: supplied by the product, not by the drop",
+      "evidence": [
+        "../app/cbl/CBACT01C.cbl:410",
+        "../app/cbl/CBACT02C.cbl:158",
+        "../app/cbl/CBACT03C.cbl:158",
+        "../app/cbl/CBACT04C.cbl:632",
+        "../app/cbl/CBCUS01C.cbl:158",
+        "../app/cbl/CBEXPORT.cbl:579",
+        "../app/cbl/CBIMPORT.cbl:484",
+        "../app/cbl/CBSTM03A.CBL:923",
+        "../app/cbl/CBTRN01C.cbl:473",
+        "../app/cbl/CBTRN02C.cbl:711",
+        "../app/cbl/CBTRN03C.cbl:630"
+      ]
+    },
+    {
+      "category": "code",
+      "provider": "runtime",
+      "counterpart": {
+        "level": "estate",
+        "kind": "routine",
+        "name": "CEEDAYS",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "Language Environment callable services routine: supplied by the product, not by the drop",
+      "evidence": [
+        "../app/cbl/CSUTLDTC.cbl:116"
+      ]
+    },
+    {
+      "category": "schedule",
+      "provider": "control-m",
+      "counterpart": {
+        "level": "estate",
+        "kind": "condition",
+        "name": "WEEKLY-TransactionTypesDBRefresh-MNTTRDB2",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "CLOSEFIL waits on WEEKLY-TransactionTypesDBRefresh-MNTTRDB2, which no job in the table posts",
+      "evidence": [
+        "../app/scheduler/CardDemo.controlm"
+      ]
+    },
+    {
+      "category": "schedule",
+      "provider": "control-m",
+      "counterpart": {
+        "level": "estate",
+        "kind": "condition",
+        "name": "WEEKLY-TransactionTypesDBRefresh-MNTTRDB2",
+        "module": null
+      },
+      "direction": "in",
+      "status": "must-establish",
+      "detail": "TRANEXTR waits on WEEKLY-TransactionTypesDBRefresh-MNTTRDB2, which no job in the table posts",
+      "evidence": [
+        "../app/scheduler/CardDemo.controlm"
+      ]
+    },
+    {
+      "category": "schedule",
+      "provider": "control-m",
+      "counterpart": {
+        "level": "estate",
+        "kind": "condition",
+        "name": "WEEKLY-TransactionTypesDBRefresh-MNTTRDB2",
+        "module": null
+      },
+      "direction": "out",
+      "status": "must-establish",
+      "detail": "MNTTRDB2 posts WEEKLY-TransactionTypesDBRefresh-MNTTRDB2, which no job in the table awaits",
+      "evidence": [
+        "../app/scheduler/CardDemo.controlm"
+      ]
+    }
+  ]
+}

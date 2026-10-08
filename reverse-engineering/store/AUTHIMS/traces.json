@@ -1,0 +1,892 @@
+{
+  "meta": {
+    "module": "AUTHIMS",
+    "generated_at": "2026-10-08T04:11:45Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "programs": {
+        "src": [
+          "../app/app-authorization-ims-db2-mq/cbl"
+        ],
+        "copybooks": [
+          "../app/app-authorization-ims-db2-mq/cpy",
+          "../app/app-authorization-ims-db2-mq/cpy-bms",
+          "../app/app-authorization-ims-db2-mq/dcl"
+        ]
+      },
+      "jobs": {
+        "jcl": [
+          "../app/app-authorization-ims-db2-mq/jcl"
+        ],
+        "procs": [],
+        "cntl": []
+      }
+    }
+  },
+  "summary": {
+    "programs": 8,
+    "boundaries": 8,
+    "steps": 7,
+    "edges": 24,
+    "edges_by_kind": {
+      "jcl-exec": 7,
+      "static-call": 13,
+      "cics-xctl": 3,
+      "cics-link": 1
+    },
+    "edges_by_certainty": {
+      "proven": 20,
+      "open": 3,
+      "candidate": 1
+    },
+    "boundaries_by_class": {
+      "utility": 1,
+      "unsupplied-module": 1,
+      "mq": 4,
+      "ims-interface": 1,
+      "unresolved-target": 1
+    },
+    "missing_artifacts": 2,
+    "missing_by_class": {
+      "unresolved-target": 1,
+      "unsupplied-module": 1
+    },
+    "roots": 10,
+    "open_ends": 3,
+    "unreached_programs": 0,
+    "cycles": 0
+  },
+  "nodes": [
+    {
+      "id": "CBPAUP0J.STEP01",
+      "kind": "step",
+      "class": "launcher",
+      "detail": "DFSRRC00",
+      "path": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:24",
+      "in_inventory": false,
+      "job": "CBPAUP0J",
+      "step": "STEP01",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "DBPAUTP0.STEPDEL",
+      "kind": "step",
+      "class": "utility",
+      "detail": "IEFBR14",
+      "path": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:7",
+      "in_inventory": false,
+      "job": "DBPAUTP0",
+      "step": "STEPDEL",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "DBPAUTP0.UNLOAD",
+      "kind": "step",
+      "class": "utility",
+      "detail": "DFSRRC00",
+      "path": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:15",
+      "in_inventory": false,
+      "job": "DBPAUTP0",
+      "step": "UNLOAD",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "LOADPADB.STEP01",
+      "kind": "step",
+      "class": "launcher",
+      "detail": "DFSRRC00",
+      "path": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:26",
+      "in_inventory": false,
+      "job": "LOADPADB",
+      "step": "STEP01",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "UNLDGSAM.STEP01",
+      "kind": "step",
+      "class": "launcher",
+      "detail": "DFSRRC00",
+      "path": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:26",
+      "in_inventory": false,
+      "job": "UNLDGSAM",
+      "step": "STEP01",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "UNLDPADB.STEP0",
+      "kind": "step",
+      "class": "utility",
+      "detail": "IEFBR14",
+      "path": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:25",
+      "in_inventory": false,
+      "job": "UNLDPADB",
+      "step": "STEP0",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "UNLDPADB.STEP01",
+      "kind": "step",
+      "class": "launcher",
+      "detail": "DFSRRC00",
+      "path": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:38",
+      "in_inventory": false,
+      "job": "UNLDPADB",
+      "step": "STEP01",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "CBPAUP0C",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-authorization-ims-db2-mq/cbl/CBPAUP0C.cbl",
+      "in_inventory": true,
+      "cics": false,
+      "sql": false
+    },
+    {
+      "id": "COPAUA0C",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl",
+      "in_inventory": true,
+      "cics": true,
+      "sql": false
+    },
+    {
+      "id": "COPAUS0C",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl",
+      "in_inventory": true,
+      "cics": true,
+      "sql": false
+    },
+    {
+      "id": "COPAUS1C",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl",
+      "in_inventory": true,
+      "cics": true,
+      "sql": false
+    },
+    {
+      "id": "COPAUS2C",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl",
+      "in_inventory": true,
+      "cics": true,
+      "sql": true
+    },
+    {
+      "id": "DBUNLDGS",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL",
+      "in_inventory": true,
+      "cics": false,
+      "sql": false
+    },
+    {
+      "id": "PAUDBLOD",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL",
+      "in_inventory": true,
+      "cics": false,
+      "sql": false
+    },
+    {
+      "id": "PAUDBUNL",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL",
+      "in_inventory": true,
+      "cics": false,
+      "sql": false
+    },
+    {
+      "id": "?CDEMO-TO-PROGRAM",
+      "kind": "boundary",
+      "class": "unresolved-target",
+      "detail": "dynamic target not settled in the source",
+      "path": null,
+      "in_inventory": false
+    },
+    {
+      "id": "CBLTDLI",
+      "kind": "boundary",
+      "class": "ims-interface",
+      "detail": "IMS DL/I language interface",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": null
+    },
+    {
+      "id": "DFSRRC00",
+      "kind": "boundary",
+      "class": "unsupplied-module",
+      "detail": "named target outside the scanned source: nothing in the scan says where it comes from",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:15"
+    },
+    {
+      "id": "IEFBR14",
+      "kind": "boundary",
+      "class": "utility",
+      "detail": "data-management utility",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:7"
+    },
+    {
+      "id": "MQCLOSE",
+      "kind": "boundary",
+      "class": "mq",
+      "detail": "IBM MQ API stub",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": null
+    },
+    {
+      "id": "MQGET",
+      "kind": "boundary",
+      "class": "mq",
+      "detail": "IBM MQ API stub",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": null
+    },
+    {
+      "id": "MQOPEN",
+      "kind": "boundary",
+      "class": "mq",
+      "detail": "IBM MQ API stub",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": null
+    },
+    {
+      "id": "MQPUT1",
+      "kind": "boundary",
+      "class": "mq",
+      "detail": "IBM MQ API stub",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "CBPAUP0J.STEP01",
+      "to": "CBPAUP0C",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:24",
+      "detail": "EXEC PGM=DFSRRC00 (launcher: RUN PROGRAM(CBPAUP0C))",
+      "job": "CBPAUP0J",
+      "step": "STEP01",
+      "blocked_by": null
+    },
+    {
+      "from": "DBPAUTP0.STEPDEL",
+      "to": "IEFBR14",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:7",
+      "detail": "EXEC PGM=IEFBR14",
+      "job": "DBPAUTP0",
+      "step": "STEPDEL",
+      "blocked_by": null
+    },
+    {
+      "from": "DBPAUTP0.UNLOAD",
+      "to": "DFSRRC00",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:15",
+      "detail": "EXEC PGM=DFSRRC00",
+      "job": "DBPAUTP0",
+      "step": "UNLOAD",
+      "blocked_by": "module-unsupplied"
+    },
+    {
+      "from": "LOADPADB.STEP01",
+      "to": "PAUDBLOD",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:26",
+      "detail": "EXEC PGM=DFSRRC00 (launcher: RUN PROGRAM(PAUDBLOD))",
+      "job": "LOADPADB",
+      "step": "STEP01",
+      "blocked_by": null
+    },
+    {
+      "from": "UNLDGSAM.STEP01",
+      "to": "DBUNLDGS",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:26",
+      "detail": "EXEC PGM=DFSRRC00 (launcher: RUN PROGRAM(DBUNLDGS))",
+      "job": "UNLDGSAM",
+      "step": "STEP01",
+      "blocked_by": null
+    },
+    {
+      "from": "UNLDPADB.STEP0",
+      "to": "IEFBR14",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:25",
+      "detail": "EXEC PGM=IEFBR14",
+      "job": "UNLDPADB",
+      "step": "STEP0",
+      "blocked_by": null
+    },
+    {
+      "from": "UNLDPADB.STEP01",
+      "to": "PAUDBUNL",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:38",
+      "detail": "EXEC PGM=DFSRRC00 (launcher: RUN PROGRAM(PAUDBUNL))",
+      "job": "UNLDPADB",
+      "step": "STEP01",
+      "blocked_by": null
+    },
+    {
+      "from": "COPAUA0C",
+      "to": "MQCLOSE",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:956",
+      "detail": "CALL 'MQCLOSE'",
+      "blocked_by": null
+    },
+    {
+      "from": "COPAUA0C",
+      "to": "MQGET",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:400",
+      "detail": "CALL 'MQGET'",
+      "blocked_by": null
+    },
+    {
+      "from": "COPAUA0C",
+      "to": "MQOPEN",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:262",
+      "detail": "CALL 'MQOPEN'",
+      "blocked_by": null
+    },
+    {
+      "from": "COPAUA0C",
+      "to": "MQPUT1",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:758",
+      "detail": "CALL 'MQPUT1'",
+      "blocked_by": null
+    },
+    {
+      "from": "DBUNLDGS",
+      "to": "CBLTDLI",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL:222",
+      "detail": "CALL 'CBLTDLI'",
+      "blocked_by": null
+    },
+    {
+      "from": "DBUNLDGS",
+      "to": "CBLTDLI",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL:267",
+      "detail": "CALL 'CBLTDLI'",
+      "blocked_by": null
+    },
+    {
+      "from": "DBUNLDGS",
+      "to": "CBLTDLI",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL:302",
+      "detail": "CALL 'CBLTDLI'",
+      "blocked_by": null
+    },
+    {
+      "from": "DBUNLDGS",
+      "to": "CBLTDLI",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL:321",
+      "detail": "CALL 'CBLTDLI'",
+      "blocked_by": null
+    },
+    {
+      "from": "PAUDBLOD",
+      "to": "CBLTDLI",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL:244",
+      "detail": "CALL 'CBLTDLI'",
+      "blocked_by": null
+    },
+    {
+      "from": "PAUDBLOD",
+      "to": "CBLTDLI",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL:296",
+      "detail": "CALL 'CBLTDLI'",
+      "blocked_by": null
+    },
+    {
+      "from": "PAUDBLOD",
+      "to": "CBLTDLI",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL:321",
+      "detail": "CALL 'CBLTDLI'",
+      "blocked_by": null
+    },
+    {
+      "from": "PAUDBUNL",
+      "to": "CBLTDLI",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL:213",
+      "detail": "CALL 'CBLTDLI'",
+      "blocked_by": null
+    },
+    {
+      "from": "PAUDBUNL",
+      "to": "CBLTDLI",
+      "kind": "static-call",
+      "certainty": "proven",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL:257",
+      "detail": "CALL 'CBLTDLI'",
+      "blocked_by": null
+    },
+    {
+      "from": "COPAUS1C",
+      "to": "COPAUS2C",
+      "kind": "cics-link",
+      "certainty": "candidate",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:248",
+      "detail": "CICS-LINK WS-PGM-AUTH-FRAUD -> one of 1 candidate(s)",
+      "site": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:248",
+      "variable": "WS-PGM-AUTH-FRAUD",
+      "evidence": [
+        "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:35"
+      ],
+      "blocked_by": null
+    },
+    {
+      "from": "COPAUS0C",
+      "to": "?CDEMO-TO-PROGRAM",
+      "kind": "cics-xctl",
+      "certainty": "open",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:322",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM - unknown-item",
+      "site": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:322",
+      "variable": "CDEMO-TO-PROGRAM",
+      "blocked_by": "dynamic-call-open"
+    },
+    {
+      "from": "COPAUS0C",
+      "to": "?CDEMO-TO-PROGRAM",
+      "kind": "cics-xctl",
+      "certainty": "open",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:674",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM - unknown-item",
+      "site": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:674",
+      "variable": "CDEMO-TO-PROGRAM",
+      "blocked_by": "dynamic-call-open"
+    },
+    {
+      "from": "COPAUS1C",
+      "to": "?CDEMO-TO-PROGRAM",
+      "kind": "cics-xctl",
+      "certainty": "open",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:367",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM - unknown-item",
+      "site": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:367",
+      "variable": "CDEMO-TO-PROGRAM",
+      "blocked_by": "dynamic-call-open"
+    }
+  ],
+  "roots": [
+    {
+      "kind": "job-step",
+      "job": "CBPAUP0J",
+      "step": "STEP01",
+      "proc_step": null,
+      "id": "CBPAUP0J.STEP01",
+      "program": "CBPAUP0C",
+      "step_kind": "launcher",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:24",
+      "reaches": [
+        {
+          "node": "CBPAUP0C",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": []
+    },
+    {
+      "kind": "job-step",
+      "job": "DBPAUTP0",
+      "step": "STEPDEL",
+      "proc_step": null,
+      "id": "DBPAUTP0.STEPDEL",
+      "program": "IEFBR14",
+      "step_kind": "utility",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:7",
+      "reaches": [
+        {
+          "node": "IEFBR14",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "IEFBR14",
+          "why": "data-management utility",
+          "class": "utility"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "DBPAUTP0",
+      "step": "UNLOAD",
+      "proc_step": null,
+      "id": "DBPAUTP0.UNLOAD",
+      "program": "DFSRRC00",
+      "step_kind": "utility",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:15",
+      "reaches": [
+        {
+          "node": "DFSRRC00",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "DFSRRC00",
+          "why": "named target outside the scanned source: nothing in the scan says where it comes from",
+          "class": "unsupplied-module"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "LOADPADB",
+      "step": "STEP01",
+      "proc_step": null,
+      "id": "LOADPADB.STEP01",
+      "program": "PAUDBLOD",
+      "step_kind": "launcher",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:26",
+      "reaches": [
+        {
+          "node": "PAUDBLOD",
+          "depth": 0,
+          "via": null
+        },
+        {
+          "node": "CBLTDLI",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "PAUDBLOD",
+            "source": "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL:244"
+          }
+        }
+      ],
+      "stops": [
+        {
+          "node": "CBLTDLI",
+          "why": "IMS DL/I language interface",
+          "class": "ims-interface"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "UNLDGSAM",
+      "step": "STEP01",
+      "proc_step": null,
+      "id": "UNLDGSAM.STEP01",
+      "program": "DBUNLDGS",
+      "step_kind": "launcher",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:26",
+      "reaches": [
+        {
+          "node": "DBUNLDGS",
+          "depth": 0,
+          "via": null
+        },
+        {
+          "node": "CBLTDLI",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "DBUNLDGS",
+            "source": "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL:222"
+          }
+        }
+      ],
+      "stops": [
+        {
+          "node": "CBLTDLI",
+          "why": "IMS DL/I language interface",
+          "class": "ims-interface"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "UNLDPADB",
+      "step": "STEP0",
+      "proc_step": null,
+      "id": "UNLDPADB.STEP0",
+      "program": "IEFBR14",
+      "step_kind": "utility",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:25",
+      "reaches": [
+        {
+          "node": "IEFBR14",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "IEFBR14",
+          "why": "data-management utility",
+          "class": "utility"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "UNLDPADB",
+      "step": "STEP01",
+      "proc_step": null,
+      "id": "UNLDPADB.STEP01",
+      "program": "PAUDBUNL",
+      "step_kind": "launcher",
+      "source": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:38",
+      "reaches": [
+        {
+          "node": "PAUDBUNL",
+          "depth": 0,
+          "via": null
+        },
+        {
+          "node": "CBLTDLI",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "PAUDBUNL",
+            "source": "../app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL:213"
+          }
+        }
+      ],
+      "stops": [
+        {
+          "node": "CBLTDLI",
+          "why": "IMS DL/I language interface",
+          "class": "ims-interface"
+        }
+      ]
+    },
+    {
+      "kind": "cics-program",
+      "job": null,
+      "step": null,
+      "program": "COPAUA0C",
+      "step_kind": null,
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl",
+      "reaches": [
+        {
+          "node": "COPAUA0C",
+          "depth": 0,
+          "via": null
+        },
+        {
+          "node": "MQOPEN",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "COPAUA0C",
+            "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:262"
+          }
+        },
+        {
+          "node": "MQGET",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "COPAUA0C",
+            "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:400"
+          }
+        },
+        {
+          "node": "MQPUT1",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "COPAUA0C",
+            "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:758"
+          }
+        },
+        {
+          "node": "MQCLOSE",
+          "depth": 1,
+          "via": {
+            "kind": "static-call",
+            "certainty": "proven",
+            "from": "COPAUA0C",
+            "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:956"
+          }
+        }
+      ],
+      "stops": [
+        {
+          "node": "MQOPEN",
+          "why": "IBM MQ API stub",
+          "class": "mq"
+        },
+        {
+          "node": "MQGET",
+          "why": "IBM MQ API stub",
+          "class": "mq"
+        },
+        {
+          "node": "MQPUT1",
+          "why": "IBM MQ API stub",
+          "class": "mq"
+        },
+        {
+          "node": "MQCLOSE",
+          "why": "IBM MQ API stub",
+          "class": "mq"
+        }
+      ]
+    },
+    {
+      "kind": "cics-program",
+      "job": null,
+      "step": null,
+      "program": "COPAUS0C",
+      "step_kind": null,
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl",
+      "reaches": [
+        {
+          "node": "COPAUS0C",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": []
+    },
+    {
+      "kind": "cics-program",
+      "job": null,
+      "step": null,
+      "program": "COPAUS1C",
+      "step_kind": null,
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl",
+      "reaches": [
+        {
+          "node": "COPAUS1C",
+          "depth": 0,
+          "via": null
+        },
+        {
+          "node": "COPAUS2C",
+          "depth": 1,
+          "via": {
+            "kind": "cics-link",
+            "certainty": "candidate",
+            "from": "COPAUS1C",
+            "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:248"
+          }
+        }
+      ],
+      "stops": []
+    }
+  ],
+  "open_ends": [
+    {
+      "program": "COPAUS0C",
+      "site": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:322",
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "kinds": [
+        "unknown-item"
+      ],
+      "candidates": [],
+      "resolve_with": "dynamic-call-resolution skill"
+    },
+    {
+      "program": "COPAUS0C",
+      "site": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:674",
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "kinds": [
+        "unknown-item"
+      ],
+      "candidates": [],
+      "resolve_with": "dynamic-call-resolution skill"
+    },
+    {
+      "program": "COPAUS1C",
+      "site": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:367",
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "kinds": [
+        "unknown-item"
+      ],
+      "candidates": [],
+      "resolve_with": "dynamic-call-resolution skill"
+    }
+  ],
+  "cycles": [],
+  "unreached": {
+    "programs": [],
+    "note": "no scanned JCL step reaches these programs through a proven or candidate control edge (CICS-only programs are entered by a transaction, not by a step)"
+  }
+}

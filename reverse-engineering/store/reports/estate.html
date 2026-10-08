@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>mftb estate - carddemo-modernization-demo/app</title>
+<style>
+
+  :root {
+    --bg: #edeceb; --card: #ffffff; --ink: #191919; --muted: #626870;
+    --line: rgba(25, 25, 25, .13); --hair: rgba(25, 25, 25, .07);
+    --wash: #f7f6f5; --accent: #2200ff; --tan: #b9a07a;
+    --high: #b3261e; --medium: #8a6a2f; --info: #2200ff; --det: #146c2e;
+    --gen: #8a6a2f; --evr: #5b21b6;
+    --high-bg: #fdeceb; --medium-bg: #f8f2e6; --info-bg: #ecebff;
+    --det-bg: #eaf4ec; --evr-bg: #f2ecfb; --flat-bg: #f1f0ef;
+    --sans: "NB International Pro", Inter, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 14px/1.55 var(--sans); -webkit-font-smoothing: antialiased; }
+  header { background: #0f0f0f; color: #fff; padding: 22px 28px 20px;
+           border-bottom: 2px solid var(--accent); }
+  header .wrap { max-width: 1200px; margin: 0 auto; display: flex; gap: 16px;
+                 align-items: flex-start; }
+  header .mark { width: 30px; height: 30px; color: #fff; flex: none; margin-top: 3px; }
+  header h1 { margin: 0; font-size: 21px; font-weight: 500; letter-spacing: -.015em; }
+  header .eyebrow { font: 600 10px/1 var(--mono); letter-spacing: .22em; text-transform: uppercase;
+                    color: rgba(255, 255, 255, .5); margin-bottom: 8px; }
+  header .sub { color: rgba(255, 255, 255, .5); font: 11px/1.5 var(--mono); margin-top: 6px; }
+  main { max-width: 1200px; margin: 0 auto; padding: 26px 28px 80px; }
+  a { color: var(--accent); }
+  h2 { font: 600 11px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase;
+       color: var(--muted); margin: 38px 0 14px; padding-bottom: 8px;
+       border-bottom: 1px solid var(--line); }
+  h3 { font-size: 13px; font-weight: 600; margin: 22px 0 8px; letter-spacing: -.005em; }
+  p.muted, .note { color: var(--muted); }
+  .note { font-size: 12px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
+          margin: 0 0 10px; }
+  .muted { color: var(--muted); }
+  table { width: 100%; max-width: 100%; border-collapse: collapse; background: var(--card); }
+  th { text-align: left; font: 600 10px/1.4 var(--mono); letter-spacing: .1em;
+       text-transform: uppercase; color: var(--muted); background: var(--wash);
+       padding: 9px 12px; border-bottom: 1px solid var(--line); }
+  td { padding: 9px 12px; border-bottom: 1px solid var(--hair); vertical-align: top;
+       overflow-wrap: break-word; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody tr:hover td { background: #fbfbfa; }
+  tr:last-child td { border-bottom: none; }
+  .box { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+         overflow: hidden; }
+  code, .mono { font-family: var(--mono); font-size: 12.5px; }
+  td code, td.mono, td .mono { overflow-wrap: anywhere; }
+  td.mono { min-width: 10ch; }
+  /* A narrow window: the wide inventory tables give up padding and letter
+     width before they give up fitting, and the card scrolls only if even
+     that is not enough, so the page itself never scrolls sideways. */
+  @media (max-width: 960px) {
+    .box { overflow-x: auto; }
+    th, td { padding: 6px 7px; }
+    th { font-size: 9.5px; letter-spacing: .04em; }
+    td, td code, td .mono { font-size: 11.5px; overflow-wrap: anywhere; }
+    td.mono { min-width: 0; }
+  }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 6px;
+           font: 600 10.5px/1.5 var(--mono); letter-spacing: .04em; text-transform: uppercase;
+           color: var(--muted); background: var(--flat-bg);
+           border: 1px solid var(--hair); white-space: nowrap; }
+  .badge.high, .badge.unresolved, .badge.open, .badge.missing, .badge.missing-proc,
+  .badge.external, .badge.mixed, .badge.unplaced, .badge.unsupplied-module,
+  .badge.sql-only, .badge.undefined
+    { color: var(--high); background: var(--high-bg); border-color: rgba(179, 38, 30, .22); }
+  .badge.medium, .badge.gen, .badge.GEN, .badge.derived, .badge.candidate, .badge.partial,
+  .badge.proposed, .badge.assumed, .badge.default, .badge.fragment, .badge.include,
+  .badge.copybook, .badge.none, .badge.boundary, .badge.schedule
+    { color: var(--medium); background: var(--medium-bg); border-color: rgba(185, 160, 122, .4); }
+  .badge.info, .badge.job, .badge.chain, .badge.trace, .badge.runtime, .badge.answered,
+  .badge.asserted, .badge.data
+    { color: var(--info); background: var(--info-bg); border-color: rgba(34, 0, 255, .18); }
+  .badge.det, .badge.DET, .badge.program, .badge.agent, .badge.skill, .badge.scanner,
+  .badge.resolved, .badge.closed, .badge.bound, .badge.proven, .badge.confirmed,
+  .badge.annot, .badge.deterministic, .badge.detected, .badge.present, .badge.dclgen,
+  .badge.ddl, .badge.code
+    { color: var(--det); background: var(--det-bg); border-color: rgba(20, 108, 46, .22); }
+  .badge.evr, .badge.EVR, .badge.human, .badge.launcher, .badge.proc, .badge.inherited,
+  .badge.shared, .badge.online
+    { color: var(--evr); background: var(--evr-bg); border-color: rgba(91, 33, 182, .18); }
+  .empty { color: var(--muted); font-size: 13px; padding: 16px; }
+  .request { background: var(--medium-bg); border-left: 2px solid var(--tan); padding: 6px 10px;
+             margin-top: 4px; font-size: 12.5px; border-radius: 0 6px 6px 0; }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--muted);
+            margin: 8px 2px 0; }
+  /* toolbar: text filter + dropdowns + expand/collapse */
+  .toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 0 0 12px; }
+  .toolbar input, .toolbar select { padding: 6px 10px; border: 1px solid var(--line);
+                border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--card);
+                color: var(--ink); }
+  .toolbar input:focus, .toolbar select:focus { outline: 2px solid rgba(34, 0, 255, .25);
+                outline-offset: -1px; border-color: var(--accent); }
+  .toolbar input { width: 260px; }
+  .toolbar button { padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px;
+                    background: var(--card); font: inherit; font-size: 12px; cursor: pointer;
+                    color: var(--ink); }
+  .toolbar button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .toolbar .count { color: var(--muted); font: 11px/1 var(--mono); margin-left: auto; }
+  .toolbar button:disabled { color: var(--muted); cursor: default; }
+
+  /* the estate's headline counts */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+           gap: 12px; margin: 22px 0 6px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+          padding: 14px 16px; }
+  .card .n { font-size: 26px; font-weight: 500; font-variant-numeric: tabular-nums;
+             letter-spacing: -.02em; }
+  .card .k { font: 600 10px/1 var(--mono); text-transform: uppercase; letter-spacing: .16em;
+             color: var(--muted); margin-bottom: 8px; }
+  .card .s { font-size: 12px; color: var(--muted); }
+  .card.alert .n { color: var(--high); }
+  /* one disclosure per section: the page opens as a table of contents */
+  details.sect { border-top: 1px solid var(--line); }
+  details.sect > summary { list-style: none; cursor: pointer; padding: 16px 0 14px;
+                           display: flex; align-items: baseline; gap: 10px; }
+  details.sect > summary::-webkit-details-marker { display: none; }
+  /* the marker is drawn, not typed: a glyph the reader's fonts lack shows as
+     a hex box, and a report is read on machines nobody chose */
+  details.sect > summary::before { content: ''; width: 0; height: 0; position: relative;
+                           top: -2px; border: 5px solid transparent;
+                           border-left-color: var(--ink); }
+  details.sect[open] > summary::before { top: 0; border-left-color: transparent;
+                           border-top-color: var(--ink); }
+  details.sect > summary h2 { margin: 0; padding: 0; border: none; }
+  details.sect > summary .n { color: var(--muted); font: 11px/1 var(--mono);
+                              font-variant-numeric: tabular-nums; }
+  details.sect .body { padding: 0 0 26px; }
+  /* the module cloud: area = files, so two modules compare by eye */
+  .cloud { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+           padding: 10px; overflow: auto; }
+  .cloud svg { display: block; margin: 0 auto; }
+  .cloud .bub { fill: var(--info-bg); stroke: var(--accent); stroke-width: 1.2; cursor: pointer; }
+  .cloud .bub.shared { fill: var(--evr-bg); stroke: var(--evr); stroke-dasharray: 5 4; }
+  .cloud .bub.unplaced { fill: var(--high-bg); stroke: var(--high); stroke-dasharray: 3 3; }
+  .cloud .bub.unscanned { fill: var(--flat-bg); stroke: var(--muted); }
+  .cloud .lb { font: 600 13px var(--mono); fill: var(--ink); text-anchor: middle;
+               pointer-events: none; }
+  .cloud .ls { font: 11px var(--sans); fill: var(--muted); text-anchor: middle;
+               pointer-events: none; }
+  .cloud a { text-decoration: none; }
+  ul.cites { margin: 4px 0 0; padding-left: 18px; }
+  ul.cites li { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+  <g fill="currentColor">
+    <polygon points="24.00,31.36 17.63,27.68 17.63,20.32 24.00,16.64 30.37,20.32 30.37,27.68"/>
+    <polygon points="37.86,31.36 31.48,27.68 31.48,20.32 37.86,16.64 44.23,20.32 44.23,27.68"/>
+    <polygon points="30.93,43.36 24.55,39.68 24.55,32.32 30.93,28.64 37.30,32.32 37.30,39.68"/>
+    <polygon points="17.07,43.36 10.70,39.68 10.70,32.32 17.07,28.64 23.45,32.32 23.45,39.68"/>
+    <polygon points="10.14,31.36 3.77,27.68 3.77,20.32 10.14,16.64 16.52,20.32 16.52,27.68"/>
+    <polygon points="17.07,19.36 10.70,15.68 10.70,8.32 17.07,4.64 23.45,8.32 23.45,15.68"/>
+    <polygon points="30.93,19.36 24.55,15.68 24.55,8.32 30.93,4.64 37.30,8.32 37.30,15.68"/>
+  </g>
+</svg>
+    <div>
+      <div class="eyebrow">mftb</div>
+      <h1>Estate &mdash; carddemo-modernization-demo/app</h1>
+      <div class="sub" id="meta"></div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="cards" id="cards"></div>
+  <p class="muted" id="lead"></p>
+
+  <details class="sect" id="s-modules" open>
+    <summary><h2>Modules</h2><span class="n" id="n-modules"></span></summary>
+    <div class="body">
+      <p class="muted">Bubble area is catalogued files; shared and unplaced bubbles are what no
+      module owns. Click a module for its own report.</p>
+      <div class="cloud" id="cloud"></div>
+      <div class="legend" id="cloud-legend"></div>
+      <div class="box" id="modules" style="margin-top:14px"></div>
+    </div>
+  </details>
+
+  <details class="sect" id="s-site">
+    <summary><h2>Site &amp; environment</h2><span class="n" id="n-site"></span></summary>
+    <div class="body">
+      <p class="muted">Every scanned module's profile answers. Disagreements are shown, never
+      merged; ASSUMED is still an open question.</p>
+      <div class="box" id="site"></div>
+    </div>
+  </details>
+
+  <details class="sect" id="s-inventory">
+    <summary><h2>Inventory</h2><span class="n" id="n-inventory"></span></summary>
+    <div class="body">
+      <p class="muted">Every catalogued file by kind and owner, counted against the catalog.</p>
+      <div class="toolbar" id="t-inventory"></div>
+      <div class="box" id="inventory"></div>
+    </div>
+  </details>
+
+  <details class="sect" id="s-connections">
+    <summary><h2>Connections between modules</h2><span class="n" id="n-connections"></span></summary>
+    <div class="body">
+      <p class="muted" id="conn-intro"></p>
+      <div class="toolbar" id="t-connections"></div>
+      <div class="box" id="connections"></div>
+    </div>
+  </details>
+</main>
+<script>
+const DATA = {"meta": {"estate": ["../app"], "generated_at": "2026-10-08T04:10:58Z", "tool": "mftb 0.2.1", "exclude": [], "view": "estate"}, "summary": {"estate": "carddemo-modernization-demo/app", "files": 240, "catalogued": 240, "excluded": 0, "placeable": 203, "modules": 4, "scanned_modules": 4, "shared": 0, "unplaced": 0, "unclassified": 8, "unsupported": 0, "asks": 61}, "site": [{"field": "database_managers", "answers": {"AUTHIMS": {"value": "IBM Db2 for z/OS, IBM IMS DL/I", "source": "detected", "confidence": "derived", "evidence": ["../app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl:1", "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:28", "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:29", "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:33"]}, "CARDDEMO": {"value": "IBM Db2 for z/OS 12", "source": "default", "confidence": "assumed", "evidence": []}, "TRANTYPE": {"value": "IBM Db2 for z/OS", "source": "detected", "confidence": "derived", "evidence": ["../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:1", "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1", "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1", "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:29"]}, "VSAMMQ": {"value": "IBM Db2 for z/OS 12", "source": "default", "confidence": "assumed", "evidence": []}}, "agreed": false, "value": null, "assumed": false, "source": "mixed"}, {"field": "environment_topology", "answers": {"AUTHIMS": {"value": null, "source": null, "confidence": "unknown", "evidence": []}, "CARDDEMO": {"value": null, "source": null, "confidence": "unknown", "evidence": []}, "TRANTYPE": {"value": null, "source": null, "confidence": "unknown", "evidence": []}, "VSAMMQ": {"value": null, "source": null, "confidence": "unknown", "evidence": []}}, "agreed": true, "value": "None", "assumed": false, "source": null}, {"field": "file_transfer", "answers": {"AUTHIMS": {"value": "IBM Connect:Direct", "source": "default", "confidence": "assumed", "evidence": []}, "CARDDEMO": {"value": "TCP/IP FTP", "source": "detected", "confidence": "proven", "evidence": ["../app/jcl/FTPJCL.JCL:30"]}, "TRANTYPE": {"value": "IBM Connect:Direct", "source": "default", "confidence": "assumed", "evidence": []}, "VSAMMQ": {"value": "IBM Connect:Direct", "source": "default", "confidence": "assumed", "evidence": []}}, "agreed": false, "value": null, "assumed": false, "source": "mixed"}, {"field": "library_manager", "answers": {"AUTHIMS": {"value": "Broadcom Endevor", "source": "default", "confidence": "assumed", "evidence": []}, "CARDDEMO": {"value": "Broadcom Endevor", "source": "default", "confidence": "assumed", "evidence": []}, "TRANTYPE": {"value": "Broadcom Endevor", "source": "default", "confidence": "assumed", "evidence": []}, "VSAMMQ": {"value": "Broadcom Endevor", "source": "default", "confidence": "assumed", "evidence": []}}, "agreed": true, "value": "Broadcom Endevor", "assumed": true, "source": "default"}, {"field": "masking_policy", "answers": {"AUTHIMS": {"value": null, "source": null, "confidence": "unknown", "evidence": []}, "CARDDEMO": {"value": null, "source": null, "confidence": "unknown", "evidence": []}, "TRANTYPE": {"value": null, "source": null, "confidence": "unknown", "evidence": []}, "VSAMMQ": {"value": null, "source": null, "confidence": "unknown", "evidence": []}}, "agreed": true, "value": "None", "assumed": false, "source": null}, {"field": "online_monitors", "answers": {"AUTHIMS": {"value": "IBM CICS Transaction Server, IBM IMS TM", "source": "detected", "confidence": "derived", "evidence": ["../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:1", "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:1", "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:322", "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:674"]}, "CARDDEMO": {"value": "IBM CICS Transaction Server", "source": "detected", "confidence": "derived", "evidence": ["../app/cbl/COACTUPC.cbl:1", "../app/cbl/COACTUPC.cbl:956", "../app/cbl/COACTVWC.cbl:1", "../app/cbl/COACTVWC.cbl:349"]}, "TRANTYPE": {"value": "IBM CICS Transaction Server", "source": "detected", "confidence": "derived", "evidence": ["../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1", "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620", "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648", "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1"]}, "VSAMMQ": {"value": "IBM CICS Transaction Server", "source": "detected", "confidence": "derived", "evidence": ["../app/app-vsam-mq/cbl/COACCT01.cbl:1", "../app/app-vsam-mq/cbl/CODATE01.cbl:1"]}}, "agreed": false, "value": null, "assumed": false, "source": "detected"}, {"field": "output_manager", "answers": {"AUTHIMS": {"value": "Broadcom CA View", "source": "default", "confidence": "assumed", "evidence": []}, "CARDDEMO": {"value": "Broadcom CA View", "source": "default", "confidence": "assumed", "evidence": []}, "TRANTYPE": {"value": "Broadcom CA View", "source": "default", "confidence": "assumed", "evidence": []}, "VSAMMQ": {"value": "Broadcom CA View", "source": "default", "confidence": "assumed", "evidence": []}}, "agreed": true, "value": "Broadcom CA View", "assumed": true, "source": "default"}, {"field": "scheduler_product", "answers": {"AUTHIMS": {"value": "BMC Control-M", "source": "default", "confidence": "assumed", "evidence": []}, "CARDDEMO": {"value": "BMC Control-M, Broadcom CA 7", "source": "detected", "confidence": "proven", "evidence": ["../app/scheduler/CardDemo.ca7:1", "../app/scheduler/CardDemo.controlm:1"]}, "TRANTYPE": {"value": "BMC Control-M", "source": "default", "confidence": "assumed", "evidence": []}, "VSAMMQ": {"value": "BMC Control-M", "source": "default", "confidence": "assumed", "evidence": []}}, "agreed": false, "value": null, "assumed": false, "source": "mixed"}, {"field": "security_manager", "answers": {"AUTHIMS": {"value": "IBM RACF", "source": "default", "confidence": "assumed", "evidence": []}, "CARDDEMO": {"value": "IBM RACF", "source": "default", "confidence": "assumed", "evidence": []}, "TRANTYPE": {"value": "IBM RACF", "source": "default", "confidence": "assumed", "evidence": []}, "VSAMMQ": {"value": "IBM RACF", "source": "default", "confidence": "assumed", "evidence": []}}, "agreed": true, "value": "IBM RACF", "assumed": true, "source": "default"}, {"field": "sort_product", "answers": {"AUTHIMS": {"value": "IBM DFSORT", "source": "default", "confidence": "assumed", "evidence": []}, "CARDDEMO": {"value": "IBM DFSORT", "source": "default", "confidence": "assumed", "evidence": []}, "TRANTYPE": {"value": "IBM DFSORT", "source": "default", "confidence": "assumed", "evidence": []}, "VSAMMQ": {"value": "IBM DFSORT", "source": "default", "confidence": "assumed", "evidence": []}}, "agreed": true, "value": "IBM DFSORT", "assumed": true, "source": "default"}, {"field": "standard_compiler", "answers": {"AUTHIMS": {"value": "IBM Enterprise COBOL for z/OS 6.3", "source": "default", "confidence": "assumed", "evidence": []}, "CARDDEMO": {"value": "IBM Enterprise COBOL for z/OS 6.3", "source": "default", "confidence": "assumed", "evidence": []}, "TRANTYPE": {"value": "IBM Enterprise COBOL for z/OS 6.3", "source": "default", "confidence": "assumed", "evidence": []}, "VSAMMQ": {"value": "IBM Enterprise COBOL for z/OS 6.3", "source": "default", "confidence": "assumed", "evidence": []}}, "agreed": true, "value": "IBM Enterprise COBOL for z/OS 6.3", "assumed": true, "source": "default"}, {"field": "standard_compiler_options", "answers": {"AUTHIMS": {"value": "RENT,NUMPROC(NOPFD),TRUNC(STD),ARCH(8),SSRANGE(NO)", "source": "default", "confidence": "assumed", "evidence": []}, "CARDDEMO": {"value": "RENT,NUMPROC(NOPFD),TRUNC(STD),ARCH(8),SSRANGE(NO)", "source": "default", "confidence": "assumed", "evidence": []}, "TRANTYPE": {"value": "RENT,NUMPROC(NOPFD),TRUNC(STD),ARCH(8),SSRANGE(NO)", "source": "default", "confidence": "assumed", "evidence": []}, "VSAMMQ": {"value": "RENT,NUMPROC(NOPFD),TRUNC(STD),ARCH(8),SSRANGE(NO)", "source": "default", "confidence": "assumed", "evidence": []}}, "agreed": true, "value": "RENT,NUMPROC(NOPFD),TRUNC(STD),ARCH(8),SSRANGE(NO)", "assumed": true, "source": "default"}, {"field": "tape_manager", "answers": {"AUTHIMS": {"value": "Broadcom CA 1", "source": "default", "confidence": "assumed", "evidence": []}, "CARDDEMO": {"value": "Broadcom CA 1", "source": "default", "confidence": "assumed", "evidence": []}, "TRANTYPE": {"value": "Broadcom CA 1", "source": "default", "confidence": "assumed", "evidence": []}, "VSAMMQ": {"value": "Broadcom CA 1", "source": "default", "confidence": "assumed", "evidence": []}}, "agreed": true, "value": "Broadcom CA 1", "assumed": true, "source": "default"}, {"field": "test_lpar", "answers": {"AUTHIMS": {"value": null, "source": null, "confidence": "unknown", "evidence": []}, "CARDDEMO": {"value": null, "source": null, "confidence": "unknown", "evidence": []}, "TRANTYPE": {"value": null, "source": null, "confidence": "unknown", "evidence": []}, "VSAMMQ": {"value": null, "source": null, "confidence": "unknown", "evidence": []}}, "agreed": true, "value": "None", "assumed": false, "source": null}, {"field": "zos_version", "answers": {"AUTHIMS": {"value": "IBM z/OS 2.5", "source": "default", "confidence": "assumed", "evidence": []}, "CARDDEMO": {"value": "IBM z/OS 2.5", "source": "default", "confidence": "assumed", "evidence": []}, "TRANTYPE": {"value": "IBM z/OS 2.5", "source": "default", "confidence": "assumed", "evidence": []}, "VSAMMQ": {"value": "IBM z/OS 2.5", "source": "default", "confidence": "assumed", "evidence": []}}, "agreed": true, "value": "IBM z/OS 2.5", "assumed": true, "source": "default"}], "modules": [{"id": "AUTHIMS", "name": "Pending authorizations (IMS DB + DB2 + MQ)", "what_it_does": "receives card authorization requests over MQ, stores pending authorizations in IMS and DB2, and lets operators view/approve them online", "naming": "proposed", "confidence": "derived", "confirmed": null, "evidence": ["../app/app-authorization-ims-db2-mq/bms/", "../app/app-authorization-ims-db2-mq/bms/", "../app/app-authorization-ims-db2-mq/cbl/", "../app/app-authorization-ims-db2-mq/cbl/", "../app/app-authorization-ims-db2-mq/cbl/", "../app/app-authorization-ims-db2-mq/cbl/", "../app/app-authorization-ims-db2-mq/cbl/", "../app/app-authorization-ims-db2-mq/cbl/", "../app/app-authorization-ims-db2-mq/cbl/", "../app/app-authorization-ims-db2-mq/cbl/", "../app/app-authorization-ims-db2-mq/cpy/", "../app/app-authorization-ims-db2-mq/cpy/", "../app/app-authorization-ims-db2-mq/cpy/", "../app/app-authorization-ims-db2-mq/cpy/", "../app/app-authorization-ims-db2-mq/cpy/", "../app/app-authorization-ims-db2-mq/cpy/", "../app/app-authorization-ims-db2-mq/cpy/", "../app/app-authorization-ims-db2-mq/cpy/", "../app/app-authorization-ims-db2-mq/cpy/", "../app/app-authorization-ims-db2-mq/cpy-bms/", "../app/app-authorization-ims-db2-mq/cpy-bms/", "../app/app-authorization-ims-db2-mq/csd/", "../app/app-authorization-ims-db2-mq/dcl/", "../app/app-authorization-ims-db2-mq/ddl/", "../app/app-authorization-ims-db2-mq/ims/", "../app/app-authorization-ims-db2-mq/ims/", "../app/app-authorization-ims-db2-mq/ims/", "../app/app-authorization-ims-db2-mq/ims/", "../app/app-authorization-ims-db2-mq/ims/", "../app/app-authorization-ims-db2-mq/ims/", "../app/app-authorization-ims-db2-mq/ims/", "../app/app-authorization-ims-db2-mq/ims/", "../app/app-authorization-ims-db2-mq/jcl/", "../app/app-authorization-ims-db2-mq/jcl/", "../app/app-authorization-ims-db2-mq/jcl/", "../app/app-authorization-ims-db2-mq/jcl/", "../app/app-authorization-ims-db2-mq/jcl/"], "files": 37, "kinds": {"bms-mapset": 2, "cics-csd": 1, "cobol-copybook": 12, "cobol-program": 8, "ims-dbd": 4, "ims-psb": 4, "jcl-job": 5, "sql-ddl": 1}, "scanned": true, "programs": 20, "jobs": 5, "tables": 0, "db2_tables": 1, "datasets": 21, "cics_commands": 33, "boundary": {"must-establish": 34, "satisfied-in-drop": 2, "unknown": 9}, "counterparts": ["CARDDEMO"], "findings": {"open": 65, "high": 12}}, {"id": "TRANTYPE", "name": "Transaction type maintenance (DB2)", "what_it_does": "maintains the transaction type/category reference tables in DB2 online and loads them in batch", "naming": "proposed", "confidence": "derived", "confirmed": null, "evidence": ["../app/app-transaction-type-db2/bms/", "../app/app-transaction-type-db2/bms/", "../app/app-transaction-type-db2/cbl/", "../app/app-transaction-type-db2/cbl/", "../app/app-transaction-type-db2/cbl/", "../app/app-transaction-type-db2/cpy/", "../app/app-transaction-type-db2/cpy/", "../app/app-transaction-type-db2/cpy-bms/", "../app/app-transaction-type-db2/cpy-bms/", "../app/app-transaction-type-db2/csd/", "../app/app-transaction-type-db2/ctl/", "../app/app-transaction-type-db2/ctl/", "../app/app-transaction-type-db2/ctl/", "../app/app-transaction-type-db2/ctl/", "../app/app-transaction-type-db2/ctl/", "../app/app-transaction-type-db2/ctl/", "../app/app-transaction-type-db2/ctl/", "../app/app-transaction-type-db2/dcl/", "../app/app-transaction-type-db2/dcl/", "../app/app-transaction-type-db2/ddl/", "../app/app-transaction-type-db2/ddl/", "../app/app-transaction-type-db2/jcl/", "../app/app-transaction-type-db2/jcl/", "../app/app-transaction-type-db2/jcl/"], "files": 24, "kinds": {"bms-mapset": 2, "cics-csd": 1, "cobol-copybook": 5, "cobol-program": 3, "control-cards": 4, "jcl-job": 3, "sql-ddl": 3, "sql-script": 1, "sql-seed": 2}, "scanned": true, "programs": 9, "jobs": 3, "tables": 0, "db2_tables": 3, "datasets": 12, "cics_commands": 24, "boundary": {"satisfied-in-drop": 2, "must-establish": 19, "unknown": 6}, "counterparts": ["AUTHIMS"], "findings": {"open": 41, "high": 12}}, {"id": "VSAMMQ", "name": "Account/date inquiry over MQ (VSAM)", "what_it_does": "answers account and system-date inquiries arriving on MQ queues from the VSAM account files", "naming": "proposed", "confidence": "derived", "confirmed": null, "evidence": ["../app/app-vsam-mq/cbl/", "../app/app-vsam-mq/cbl/", "../app/app-vsam-mq/csd/"], "files": 3, "kinds": {"cics-csd": 1, "cobol-program": 2}, "scanned": true, "programs": 2, "jobs": 0, "tables": 0, "db2_tables": 0, "datasets": 0, "cics_commands": 9, "boundary": {"must-establish": 3, "unknown": 18}, "counterparts": [], "findings": {"open": 33, "high": 4}}, {"id": "CARDDEMO", "name": "CardDemo core credit card application", "what_it_does": "signs users on, maintains accounts, cards, users and transactions online (CICS/VSAM) and runs the nightly posting, interest, reporting and statement batch stream", "naming": "proposed", "confidence": "derived", "confirmed": null, "evidence": ["../app/asm/", "../app/asm/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/bms/", "../app/catlg/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cbl/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/cpy-bms/", "../app/csd/", "../app/ctl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/jcl/", "../app/maclib/", "../app/maclib/", "../app/proc/", "../app/proc/", "../app/scheduler/", "../app/scheduler/"], "files": 139, "kinds": {"assembler-dsect": 1, "assembler-macro": 1, "assembler-program": 2, "bms-mapset": 17, "cics-csd": 1, "cobol-copybook": 42, "cobol-program": 31, "control-cards": 1, "jcl-job": 38, "jcl-proc": 2, "scheduler-table": 2, "sql-script": 1}, "scanned": true, "programs": 79, "jobs": 38, "tables": 6, "db2_tables": 0, "datasets": 67, "cics_commands": 174, "boundary": {"unknown": 27, "must-establish": 92, "satisfied-in-drop": 24}, "counterparts": ["AUTHIMS"], "findings": {"open": 135, "high": 4}}], "shared": [], "unplaced": [], "inventory": [{"kind": "assembler-dsect", "files": 1, "by_module": {"CARDDEMO": 1}, "placeable": true}, {"kind": "assembler-macro", "files": 1, "by_module": {"CARDDEMO": 1}, "placeable": true}, {"kind": "assembler-program", "files": 2, "by_module": {"CARDDEMO": 2}, "placeable": true}, {"kind": "binary", "files": 14, "by_module": {"not-an-artifact": 14}, "placeable": false}, {"kind": "bms-mapset", "files": 21, "by_module": {"AUTHIMS": 2, "TRANTYPE": 2, "CARDDEMO": 17}, "placeable": true}, {"kind": "cics-csd", "files": 4, "by_module": {"AUTHIMS": 1, "TRANTYPE": 1, "VSAMMQ": 1, "CARDDEMO": 1}, "placeable": true}, {"kind": "cobol-copybook", "files": 59, "by_module": {"AUTHIMS": 12, "TRANTYPE": 5, "CARDDEMO": 42}, "placeable": true}, {"kind": "cobol-program", "files": 44, "by_module": {"AUTHIMS": 8, "TRANTYPE": 3, "VSAMMQ": 2, "CARDDEMO": 31}, "placeable": true}, {"kind": "control-cards", "files": 5, "by_module": {"TRANTYPE": 4, "CARDDEMO": 1}, "placeable": true}, {"kind": "document", "files": 12, "by_module": {"not-an-artifact": 12}, "placeable": false}, {"kind": "empty", "files": 3, "by_module": {"not-an-artifact": 3}, "placeable": false}, {"kind": "ims-dbd", "files": 4, "by_module": {"AUTHIMS": 4}, "placeable": true}, {"kind": "ims-psb", "files": 4, "by_module": {"AUTHIMS": 4}, "placeable": true}, {"kind": "jcl-job", "files": 46, "by_module": {"AUTHIMS": 5, "TRANTYPE": 3, "CARDDEMO": 38}, "placeable": true}, {"kind": "jcl-proc", "files": 2, "by_module": {"CARDDEMO": 2}, "placeable": true}, {"kind": "scheduler-table", "files": 2, "by_module": {"CARDDEMO": 2}, "placeable": true}, {"kind": "sql-ddl", "files": 4, "by_module": {"AUTHIMS": 1, "TRANTYPE": 3}, "placeable": true}, {"kind": "sql-script", "files": 2, "by_module": {"TRANTYPE": 1, "CARDDEMO": 1}, "placeable": true}, {"kind": "sql-seed", "files": 2, "by_module": {"TRANTYPE": 2}, "placeable": true}, {"kind": "unclassified", "files": 8, "by_module": {"not-an-artifact": 8}, "placeable": false}], "connections": [{"kind": "code", "between": ["AUTHIMS", "CARDDEMO"], "detail": "may call COPAUS0C, which AUTHIMS declares", "certainty": "candidate", "evidence": ["../app/cbl/COMEN01C.cbl:156", "../app/cbl/COMEN01C.cbl:184"], "seen_by": ["CARDDEMO"]}, {"kind": "data", "between": ["AUTHIMS", "CARDDEMO"], "detail": "dataset AWS.M2.CARDDEMO.LOADLIB: sequential (no catalog evidence): created here and read by AUTHIMS, TRANTYPE", "certainty": "proven", "evidence": ["../app/jcl/CBEXPORT.jcl:44", "../app/jcl/CBIMPORT.jcl:23", "../app/jcl/CREASTMT.JCL:80", "../app/jcl/INTCALC.jcl:23", "../app/jcl/POSTTRAN.jcl:24", "../app/jcl/READACCT.jcl:33", "../app/jcl/READCARD.jcl:23", "../app/jcl/READCUST.jcl:22", "../app/jcl/READXREF.jcl:23", "../app/jcl/TRANREPT.jcl:60", "../app/jcl/WAITSTEP.jcl:23"], "seen_by": ["CARDDEMO"]}, {"kind": "data", "between": ["AUTHIMS", "CARDDEMO"], "detail": "dataset AWS.M2.CARDDEMO.LOADLIB: sequential (no catalog evidence): created here and read by CARDDEMO, TRANTYPE", "certainty": "proven", "evidence": ["../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl:19", "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL:30", "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL:30", "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL:42"], "seen_by": ["AUTHIMS"]}, {"kind": "data", "between": ["AUTHIMS", "TRANTYPE"], "detail": "dataset AWS.M2.CARDDEMO.LOADLIB: sequential (no catalog evidence): created here and read by AUTHIMS, CARDDEMO", "certainty": "proven", "evidence": ["../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:24"], "seen_by": ["TRANTYPE"]}, {"kind": "code", "between": ["CARDDEMO", "TRANTYPE"], "detail": "may call COTRTLIC, which TRANTYPE declares", "certainty": "candidate", "evidence": ["../app/cbl/COADM01C.cbl:145"], "seen_by": ["CARDDEMO"]}, {"kind": "data", "between": ["CARDDEMO", "TRANTYPE"], "detail": "both use dataset AWS.M2.CARDDEMO.LOADLIB", "certainty": "proven", "evidence": [], "seen_by": ["CARDDEMO", "TRANTYPE"]}], "asks": [{"scope": "estate", "kind": "catalog-unclassified", "severity": "high", "message": "../app/app-authorization-ims-db2-mq/ddl/XAUTHFRD.ddl matches no artifact signature: the sweep cannot say what it is", "request": "What is this member (language / artifact type), or may it be excluded from the estate?", "evidence": ["../app/app-authorization-ims-db2-mq/ddl/XAUTHFRD.ddl"]}, {"scope": "estate", "kind": "catalog-no-program-id", "severity": "medium", "message": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl has an IDENTIFICATION DIVISION but no readable PROGRAM-ID", "request": "Is the member complete? The sweep catalogues it under its file name.", "evidence": ["../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:24"]}, {"scope": "estate", "kind": "catalog-unclassified", "severity": "high", "message": "../app/app-transaction-type-db2/ddl/XTRNTYCAT.ddl matches no artifact signature: the sweep cannot say what it is", "request": "What is this member (language / artifact type), or may it be excluded from the estate?", "evidence": ["../app/app-transaction-type-db2/ddl/XTRNTYCAT.ddl"]}, {"scope": "estate", "kind": "catalog-unclassified", "severity": "high", "message": "../app/app-transaction-type-db2/ddl/XTRNTYPE.ddl matches no artifact signature: the sweep cannot say what it is", "request": "What is this member (language / artifact type), or may it be excluded from the estate?", "evidence": ["../app/app-transaction-type-db2/ddl/XTRNTYPE.ddl"]}, {"scope": "estate", "kind": "catalog-assembler", "severity": "medium", "message": "../app/asm/COBDATFT.asm is HLASM: the sweep has its sections, its entry points and the names it reaches, but mftb has no assembler analyser, so its logic is not inventoried", "request": "Is this member in scope for the migration, and who can read it? Its behaviour (and any transfer the sweep listed as unresolved) needs a human.", "evidence": ["../app/asm/COBDATFT.asm:17"]}, {"scope": "estate", "kind": "catalog-assembler", "severity": "medium", "message": "../app/asm/MVSWAIT.asm is HLASM: the sweep has its sections, its entry points and the names it reaches, but mftb has no assembler analyser, so its logic is not inventoried", "request": "Is this member in scope for the migration, and who can read it? Its behaviour (and any transfer the sweep listed as unresolved) needs a human.", "evidence": ["../app/asm/MVSWAIT.asm:17"]}, {"scope": "estate", "kind": "catalog-no-program-id", "severity": "medium", "message": "../app/cbl/COACTUPC.cbl has an IDENTIFICATION DIVISION but no readable PROGRAM-ID", "request": "Is the member complete? The sweep catalogues it under its file name.", "evidence": ["../app/cbl/COACTUPC.cbl:21"]}, {"scope": "estate", "kind": "catalog-no-program-id", "severity": "medium", "message": "../app/cbl/COACTVWC.cbl has an IDENTIFICATION DIVISION but no readable PROGRAM-ID", "request": "Is the member complete? The sweep catalogues it under its file name.", "evidence": ["../app/cbl/COACTVWC.cbl:21"]}, {"scope": "estate", "kind": "catalog-no-program-id", "severity": "medium", "message": "../app/cbl/COCRDLIC.cbl has an IDENTIFICATION DIVISION but no readable PROGRAM-ID", "request": "Is the member complete? The sweep catalogues it under its file name.", "evidence": ["../app/cbl/COCRDLIC.cbl:25"]}, {"scope": "estate", "kind": "catalog-no-program-id", "severity": "medium", "message": "../app/cbl/COCRDSLC.cbl has an IDENTIFICATION DIVISION but no readable PROGRAM-ID", "request": "Is the member complete? The sweep catalogues it under its file name.", "evidence": ["../app/cbl/COCRDSLC.cbl:22"]}, {"scope": "estate", "kind": "catalog-no-program-id", "severity": "medium", "message": "../app/cbl/COCRDUPC.cbl has an IDENTIFICATION DIVISION but no readable PROGRAM-ID", "request": "Is the member complete? The sweep catalogues it under its file name.", "evidence": ["../app/cbl/COCRDUPC.cbl:22"]}, {"scope": "estate", "kind": "catalog-unclassified", "severity": "high", "message": "../app/cpy/COTTL01Y.cpy matches no artifact signature: the sweep cannot say what it is", "request": "What is this member (language / artifact type), or may it be excluded from the estate?", "evidence": ["../app/cpy/COTTL01Y.cpy"]}, {"scope": "estate", "kind": "catalog-unclassified", "severity": "high", "message": "../app/cpy/CSLKPCDY.cpy matches no artifact signature: the sweep cannot say what it is", "request": "What is this member (language / artifact type), or may it be excluded from the estate?", "evidence": ["../app/cpy/CSLKPCDY.cpy"]}, {"scope": "estate", "kind": "catalog-unclassified", "severity": "high", "message": "../app/cpy/CSMSG01Y.cpy matches no artifact signature: the sweep cannot say what it is", "request": "What is this member (language / artifact type), or may it be excluded from the estate?", "evidence": ["../app/cpy/CSMSG01Y.cpy"]}, {"scope": "estate", "kind": "catalog-unclassified", "severity": "high", "message": "../app/cpy/CSMSG02Y.cpy matches no artifact signature: the sweep cannot say what it is", "request": "What is this member (language / artifact type), or may it be excluded from the estate?", "evidence": ["../app/cpy/CSMSG02Y.cpy"]}, {"scope": "estate", "kind": "catalog-unclassified", "severity": "high", "message": "../app/cpy/CSSETATY.cpy matches no artifact signature: the sweep cannot say what it is", "request": "What is this member (language / artifact type), or may it be excluded from the estate?", "evidence": ["../app/cpy/CSSETATY.cpy"]}, {"scope": "estate", "kind": "catalog-untranslated", "severity": "medium", "message": "../app/data/EBCDIC/AWS.M2.CARDDEMO.ACCDATA.PS does not decode as UTF-8: EBCDIC data or a binary carried in the estate", "request": "Is this data in scope? If so, supply it translated (or its record layout) \u2014 the sweep lists it but cannot read it.", "evidence": ["../app/data/EBCDIC/AWS.M2.CARDDEMO.ACCDATA.PS"]}, {"scope": "estate", "kind": "catalog-untranslated", "severity": "medium", "message": "../app/data/EBCDIC/AWS.M2.CARDDEMO.ACCTDATA.PS does not decode as UTF-8: EBCDIC data or a binary carried in the estate", "request": "Is this data in scope? If so, supply it translated (or its record layout) \u2014 the sweep lists it but cannot read it.", "evidence": ["../app/data/EBCDIC/AWS.M2.CARDDEMO.ACCTDATA.PS"]}, {"scope": "estate", "kind": "catalog-untranslated", "severity": "medium", "message": "../app/data/EBCDIC/AWS.M2.CARDDEMO.CARDDATA.PS does not decode as UTF-8: EBCDIC data or a binary carried in the estate", "request": "Is this data in scope? If so, supply it translated (or its record layout) \u2014 the sweep lists it but cannot read it.", "evidence": ["../app/data/EBCDIC/AWS.M2.CARDDEMO.CARDDATA.PS"]}, {"scope": "estate", "kind": "catalog-untranslated", "severity": "medium", "message": "../app/data/EBCDIC/AWS.M2.CARDDEMO.CARDXREF.PS does not decode as UTF-8: EBCDIC data or a binary carried in the estate", "request": "Is this data in scope? If so, supply it translated (or its record layout) \u2014 the sweep lists it but cannot read it.", "evidence": ["../app/data/EBCDIC/AWS.M2.CARDDEMO.CARDXREF.PS"]}, {"scope": "estate", "kind": "catalog-untranslated", "severity": "medium", "message": "../app/data/EBCDIC/AWS.M2.CARDDEMO.CUSTDATA.PS does not decode as UTF-8: EBCDIC data or a binary carried in the estate", "request": "Is this data in scope? If so, supply it translated (or its record layout) \u2014 the sweep lists it but cannot read it.", "evidence": ["../app/data/EBCDIC/AWS.M2.CARDDEMO.CUSTDATA.PS"]}, {"scope": "estate", "kind": "catalog-untranslated", "severity": "medium", "message": "../app/data/EBCDIC/AWS.M2.CARDDEMO.DALYTRAN.PS does not decode as UTF-8: EBCDIC data or a binary carried in the estate", "request": "Is this data in scope? If so, supply it translated (or its record layout) \u2014 the sweep lists it but cannot read it.", "evidence": ["../app/data/EBCDIC/AWS.M2.CARDDEMO.DALYTRAN.PS"]}, {"scope": "estate", "kind": "catalog-untranslated", "severity": "medium", "message": "../app/data/EBCDIC/AWS.M2.CARDDEMO.DISCGRP.PS does not decode as UTF-8: EBCDIC data or a binary carried in the estate", "request": "Is this data in scope? If so, supply it translated (or its record layout) \u2014 the sweep lists it but cannot read it.", "evidence": ["../app/data/EBCDIC/AWS.M2.CARDDEMO.DISCGRP.PS"]}, {"scope": "estate", "kind": "catalog-untranslated", "severity": "medium", "message": "../app/data/EBCDIC/AWS.M2.CARDDEMO.TCATBALF.PS does not decode as UTF-8: EBCDIC data or a binary carried in the estate", "request": "Is this data in scope? If so, supply it translated (or its record layout) \u2014 the sweep lists it but cannot read it.", "evidence": ["../app/data/EBCDIC/AWS.M2.CARDDEMO.TCATBALF.PS"]}, {"scope": "estate", "kind": "catalog-untranslated", "severity": "medium", "message": "../app/data/EBCDIC/AWS.M2.CARDDEMO.TRANCATG.PS does not decode as UTF-8: EBCDIC data or a binary carried in the estate", "request": "Is this data in scope? If so, supply it translated (or its record layout) \u2014 the sweep lists it but cannot read it.", "evidence": ["../app/data/EBCDIC/AWS.M2.CARDDEMO.TRANCATG.PS"]}, {"scope": "estate", "kind": "catalog-untranslated", "severity": "medium", "message": "../app/data/EBCDIC/AWS.M2.CARDDEMO.TRANTYPE.PS does not decode as UTF-8: EBCDIC data or a binary carried in the estate", "request": "Is this data in scope? If so, supply it translated (or its record layout) \u2014 the sweep lists it but cannot read it.", "evidence": ["../app/data/EBCDIC/AWS.M2.CARDDEMO.TRANTYPE.PS"]}, {"scope": "estate", "kind": "catalog-untranslated", "severity": "medium", "message": "../app/data/EBCDIC/AWS.M2.CARDDEMO.USRSEC.PS does not decode as UTF-8: EBCDIC data or a binary carried in the estate", "request": "Is this data in scope? If so, supply it translated (or its record layout) \u2014 the sweep lists it but cannot read it.", "evidence": ["../app/data/EBCDIC/AWS.M2.CARDDEMO.USRSEC.PS"]}, {"scope": "estate", "kind": "catalog-assembler", "severity": "medium", "message": "../app/maclib/ASMWAIT.mac is HLASM: the sweep has its sections, its entry points and the names it reaches, but mftb has no assembler analyser, so its logic is not inventoried", "request": "Is this member in scope for the migration, and who can read it? Its behaviour (and any transfer the sweep listed as unresolved) needs a human.", "evidence": ["../app/maclib/ASMWAIT.mac:17"]}, {"scope": "estate", "kind": "catalog-assembler", "severity": "medium", "message": "../app/maclib/COCDATFT.mac is HLASM: the sweep has its sections, its entry points and the names it reaches, but mftb has no assembler analyser, so its logic is not inventoried", "request": "Is this member in scope for the migration, and who can read it? Its behaviour (and any transfer the sweep listed as unresolved) needs a human.", "evidence": ["../app/maclib/COCDATFT.mac:17"]}, {"scope": "AUTHIMS", "kind": "missing-copybook", "severity": "high", "message": "copy COCOM01Y is included by 2 program(s) (COPAUS0C, COPAUS1C) but no scanned copybook defines it", "request": "Provide copybook member 'COCOM01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:116", "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:109"]}, {"scope": "AUTHIMS", "kind": "missing-copybook", "severity": "high", "message": "copy COTTL01Y is included by 2 program(s) (COPAUS0C, COPAUS1C) but no scanned copybook defines it", "request": "Provide copybook member 'COTTL01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:132", "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:126"]}, {"scope": "AUTHIMS", "kind": "missing-copybook", "severity": "high", "message": "copy CSDAT01Y is included by 2 program(s) (COPAUS0C, COPAUS1C) but no scanned copybook defines it", "request": "Provide copybook member 'CSDAT01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:135", "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:129"]}, {"scope": "AUTHIMS", "kind": "missing-copybook", "severity": "high", "message": "copy CSMSG01Y is included by 2 program(s) (COPAUS0C, COPAUS1C) but no scanned copybook defines it", "request": "Provide copybook member 'CSMSG01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:138", "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:132"]}, {"scope": "AUTHIMS", "kind": "missing-copybook", "severity": "high", "message": "copy CSMSG02Y is included by 2 program(s) (COPAUS0C, COPAUS1C) but no scanned copybook defines it", "request": "Provide copybook member 'CSMSG02Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:141", "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:135"]}, {"scope": "AUTHIMS", "kind": "missing-copybook", "severity": "high", "message": "copy CVACT01Y is included by 2 program(s) (COPAUA0C, COPAUS0C) but no scanned copybook defines it", "request": "Provide copybook member 'CVACT01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:206", "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:144"]}, {"scope": "AUTHIMS", "kind": "missing-copybook", "severity": "high", "message": "copy CVACT02Y is included by 1 program(s) (COPAUS0C) but no scanned copybook defines it", "request": "Provide copybook member 'CVACT02Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:147"]}, {"scope": "AUTHIMS", "kind": "missing-copybook", "severity": "high", "message": "copy CVACT03Y is included by 2 program(s) (COPAUA0C, COPAUS0C) but no scanned copybook defines it", "request": "Provide copybook member 'CVACT03Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:203", "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:150"]}, {"scope": "AUTHIMS", "kind": "missing-copybook", "severity": "high", "message": "copy CVCUS01Y is included by 2 program(s) (COPAUA0C, COPAUS0C) but no scanned copybook defines it", "request": "Provide copybook member 'CVCUS01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:209", "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:153"]}, {"scope": "AUTHIMS", "kind": "profile-environment-topology", "severity": "high", "message": "AUTHIMS profile: environment_topology is not in the store \u2014 which LPARs and environments (production / test / DR) the estate has \u2014 the scanned JCL allocates datasets under the high-level qualifier(s) AWS, IMS, OEM, OEMA, OEMPP, XXXXXXXX: a naming observation, which is not proof of which LPAR or environment runs them", "request": "State the LPARs and environments, how a dataset or job name says which one it belongs to, and which sysplex they sit in: the scan can only list the qualifiers it saw", "evidence": ["../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:26", "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:27", "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:28", "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl:29"]}, {"scope": "AUTHIMS", "kind": "profile-masking-policy", "severity": "high", "message": "AUTHIMS profile: masking_policy is not in the store \u2014 what may leave the estate, and in what shape", "request": "State the data-masking policy for extracted test data (which fields must be masked, whether production data may leave the estate at all)", "evidence": []}, {"scope": "AUTHIMS", "kind": "profile-test-lpar", "severity": "high", "message": "AUTHIMS profile: test_lpar is not in the store \u2014 whether a test LPAR is available to run the migrated code against", "request": "Confirm whether a test LPAR (or a sandbox subsystem) is available for parallel runs, and who can grant access", "evidence": []}, {"scope": "CARDDEMO", "kind": "file-dd-missing", "severity": "high", "message": "job CBIMPORT step STEP01 runs CBIMPORT, which opens file CARD-OUTPUT through DD CARDOUT, but the step allocates no DD CARDOUT", "request": "Provide the DD CARDOUT allocation for job CBIMPORT step STEP01 (or the PROC/override that supplies it)", "evidence": ["../app/cbl/CBIMPORT.cbl:63", "../app/jcl/CBIMPORT.jcl:22"]}, {"scope": "CARDDEMO", "kind": "profile-environment-topology", "severity": "high", "message": "CARDDEMO profile: environment_topology is not in the store \u2014 which LPARs and environments (production / test / DR) the estate has \u2014 the scanned JCL allocates datasets under the high-level qualifier(s) AWS, OEM: a naming observation, which is not proof of which LPAR or environment runs them", "request": "State the LPARs and environments, how a dataset or job name says which one it belongs to, and which sysplex they sit in: the scan can only list the qualifiers it saw", "evidence": ["../app/jcl/ACCTFILE.jcl:56", "../app/jcl/ACCTFILE.jcl:58", "../app/jcl/CARDFILE.jcl:70", "../app/jcl/CARDFILE.jcl:72"]}, {"scope": "CARDDEMO", "kind": "profile-masking-policy", "severity": "high", "message": "CARDDEMO profile: masking_policy is not in the store \u2014 what may leave the estate, and in what shape", "request": "State the data-masking policy for extracted test data (which fields must be masked, whether production data may leave the estate at all)", "evidence": []}, {"scope": "CARDDEMO", "kind": "profile-test-lpar", "severity": "high", "message": "CARDDEMO profile: test_lpar is not in the store \u2014 whether a test LPAR is available to run the migrated code against", "request": "Confirm whether a test LPAR (or a sandbox subsystem) is available for parallel runs, and who can grant access", "evidence": []}, {"scope": "TRANTYPE", "kind": "missing-copybook", "severity": "high", "message": "copy COCOM01Y is included by 2 program(s) (COTRTLIC, COTRTUPC) but no scanned copybook defines it", "request": "Provide copybook member 'COCOM01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:375", "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:292"]}, {"scope": "TRANTYPE", "kind": "missing-copybook", "severity": "high", "message": "copy COTTL01Y is included by 2 program(s) (COTRTLIC, COTRTUPC) but no scanned copybook defines it", "request": "Provide copybook member 'COTTL01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:430", "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:262"]}, {"scope": "TRANTYPE", "kind": "missing-copybook", "severity": "high", "message": "copy CSDAT01Y is included by 2 program(s) (COTRTLIC, COTRTUPC) but no scanned copybook defines it", "request": "Provide copybook member 'CSDAT01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:480", "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:268"]}, {"scope": "TRANTYPE", "kind": "missing-copybook", "severity": "high", "message": "copy CSMSG01Y is included by 2 program(s) (COTRTLIC, COTRTUPC) but no scanned copybook defines it", "request": "Provide copybook member 'CSMSG01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:482", "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:271"]}, {"scope": "TRANTYPE", "kind": "missing-copybook", "severity": "high", "message": "copy CSMSG02Y is included by 1 program(s) (COTRTUPC) but no scanned copybook defines it", "request": "Provide copybook member 'CSMSG02Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:274"]}, {"scope": "TRANTYPE", "kind": "missing-copybook", "severity": "high", "message": "copy CSSETATY is included by 1 program(s) (COTRTUPC) but no scanned copybook defines it", "request": "Provide copybook member 'CSSETATY' from the production copybook library (SYSLIB)", "evidence": ["../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1358"]}, {"scope": "TRANTYPE", "kind": "missing-copybook", "severity": "high", "message": "copy CSUSR01Y is included by 2 program(s) (COTRTLIC, COTRTUPC) but no scanned copybook defines it", "request": "Provide copybook member 'CSUSR01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:485", "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:277"]}, {"scope": "TRANTYPE", "kind": "missing-copybook", "severity": "high", "message": "copy CVACT02Y is included by 1 program(s) (COTRTLIC) but no scanned copybook defines it", "request": "Provide copybook member 'CVACT02Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:490"]}, {"scope": "TRANTYPE", "kind": "missing-copybook", "severity": "high", "message": "copy CVCRD01Y is included by 2 program(s) (COTRTLIC, COTRTUPC) but no scanned copybook defines it", "request": "Provide copybook member 'CVCRD01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:327", "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:241"]}, {"scope": "TRANTYPE", "kind": "profile-environment-topology", "severity": "high", "message": "TRANTYPE profile: environment_topology is not in the store \u2014 which LPARs and environments (production / test / DR) the estate has \u2014 the scanned JCL allocates datasets under the high-level qualifier(s) AWS, INPFILE, OEM, OEMA: a naming observation, which is not proof of which LPAR or environment runs them", "request": "State the LPARs and environments, how a dataset or job name says which one it belongs to, and which sysplex they sit in: the scan can only list the qualifiers it saw", "evidence": ["../app/app-transaction-type-db2/jcl/CREADB21.jcl:41", "../app/app-transaction-type-db2/jcl/CREADB21.jcl:42", "../app/app-transaction-type-db2/jcl/CREADB21.jcl:53", "../app/app-transaction-type-db2/jcl/CREADB21.jcl:66"]}, {"scope": "TRANTYPE", "kind": "profile-masking-policy", "severity": "high", "message": "TRANTYPE profile: masking_policy is not in the store \u2014 what may leave the estate, and in what shape", "request": "State the data-masking policy for extracted test data (which fields must be masked, whether production data may leave the estate at all)", "evidence": []}, {"scope": "TRANTYPE", "kind": "profile-test-lpar", "severity": "high", "message": "TRANTYPE profile: test_lpar is not in the store \u2014 whether a test LPAR is available to run the migrated code against", "request": "Confirm whether a test LPAR (or a sandbox subsystem) is available for parallel runs, and who can grant access", "evidence": []}, {"scope": "VSAMMQ", "kind": "missing-copybook", "severity": "high", "message": "copy CVACT01Y is included by 1 program(s) (COACCT01) but no scanned copybook defines it", "request": "Provide copybook member 'CVACT01Y' from the production copybook library (SYSLIB)", "evidence": ["../app/app-vsam-mq/cbl/COACCT01.cbl:171"]}, {"scope": "VSAMMQ", "kind": "profile-environment-topology", "severity": "high", "message": "VSAMMQ profile: environment_topology is not in the store \u2014 which LPARs and environments (production / test / DR) the estate has", "request": "State the LPARs and environments, how a dataset or job name says which one it belongs to, and which sysplex they sit in: the scan can only list the qualifiers it saw", "evidence": []}, {"scope": "VSAMMQ", "kind": "profile-masking-policy", "severity": "high", "message": "VSAMMQ profile: masking_policy is not in the store \u2014 what may leave the estate, and in what shape", "request": "State the data-masking policy for extracted test data (which fields must be masked, whether production data may leave the estate at all)", "evidence": []}, {"scope": "VSAMMQ", "kind": "profile-test-lpar", "severity": "high", "message": "VSAMMQ profile: test_lpar is not in the store \u2014 whether a test LPAR is available to run the migrated code against", "request": "Confirm whether a test LPAR (or a sandbox subsystem) is available for parallel runs, and who can grant access", "evidence": []}]};
+
+function el(tag, attrs, ...children) {
+  const e = document.createElementNS(attrs && attrs.ns ? attrs.ns : 'http://www.w3.org/1999/xhtml', tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (k === 'ns') continue;
+    if (k === 'class') e.setAttribute('class', v); else if (v != null) e.setAttribute(k, v);
+  }
+  for (const c of children) {
+    if (c == null) continue;
+    e.append(c.nodeType ? c : document.createTextNode(String(c)));
+  }
+  return e;
+}
+const SVG = 'http://www.w3.org/2000/svg';
+const svg = (tag, attrs, ...kids) => el(tag, Object.assign({ns: SVG}, attrs || {}), ...kids);
+const badge = (text, cls) => el('span', {class: 'badge ' + (cls || '')}, text);
+function table(headers, rows) {
+  if (!rows.length) return el('div', {class: 'empty'}, 'Nothing to show.');
+  return el('table', {},
+    el('thead', {}, el('tr', {}, ...headers.map(h =>
+      el('th', typeof h === 'object' ? {class: 'num'} : {}, typeof h === 'object' ? h.n : h)))),
+    el('tbody', {}, ...rows));
+}
+const num = v => el('td', {class: 'num'}, v == null ? '\u2014' : v);
+// A text filter over a table: the whole row is the haystack, and the count is
+// what survives, so a filtered page never lies about how much there is.
+function filterBar(barId, boxId, label) {
+  const bar = document.getElementById(barId), box = document.getElementById(boxId);
+  const q = el('input', {placeholder: 'Filter...'});
+  const count = el('span', {class: 'count'});
+  bar.append(q, count);
+  const apply = () => {
+    const text = q.value.trim().toLowerCase();
+    const rows = [...box.querySelectorAll('tbody tr')];
+    let shown = 0;
+    for (const r of rows) {
+      const hit = !text || r.textContent.toLowerCase().includes(text);
+      r.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    }
+    count.textContent = shown + ' of ' + rows.length + ' ' + label;
+  };
+  q.addEventListener('input', apply);
+  apply();
+}
+
+const S = DATA.summary;
+document.getElementById('meta').textContent =
+  (DATA.meta.tool || 'mftb') + ' | generated ' + (DATA.meta.generated_at || '') +
+  ' | catalog store/catalog.json, map store/modules.json';
+const cards = [
+  ['Files', S.files, S.catalogued + ' catalogued, ' + S.excluded + ' excluded', false],
+  ['Artifacts', S.placeable, 'members, jobs, tables — the placeable estate', false],
+  ['Modules', S.modules, S.scanned_modules + ' scanned', false],
+  ['Shared', S.shared, 'owned by more than one module', false],
+  ['Unplaced', S.unplaced, 'artifacts in no module', S.unplaced > 0],
+  ['Unclassified', S.unclassified + S.unsupported,
+   S.unclassified + ' unclassified, ' + S.unsupported + ' unsupported language',
+   (S.unclassified + S.unsupported) > 0],
+];
+document.getElementById('cards').append(...cards.map(([k, n, s, alert]) =>
+  el('div', {class: 'card' + (alert ? ' alert' : '')},
+     el('div', {class: 'k'}, k), el('div', {class: 'n'}, n), el('div', {class: 's'}, s))));
+document.getElementById('lead').textContent =
+  'Every file under the estate roots sits in exactly one row of the catalog.';
+
+// ---- site & environment ----------------------------------------------------
+const siteRows = DATA.site.map(f => {
+  const answers = Object.entries(f.answers);
+  const label = f.field.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase());
+  const value = f.agreed
+    ? el('span', {}, f.value === 'None' ? el('span', {class: 'note'}, 'not answered') : f.value)
+    : el('div', {}, ...answers.map(([m, a]) =>
+        el('div', {}, el('span', {class: 'mono'}, m), ': ', a.value == null ? 'not answered' : a.value)));
+  const cites = answers.flatMap(([, a]) => a.evidence).slice(0, 4);
+  return el('tr', {},
+    el('td', {}, el('strong', {}, label)),
+    el('td', {}, value, f.agreed ? null : el('div', {class: 'request'},
+      'the modules do not agree: settle this at estate level')),
+    el('td', {}, badge(f.source, f.source), f.assumed ? ' ' : null,
+       f.assumed ? badge('ASSUMED', 'high') : null),
+    el('td', {}, answers.length + ' module' + (answers.length === 1 ? '' : 's')),
+    el('td', {class: 'note'}, cites.length
+      ? el('ul', {class: 'cites'}, ...cites.map(c => el('li', {}, c)))
+      : (f.assumed ? 'none — an assumption is never evidence' : '\u2014')));
+});
+document.getElementById('site').append(
+  siteRows.length ? table(['Field', 'Value', 'Source', 'Answered by', 'Read from'], siteRows)
+                  : el('div', {class: 'empty'}, 'No module has been through scan-profile yet.'));
+
+// ---- the module cloud ------------------------------------------------------
+// Area is the count, so the radius is its square root: a module with four
+// times the files is twice as wide, not four times.
+const bubbles = DATA.modules.map(m => ({
+  id: m.id, files: m.files, cls: m.scanned ? '' : 'unscanned',
+  sub: m.files + ' files' + (m.scanned ? '' : ' · not scanned'), href: m.id + '/' + m.id + '-report.html',
+  title: (m.name || m.id) + (m.what_it_does ? ' — ' + m.what_it_does : '')}));
+if (S.shared) bubbles.push({id: 'shared', files: S.shared, cls: 'shared',
+  sub: S.shared + ' files · copied by more than one module', href: null,
+  title: 'artifacts more than one module uses'});
+if (S.unplaced) bubbles.push({id: 'unplaced', files: S.unplaced, cls: 'unplaced',
+  sub: S.unplaced + ' files · owner unknown', href: null,
+  title: 'catalogued artifacts no module claims'});
+const maxFiles = Math.max(1, ...bubbles.map(b => b.files));
+const R = b => 34 + 78 * Math.sqrt(b.files / maxFiles);
+// A bubble too small to hold its own caption puts it underneath, and the row
+// reserves the width of whichever is wider -- a legible small module beats a
+// tight picture.
+const CH = 5.6;
+let x = 20, rowY = 20, rowH = 0;
+const WIDTH = 1080;
+const placed = [];
+for (const b of bubbles.sort((p, q) => q.files - p.files)) {
+  const r = R(b), inside = 2 * r > b.sub.length * CH + 16;
+  const w = Math.max(2 * r, inside ? 0 : b.sub.length * CH);
+  if (x + w > WIDTH && placed.length) { x = 20; rowY += rowH + 34; rowH = 0; }
+  placed.push({b: b, cx: x + w / 2, cy: rowY + r, r: r, inside: inside});
+  x += w + 26;
+  rowH = Math.max(rowH, 2 * r + (inside ? 0 : 18));
+}
+const height = rowY + rowH + 20;
+const cloud = svg('svg', {viewBox: '0 0 ' + WIDTH + ' ' + height, width: '100%',
+                          height: Math.min(height, 460), class: 'cloudsvg'});
+for (const p of placed) {
+  const circle = svg('circle', {class: 'bub ' + p.b.cls, cx: p.cx, cy: p.cy, r: p.r});
+  const g = svg('g', {}, circle,
+    svg('title', {}, p.b.title),
+    svg('text', {class: 'lb', x: p.cx, y: p.cy + (p.inside ? -2 : 5)}, p.b.id),
+    svg('text', {class: 'ls', x: p.cx, y: p.inside ? p.cy + 15 : p.cy + p.r + 15}, p.b.sub));
+  cloud.append(p.b.href ? svg('a', {href: p.b.href}, g) : g);
+}
+document.getElementById('cloud').append(cloud);
+document.getElementById('cloud-legend').append(
+  el('span', {}, 'Area = catalogued files.'),
+  el('span', {}, 'Dashed purple = shared.'), el('span', {}, 'Dashed red = unplaced.'),
+  el('span', {}, 'Grey = named by the map, never scanned.'));
+
+const KINDS = ks => Object.entries(ks).map(([k, n]) => k + ' ' + n).join(', ');
+document.getElementById('modules').append(table(
+  ['Module', 'What it does', 'Naming', {n: 'Files'}, 'Made of', {n: 'Programs'}, {n: 'Jobs'},
+   {n: 'Open findings'}, 'Talks to'],
+  DATA.modules.map(m => el('tr', {},
+    el('td', {}, el('a', {href: m.id + '/' + m.id + '-report.html', class: 'mono'}, m.id),
+       el('div', {class: 'note'}, m.name || '')),
+    el('td', {class: 'note'}, m.what_it_does || '\u2014'),
+    el('td', {}, badge(m.naming || 'proposed', m.naming === 'confirmed' ? 'confirmed' : 'proposed'),
+       m.confidence ? ' ' : null, m.confidence ? badge(m.confidence, m.confidence) : null),
+    num(m.files),
+    el('td', {class: 'note'}, KINDS(m.kinds)),
+    num(m.scanned ? m.programs : null), num(m.scanned ? m.jobs : null),
+    el('td', {class: 'num'}, m.scanned
+      ? el('span', {}, m.findings.open, m.findings.high ? ' ' : null,
+           m.findings.high ? badge(m.findings.high + ' high', 'high') : null)
+      : badge('not scanned', 'medium')),
+    el('td', {class: 'mono note'}, (m.counterparts || []).join(', ') || '\u2014')))));
+
+// ---- inventory -------------------------------------------------------------
+const moduleIds = DATA.modules.map(m => m.id);
+const columns = [...moduleIds, 'shared', 'unplaced', 'not-an-artifact'];
+document.getElementById('inventory').append(table(
+  ['Kind', {n: 'Files'}, ...columns.map(c => ({n: c}))],
+  DATA.inventory.map(row => el('tr', {},
+    el('td', {}, el('span', {class: 'mono'}, row.kind),
+       row.placeable ? null : el('div', {class: 'note'}, 'not an estate artifact')),
+    num(row.files),
+    ...columns.map(c => num(row.by_module[c] || null))))));
+filterBar('t-inventory', 'inventory', 'kinds');
+
+// ---- connections -----------------------------------------------------------
+document.getElementById('conn-intro').textContent =
+  DATA.connections.length
+    ? 'Where one module meets another, with the store row that proved it. CANDIDATE narrows the ' +
+      'possibilities; it does not prove the call.'
+    : 'No module store proves a connection to another module yet.';
+document.getElementById('connections').append(table(
+  ['Between', 'Kind', 'What', 'Seen by', 'Evidence'],
+  DATA.connections.map(c => el('tr', {},
+    el('td', {class: 'mono'}, c.between.join(' \u2194 ')),
+    el('td', {}, badge(c.kind, c.kind), ' ',
+       c.certainty === 'candidate' ? badge('candidate', 'medium') : null),
+    el('td', {}, c.detail),
+    el('td', {class: 'mono note'}, (c.seen_by || []).join(', ') || 'the map'),
+    el('td', {class: 'note'}, (c.evidence || []).length
+      ? el('ul', {class: 'cites'}, ...c.evidence.slice(0, 3).map(e => el('li', {}, e)))
+      : '\u2014')))));
+filterBar('t-connections', 'connections', 'connections');
+
+// ---- what each closed section holds, so the page reads as a contents list ---
+const counts = {
+  'n-modules': S.modules + ' module' + (S.modules === 1 ? '' : 's') + ', ' +
+               S.shared + ' shared, ' + S.unplaced + ' unplaced',
+  'n-site': DATA.site.length + ' field' + (DATA.site.length === 1 ? '' : 's'),
+  'n-inventory': DATA.inventory.length + ' kind' + (DATA.inventory.length === 1 ? '' : 's') +
+                 ' over ' + S.catalogued + ' catalogued files',
+  'n-connections': DATA.connections.length + ' connection' +
+                   (DATA.connections.length === 1 ? '' : 's'),
+};
+for (const [id, text] of Object.entries(counts)) document.getElementById(id).textContent = text;
+</script>
+</body>
+</html>

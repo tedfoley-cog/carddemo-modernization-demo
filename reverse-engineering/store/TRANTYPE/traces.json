@@ -1,0 +1,729 @@
+{
+  "meta": {
+    "module": "TRANTYPE",
+    "generated_at": "2026-10-08T04:11:56Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "programs": {
+        "src": [
+          "../app/app-transaction-type-db2/cbl"
+        ],
+        "copybooks": [
+          "../app/app-transaction-type-db2/cpy",
+          "../app/app-transaction-type-db2/cpy-bms",
+          "../app/app-transaction-type-db2/dcl"
+        ]
+      },
+      "jobs": {
+        "jcl": [
+          "../app/app-transaction-type-db2/jcl"
+        ],
+        "procs": [],
+        "cntl": [
+          "../app/app-transaction-type-db2/ctl"
+        ]
+      }
+    }
+  },
+  "summary": {
+    "programs": 3,
+    "boundaries": 4,
+    "steps": 11,
+    "edges": 14,
+    "edges_by_kind": {
+      "jcl-exec": 11,
+      "cics-xctl": 3
+    },
+    "edges_by_certainty": {
+      "proven": 11,
+      "open": 2,
+      "candidate": 1
+    },
+    "boundaries_by_class": {
+      "launcher": 1,
+      "utility": 2,
+      "unresolved-target": 1
+    },
+    "missing_artifacts": 1,
+    "missing_by_class": {
+      "unresolved-target": 1
+    },
+    "roots": 12,
+    "open_ends": 2,
+    "unreached_programs": 0,
+    "cycles": 0
+  },
+  "nodes": [
+    {
+      "id": "CREADB2.CRCRDDB",
+      "kind": "step",
+      "class": "utility",
+      "detail": "IKJEFT01",
+      "path": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:52",
+      "in_inventory": false,
+      "job": "CREADB2",
+      "step": "CRCRDDB",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "CREADB2.FREEPLN",
+      "kind": "step",
+      "class": "launcher",
+      "detail": "IKJEFT01",
+      "path": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:40",
+      "in_inventory": false,
+      "job": "CREADB2",
+      "step": "FREEPLN",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "CREADB2.LDTCCAT",
+      "kind": "step",
+      "class": "utility",
+      "detail": "IKJEFT01",
+      "path": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:77",
+      "in_inventory": false,
+      "job": "CREADB2",
+      "step": "LDTCCAT",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "CREADB2.LDTTYPE",
+      "kind": "step",
+      "class": "utility",
+      "detail": "IEFBR14",
+      "path": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:64",
+      "in_inventory": false,
+      "job": "CREADB2",
+      "step": "LDTTYPE",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "CREADB2.RUNTEP2",
+      "kind": "step",
+      "class": "utility",
+      "detail": "IKJEFT01",
+      "path": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:65",
+      "in_inventory": false,
+      "job": "CREADB2",
+      "step": "RUNTEP2",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "MNTTRDB2.STEP1",
+      "kind": "step",
+      "class": "launcher",
+      "detail": "IKJEFT01",
+      "path": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:21",
+      "in_inventory": false,
+      "job": "MNTTRDB2",
+      "step": "STEP1",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "TRANEXTR.STEP10",
+      "kind": "step",
+      "class": "utility",
+      "detail": "IEBGENER",
+      "path": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:31",
+      "in_inventory": false,
+      "job": "TRANEXTR",
+      "step": "STEP10",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "TRANEXTR.STEP20",
+      "kind": "step",
+      "class": "utility",
+      "detail": "IEBGENER",
+      "path": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:42",
+      "in_inventory": false,
+      "job": "TRANEXTR",
+      "step": "STEP20",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "TRANEXTR.STEP30",
+      "kind": "step",
+      "class": "utility",
+      "detail": "IEFBR14",
+      "path": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:53",
+      "in_inventory": false,
+      "job": "TRANEXTR",
+      "step": "STEP30",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "TRANEXTR.STEP40",
+      "kind": "step",
+      "class": "utility",
+      "detail": "IKJEFT01",
+      "path": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:65",
+      "in_inventory": false,
+      "job": "TRANEXTR",
+      "step": "STEP40",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "TRANEXTR.STEP50",
+      "kind": "step",
+      "class": "utility",
+      "detail": "IKJEFT01",
+      "path": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:95",
+      "in_inventory": false,
+      "job": "TRANEXTR",
+      "step": "STEP50",
+      "proc_step": null,
+      "proc": null
+    },
+    {
+      "id": "COBTUPDT",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl",
+      "in_inventory": true,
+      "cics": false,
+      "sql": true
+    },
+    {
+      "id": "COTRTLIC",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+      "in_inventory": true,
+      "cics": true,
+      "sql": true
+    },
+    {
+      "id": "COTRTUPC",
+      "kind": "program",
+      "class": null,
+      "detail": null,
+      "path": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl",
+      "in_inventory": true,
+      "cics": true,
+      "sql": true
+    },
+    {
+      "id": "?CDEMO-TO-PROGRAM",
+      "kind": "boundary",
+      "class": "unresolved-target",
+      "detail": "dynamic target not settled in the source",
+      "path": null,
+      "in_inventory": false
+    },
+    {
+      "id": "IEBGENER",
+      "kind": "boundary",
+      "class": "utility",
+      "detail": "data-management utility",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:31"
+    },
+    {
+      "id": "IEFBR14",
+      "kind": "boundary",
+      "class": "utility",
+      "detail": "data-management utility",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:64"
+    },
+    {
+      "id": "IKJEFT01",
+      "kind": "boundary",
+      "class": "launcher",
+      "detail": "TSO/DB2 launcher (tso-db2)",
+      "path": null,
+      "in_inventory": false,
+      "first_seen": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:40"
+    }
+  ],
+  "edges": [
+    {
+      "from": "CREADB2.CRCRDDB",
+      "to": "IKJEFT01",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:52",
+      "detail": "EXEC PGM=IKJEFT01",
+      "job": "CREADB2",
+      "step": "CRCRDDB",
+      "blocked_by": null
+    },
+    {
+      "from": "CREADB2.FREEPLN",
+      "to": "IKJEFT01",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:40",
+      "detail": "EXEC PGM=IKJEFT01 (launcher: RUN PROGRAM(IKJEFT01))",
+      "job": "CREADB2",
+      "step": "FREEPLN",
+      "blocked_by": null
+    },
+    {
+      "from": "CREADB2.LDTCCAT",
+      "to": "IKJEFT01",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:77",
+      "detail": "EXEC PGM=IKJEFT01",
+      "job": "CREADB2",
+      "step": "LDTCCAT",
+      "blocked_by": null
+    },
+    {
+      "from": "CREADB2.LDTTYPE",
+      "to": "IEFBR14",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:64",
+      "detail": "EXEC PGM=IEFBR14",
+      "job": "CREADB2",
+      "step": "LDTTYPE",
+      "blocked_by": null
+    },
+    {
+      "from": "CREADB2.RUNTEP2",
+      "to": "IKJEFT01",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:65",
+      "detail": "EXEC PGM=IKJEFT01",
+      "job": "CREADB2",
+      "step": "RUNTEP2",
+      "blocked_by": null
+    },
+    {
+      "from": "MNTTRDB2.STEP1",
+      "to": "COBTUPDT",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:21",
+      "detail": "EXEC PGM=IKJEFT01 (launcher: RUN PROGRAM(COBTUPDT))",
+      "job": "MNTTRDB2",
+      "step": "STEP1",
+      "blocked_by": null
+    },
+    {
+      "from": "TRANEXTR.STEP10",
+      "to": "IEBGENER",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:31",
+      "detail": "EXEC PGM=IEBGENER",
+      "job": "TRANEXTR",
+      "step": "STEP10",
+      "blocked_by": null
+    },
+    {
+      "from": "TRANEXTR.STEP20",
+      "to": "IEBGENER",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:42",
+      "detail": "EXEC PGM=IEBGENER",
+      "job": "TRANEXTR",
+      "step": "STEP20",
+      "blocked_by": null
+    },
+    {
+      "from": "TRANEXTR.STEP30",
+      "to": "IEFBR14",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:53",
+      "detail": "EXEC PGM=IEFBR14",
+      "job": "TRANEXTR",
+      "step": "STEP30",
+      "blocked_by": null
+    },
+    {
+      "from": "TRANEXTR.STEP40",
+      "to": "IKJEFT01",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:65",
+      "detail": "EXEC PGM=IKJEFT01",
+      "job": "TRANEXTR",
+      "step": "STEP40",
+      "blocked_by": null
+    },
+    {
+      "from": "TRANEXTR.STEP50",
+      "to": "IKJEFT01",
+      "kind": "jcl-exec",
+      "certainty": "proven",
+      "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:95",
+      "detail": "EXEC PGM=IKJEFT01",
+      "job": "TRANEXTR",
+      "step": "STEP50",
+      "blocked_by": null
+    },
+    {
+      "from": "COTRTLIC",
+      "to": "?CDEMO-TO-PROGRAM",
+      "kind": "cics-xctl",
+      "certainty": "open",
+      "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM - unknown-item",
+      "site": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+      "variable": "CDEMO-TO-PROGRAM",
+      "blocked_by": "dynamic-call-open"
+    },
+    {
+      "from": "COTRTLIC",
+      "to": "COTRTUPC",
+      "kind": "cics-xctl",
+      "certainty": "candidate",
+      "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648",
+      "detail": "CICS-XCTL LIT-ADDTPGM -> one of 1 candidate(s)",
+      "site": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648",
+      "variable": "LIT-ADDTPGM",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:50"
+      ],
+      "blocked_by": null
+    },
+    {
+      "from": "COTRTUPC",
+      "to": "?CDEMO-TO-PROGRAM",
+      "kind": "cics-xctl",
+      "certainty": "open",
+      "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457",
+      "detail": "CICS-XCTL CDEMO-TO-PROGRAM - unknown-item",
+      "site": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457",
+      "variable": "CDEMO-TO-PROGRAM",
+      "blocked_by": "dynamic-call-open"
+    }
+  ],
+  "roots": [
+    {
+      "kind": "job-step",
+      "job": "CREADB2",
+      "step": "FREEPLN",
+      "proc_step": null,
+      "id": "CREADB2.FREEPLN",
+      "program": "IKJEFT01",
+      "step_kind": "launcher",
+      "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:40",
+      "reaches": [
+        {
+          "node": "IKJEFT01",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "IKJEFT01",
+          "why": "TSO/DB2 launcher (tso-db2)",
+          "class": "launcher"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "CREADB2",
+      "step": "CRCRDDB",
+      "proc_step": null,
+      "id": "CREADB2.CRCRDDB",
+      "program": "IKJEFT01",
+      "step_kind": "utility",
+      "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:52",
+      "reaches": [
+        {
+          "node": "IKJEFT01",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "IKJEFT01",
+          "why": "TSO/DB2 launcher (tso-db2)",
+          "class": "launcher"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "CREADB2",
+      "step": "LDTTYPE",
+      "proc_step": null,
+      "id": "CREADB2.LDTTYPE",
+      "program": "IEFBR14",
+      "step_kind": "utility",
+      "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:64",
+      "reaches": [
+        {
+          "node": "IEFBR14",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "IEFBR14",
+          "why": "data-management utility",
+          "class": "utility"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "CREADB2",
+      "step": "RUNTEP2",
+      "proc_step": null,
+      "id": "CREADB2.RUNTEP2",
+      "program": "IKJEFT01",
+      "step_kind": "utility",
+      "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:65",
+      "reaches": [
+        {
+          "node": "IKJEFT01",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "IKJEFT01",
+          "why": "TSO/DB2 launcher (tso-db2)",
+          "class": "launcher"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "CREADB2",
+      "step": "LDTCCAT",
+      "proc_step": null,
+      "id": "CREADB2.LDTCCAT",
+      "program": "IKJEFT01",
+      "step_kind": "utility",
+      "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:77",
+      "reaches": [
+        {
+          "node": "IKJEFT01",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "IKJEFT01",
+          "why": "TSO/DB2 launcher (tso-db2)",
+          "class": "launcher"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "MNTTRDB2",
+      "step": "STEP1",
+      "proc_step": null,
+      "id": "MNTTRDB2.STEP1",
+      "program": "COBTUPDT",
+      "step_kind": "launcher",
+      "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:21",
+      "reaches": [
+        {
+          "node": "COBTUPDT",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": []
+    },
+    {
+      "kind": "job-step",
+      "job": "TRANEXTR",
+      "step": "STEP10",
+      "proc_step": null,
+      "id": "TRANEXTR.STEP10",
+      "program": "IEBGENER",
+      "step_kind": "utility",
+      "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:31",
+      "reaches": [
+        {
+          "node": "IEBGENER",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "IEBGENER",
+          "why": "data-management utility",
+          "class": "utility"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "TRANEXTR",
+      "step": "STEP20",
+      "proc_step": null,
+      "id": "TRANEXTR.STEP20",
+      "program": "IEBGENER",
+      "step_kind": "utility",
+      "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:42",
+      "reaches": [
+        {
+          "node": "IEBGENER",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "IEBGENER",
+          "why": "data-management utility",
+          "class": "utility"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "TRANEXTR",
+      "step": "STEP30",
+      "proc_step": null,
+      "id": "TRANEXTR.STEP30",
+      "program": "IEFBR14",
+      "step_kind": "utility",
+      "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:53",
+      "reaches": [
+        {
+          "node": "IEFBR14",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "IEFBR14",
+          "why": "data-management utility",
+          "class": "utility"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "TRANEXTR",
+      "step": "STEP40",
+      "proc_step": null,
+      "id": "TRANEXTR.STEP40",
+      "program": "IKJEFT01",
+      "step_kind": "utility",
+      "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:65",
+      "reaches": [
+        {
+          "node": "IKJEFT01",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "IKJEFT01",
+          "why": "TSO/DB2 launcher (tso-db2)",
+          "class": "launcher"
+        }
+      ]
+    },
+    {
+      "kind": "job-step",
+      "job": "TRANEXTR",
+      "step": "STEP50",
+      "proc_step": null,
+      "id": "TRANEXTR.STEP50",
+      "program": "IKJEFT01",
+      "step_kind": "utility",
+      "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:95",
+      "reaches": [
+        {
+          "node": "IKJEFT01",
+          "depth": 0,
+          "via": null
+        }
+      ],
+      "stops": [
+        {
+          "node": "IKJEFT01",
+          "why": "TSO/DB2 launcher (tso-db2)",
+          "class": "launcher"
+        }
+      ]
+    },
+    {
+      "kind": "cics-program",
+      "job": null,
+      "step": null,
+      "program": "COTRTLIC",
+      "step_kind": null,
+      "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+      "reaches": [
+        {
+          "node": "COTRTLIC",
+          "depth": 0,
+          "via": null
+        },
+        {
+          "node": "COTRTUPC",
+          "depth": 1,
+          "via": {
+            "kind": "cics-xctl",
+            "certainty": "candidate",
+            "from": "COTRTLIC",
+            "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648"
+          }
+        }
+      ],
+      "stops": []
+    }
+  ],
+  "open_ends": [
+    {
+      "program": "COTRTLIC",
+      "site": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "kinds": [
+        "unknown-item"
+      ],
+      "candidates": [],
+      "resolve_with": "dynamic-call-resolution skill"
+    },
+    {
+      "program": "COTRTUPC",
+      "site": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457",
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "kinds": [
+        "unknown-item"
+      ],
+      "candidates": [],
+      "resolve_with": "dynamic-call-resolution skill"
+    }
+  ],
+  "cycles": [],
+  "unreached": {
+    "programs": [],
+    "note": "no scanned JCL step reaches these programs through a proven or candidate control edge (CICS-only programs are entered by a transaction, not by a step)"
+  }
+}

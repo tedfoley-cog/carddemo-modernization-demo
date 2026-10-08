@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "module": "TRANTYPE",
+    "generated_at": "2026-10-08T04:11:55Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {}
+  },
+  "summary": {
+    "sites": 3,
+    "open": 2,
+    "resolved": 1
+  },
+  "sites": [
+    {
+      "program": "COTRTLIC",
+      "path": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+      "line": 620,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+      "status": "open",
+      "candidates": [],
+      "open_ends": [
+        {
+          "program": "COTRTLIC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "unknown-item",
+          "class": "GEN",
+          "detail": "data item CDEMO-TO-PROGRAM is not defined in the scanned data division (unscanned includes: CVCRD01Y, SQLCA, COCOM01Y, DFHBMSCA, DFHAID, COTTL01Y, CSDAT01Y, CSMSG01Y, CSUSR01Y, CVACT02Y)",
+          "request": "Locate the definition of CDEMO-TO-PROGRAM (unscanned copybook or include?)",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COTRTLIC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "unknown-item",
+          "class": "GEN",
+          "detail": "data item CDEMO-TO-PROGRAM is not defined in the scanned data division (unscanned includes: CVCRD01Y, SQLCA, COCOM01Y, DFHBMSCA, DFHAID, COTTL01Y, CSDAT01Y, CSMSG01Y, CSUSR01Y, CVACT02Y)",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl"
+        }
+      ]
+    },
+    {
+      "program": "COTRTLIC",
+      "path": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+      "line": 648,
+      "construct": "CICS-XCTL",
+      "variable": "LIT-ADDTPGM",
+      "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648",
+      "status": "resolved",
+      "candidates": [
+        {
+          "name": "COTRTUPC",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:50",
+              "how": "VALUE clause of LIT-ADDTPGM"
+            }
+          ]
+        }
+      ],
+      "open_ends": [],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COTRTLIC",
+          "item": "LIT-ADDTPGM",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 LIT-ADDTPGM PIC X(8) \u2014 WORKING-STORAGE, bytes 45..53 of WS-CONSTANTS",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:50"
+        },
+        {
+          "depth": 1,
+          "program": "COTRTLIC",
+          "item": "LIT-ADDTPGM",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COTRTUPC'",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:50"
+        }
+      ]
+    },
+    {
+      "program": "COTRTUPC",
+      "path": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl",
+      "line": 457,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457",
+      "status": "open",
+      "candidates": [],
+      "open_ends": [
+        {
+          "program": "COTRTUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "unknown-item",
+          "class": "GEN",
+          "detail": "data item CDEMO-TO-PROGRAM is not defined in the scanned data division (unscanned includes: CVCRD01Y, DFHBMSCA, DFHAID, COTTL01Y, CSDAT01Y, CSMSG01Y, CSMSG02Y, CSUSR01Y, SQLCA, COCOM01Y, CSSETATY)",
+          "request": "Locate the definition of CDEMO-TO-PROGRAM (unscanned copybook or include?)",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COTRTUPC",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "unknown-item",
+          "class": "GEN",
+          "detail": "data item CDEMO-TO-PROGRAM is not defined in the scanned data division (unscanned includes: CVCRD01Y, DFHBMSCA, DFHAID, COTTL01Y, CSDAT01Y, CSMSG01Y, CSMSG02Y, CSUSR01Y, SQLCA, COCOM01Y, CSSETATY)",
+          "source": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl"
+        }
+      ]
+    }
+  ]
+}

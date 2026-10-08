@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "module": "VSAMMQ",
+    "generated_at": "2026-10-08T04:11:46Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {}
+  },
+  "summary": {
+    "sites": 0
+  },
+  "sites": []
+}

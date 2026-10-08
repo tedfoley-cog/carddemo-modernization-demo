@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "module": "AUTHIMS",
+    "generated_at": "2026-10-08T04:11:45Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {}
+  },
+  "summary": {
+    "sites": 4,
+    "open": 3,
+    "resolved": 1
+  },
+  "sites": [
+    {
+      "program": "COPAUS0C",
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl",
+      "line": 322,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:322",
+      "status": "open",
+      "candidates": [],
+      "open_ends": [
+        {
+          "program": "COPAUS0C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "unknown-item",
+          "class": "GEN",
+          "detail": "data item CDEMO-TO-PROGRAM is not defined in the scanned data division (unscanned includes: COCOM01Y, COTTL01Y, CSDAT01Y, CSMSG01Y, CSMSG02Y, CVACT01Y, CVACT02Y, CVACT03Y, CVCUS01Y, DFHAID, DFHBMSCA)",
+          "request": "Locate the definition of CDEMO-TO-PROGRAM (unscanned copybook or include?)",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COPAUS0C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "unknown-item",
+          "class": "GEN",
+          "detail": "data item CDEMO-TO-PROGRAM is not defined in the scanned data division (unscanned includes: COCOM01Y, COTTL01Y, CSDAT01Y, CSMSG01Y, CSMSG02Y, CVACT01Y, CVACT02Y, CVACT03Y, CVCUS01Y, DFHAID, DFHBMSCA)",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl"
+        }
+      ]
+    },
+    {
+      "program": "COPAUS0C",
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl",
+      "line": 674,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:674",
+      "status": "open",
+      "candidates": [],
+      "open_ends": [
+        {
+          "program": "COPAUS0C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "unknown-item",
+          "class": "GEN",
+          "detail": "data item CDEMO-TO-PROGRAM is not defined in the scanned data division (unscanned includes: COCOM01Y, COTTL01Y, CSDAT01Y, CSMSG01Y, CSMSG02Y, CVACT01Y, CVACT02Y, CVACT03Y, CVCUS01Y, DFHAID, DFHBMSCA)",
+          "request": "Locate the definition of CDEMO-TO-PROGRAM (unscanned copybook or include?)",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COPAUS0C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "unknown-item",
+          "class": "GEN",
+          "detail": "data item CDEMO-TO-PROGRAM is not defined in the scanned data division (unscanned includes: COCOM01Y, COTTL01Y, CSDAT01Y, CSMSG01Y, CSMSG02Y, CVACT01Y, CVACT02Y, CVACT03Y, CVCUS01Y, DFHAID, DFHBMSCA)",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl"
+        }
+      ]
+    },
+    {
+      "program": "COPAUS1C",
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl",
+      "line": 248,
+      "construct": "CICS-LINK",
+      "variable": "WS-PGM-AUTH-FRAUD",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:248",
+      "status": "resolved",
+      "candidates": [
+        {
+          "name": "COPAUS2C",
+          "in_inventory": true,
+          "evidence": [
+            {
+              "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:35",
+              "how": "VALUE clause of WS-PGM-AUTH-FRAUD"
+            }
+          ]
+        }
+      ],
+      "open_ends": [],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COPAUS1C",
+          "item": "WS-PGM-AUTH-FRAUD",
+          "kind": "definition",
+          "class": "DET",
+          "detail": "05 WS-PGM-AUTH-FRAUD PIC X(08) \u2014 WORKING-STORAGE, bytes 16..24 of WS-VARIABLES",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:35"
+        },
+        {
+          "depth": 1,
+          "program": "COPAUS1C",
+          "item": "WS-PGM-AUTH-FRAUD",
+          "kind": "value-clause",
+          "class": "DET",
+          "detail": "VALUE 'COPAUS2C'",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:35"
+        }
+      ]
+    },
+    {
+      "program": "COPAUS1C",
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl",
+      "line": 367,
+      "construct": "CICS-XCTL",
+      "variable": "CDEMO-TO-PROGRAM",
+      "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:367",
+      "status": "open",
+      "candidates": [],
+      "open_ends": [
+        {
+          "program": "COPAUS1C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "unknown-item",
+          "class": "GEN",
+          "detail": "data item CDEMO-TO-PROGRAM is not defined in the scanned data division (unscanned includes: COCOM01Y, COTTL01Y, CSDAT01Y, CSMSG01Y, CSMSG02Y, DFHAID, DFHBMSCA)",
+          "request": "Locate the definition of CDEMO-TO-PROGRAM (unscanned copybook or include?)",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl"
+        }
+      ],
+      "trace": [
+        {
+          "depth": 0,
+          "program": "COPAUS1C",
+          "item": "CDEMO-TO-PROGRAM",
+          "kind": "unknown-item",
+          "class": "GEN",
+          "detail": "data item CDEMO-TO-PROGRAM is not defined in the scanned data division (unscanned includes: COCOM01Y, COTTL01Y, CSDAT01Y, CSMSG01Y, CSMSG02Y, DFHAID, DFHBMSCA)",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl"
+        }
+      ]
+    }
+  ]
+}

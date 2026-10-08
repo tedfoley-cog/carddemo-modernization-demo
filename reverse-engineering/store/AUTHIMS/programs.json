@@ -1,0 +1,1506 @@
+{
+  "meta": {
+    "module": "AUTHIMS",
+    "generated_at": "2026-10-08T04:11:45Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "src": [
+        "../app/app-authorization-ims-db2-mq/cbl"
+      ],
+      "copybooks": [
+        "../app/app-authorization-ims-db2-mq/cpy",
+        "../app/app-authorization-ims-db2-mq/cpy-bms",
+        "../app/app-authorization-ims-db2-mq/dcl"
+      ]
+    }
+  },
+  "audit": {
+    "call_tokens_unaccounted": [],
+    "skipped_files": []
+  },
+  "sources": [
+    {
+      "path": "../app/app-authorization-ims-db2-mq/dcl/AUTHFRDS.dcl",
+      "kind": "copybook",
+      "lines": 89,
+      "code_lines": 60
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cpy/CCPAUERY.cpy",
+      "kind": "copybook",
+      "lines": 40,
+      "code_lines": 22
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cpy/CCPAURLY.cpy",
+      "kind": "copybook",
+      "lines": 24,
+      "code_lines": 6
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cpy/CCPAURQY.cpy",
+      "kind": "copybook",
+      "lines": 36,
+      "code_lines": 18
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cpy/CIPAUDTY.cpy",
+      "kind": "copybook",
+      "lines": 54,
+      "code_lines": 36
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cpy/CIPAUSMY.cpy",
+      "kind": "copybook",
+      "lines": 31,
+      "code_lines": 13
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cpy-bms/COPAU00.cpy",
+      "kind": "copybook",
+      "lines": 764,
+      "code_lines": 748
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cpy-bms/COPAU01.cpy",
+      "kind": "copybook",
+      "lines": 344,
+      "code_lines": 328
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cpy/IMSFUNCS.cpy",
+      "kind": "copybook",
+      "lines": 27,
+      "code_lines": 11
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cpy/PADFLPCB.CPY",
+      "kind": "copybook",
+      "lines": 26,
+      "code_lines": 10
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cpy/PASFLPCB.CPY",
+      "kind": "copybook",
+      "lines": 26,
+      "code_lines": 10
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cpy/PAUTBPCB.CPY",
+      "kind": "copybook",
+      "lines": 26,
+      "code_lines": 10
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cbl/CBPAUP0C.cbl",
+      "kind": "program",
+      "lines": 386,
+      "code_lines": 266
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl",
+      "kind": "program",
+      "lines": 1026,
+      "code_lines": 771
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl",
+      "kind": "program",
+      "lines": 1032,
+      "code_lines": 792
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl",
+      "kind": "program",
+      "lines": 604,
+      "code_lines": 461
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl",
+      "kind": "program",
+      "lines": 244,
+      "code_lines": 201
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL",
+      "kind": "program",
+      "lines": 366,
+      "code_lines": 198
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL",
+      "kind": "program",
+      "lines": 369,
+      "code_lines": 251
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL",
+      "kind": "program",
+      "lines": 317,
+      "code_lines": 207
+    }
+  ],
+  "missing_copybooks": [
+    {
+      "member": "COCOM01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COPAUS0C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:116"
+        },
+        {
+          "program": "COPAUS1C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:109"
+        }
+      ]
+    },
+    {
+      "member": "COTTL01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COPAUS0C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:132"
+        },
+        {
+          "program": "COPAUS1C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:126"
+        }
+      ]
+    },
+    {
+      "member": "CSDAT01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COPAUS0C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:135"
+        },
+        {
+          "program": "COPAUS1C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:129"
+        }
+      ]
+    },
+    {
+      "member": "CSMSG01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COPAUS0C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:138"
+        },
+        {
+          "program": "COPAUS1C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:132"
+        }
+      ]
+    },
+    {
+      "member": "CSMSG02Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COPAUS0C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:141"
+        },
+        {
+          "program": "COPAUS1C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl:135"
+        }
+      ]
+    },
+    {
+      "member": "CVACT01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COPAUA0C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:206"
+        },
+        {
+          "program": "COPAUS0C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:144"
+        }
+      ]
+    },
+    {
+      "member": "CVACT02Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COPAUS0C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:147"
+        }
+      ]
+    },
+    {
+      "member": "CVACT03Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COPAUA0C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:203"
+        },
+        {
+          "program": "COPAUS0C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:150"
+        }
+      ]
+    },
+    {
+      "member": "CVCUS01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COPAUA0C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:209"
+        },
+        {
+          "program": "COPAUS0C",
+          "source": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl:153"
+        }
+      ]
+    }
+  ],
+  "programs": [
+    {
+      "id": "AUTHFRDS",
+      "kind": "copybook",
+      "path": "../app/app-authorization-ims-db2-mq/dcl/AUTHFRDS.dcl",
+      "lines": 89,
+      "code_lines": 60,
+      "uses_sql": true,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CCPAUERY",
+      "kind": "copybook",
+      "path": "../app/app-authorization-ims-db2-mq/cpy/CCPAUERY.cpy",
+      "lines": 40,
+      "code_lines": 22,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CCPAURLY",
+      "kind": "copybook",
+      "path": "../app/app-authorization-ims-db2-mq/cpy/CCPAURLY.cpy",
+      "lines": 24,
+      "code_lines": 6,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CCPAURQY",
+      "kind": "copybook",
+      "path": "../app/app-authorization-ims-db2-mq/cpy/CCPAURQY.cpy",
+      "lines": 36,
+      "code_lines": 18,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CIPAUDTY",
+      "kind": "copybook",
+      "path": "../app/app-authorization-ims-db2-mq/cpy/CIPAUDTY.cpy",
+      "lines": 54,
+      "code_lines": 36,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CIPAUSMY",
+      "kind": "copybook",
+      "path": "../app/app-authorization-ims-db2-mq/cpy/CIPAUSMY.cpy",
+      "lines": 31,
+      "code_lines": 13,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COPAU00",
+      "kind": "copybook",
+      "path": "../app/app-authorization-ims-db2-mq/cpy-bms/COPAU00.cpy",
+      "lines": 764,
+      "code_lines": 748,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COPAU01",
+      "kind": "copybook",
+      "path": "../app/app-authorization-ims-db2-mq/cpy-bms/COPAU01.cpy",
+      "lines": 344,
+      "code_lines": 328,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "IMSFUNCS",
+      "kind": "copybook",
+      "path": "../app/app-authorization-ims-db2-mq/cpy/IMSFUNCS.cpy",
+      "lines": 27,
+      "code_lines": 11,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "PADFLPCB",
+      "kind": "copybook",
+      "path": "../app/app-authorization-ims-db2-mq/cpy/PADFLPCB.CPY",
+      "lines": 26,
+      "code_lines": 10,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "PASFLPCB",
+      "kind": "copybook",
+      "path": "../app/app-authorization-ims-db2-mq/cpy/PASFLPCB.CPY",
+      "lines": 26,
+      "code_lines": 10,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "PAUTBPCB",
+      "kind": "copybook",
+      "path": "../app/app-authorization-ims-db2-mq/cpy/PAUTBPCB.CPY",
+      "lines": 26,
+      "code_lines": 10,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [],
+      "entry_points": [],
+      "facts": [],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CBPAUP0C",
+      "kind": "program",
+      "path": "../app/app-authorization-ims-db2-mq/cbl/CBPAUP0C.cbl",
+      "lines": 386,
+      "code_lines": 266,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CIPAUSMY",
+          "mechanism": "copy",
+          "line": 117
+        },
+        {
+          "name": "CIPAUDTY",
+          "mechanism": "copy",
+          "line": 121
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "dli",
+          "detail": "EXEC DLI present",
+          "line": 223
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COPAUA0C",
+      "kind": "program",
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl",
+      "lines": 1026,
+      "code_lines": 771,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [
+          {
+            "target": "MQOPEN",
+            "line": 262,
+            "system": false
+          },
+          {
+            "target": "MQGET",
+            "line": 400,
+            "system": false
+          },
+          {
+            "target": "MQPUT1",
+            "line": 758,
+            "system": false
+          },
+          {
+            "target": "MQCLOSE",
+            "line": 956,
+            "system": false
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CMQODV",
+          "mechanism": "copy",
+          "line": 149
+        },
+        {
+          "name": "CMQMDV",
+          "mechanism": "copy",
+          "line": 152
+        },
+        {
+          "name": "CMQODV",
+          "mechanism": "copy",
+          "line": 155
+        },
+        {
+          "name": "CMQMDV",
+          "mechanism": "copy",
+          "line": 158
+        },
+        {
+          "name": "CMQV",
+          "mechanism": "copy",
+          "line": 161
+        },
+        {
+          "name": "CMQTML",
+          "mechanism": "copy",
+          "line": 164
+        },
+        {
+          "name": "CMQPMOV",
+          "mechanism": "copy",
+          "line": 167
+        },
+        {
+          "name": "CMQGMOV",
+          "mechanism": "copy",
+          "line": 170
+        },
+        {
+          "name": "CCPAURQY",
+          "mechanism": "copy",
+          "line": 178
+        },
+        {
+          "name": "CCPAURLY",
+          "mechanism": "copy",
+          "line": 182
+        },
+        {
+          "name": "CCPAUERY",
+          "mechanism": "copy",
+          "line": 185
+        },
+        {
+          "name": "CIPAUSMY",
+          "mechanism": "copy",
+          "line": 193
+        },
+        {
+          "name": "CIPAUDTY",
+          "mechanism": "copy",
+          "line": 197
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 203
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 206
+        },
+        {
+          "name": "CVCUS01Y",
+          "mechanism": "copy",
+          "line": 209
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 226
+        },
+        {
+          "kind": "cics",
+          "detail": "RETRIEVE INTO",
+          "program": null,
+          "variable": null,
+          "line": 233
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": null,
+          "line": 334
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 477
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 525
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 573
+        },
+        {
+          "kind": "cics",
+          "detail": "ASKTIME NOHANDLE",
+          "program": null,
+          "variable": null,
+          "line": 857
+        },
+        {
+          "kind": "cics",
+          "detail": "FORMATTIME ABSTIME",
+          "program": null,
+          "variable": null,
+          "line": 861
+        },
+        {
+          "kind": "cics",
+          "detail": "ASKTIME NOHANDLE",
+          "program": null,
+          "variable": null,
+          "line": 986
+        },
+        {
+          "kind": "cics",
+          "detail": "FORMATTIME ABSTIME",
+          "program": null,
+          "variable": null,
+          "line": 990
+        },
+        {
+          "kind": "cics",
+          "detail": "WRITEQ TD",
+          "program": null,
+          "variable": null,
+          "line": 1001
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 1021
+        },
+        {
+          "kind": "dli",
+          "detail": "EXEC DLI present",
+          "line": 293
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COPAUS0C",
+      "kind": "program",
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl",
+      "lines": 1032,
+      "code_lines": 792,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 322
+          },
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 674
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 116
+        },
+        {
+          "name": "COPAU00",
+          "mechanism": "copy",
+          "line": 129
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 132
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 135
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 138
+        },
+        {
+          "name": "CSMSG02Y",
+          "mechanism": "copy",
+          "line": 141
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 144
+        },
+        {
+          "name": "CVACT02Y",
+          "mechanism": "copy",
+          "line": 147
+        },
+        {
+          "name": "CVACT03Y",
+          "mechanism": "copy",
+          "line": 150
+        },
+        {
+          "name": "CVCUS01Y",
+          "mechanism": "copy",
+          "line": 153
+        },
+        {
+          "name": "CIPAUSMY",
+          "mechanism": "copy",
+          "line": 161
+        },
+        {
+          "name": "CIPAUDTY",
+          "mechanism": "copy",
+          "line": 165
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 168
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 169
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 254
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 322
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 674
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": null,
+          "line": 686
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 695
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 703
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 715
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 818
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 869
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 920
+        },
+        {
+          "kind": "dli",
+          "detail": "EXEC DLI present",
+          "line": 461
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COPAUS1C",
+      "kind": "program",
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl",
+      "lines": 604,
+      "code_lines": 461,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": [
+          {
+            "command": "LINK",
+            "variable": "WS-PGM-AUTH-FRAUD",
+            "line": 248
+          },
+          {
+            "command": "XCTL",
+            "variable": "CDEMO-TO-PROGRAM",
+            "line": 367
+          }
+        ]
+      },
+      "includes": [
+        {
+          "name": "COCOM01Y",
+          "mechanism": "copy",
+          "line": 109
+        },
+        {
+          "name": "COPAU01",
+          "mechanism": "copy",
+          "line": 122
+        },
+        {
+          "name": "COTTL01Y",
+          "mechanism": "copy",
+          "line": 126
+        },
+        {
+          "name": "CSDAT01Y",
+          "mechanism": "copy",
+          "line": 129
+        },
+        {
+          "name": "CSMSG01Y",
+          "mechanism": "copy",
+          "line": 132
+        },
+        {
+          "name": "CSMSG02Y",
+          "mechanism": "copy",
+          "line": 135
+        },
+        {
+          "name": "CIPAUSMY",
+          "mechanism": "copy",
+          "line": 142
+        },
+        {
+          "name": "CIPAUDTY",
+          "mechanism": "copy",
+          "line": 146
+        },
+        {
+          "name": "DFHAID",
+          "mechanism": "copy",
+          "line": 148
+        },
+        {
+          "name": "DFHBMSCA",
+          "mechanism": "copy",
+          "line": 149
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETURN TRANSID",
+          "program": null,
+          "variable": null,
+          "line": 202
+        },
+        {
+          "kind": "cics",
+          "detail": "LINK PROGRAM",
+          "program": null,
+          "variable": "WS-PGM-AUTH-FRAUD",
+          "line": 248
+        },
+        {
+          "kind": "cics",
+          "detail": "XCTL PROGRAM",
+          "program": null,
+          "variable": "CDEMO-TO-PROGRAM",
+          "line": 367
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 381
+        },
+        {
+          "kind": "cics",
+          "detail": "SEND MAP",
+          "program": null,
+          "variable": null,
+          "line": 389
+        },
+        {
+          "kind": "cics",
+          "detail": "RECEIVE MAP",
+          "program": null,
+          "variable": null,
+          "line": 400
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": null,
+          "line": 558
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT ROLLBACK",
+          "program": null,
+          "variable": null,
+          "line": 566
+        },
+        {
+          "kind": "dli",
+          "detail": "EXEC DLI present",
+          "line": 439
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "COPAUS2C",
+      "kind": "program",
+      "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl",
+      "lines": 244,
+      "code_lines": 201,
+      "uses_sql": true,
+      "files": [],
+      "calls": {
+        "static": [],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "SQLCA",
+          "mechanism": "sql-include",
+          "line": 65
+        },
+        {
+          "name": "AUTHFRDS",
+          "mechanism": "sql-include",
+          "line": 68
+        },
+        {
+          "name": "CIPAUDTY",
+          "mechanism": "copy",
+          "line": 78
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "ASKTIME NOHANDLE",
+          "program": null,
+          "variable": null,
+          "line": 91
+        },
+        {
+          "kind": "cics",
+          "detail": "FORMATTIME ABSTIME",
+          "program": null,
+          "variable": null,
+          "line": 95
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 218
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "DBUNLDGS",
+      "kind": "program",
+      "path": "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL",
+      "lines": 366,
+      "code_lines": 198,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [
+          {
+            "target": "CBLTDLI",
+            "line": 222,
+            "system": true
+          },
+          {
+            "target": "CBLTDLI",
+            "line": 267,
+            "system": true
+          },
+          {
+            "target": "CBLTDLI",
+            "line": 302,
+            "system": true
+          },
+          {
+            "target": "CBLTDLI",
+            "line": 321,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "IMSFUNCS",
+          "mechanism": "copy",
+          "line": 136
+        },
+        {
+          "name": "CIPAUSMY",
+          "mechanism": "copy",
+          "line": 143
+        },
+        {
+          "name": "CIPAUDTY",
+          "mechanism": "copy",
+          "line": 147
+        },
+        {
+          "name": "PAUTBPCB",
+          "mechanism": "copy",
+          "line": 154
+        },
+        {
+          "name": "PASFLPCB",
+          "mechanism": "copy",
+          "line": 155
+        },
+        {
+          "name": "PADFLPCB",
+          "mechanism": "copy",
+          "line": 156
+        }
+      ],
+      "entry_points": [
+        {
+          "name": "DLITCBL",
+          "line": 165
+        }
+      ],
+      "facts": [
+        {
+          "kind": "dli",
+          "detail": "CALL 'CBLTDLI'",
+          "line": 222
+        },
+        {
+          "kind": "dli",
+          "detail": "CALL 'CBLTDLI'",
+          "line": 267
+        },
+        {
+          "kind": "dli",
+          "detail": "CALL 'CBLTDLI'",
+          "line": 302
+        },
+        {
+          "kind": "dli",
+          "detail": "CALL 'CBLTDLI'",
+          "line": 321
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "PAUDBLOD",
+      "kind": "program",
+      "path": "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL",
+      "lines": 369,
+      "code_lines": 251,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "INFILE1",
+          "assign": "INFILE1",
+          "organization": "SEQUENTIAL",
+          "line": 26
+        },
+        {
+          "select": "INFILE2",
+          "assign": "INFILE2",
+          "organization": "SEQUENTIAL",
+          "line": 32
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "CBLTDLI",
+            "line": 244,
+            "system": true
+          },
+          {
+            "target": "CBLTDLI",
+            "line": 296,
+            "system": true
+          },
+          {
+            "target": "CBLTDLI",
+            "line": 321,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "IMSFUNCS",
+          "mechanism": "copy",
+          "line": 142
+        },
+        {
+          "name": "CIPAUSMY",
+          "mechanism": "copy",
+          "line": 149
+        },
+        {
+          "name": "CIPAUDTY",
+          "mechanism": "copy",
+          "line": 153
+        },
+        {
+          "name": "PAUTBPCB",
+          "mechanism": "copy",
+          "line": 161
+        }
+      ],
+      "entry_points": [
+        {
+          "name": "DLITCBL",
+          "line": 171
+        }
+      ],
+      "facts": [
+        {
+          "kind": "dli",
+          "detail": "CALL 'CBLTDLI'",
+          "line": 244
+        },
+        {
+          "kind": "dli",
+          "detail": "CALL 'CBLTDLI'",
+          "line": 296
+        },
+        {
+          "kind": "dli",
+          "detail": "CALL 'CBLTDLI'",
+          "line": 321
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "PAUDBUNL",
+      "kind": "program",
+      "path": "../app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL",
+      "lines": 317,
+      "code_lines": 207,
+      "uses_sql": false,
+      "files": [
+        {
+          "select": "OPFILE1",
+          "assign": "OUTFIL1",
+          "organization": "SEQUENTIAL",
+          "line": 26
+        },
+        {
+          "select": "OPFILE2",
+          "assign": "OUTFIL2",
+          "organization": "SEQUENTIAL",
+          "line": 32
+        }
+      ],
+      "calls": {
+        "static": [
+          {
+            "target": "CBLTDLI",
+            "line": 213,
+            "system": true
+          },
+          {
+            "target": "CBLTDLI",
+            "line": 257,
+            "system": true
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "IMSFUNCS",
+          "mechanism": "copy",
+          "line": 132
+        },
+        {
+          "name": "CIPAUSMY",
+          "mechanism": "copy",
+          "line": 139
+        },
+        {
+          "name": "CIPAUDTY",
+          "mechanism": "copy",
+          "line": 143
+        },
+        {
+          "name": "PAUTBPCB",
+          "mechanism": "copy",
+          "line": 150
+        }
+      ],
+      "entry_points": [
+        {
+          "name": "DLITCBL",
+          "line": 158
+        }
+      ],
+      "facts": [
+        {
+          "kind": "dli",
+          "detail": "CALL 'CBLTDLI'",
+          "line": 213
+        },
+        {
+          "kind": "dli",
+          "detail": "CALL 'CBLTDLI'",
+          "line": 257
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    }
+  ]
+}

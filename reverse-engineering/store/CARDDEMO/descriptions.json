@@ -1,0 +1,869 @@
+{
+  "meta": {
+    "module": "CARDDEMO",
+    "generated_at": "2026-10-08T04:11:45Z",
+    "tool": "mftb 0.2.1",
+    "inputs": [
+      "programs.json",
+      "jobs.json",
+      "schedule.json"
+    ]
+  },
+  "author": "agent",
+  "summary": {
+    "subjects": 71,
+    "written": 71,
+    "unknown": 0,
+    "by_kind": {
+      "program": 31,
+      "jcl": 38,
+      "proc": 2
+    },
+    "with_key_points": 0,
+    "overviews": 7,
+    "overviews_written": 1
+  },
+  "overviews": [
+    {
+      "kind": "module",
+      "name": "CARDDEMO",
+      "key_points": [
+        "Credit card back office: users sign on to CICS screens to view and update accounts, cards and users, add and list transactions and pay bills against VSAM files.",
+        "A nightly batch stream posts the day's card transactions (rejecting invalid card, unknown account, over-limit and expired-account items), accrues interest and fees, and produces the transaction report and customer statements."
+      ],
+      "basis": [
+        "app/cbl/COSGN00C.cbl:5",
+        "app/cbl/COACTUPC.cbl:4",
+        "app/cbl/CBTRN02C.cbl:5",
+        "app/cbl/CBACT04C.cbl:5",
+        "app/csd/CARDDEMO.CSD:1-40"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "chain",
+      "name": "CARDDEMO",
+      "key_points": [],
+      "basis": [],
+      "written_by": "agent"
+    },
+    {
+      "kind": "chain",
+      "name": "DAILY-TransactionBackup",
+      "key_points": [],
+      "basis": [],
+      "written_by": "agent"
+    },
+    {
+      "kind": "chain",
+      "name": "WEEKLY-TransactionTypesDBRefresh",
+      "key_points": [],
+      "basis": [],
+      "written_by": "agent"
+    },
+    {
+      "kind": "chain",
+      "name": "DisclosureGroupsRefresh",
+      "key_points": [],
+      "basis": [],
+      "written_by": "agent"
+    },
+    {
+      "kind": "chain",
+      "name": "TransactionTypesDBRefresh",
+      "key_points": [],
+      "basis": [],
+      "written_by": "agent"
+    },
+    {
+      "kind": "chain",
+      "name": "MONTHLY-InterestCalculation",
+      "key_points": [],
+      "basis": [],
+      "written_by": "agent"
+    }
+  ],
+  "descriptions": [
+    {
+      "kind": "program",
+      "name": "CBACT01C",
+      "path": "../app/cbl/CBACT01C.cbl",
+      "description": "Read the account file and write it into output files",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CBACT01C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CBACT02C",
+      "path": "../app/cbl/CBACT02C.cbl",
+      "description": "Read and print card data file",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CBACT02C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CBACT03C",
+      "path": "../app/cbl/CBACT03C.cbl",
+      "description": "Read and print account cross reference data file",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CBACT03C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CBACT04C",
+      "path": "../app/cbl/CBACT04C.cbl",
+      "description": "This is a interest calculator program",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CBACT04C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CBCUS01C",
+      "path": "../app/cbl/CBCUS01C.cbl",
+      "description": "Read and print customer data file",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CBCUS01C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CBEXPORT",
+      "path": "../app/cbl/CBEXPORT.cbl",
+      "description": "Export Customer Data for Branch Migration",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CBEXPORT.cbl:8"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CBIMPORT",
+      "path": "../app/cbl/CBIMPORT.cbl",
+      "description": "Import Customer Data from Branch Migration Export",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CBIMPORT.cbl:8"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CBSTM03A",
+      "path": "../app/cbl/CBSTM03A.CBL",
+      "description": "Print Account Statements from Transaction data",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CBSTM03A.CBL:8"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CBSTM03B",
+      "path": "../app/cbl/CBSTM03B.CBL",
+      "description": "Does file processing related to Transact Report",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CBSTM03B.CBL:8"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CBTRN01C",
+      "path": "../app/cbl/CBTRN01C.cbl",
+      "description": "Post the records from daily transaction file",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CBTRN01C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CBTRN02C",
+      "path": "../app/cbl/CBTRN02C.cbl",
+      "description": "Post the records from daily transaction file",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CBTRN02C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CBTRN03C",
+      "path": "../app/cbl/CBTRN03C.cbl",
+      "description": "Print the transaction detail report",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CBTRN03C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COACTUPC",
+      "path": "../app/cbl/COACTUPC.cbl",
+      "description": "Accept and process ACCOUNT UPDATE",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COACTUPC.cbl:4"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COACTVWC",
+      "path": "../app/cbl/COACTVWC.cbl",
+      "description": "Accept and process Account View request",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COACTVWC.cbl:4"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COADM01C",
+      "path": "../app/cbl/COADM01C.cbl",
+      "description": "Admin Menu for Admin users",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COADM01C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COBIL00C",
+      "path": "../app/cbl/COBIL00C.cbl",
+      "description": "Bill Payment - Pay account balance in full and a",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COBIL00C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COBSWAIT",
+      "path": "../app/cbl/COBSWAIT.cbl",
+      "description": "Utility program to wait (PARM in centiseconds)",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COBSWAIT.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COCRDLIC",
+      "path": "../app/cbl/COCRDLIC.cbl",
+      "description": "List Credit Cards",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COCRDLIC.cbl:4"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COCRDSLC",
+      "path": "../app/cbl/COCRDSLC.cbl",
+      "description": "Accept and process credit card detail request",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COCRDSLC.cbl:4"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COCRDUPC",
+      "path": "../app/cbl/COCRDUPC.cbl",
+      "description": "Accept and process credit card detail request",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COCRDUPC.cbl:4"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COMEN01C",
+      "path": "../app/cbl/COMEN01C.cbl",
+      "description": "Main Menu for the Regular users",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COMEN01C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CORPT00C",
+      "path": "../app/cbl/CORPT00C.cbl",
+      "description": "Print Transaction reports by submitting batch",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CORPT00C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COSGN00C",
+      "path": "../app/cbl/COSGN00C.cbl",
+      "description": "Signon Screen for the CardDemo Application",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COSGN00C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COTRN00C",
+      "path": "../app/cbl/COTRN00C.cbl",
+      "description": "List Transactions from TRANSACT file",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COTRN00C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COTRN01C",
+      "path": "../app/cbl/COTRN01C.cbl",
+      "description": "View a Transaction from TRANSACT file",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COTRN01C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COTRN02C",
+      "path": "../app/cbl/COTRN02C.cbl",
+      "description": "Add a new Transaction to TRANSACT file",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COTRN02C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COUSR00C",
+      "path": "../app/cbl/COUSR00C.cbl",
+      "description": "List all users from USRSEC file",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COUSR00C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COUSR01C",
+      "path": "../app/cbl/COUSR01C.cbl",
+      "description": "Add a new Regular/Admin user to USRSEC file",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COUSR01C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COUSR02C",
+      "path": "../app/cbl/COUSR02C.cbl",
+      "description": "Update a user in USRSEC file",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COUSR02C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COUSR03C",
+      "path": "../app/cbl/COUSR03C.cbl",
+      "description": "Delete a user from USRSEC file",
+      "key_points": [],
+      "basis": [
+        "app/cbl/COUSR03C.cbl:5"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "CSUTLDTC",
+      "path": "../app/cbl/CSUTLDTC.cbl",
+      "description": "Date validation subroutine: calls the LE CEEDAYS API with a date and its format",
+      "key_points": [],
+      "basis": [
+        "app/cbl/CSUTLDTC.cbl:2-32"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "ACCTFILE",
+      "path": "../app/jcl/ACCTFILE.jcl",
+      "description": "Runs IDCAMS (3 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/ACCTFILE.jcl:22-54"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "CARDFILE",
+      "path": "../app/jcl/CARDFILE.jcl",
+      "description": "Runs SDSF, IDCAMS (8 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/CARDFILE.jcl:22-118"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "CBADMCDJ",
+      "path": "../app/jcl/CBADMCDJ.jcl",
+      "description": "Runs DFHCSDUP (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/CBADMCDJ.jcl:27-27"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "CBEXPORT",
+      "path": "../app/jcl/CBEXPORT.jcl",
+      "description": "Runs IDCAMS, CBEXPORT (2 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/CBEXPORT.jcl:24-43"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "CBIMPORT",
+      "path": "../app/jcl/CBIMPORT.jcl",
+      "description": "Runs CBIMPORT (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/CBIMPORT.jcl:22-22"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "CLOSEFIL",
+      "path": "../app/jcl/CLOSEFIL.jcl",
+      "description": "Runs SDSF (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/CLOSEFIL.jcl:22-22"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "COMBTRAN",
+      "path": "../app/jcl/COMBTRAN.jcl",
+      "description": "Runs SORT, IDCAMS (2 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/COMBTRAN.jcl:22-41"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "CREASTMT",
+      "path": "../app/jcl/CREASTMT.JCL",
+      "description": "Runs IDCAMS, SORT, IEFBR14, CBSTM03A (5 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/CREASTMT.JCL:22-79"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "CUSTFILE",
+      "path": "../app/jcl/CUSTFILE.jcl",
+      "description": "Runs SDSF, IDCAMS (5 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/CUSTFILE.jcl:22-76"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "DALYREJS",
+      "path": "../app/jcl/DALYREJS.jcl",
+      "description": "Runs IDCAMS (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/DALYREJS.jcl:21-21"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "DEFCUST",
+      "path": "../app/jcl/DEFCUST.jcl",
+      "description": "Runs IDCAMS (2 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/DEFCUST.jcl:22-32"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "DEFGDGB",
+      "path": "../app/jcl/DEFGDGB.jcl",
+      "description": "Runs IDCAMS (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/DEFGDGB.jcl:21-21"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "DEFGDGD",
+      "path": "../app/jcl/DEFGDGD.jcl",
+      "description": "Runs IDCAMS, IEBGENER (6 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/DEFGDGD.jcl:24-82"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "DISCGRP",
+      "path": "../app/jcl/DISCGRP.jcl",
+      "description": "Runs IDCAMS (3 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/DISCGRP.jcl:22-54"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "DUSRSECJ",
+      "path": "../app/jcl/DUSRSECJ.jcl",
+      "description": "Runs IEFBR14, IEBGENER, IDCAMS (4 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/DUSRSECJ.jcl:23-80"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "ESDSRRDS",
+      "path": "../app/jcl/ESDSRRDS.jcl",
+      "description": "Runs IEFBR14, IEBGENER, IDCAMS (6 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/ESDSRRDS.jcl:24-113"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "FTPJCLS",
+      "path": "../app/jcl/FTPJCL.JCL",
+      "description": "Runs FTP (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/FTPJCL.JCL:30-30"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "INTCALC",
+      "path": "../app/jcl/INTCALC.jcl",
+      "description": "Runs CBACT04C (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/INTCALC.jcl:22-22"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "INTRDRJ1",
+      "path": "../app/jcl/INTRDRJ1.JCL",
+      "description": "Runs IDCAMS, IEBGENER (2 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/INTRDRJ1.JCL:6-14"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "INTRDRJ2",
+      "path": "../app/jcl/INTRDRJ2.JCL",
+      "description": "Runs IDCAMS (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/INTRDRJ2.JCL:7-7"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "OPENFIL",
+      "path": "../app/jcl/OPENFIL.jcl",
+      "description": "Runs SDSF (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/OPENFIL.jcl:22-22"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "POSTTRAN",
+      "path": "../app/jcl/POSTTRAN.jcl",
+      "description": "Runs CBTRN02C (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/POSTTRAN.jcl:23-23"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "PRTCATBL",
+      "path": "../app/jcl/PRTCATBL.jcl",
+      "description": "Runs IEFBR14, PROC, SORT (3 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/PRTCATBL.jcl:21-43"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "READACCT",
+      "path": "../app/jcl/READACCT.jcl",
+      "description": "Runs IEFBR14, CBACT01C (2 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/READACCT.jcl:22-32"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "READCARD",
+      "path": "../app/jcl/READCARD.jcl",
+      "description": "Runs CBACT02C (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/READCARD.jcl:22-22"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "READCUST",
+      "path": "../app/jcl/READCUST.jcl",
+      "description": "Runs CBCUS01C (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/READCUST.jcl:21-21"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "READXREF",
+      "path": "../app/jcl/READXREF.jcl",
+      "description": "Runs CBACT03C (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/READXREF.jcl:22-22"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "REPTFILE",
+      "path": "../app/jcl/REPTFILE.jcl",
+      "description": "Runs IDCAMS (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/REPTFILE.jcl:22-22"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "TCATBALF",
+      "path": "../app/jcl/TCATBALF.jcl",
+      "description": "Runs IDCAMS (3 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/TCATBALF.jcl:22-54"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "TRANBKP",
+      "path": "../app/jcl/TRANBKP.jcl",
+      "description": "Runs PROC, IDCAMS (3 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/TRANBKP.jcl:23-51"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "TRANCATG",
+      "path": "../app/jcl/TRANCATG.jcl",
+      "description": "Runs IDCAMS (3 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/TRANCATG.jcl:22-54"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "TRANFILE",
+      "path": "../app/jcl/TRANFILE.jcl",
+      "description": "Runs SDSF, IDCAMS (8 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/TRANFILE.jcl:22-116"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "TRANIDX",
+      "path": "../app/jcl/TRANIDX.jcl",
+      "description": "Runs IDCAMS (3 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/TRANIDX.jcl:22-49"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "TRANREPT",
+      "path": "../app/jcl/TRANREPT.jcl",
+      "description": "Runs PROC, SORT, CBTRN03C (3 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/TRANREPT.jcl:23-59"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "TRANTYPE",
+      "path": "../app/jcl/TRANTYPE.jcl",
+      "description": "Runs IDCAMS (3 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/TRANTYPE.jcl:22-54"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "TXT2PDF1",
+      "path": "../app/jcl/TXT2PDF1.JCL",
+      "description": "Runs IKJEFT1B, DD (2 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/TXT2PDF1.JCL:24-31"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "WAITSTEP",
+      "path": "../app/jcl/WAITSTEP.jcl",
+      "description": "Runs COBSWAIT (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/WAITSTEP.jcl:22-22"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "XREFFILE",
+      "path": "../app/jcl/XREFFILE.jcl",
+      "description": "Runs IDCAMS (6 steps)",
+      "key_points": [],
+      "basis": [
+        "app/jcl/XREFFILE.jcl:22-97"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "proc",
+      "name": "REPROC",
+      "path": "../app/proc/REPROC.prc",
+      "description": "Runs IDCAMS (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/proc/REPROC.prc:21-21"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "proc",
+      "name": "TRANREPT",
+      "path": "../app/proc/TRANREPT.prc",
+      "description": "Runs PROC, SORT, CBTRN03C (3 steps)",
+      "key_points": [],
+      "basis": [
+        "app/proc/TRANREPT.prc:21-57"
+      ],
+      "written_by": "agent"
+    }
+  ]
+}

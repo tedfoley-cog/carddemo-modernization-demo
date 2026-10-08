@@ -1,0 +1,319 @@
+{
+  "meta": {
+    "module": "VSAMMQ",
+    "generated_at": "2026-10-08T04:11:46Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "src": [
+        "../app/app-vsam-mq/cbl"
+      ],
+      "copybooks": []
+    }
+  },
+  "audit": {
+    "call_tokens_unaccounted": [],
+    "skipped_files": []
+  },
+  "sources": [
+    {
+      "path": "../app/app-vsam-mq/cbl/COACCT01.cbl",
+      "kind": "program",
+      "lines": 620,
+      "code_lines": 500
+    },
+    {
+      "path": "../app/app-vsam-mq/cbl/CODATE01.cbl",
+      "kind": "program",
+      "lines": 524,
+      "code_lines": 409
+    }
+  ],
+  "missing_copybooks": [
+    {
+      "member": "CVACT01Y",
+      "mechanisms": [
+        "copy"
+      ],
+      "referenced_by": [
+        {
+          "program": "COACCT01",
+          "source": "../app/app-vsam-mq/cbl/COACCT01.cbl:171"
+        }
+      ]
+    }
+  ],
+  "programs": [
+    {
+      "id": "COACCT01",
+      "kind": "program",
+      "path": "../app/app-vsam-mq/cbl/COACCT01.cbl",
+      "lines": 620,
+      "code_lines": 500,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [
+          {
+            "target": "MQOPEN",
+            "line": 233,
+            "system": false
+          },
+          {
+            "target": "MQOPEN",
+            "line": 267,
+            "system": false
+          },
+          {
+            "target": "MQOPEN",
+            "line": 302,
+            "system": false
+          },
+          {
+            "target": "MQGET",
+            "line": 352,
+            "system": false
+          },
+          {
+            "target": "MQPUT",
+            "line": 479,
+            "system": false
+          },
+          {
+            "target": "MQPUT",
+            "line": 516,
+            "system": false
+          },
+          {
+            "target": "MQCLOSE",
+            "line": 557,
+            "system": false
+          },
+          {
+            "target": "MQCLOSE",
+            "line": 579,
+            "system": false
+          },
+          {
+            "target": "MQCLOSE",
+            "line": 602,
+            "system": false
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CMQGMOV",
+          "mechanism": "copy",
+          "line": 71
+        },
+        {
+          "name": "CMQPMOV",
+          "mechanism": "copy",
+          "line": 75
+        },
+        {
+          "name": "CMQMDV",
+          "mechanism": "copy",
+          "line": 79
+        },
+        {
+          "name": "CMQODV",
+          "mechanism": "copy",
+          "line": 83
+        },
+        {
+          "name": "CMQV",
+          "mechanism": "copy",
+          "line": 87
+        },
+        {
+          "name": "CMQTML",
+          "mechanism": "copy",
+          "line": 90
+        },
+        {
+          "name": "CVACT01Y",
+          "mechanism": "copy",
+          "line": 171
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETRIEVE INTO",
+          "program": null,
+          "variable": null,
+          "line": 191
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": null,
+          "line": 326
+        },
+        {
+          "kind": "cics",
+          "detail": "READ DATASET",
+          "program": null,
+          "variable": null,
+          "line": 396
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 549
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    },
+    {
+      "id": "CODATE01",
+      "kind": "program",
+      "path": "../app/app-vsam-mq/cbl/CODATE01.cbl",
+      "lines": 524,
+      "code_lines": 409,
+      "uses_sql": false,
+      "files": [],
+      "calls": {
+        "static": [
+          {
+            "target": "MQOPEN",
+            "line": 182,
+            "system": false
+          },
+          {
+            "target": "MQOPEN",
+            "line": 216,
+            "system": false
+          },
+          {
+            "target": "MQOPEN",
+            "line": 251,
+            "system": false
+          },
+          {
+            "target": "MQGET",
+            "line": 301,
+            "system": false
+          },
+          {
+            "target": "MQPUT",
+            "line": 383,
+            "system": false
+          },
+          {
+            "target": "MQPUT",
+            "line": 420,
+            "system": false
+          },
+          {
+            "target": "MQCLOSE",
+            "line": 461,
+            "system": false
+          },
+          {
+            "target": "MQCLOSE",
+            "line": 483,
+            "system": false
+          },
+          {
+            "target": "MQCLOSE",
+            "line": 506,
+            "system": false
+          }
+        ],
+        "dynamic": [],
+        "sql": [],
+        "cancel": [],
+        "entry_refs": [],
+        "cics": []
+      },
+      "includes": [
+        {
+          "name": "CMQGMOV",
+          "mechanism": "copy",
+          "line": 71
+        },
+        {
+          "name": "CMQPMOV",
+          "mechanism": "copy",
+          "line": 75
+        },
+        {
+          "name": "CMQMDV",
+          "mechanism": "copy",
+          "line": 79
+        },
+        {
+          "name": "CMQODV",
+          "mechanism": "copy",
+          "line": 83
+        },
+        {
+          "name": "CMQV",
+          "mechanism": "copy",
+          "line": 87
+        },
+        {
+          "name": "CMQTML",
+          "mechanism": "copy",
+          "line": 90
+        }
+      ],
+      "entry_points": [],
+      "facts": [
+        {
+          "kind": "cics",
+          "detail": "RETRIEVE INTO",
+          "program": null,
+          "variable": null,
+          "line": 140
+        },
+        {
+          "kind": "cics",
+          "detail": "SYNCPOINT END",
+          "program": null,
+          "variable": null,
+          "line": 275
+        },
+        {
+          "kind": "cics",
+          "detail": "ASKTIME ABSTIME",
+          "program": null,
+          "variable": null,
+          "line": 343
+        },
+        {
+          "kind": "cics",
+          "detail": "FORMATTIME ABSTIME",
+          "program": null,
+          "variable": null,
+          "line": 347
+        },
+        {
+          "kind": "cics",
+          "detail": "RETURN END",
+          "program": null,
+          "variable": null,
+          "line": 453
+        }
+      ],
+      "nested_in": null,
+      "audit": {
+        "call_tokens_unaccounted": []
+      }
+    }
+  ]
+}

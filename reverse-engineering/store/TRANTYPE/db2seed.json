@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "module": "TRANTYPE",
+    "generated_at": "2026-10-08T04:11:55Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "sql": [
+        "../app/app-transaction-type-db2/cpy",
+        "../app/app-transaction-type-db2/ctl",
+        "../app/app-transaction-type-db2/ddl"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "path": "../app/app-transaction-type-db2/cpy/CSDB2RPY.cpy",
+      "kind": "sql",
+      "lines": 89,
+      "code_lines": 88
+    },
+    {
+      "path": "../app/app-transaction-type-db2/cpy/CSDB2RWY.cpy",
+      "kind": "sql",
+      "lines": 46,
+      "code_lines": 46
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/DB2CREAT.ctl",
+      "kind": "sql",
+      "lines": 106,
+      "code_lines": 86
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/DB2FREE.ctl",
+      "kind": "sql",
+      "lines": 19,
+      "code_lines": 19
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/DB2LTCAT.ctl",
+      "kind": "sql",
+      "lines": 39,
+      "code_lines": 38
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/DB2LTTYP.ctl",
+      "kind": "sql",
+      "lines": 24,
+      "code_lines": 24
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/DB2TEP41.ctl",
+      "kind": "sql",
+      "lines": 18,
+      "code_lines": 18
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/DB2TIAD1.ctl",
+      "kind": "sql",
+      "lines": 17,
+      "code_lines": 17
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/REPROCT.ctl",
+      "kind": "sql",
+      "lines": 15,
+      "code_lines": 15
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ddl/TRNTYCAT.ddl",
+      "kind": "sql",
+      "lines": 7,
+      "code_lines": 7
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ddl/TRNTYPE.ddl",
+      "kind": "sql",
+      "lines": 4,
+      "code_lines": 4
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ddl/XTRNTYCAT.ddl",
+      "kind": "sql",
+      "lines": 5,
+      "code_lines": 5
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ddl/XTRNTYPE.ddl",
+      "kind": "sql",
+      "lines": 5,
+      "code_lines": 5
+    }
+  ],
+  "tables": [
+    {
+      "name": "CARDDEMO.TRANSACTION_TYPE",
+      "columns": [
+        {
+          "name": "TR_TYPE",
+          "type": "CHAR(2)"
+        },
+        {
+          "name": "TR_DESCRIPTION",
+          "type": "VARCHAR(50)"
+        }
+      ],
+      "rows": [],
+      "sources": [
+        "../app/app-transaction-type-db2/ctl/DB2CREAT.ctl:35",
+        "../app/app-transaction-type-db2/ddl/TRNTYPE.ddl:1"
+      ]
+    },
+    {
+      "name": "CARDDEMO.TRANSACTION_TYPE_CATEGORY",
+      "columns": [
+        {
+          "name": "TRC_TYPE_CODE",
+          "type": "CHAR(2)"
+        },
+        {
+          "name": "TRC_TYPE_CATEGORY",
+          "type": "CHAR(4)"
+        },
+        {
+          "name": "TRC_CAT_DATA",
+          "type": "VARCHAR(50)"
+        }
+      ],
+      "rows": [],
+      "sources": [
+        "../app/app-transaction-type-db2/ctl/DB2CREAT.ctl:75",
+        "../app/app-transaction-type-db2/ddl/TRNTYCAT.ddl:1"
+      ]
+    }
+  ],
+  "unparsed": [
+    {
+      "table": "CARDDEMO.TRANSACTION_TYPE_CATEGORY",
+      "source": "../app/app-transaction-type-db2/ctl/DB2LTCAT.ctl:15",
+      "reason": "INSERT without literal VALUES (e.g. INSERT ... SELECT)"
+    },
+    {
+      "table": "CARDDEMO.TRANSACTION_TYPE",
+      "source": "../app/app-transaction-type-db2/ctl/DB2LTTYP.ctl:15",
+      "reason": "INSERT without literal VALUES (e.g. INSERT ... SELECT)"
+    }
+  ]
+}

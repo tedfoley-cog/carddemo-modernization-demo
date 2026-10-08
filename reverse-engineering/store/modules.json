@@ -1,0 +1,2827 @@
+{
+ "meta": {
+  "estate": "carddemo-modernization-demo/app",
+  "skill": "module-classification",
+  "updated_at": "2026-10-08T04:11:09.184798Z"
+ },
+ "modules": [
+  {
+   "id": "AUTHIMS",
+   "name": "Pending authorizations (IMS DB + DB2 + MQ)",
+   "naming": "proposed",
+   "what_it_does": "receives card authorization requests over MQ, stores pending authorizations in IMS and DB2, and lets operators view/approve them online",
+   "confidence": "derived",
+   "confirmed": null,
+   "evidence": [
+    "../app/app-authorization-ims-db2-mq/bms/",
+    "../app/app-authorization-ims-db2-mq/bms/",
+    "../app/app-authorization-ims-db2-mq/cbl/",
+    "../app/app-authorization-ims-db2-mq/cbl/",
+    "../app/app-authorization-ims-db2-mq/cbl/",
+    "../app/app-authorization-ims-db2-mq/cbl/",
+    "../app/app-authorization-ims-db2-mq/cbl/",
+    "../app/app-authorization-ims-db2-mq/cbl/",
+    "../app/app-authorization-ims-db2-mq/cbl/",
+    "../app/app-authorization-ims-db2-mq/cbl/",
+    "../app/app-authorization-ims-db2-mq/cpy/",
+    "../app/app-authorization-ims-db2-mq/cpy/",
+    "../app/app-authorization-ims-db2-mq/cpy/",
+    "../app/app-authorization-ims-db2-mq/cpy/",
+    "../app/app-authorization-ims-db2-mq/cpy/",
+    "../app/app-authorization-ims-db2-mq/cpy/",
+    "../app/app-authorization-ims-db2-mq/cpy/",
+    "../app/app-authorization-ims-db2-mq/cpy/",
+    "../app/app-authorization-ims-db2-mq/cpy/",
+    "../app/app-authorization-ims-db2-mq/cpy-bms/",
+    "../app/app-authorization-ims-db2-mq/cpy-bms/",
+    "../app/app-authorization-ims-db2-mq/csd/",
+    "../app/app-authorization-ims-db2-mq/dcl/",
+    "../app/app-authorization-ims-db2-mq/ddl/",
+    "../app/app-authorization-ims-db2-mq/ims/",
+    "../app/app-authorization-ims-db2-mq/ims/",
+    "../app/app-authorization-ims-db2-mq/ims/",
+    "../app/app-authorization-ims-db2-mq/ims/",
+    "../app/app-authorization-ims-db2-mq/ims/",
+    "../app/app-authorization-ims-db2-mq/ims/",
+    "../app/app-authorization-ims-db2-mq/ims/",
+    "../app/app-authorization-ims-db2-mq/ims/",
+    "../app/app-authorization-ims-db2-mq/jcl/",
+    "../app/app-authorization-ims-db2-mq/jcl/",
+    "../app/app-authorization-ims-db2-mq/jcl/",
+    "../app/app-authorization-ims-db2-mq/jcl/",
+    "../app/app-authorization-ims-db2-mq/jcl/"
+   ],
+   "reasoning": "own directory tree and CICS group: app/app-authorization-ims-db2-mq/README.md, its own CSD group, IMS DBD/PSB and DB2 DDL",
+   "roots": {
+    "bms": [
+     "../app/app-authorization-ims-db2-mq/bms"
+    ],
+    "src": [
+     "../app/app-authorization-ims-db2-mq/cbl"
+    ],
+    "copybooks": [
+     "../app/app-authorization-ims-db2-mq/cpy",
+     "../app/app-authorization-ims-db2-mq/cpy-bms",
+     "../app/app-authorization-ims-db2-mq/dcl"
+    ],
+    "csd": [
+     "../app/app-authorization-ims-db2-mq/csd"
+    ],
+    "sql": [
+     "../app/app-authorization-ims-db2-mq/ddl"
+    ],
+    "ims": [
+     "../app/app-authorization-ims-db2-mq/ims"
+    ],
+    "jcl": [
+     "../app/app-authorization-ims-db2-mq/jcl"
+    ]
+   },
+   "scan": "python3 -m mftb scan --module AUTHIMS --from-catalog",
+   "members": [
+    {
+     "name": "COPAU00",
+     "artifact": "bms-mapset",
+     "path": "../app/app-authorization-ims-db2-mq/bms/COPAU00.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COPAU01",
+     "artifact": "bms-mapset",
+     "path": "../app/app-authorization-ims-db2-mq/bms/COPAU01.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBPAUP0C",
+     "artifact": "cobol-program",
+     "path": "../app/app-authorization-ims-db2-mq/cbl/CBPAUP0C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COPAUA0C",
+     "artifact": "cobol-program",
+     "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COPAUS0C",
+     "artifact": "cobol-program",
+     "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COPAUS1C",
+     "artifact": "cobol-program",
+     "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COPAUS2C",
+     "artifact": "cobol-program",
+     "path": "../app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DBUNLDGS",
+     "artifact": "cobol-program",
+     "path": "../app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "PAUDBLOD",
+     "artifact": "cobol-program",
+     "path": "../app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "PAUDBUNL",
+     "artifact": "cobol-program",
+     "path": "../app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CCPAUERY",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-authorization-ims-db2-mq/cpy/CCPAUERY.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CCPAURLY",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-authorization-ims-db2-mq/cpy/CCPAURLY.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CCPAURQY",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-authorization-ims-db2-mq/cpy/CCPAURQY.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CIPAUDTY",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-authorization-ims-db2-mq/cpy/CIPAUDTY.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CIPAUSMY",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-authorization-ims-db2-mq/cpy/CIPAUSMY.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "IMSFUNCS",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-authorization-ims-db2-mq/cpy/IMSFUNCS.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "PADFLPCB",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-authorization-ims-db2-mq/cpy/PADFLPCB.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "PASFLPCB",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-authorization-ims-db2-mq/cpy/PASFLPCB.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "PAUTBPCB",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-authorization-ims-db2-mq/cpy/PAUTBPCB.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COPAU00",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-authorization-ims-db2-mq/cpy-bms/COPAU00.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COPAU01",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-authorization-ims-db2-mq/cpy-bms/COPAU01.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CRDDEMO2",
+     "artifact": "cics-csd",
+     "path": "../app/app-authorization-ims-db2-mq/csd/CRDDEMO2.csd",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/csd/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "AUTHFRDS",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-authorization-ims-db2-mq/dcl/AUTHFRDS.dcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/dcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "AUTHFRDS",
+     "artifact": "sql-ddl",
+     "path": "../app/app-authorization-ims-db2-mq/ddl/AUTHFRDS.ddl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/ddl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DBPAUTP0",
+     "artifact": "ims-dbd",
+     "path": "../app/app-authorization-ims-db2-mq/ims/DBPAUTP0.dbd",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/ims/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DBPAUTX0",
+     "artifact": "ims-dbd",
+     "path": "../app/app-authorization-ims-db2-mq/ims/DBPAUTX0.dbd",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/ims/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DLIGSAMP",
+     "artifact": "ims-psb",
+     "path": "../app/app-authorization-ims-db2-mq/ims/DLIGSAMP.PSB",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/ims/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "PADFLDBD",
+     "artifact": "ims-dbd",
+     "path": "../app/app-authorization-ims-db2-mq/ims/PADFLDBD.DBD",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/ims/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "PASFLDBD",
+     "artifact": "ims-dbd",
+     "path": "../app/app-authorization-ims-db2-mq/ims/PASFLDBD.DBD",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/ims/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "PAUTBUNL",
+     "artifact": "ims-psb",
+     "path": "../app/app-authorization-ims-db2-mq/ims/PAUTBUNL.PSB",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/ims/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "PSBPAUTB",
+     "artifact": "ims-psb",
+     "path": "../app/app-authorization-ims-db2-mq/ims/PSBPAUTB.psb",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/ims/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "PSBPAUTL",
+     "artifact": "ims-psb",
+     "path": "../app/app-authorization-ims-db2-mq/ims/PSBPAUTL.psb",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/ims/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBPAUP0J",
+     "artifact": "jcl-job",
+     "path": "../app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DBPAUTP0",
+     "artifact": "jcl-job",
+     "path": "../app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "LOADPADB",
+     "artifact": "jcl-job",
+     "path": "../app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "UNLDGSAM",
+     "artifact": "jcl-job",
+     "path": "../app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "UNLDPADB",
+     "artifact": "jcl-job",
+     "path": "../app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-authorization-ims-db2-mq/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    }
+   ]
+  },
+  {
+   "id": "TRANTYPE",
+   "name": "Transaction type maintenance (DB2)",
+   "naming": "proposed",
+   "what_it_does": "maintains the transaction type/category reference tables in DB2 online and loads them in batch",
+   "confidence": "derived",
+   "confirmed": null,
+   "evidence": [
+    "../app/app-transaction-type-db2/bms/",
+    "../app/app-transaction-type-db2/bms/",
+    "../app/app-transaction-type-db2/cbl/",
+    "../app/app-transaction-type-db2/cbl/",
+    "../app/app-transaction-type-db2/cbl/",
+    "../app/app-transaction-type-db2/cpy/",
+    "../app/app-transaction-type-db2/cpy/",
+    "../app/app-transaction-type-db2/cpy-bms/",
+    "../app/app-transaction-type-db2/cpy-bms/",
+    "../app/app-transaction-type-db2/csd/",
+    "../app/app-transaction-type-db2/ctl/",
+    "../app/app-transaction-type-db2/ctl/",
+    "../app/app-transaction-type-db2/ctl/",
+    "../app/app-transaction-type-db2/ctl/",
+    "../app/app-transaction-type-db2/ctl/",
+    "../app/app-transaction-type-db2/ctl/",
+    "../app/app-transaction-type-db2/ctl/",
+    "../app/app-transaction-type-db2/dcl/",
+    "../app/app-transaction-type-db2/dcl/",
+    "../app/app-transaction-type-db2/ddl/",
+    "../app/app-transaction-type-db2/ddl/",
+    "../app/app-transaction-type-db2/jcl/",
+    "../app/app-transaction-type-db2/jcl/",
+    "../app/app-transaction-type-db2/jcl/"
+   ],
+   "reasoning": "own directory tree and CICS group: app/app-transaction-type-db2/README.md, its own CSD group and DB2 DDL/seed",
+   "roots": {
+    "bms": [
+     "../app/app-transaction-type-db2/bms"
+    ],
+    "src": [
+     "../app/app-transaction-type-db2/cbl"
+    ],
+    "sql": [
+     "../app/app-transaction-type-db2/cpy",
+     "../app/app-transaction-type-db2/ctl",
+     "../app/app-transaction-type-db2/ddl"
+    ],
+    "copybooks": [
+     "../app/app-transaction-type-db2/cpy",
+     "../app/app-transaction-type-db2/cpy-bms",
+     "../app/app-transaction-type-db2/dcl"
+    ],
+    "csd": [
+     "../app/app-transaction-type-db2/csd"
+    ],
+    "ctl": [
+     "../app/app-transaction-type-db2/ctl"
+    ],
+    "jcl": [
+     "../app/app-transaction-type-db2/jcl"
+    ]
+   },
+   "scan": "python3 -m mftb scan --module TRANTYPE --from-catalog",
+   "members": [
+    {
+     "name": "COTRTLI",
+     "artifact": "bms-mapset",
+     "path": "../app/app-transaction-type-db2/bms/COTRTLI.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRTUP",
+     "artifact": "bms-mapset",
+     "path": "../app/app-transaction-type-db2/bms/COTRTUP.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COBTUPDT",
+     "artifact": "cobol-program",
+     "path": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRTLIC",
+     "artifact": "cobol-program",
+     "path": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRTUPC",
+     "artifact": "cobol-program",
+     "path": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CSDB2RPY",
+     "artifact": "sql-script",
+     "path": "../app/app-transaction-type-db2/cpy/CSDB2RPY.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CSDB2RWY",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-transaction-type-db2/cpy/CSDB2RWY.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRTLI",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-transaction-type-db2/cpy-bms/COTRTLI.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRTUP",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-transaction-type-db2/cpy-bms/COTRTUP.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CRDDEMOD",
+     "artifact": "cics-csd",
+     "path": "../app/app-transaction-type-db2/csd/CRDDEMOD.csd",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/csd/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DB2CREAT",
+     "artifact": "sql-ddl",
+     "path": "../app/app-transaction-type-db2/ctl/DB2CREAT.ctl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/ctl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DB2FREE",
+     "artifact": "control-cards",
+     "path": "../app/app-transaction-type-db2/ctl/DB2FREE.ctl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/ctl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DB2LTCAT",
+     "artifact": "sql-seed",
+     "path": "../app/app-transaction-type-db2/ctl/DB2LTCAT.ctl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/ctl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DB2LTTYP",
+     "artifact": "sql-seed",
+     "path": "../app/app-transaction-type-db2/ctl/DB2LTTYP.ctl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/ctl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DB2TEP41",
+     "artifact": "control-cards",
+     "path": "../app/app-transaction-type-db2/ctl/DB2TEP41.ctl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/ctl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DB2TIAD1",
+     "artifact": "control-cards",
+     "path": "../app/app-transaction-type-db2/ctl/DB2TIAD1.ctl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/ctl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "REPROCT",
+     "artifact": "control-cards",
+     "path": "../app/app-transaction-type-db2/ctl/REPROCT.ctl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/ctl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DCLTRCAT",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-transaction-type-db2/dcl/DCLTRCAT.dcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/dcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DCLTRTYP",
+     "artifact": "cobol-copybook",
+     "path": "../app/app-transaction-type-db2/dcl/DCLTRTYP.dcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/dcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "TRNTYCAT",
+     "artifact": "sql-ddl",
+     "path": "../app/app-transaction-type-db2/ddl/TRNTYCAT.ddl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/ddl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "TRNTYPE",
+     "artifact": "sql-ddl",
+     "path": "../app/app-transaction-type-db2/ddl/TRNTYPE.ddl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/ddl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CREADB21",
+     "artifact": "jcl-job",
+     "path": "../app/app-transaction-type-db2/jcl/CREADB21.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "MNTTRDB2",
+     "artifact": "jcl-job",
+     "path": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "TRANEXTR",
+     "artifact": "jcl-job",
+     "path": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-transaction-type-db2/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    }
+   ]
+  },
+  {
+   "id": "VSAMMQ",
+   "name": "Account/date inquiry over MQ (VSAM)",
+   "naming": "proposed",
+   "what_it_does": "answers account and system-date inquiries arriving on MQ queues from the VSAM account files",
+   "confidence": "derived",
+   "confirmed": null,
+   "evidence": [
+    "../app/app-vsam-mq/cbl/",
+    "../app/app-vsam-mq/cbl/",
+    "../app/app-vsam-mq/csd/"
+   ],
+   "reasoning": "own directory tree and CICS group: app/app-vsam-mq/README.md and its own CSD group",
+   "roots": {
+    "src": [
+     "../app/app-vsam-mq/cbl"
+    ],
+    "csd": [
+     "../app/app-vsam-mq/csd"
+    ]
+   },
+   "scan": "python3 -m mftb scan --module VSAMMQ --from-catalog",
+   "members": [
+    {
+     "name": "COACCT01",
+     "artifact": "cobol-program",
+     "path": "../app/app-vsam-mq/cbl/COACCT01.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-vsam-mq/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CODATE01",
+     "artifact": "cobol-program",
+     "path": "../app/app-vsam-mq/cbl/CODATE01.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-vsam-mq/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CRDDEMOM",
+     "artifact": "cics-csd",
+     "path": "../app/app-vsam-mq/csd/CRDDEMOM.csd",
+     "confidence": "derived",
+     "evidence": [
+      "../app/app-vsam-mq/csd/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    }
+   ]
+  },
+  {
+   "id": "CARDDEMO",
+   "name": "CardDemo core credit card application",
+   "naming": "proposed",
+   "what_it_does": "signs users on, maintains accounts, cards, users and transactions online (CICS/VSAM) and runs the nightly posting, interest, reporting and statement batch stream",
+   "confidence": "derived",
+   "confirmed": null,
+   "evidence": [
+    "../app/asm/",
+    "../app/asm/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/bms/",
+    "../app/catlg/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cbl/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/cpy-bms/",
+    "../app/csd/",
+    "../app/ctl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/jcl/",
+    "../app/maclib/",
+    "../app/maclib/",
+    "../app/proc/",
+    "../app/proc/",
+    "../app/scheduler/",
+    "../app/scheduler/"
+   ],
+   "reasoning": "own directory tree and CICS group: app/cbl, app/jcl, app/bms, app/csd/CARDDEMO.CSD and app/scheduler",
+   "roots": {
+    "src": [
+     "../app/asm",
+     "../app/cbl"
+    ],
+    "bms": [
+     "../app/bms"
+    ],
+    "sql": [
+     "../app/catlg"
+    ],
+    "copybooks": [
+     "../app/cpy",
+     "../app/cpy-bms",
+     "../app/maclib"
+    ],
+    "csd": [
+     "../app/csd"
+    ],
+    "ctl": [
+     "../app/ctl"
+    ],
+    "jcl": [
+     "../app/jcl"
+    ],
+    "procs": [
+     "../app/proc"
+    ],
+    "sched": [
+     "../app/scheduler"
+    ]
+   },
+   "scan": "python3 -m mftb scan --module CARDDEMO --from-catalog",
+   "members": [
+    {
+     "name": "COBDATFT",
+     "artifact": "assembler-program",
+     "path": "../app/asm/COBDATFT.asm",
+     "confidence": "derived",
+     "evidence": [
+      "../app/asm/"
+     ],
+     "reasoning": "in the module's own directory tree (assembler: names only, logic not inventoried)",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "MVSWAIT",
+     "artifact": "assembler-program",
+     "path": "../app/asm/MVSWAIT.asm",
+     "confidence": "derived",
+     "evidence": [
+      "../app/asm/"
+     ],
+     "reasoning": "in the module's own directory tree (assembler: names only, logic not inventoried)",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COACTUP",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COACTUP.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COACTVW",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COACTVW.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COADM01",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COADM01.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COBIL00",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COBIL00.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COCRDLI",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COCRDLI.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COCRDSL",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COCRDSL.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COCRDUP",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COCRDUP.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COMEN01",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COMEN01.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CORPT00",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/CORPT00.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COSGN00",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COSGN00.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRN00",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COTRN00.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRN01",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COTRN01.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRN02",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COTRN02.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COUSR00",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COUSR00.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COUSR01",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COUSR01.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COUSR02",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COUSR02.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COUSR03",
+     "artifact": "bms-mapset",
+     "path": "../app/bms/COUSR03.bms",
+     "confidence": "derived",
+     "evidence": [
+      "../app/bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "LISTCAT",
+     "artifact": "sql-script",
+     "path": "../app/catlg/LISTCAT.txt",
+     "confidence": "derived",
+     "evidence": [
+      "../app/catlg/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBACT01C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CBACT01C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBACT02C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CBACT02C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBACT03C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CBACT03C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBACT04C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CBACT04C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBCUS01C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CBCUS01C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBEXPORT",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CBEXPORT.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBIMPORT",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CBIMPORT.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBSTM03A",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CBSTM03A.CBL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBSTM03B",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CBSTM03B.CBL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBTRN01C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CBTRN01C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBTRN02C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CBTRN02C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBTRN03C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CBTRN03C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COACTUPC",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COACTUPC.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COACTVWC",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COACTVWC.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COADM01C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COADM01C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COBIL00C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COBIL00C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COBSWAIT",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COBSWAIT.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COCRDLIC",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COCRDLIC.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COCRDSLC",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COCRDSLC.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COCRDUPC",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COCRDUPC.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COMEN01C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COMEN01C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CORPT00C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CORPT00C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COSGN00C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COSGN00C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRN00C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COTRN00C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRN01C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COTRN01C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRN02C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COTRN02C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COUSR00C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COUSR00C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COUSR01C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COUSR01C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COUSR02C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COUSR02C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COUSR03C",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/COUSR03C.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CSUTLDTC",
+     "artifact": "cobol-program",
+     "path": "../app/cbl/CSUTLDTC.cbl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cbl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COADM02Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/COADM02Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COCOM01Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/COCOM01Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CODATECN",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CODATECN.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COMEN02Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/COMEN02Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COSTM01",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/COSTM01.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CSDAT01Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CSDAT01Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CSSTRPFY",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CSSTRPFY.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CSUSR01Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CSUSR01Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CSUTLDPY",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CSUTLDPY.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CSUTLDWY",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CSUTLDWY.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CUSTREC",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CUSTREC.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVACT01Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVACT01Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVACT02Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVACT02Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVACT03Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVACT03Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVCRD01Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVCRD01Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVCUS01Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVCUS01Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVEXPORT",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVEXPORT.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVTRA01Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVTRA01Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVTRA02Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVTRA02Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVTRA03Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVTRA03Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVTRA04Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVTRA04Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVTRA05Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVTRA05Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVTRA06Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVTRA06Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CVTRA07Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/CVTRA07Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "UNUSED1Y",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy/UNUSED1Y.cpy",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COACTUP",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COACTUP.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COACTVW",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COACTVW.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COADM01",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COADM01.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COBIL00",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COBIL00.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COCRDLI",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COCRDLI.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COCRDSL",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COCRDSL.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COCRDUP",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COCRDUP.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COMEN01",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COMEN01.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CORPT00",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/CORPT00.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COSGN00",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COSGN00.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRN00",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COTRN00.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRN01",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COTRN01.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COTRN02",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COTRN02.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COUSR00",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COUSR00.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COUSR01",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COUSR01.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COUSR02",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COUSR02.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COUSR03",
+     "artifact": "cobol-copybook",
+     "path": "../app/cpy-bms/COUSR03.CPY",
+     "confidence": "derived",
+     "evidence": [
+      "../app/cpy-bms/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CARDDEMO",
+     "artifact": "cics-csd",
+     "path": "../app/csd/CARDDEMO.CSD",
+     "confidence": "derived",
+     "evidence": [
+      "../app/csd/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "REPROCT",
+     "artifact": "control-cards",
+     "path": "../app/ctl/REPROCT.ctl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/ctl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "ACCTFILE",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/ACCTFILE.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CARDFILE",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/CARDFILE.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBADMCDJ",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/CBADMCDJ.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBEXPORT",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/CBEXPORT.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CBIMPORT",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/CBIMPORT.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CLOSEFIL",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/CLOSEFIL.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COMBTRAN",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/COMBTRAN.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CREASTMT",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/CREASTMT.JCL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CUSTFILE",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/CUSTFILE.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DALYREJS",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/DALYREJS.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DEFCUST",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/DEFCUST.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DEFGDGB",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/DEFGDGB.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DEFGDGD",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/DEFGDGD.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DISCGRP",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/DISCGRP.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "DUSRSECJ",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/DUSRSECJ.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "ESDSRRDS",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/ESDSRRDS.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "FTPJCL",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/FTPJCL.JCL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "INTCALC",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/INTCALC.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "INTRDRJ1",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/INTRDRJ1.JCL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "INTRDRJ2",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/INTRDRJ2.JCL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "OPENFIL",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/OPENFIL.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "POSTTRAN",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/POSTTRAN.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "PRTCATBL",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/PRTCATBL.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "READACCT",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/READACCT.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "READCARD",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/READCARD.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "READCUST",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/READCUST.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "READXREF",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/READXREF.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "REPTFILE",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/REPTFILE.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "TCATBALF",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/TCATBALF.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "TRANBKP",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/TRANBKP.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "TRANCATG",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/TRANCATG.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "TRANFILE",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/TRANFILE.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "TRANIDX",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/TRANIDX.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "TRANREPT",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/TRANREPT.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "TRANTYPE",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/TRANTYPE.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "TXT2PDF1",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/TXT2PDF1.JCL",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "WAITSTEP",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/WAITSTEP.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "XREFFILE",
+     "artifact": "jcl-job",
+     "path": "../app/jcl/XREFFILE.jcl",
+     "confidence": "derived",
+     "evidence": [
+      "../app/jcl/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "ASMWAIT",
+     "artifact": "assembler-macro",
+     "path": "../app/maclib/ASMWAIT.mac",
+     "confidence": "derived",
+     "evidence": [
+      "../app/maclib/"
+     ],
+     "reasoning": "in the module's own directory tree (assembler: names only, logic not inventoried)",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "COCDATFT",
+     "artifact": "assembler-dsect",
+     "path": "../app/maclib/COCDATFT.mac",
+     "confidence": "derived",
+     "evidence": [
+      "../app/maclib/"
+     ],
+     "reasoning": "in the module's own directory tree (assembler: names only, logic not inventoried)",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "REPROC",
+     "artifact": "jcl-proc",
+     "path": "../app/proc/REPROC.prc",
+     "confidence": "derived",
+     "evidence": [
+      "../app/proc/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "TRANREPT",
+     "artifact": "jcl-proc",
+     "path": "../app/proc/TRANREPT.prc",
+     "confidence": "derived",
+     "evidence": [
+      "../app/proc/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CARDDEMO",
+     "artifact": "scheduler-table",
+     "path": "../app/scheduler/CardDemo.ca7",
+     "confidence": "derived",
+     "evidence": [
+      "../app/scheduler/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    },
+    {
+     "name": "CARDDEMO",
+     "artifact": "scheduler-table",
+     "path": "../app/scheduler/CardDemo.controlm",
+     "confidence": "derived",
+     "evidence": [
+      "../app/scheduler/"
+     ],
+     "reasoning": "in the module's own directory tree",
+     "confirmed": null,
+     "alternatives": []
+    }
+   ]
+  }
+ ],
+ "shared": [],
+ "unplaced": [],
+ "cross_module": [
+  {
+   "from": "AUTHIMS",
+   "to": "CARDDEMO",
+   "how": "COPY of core record layouts / commarea (app/cpy) and reads of core VSAM files",
+   "evidence": [
+    "../app/app-authorization-ims-db2-mq/"
+   ],
+   "why": "the extension cannot migrate without the core data contracts"
+  },
+  {
+   "from": "TRANTYPE",
+   "to": "CARDDEMO",
+   "how": "COPY of core record layouts / commarea (app/cpy) and reads of core VSAM files",
+   "evidence": [
+    "../app/app-transaction-type-db2/"
+   ],
+   "why": "the extension cannot migrate without the core data contracts"
+  },
+  {
+   "from": "VSAMMQ",
+   "to": "CARDDEMO",
+   "how": "COPY of core record layouts / commarea (app/cpy) and reads of core VSAM files",
+   "evidence": [
+    "../app/app-vsam-mq/"
+   ],
+   "why": "the extension cannot migrate without the core data contracts"
+  }
+ ]
+}

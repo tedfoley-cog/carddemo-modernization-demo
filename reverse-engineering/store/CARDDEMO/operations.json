@@ -1,0 +1,1503 @@
+{
+  "meta": {
+    "module": "CARDDEMO",
+    "generated_at": "2026-10-08T04:11:45Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "schedule": {
+        "module": "CARDDEMO",
+        "generated_at": "2026-10-08T04:11:43Z",
+        "tool": "mftb 0.2.1",
+        "inputs": {
+          "sched": [
+            "../app/scheduler"
+          ]
+        }
+      }
+    }
+  },
+  "summary": {
+    "tables": 6,
+    "jobs": 32,
+    "stated": {
+      "frequency": 9,
+      "window": 15,
+      "deadline": 0,
+      "runtime": 17,
+      "rerun": 32,
+      "owner": 15
+    },
+    "alerts": 0,
+    "trigger_timings": 28
+  },
+  "facts": [
+    "frequency",
+    "window",
+    "deadline",
+    "runtime",
+    "rerun",
+    "owner"
+  ],
+  "tables": [
+    {
+      "table": "CARDDEMO",
+      "dialect": "ca7-ljob",
+      "path": "../app/scheduler/CardDemo.ca7",
+      "application": "CARDDEMO",
+      "owner": null,
+      "jobs": [
+        {
+          "job": "CLOSEFIL",
+          "memname": "CLOSEFIL",
+          "source": "../app/scheduler/CardDemo.ca7:18",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:18"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:18"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:18"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "030"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-WAITSTEP-TRIGGERS-CLOSEFIL-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            },
+            {
+              "condition": "CA7-WAITSTEP-TRIGGERS-CLOSEFIL-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            },
+            {
+              "condition": "CA7-OPENFIL-TRIGGERS-CLOSEFIL-031",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "CBPAUP0J",
+          "memname": "CBPAUP0J",
+          "source": "../app/scheduler/CardDemo.ca7:43",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:43"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:43"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:43"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "030"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-CLOSEFIL-TRIGGERS-CBPAUP0J-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": null
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "POSTTRAN",
+          "memname": "POSTTRAN",
+          "source": "../app/scheduler/CardDemo.ca7:70",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:70"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:70"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:70"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "030"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-CBPAUP0J-TRIGGERS-POSTTRAN-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": null
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "WAITSTEP",
+          "memname": "WAITSTEP",
+          "source": "../app/scheduler/CardDemo.ca7:97",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:97"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:97"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:97"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "030"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-POSTTRAN-TRIGGERS-WAITSTEP-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            },
+            {
+              "condition": "CA7-TRANTYPE-TRIGGERS-WAITSTEP-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            },
+            {
+              "condition": "CA7-TRANCATG-TRIGGERS-WAITSTEP-031",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            },
+            {
+              "condition": "CA7-TCATBALF-TRIGGERS-WAITSTEP-032",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            },
+            {
+              "condition": "CA7-READXREF-TRIGGERS-WAITSTEP-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            },
+            {
+              "condition": "CA7-TXT2PDF1-TRIGGERS-WAITSTEP-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            },
+            {
+              "condition": "CA7-PRTCATBL-TRIGGERS-WAITSTEP-031",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "OPENFIL",
+          "memname": "OPENFIL",
+          "source": "../app/scheduler/CardDemo.ca7:124",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:124"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:124"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:124"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "030"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-WAITSTEP-TRIGGERS-OPENFIL-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            },
+            {
+              "condition": "CA7-WAITSTEP-TRIGGERS-OPENFIL-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            },
+            {
+              "condition": "CA7-WAITSTEP-TRIGGERS-OPENFIL-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            },
+            {
+              "condition": "CA7-WAITSTEP-TRIGGERS-OPENFIL-031",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "TRANTYPE",
+          "memname": "TRANTYPE",
+          "source": "../app/scheduler/CardDemo.ca7:162",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:162"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:162"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:162"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "030"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-CLOSEFIL-TRIGGERS-TRANTYPE-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "CLOSEFIL1",
+          "memname": "CLOSEFIL",
+          "source": "../app/scheduler/CardDemo.ca7:216",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:216"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:216"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:216"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "031"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-WAITSTEP-TRIGGERS-CLOSEFIL1-031",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "CLOSEFIL2",
+          "memname": "CLOSEFIL",
+          "source": "../app/scheduler/CardDemo.ca7:217",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:217"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:217"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:217"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "032"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-WAITSTEP-TRIGGERS-CLOSEFIL2-032",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "TRANCATG",
+          "memname": "TRANCATG",
+          "source": "../app/scheduler/CardDemo.ca7:244",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:244"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:244"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:244"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "031"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-CLOSEFIL1-TRIGGERS-TRANCATG-031",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "TCATBALF",
+          "memname": "TCATBALF",
+          "source": "../app/scheduler/CardDemo.ca7:271",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:271"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:271"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:271"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "032"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-CLOSEFIL2-TRIGGERS-TCATBALF-032",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "READACCT",
+          "memname": "READACCT",
+          "source": "../app/scheduler/CardDemo.ca7:340",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:340"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:340"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:340"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "030"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-CLOSEFIL-TRIGGERS-READACCT-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "READCARD",
+          "memname": "READCARD",
+          "source": "../app/scheduler/CardDemo.ca7:367",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:367"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:367"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:367"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "030"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-READACCT-TRIGGERS-READCARD-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "READCUST",
+          "memname": "READCUST",
+          "source": "../app/scheduler/CardDemo.ca7:394",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:394"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:394"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:394"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "030"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-READCARD-TRIGGERS-READCUST-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "READXREF",
+          "memname": "READXREF",
+          "source": "../app/scheduler/CardDemo.ca7:421",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:421"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:421"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:421"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "030"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-READCUST-TRIGGERS-READXREF-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "CREASTMT",
+          "memname": "CREASTMT",
+          "source": "../app/scheduler/CardDemo.ca7:468",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:468"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:468"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:468"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "030"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-CLOSEFIL-TRIGGERS-CREASTMT-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "TXT2PDF1",
+          "memname": "TXT2PDF1",
+          "source": "../app/scheduler/CardDemo.ca7:495",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:495"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:495"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:495"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "030"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-CREASTMT-TRIGGERS-TXT2PDF1-030",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        },
+        {
+          "job": "PRTCATBL",
+          "memname": "PRTCATBL",
+          "source": "../app/scheduler/CardDemo.ca7:537",
+          "frequency": null,
+          "window": null,
+          "deadline": null,
+          "earliest_start": {
+            "value": "03237 0000",
+            "source": "../app/scheduler/CardDemo.ca7:537"
+          },
+          "runtime": {
+            "value": "CPU 00023, elapsed 2359",
+            "source": "../app/scheduler/CardDemo.ca7:537"
+          },
+          "rerun": {
+            "value": "restarted 0000 time(s)",
+            "source": "../app/scheduler/CardDemo.ca7:537"
+          },
+          "owner": null,
+          "execution": {
+            "MSGCLASS": "A",
+            "REGION": "4096K",
+            "PRTY": "000",
+            "JCLLIB": "&CARDDEMOPRODJCL",
+            "SCHID": "031"
+          },
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": null,
+          "alerts": [],
+          "trigger_timing": [
+            {
+              "condition": "CA7-CLOSEFIL-TRIGGERS-PRTCATBL-031",
+              "qtm": "0100",
+              "leadtm": "0000",
+              "submtm": "0000"
+            }
+          ],
+          "unknown": [
+            "frequency",
+            "window",
+            "deadline",
+            "owner"
+          ]
+        }
+      ],
+      "unknown": [
+        "deadline",
+        "frequency",
+        "owner",
+        "window"
+      ]
+    },
+    {
+      "table": "DAILY-TransactionBackup",
+      "dialect": "controlm-xml",
+      "path": "../app/scheduler/CardDemo.controlm",
+      "application": "CARD-DEMO",
+      "owner": null,
+      "jobs": [
+        {
+          "job": "CLOSEFIL",
+          "memname": "CLOSEFIL",
+          "source": "../app/scheduler/CardDemo.controlm:4",
+          "frequency": {
+            "value": "DAYS ALL",
+            "source": "../app/scheduler/CardDemo.controlm:4"
+          },
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:4"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:4"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:4"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "deadline",
+            "runtime"
+          ]
+        },
+        {
+          "job": "TRANBKP",
+          "memname": "TRANBKP",
+          "source": "../app/scheduler/CardDemo.controlm:8",
+          "frequency": {
+            "value": "DAYS ALL",
+            "source": "../app/scheduler/CardDemo.controlm:8"
+          },
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:8"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:8"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:8"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "deadline",
+            "runtime"
+          ]
+        },
+        {
+          "job": "WAITSTEP",
+          "memname": "WAITSTEP",
+          "source": "../app/scheduler/CardDemo.controlm:14",
+          "frequency": {
+            "value": "DAYS ALL",
+            "source": "../app/scheduler/CardDemo.controlm:14"
+          },
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:14"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:14"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:14"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "deadline",
+            "runtime"
+          ]
+        },
+        {
+          "job": "OPENFIL",
+          "memname": "OPENFIL",
+          "source": "../app/scheduler/CardDemo.controlm:20",
+          "frequency": {
+            "value": "DAYS ALL",
+            "source": "../app/scheduler/CardDemo.controlm:20"
+          },
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:20"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:20"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:20"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "deadline",
+            "runtime"
+          ]
+        }
+      ],
+      "unknown": [
+        "deadline",
+        "runtime"
+      ]
+    },
+    {
+      "table": "WEEKLY-TransactionTypesDBRefresh",
+      "dialect": "controlm-xml",
+      "path": "../app/scheduler/CardDemo.controlm",
+      "application": "CARD-DEMO",
+      "owner": null,
+      "jobs": [
+        {
+          "job": "MNTTRDB2",
+          "memname": "MNTTRDB2",
+          "source": "../app/scheduler/CardDemo.controlm:27",
+          "frequency": null,
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:27"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:27"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:27"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "frequency",
+            "deadline",
+            "runtime"
+          ]
+        }
+      ],
+      "unknown": [
+        "deadline",
+        "frequency",
+        "runtime"
+      ]
+    },
+    {
+      "table": "DisclosureGroupsRefresh",
+      "dialect": "controlm-xml",
+      "path": "../app/scheduler/CardDemo.controlm",
+      "application": "CARD-DEMO",
+      "owner": "xuemingh",
+      "jobs": [
+        {
+          "job": "CLOSEFIL",
+          "memname": "CLOSEFIL",
+          "source": "../app/scheduler/CardDemo.controlm:33",
+          "frequency": {
+            "value": "DAYS SA",
+            "source": "../app/scheduler/CardDemo.controlm:33"
+          },
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:33"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:33"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:33"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "deadline",
+            "runtime"
+          ]
+        },
+        {
+          "job": "DISCGRP",
+          "memname": "DISCGRP",
+          "source": "../app/scheduler/CardDemo.controlm:38",
+          "frequency": {
+            "value": "DAYS SA",
+            "source": "../app/scheduler/CardDemo.controlm:38"
+          },
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:38"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:38"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:38"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "deadline",
+            "runtime"
+          ]
+        },
+        {
+          "job": "WAITSTEP",
+          "memname": "WAITSTEP",
+          "source": "../app/scheduler/CardDemo.controlm:44",
+          "frequency": {
+            "value": "DAYS SA",
+            "source": "../app/scheduler/CardDemo.controlm:44"
+          },
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:44"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:44"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:44"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "deadline",
+            "runtime"
+          ]
+        },
+        {
+          "job": "OPENFIL",
+          "memname": "OPENFIL",
+          "source": "../app/scheduler/CardDemo.controlm:50",
+          "frequency": {
+            "value": "DAYS SA",
+            "source": "../app/scheduler/CardDemo.controlm:50"
+          },
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:50"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:50"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:50"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "deadline",
+            "runtime"
+          ]
+        }
+      ],
+      "unknown": [
+        "deadline",
+        "runtime"
+      ]
+    },
+    {
+      "table": "TransactionTypesDBRefresh",
+      "dialect": "controlm-xml",
+      "path": "../app/scheduler/CardDemo.controlm",
+      "application": "CARD-DEMO",
+      "owner": "xuemingh",
+      "jobs": [
+        {
+          "job": "TRANEXTR",
+          "memname": "TRANEXTR",
+          "source": "../app/scheduler/CardDemo.controlm:58",
+          "frequency": {
+            "value": "DAYS SA",
+            "source": "../app/scheduler/CardDemo.controlm:58"
+          },
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:58"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:58"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:58"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "deadline",
+            "runtime"
+          ]
+        }
+      ],
+      "unknown": [
+        "deadline",
+        "runtime"
+      ]
+    },
+    {
+      "table": "MONTHLY-InterestCalculation",
+      "dialect": "controlm-xml",
+      "path": "../app/scheduler/CardDemo.controlm",
+      "application": "CARD-DEMO",
+      "owner": null,
+      "jobs": [
+        {
+          "job": "CLOSEFIL",
+          "memname": "CLOSEFIL",
+          "source": "../app/scheduler/CardDemo.controlm:65",
+          "frequency": null,
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:65"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:65"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:65"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "frequency",
+            "deadline",
+            "runtime"
+          ]
+        },
+        {
+          "job": "INTCALC",
+          "memname": "INTCALC",
+          "source": "../app/scheduler/CardDemo.controlm:69",
+          "frequency": null,
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:69"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:69"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:69"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "frequency",
+            "deadline",
+            "runtime"
+          ]
+        },
+        {
+          "job": "COMBTRAN",
+          "memname": "COMBTRAN",
+          "source": "../app/scheduler/CardDemo.controlm:75",
+          "frequency": null,
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:75"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:75"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:75"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "frequency",
+            "deadline",
+            "runtime"
+          ]
+        },
+        {
+          "job": "WAITSTEP",
+          "memname": "WAITSTEP",
+          "source": "../app/scheduler/CardDemo.controlm:81",
+          "frequency": null,
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:81"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:81"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:81"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "frequency",
+            "deadline",
+            "runtime"
+          ]
+        },
+        {
+          "job": "OPENFIL",
+          "memname": "OPENFIL",
+          "source": "../app/scheduler/CardDemo.controlm:87",
+          "frequency": null,
+          "window": {
+            "value": "any-23:00",
+            "source": "../app/scheduler/CardDemo.controlm:87"
+          },
+          "deadline": null,
+          "earliest_start": null,
+          "runtime": null,
+          "rerun": {
+            "value": "MAXRERUN 5, MAXWAIT 7, CONFIRM 0",
+            "source": "../app/scheduler/CardDemo.controlm:87"
+          },
+          "owner": {
+            "value": "xuemingh",
+            "source": "../app/scheduler/CardDemo.controlm:87"
+          },
+          "execution": {},
+          "critical": false,
+          "schedule_env": null,
+          "system_id": null,
+          "retro": "0",
+          "alerts": [],
+          "trigger_timing": [],
+          "unknown": [
+            "frequency",
+            "deadline",
+            "runtime"
+          ]
+        }
+      ],
+      "unknown": [
+        "deadline",
+        "frequency",
+        "runtime"
+      ]
+    }
+  ]
+}

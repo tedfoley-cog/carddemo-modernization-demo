@@ -1,0 +1,392 @@
+{
+  "meta": {
+    "module": "VSAMMQ",
+    "generated_at": "2026-10-08T04:11:46Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {}
+  },
+  "findings": [
+    {
+      "kind": "missing-copybook",
+      "severity": "high",
+      "message": "copy CVACT01Y is included by 1 program(s) (COACCT01) but no scanned copybook defines it",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:171"
+      ],
+      "request": "Provide copybook member 'CVACT01Y' from the production copybook library (SYSLIB)",
+      "status": "open",
+      "id": "F0001",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-environment-topology",
+      "severity": "high",
+      "message": "VSAMMQ profile: environment_topology is not in the store \u2014 which LPARs and environments (production / test / DR) the estate has",
+      "evidence": [],
+      "request": "State the LPARs and environments, how a dataset or job name says which one it belongs to, and which sysplex they sit in: the scan can only list the qualifiers it saw",
+      "status": "open",
+      "id": "F0002",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-masking-policy",
+      "severity": "high",
+      "message": "VSAMMQ profile: masking_policy is not in the store \u2014 what may leave the estate, and in what shape",
+      "evidence": [],
+      "request": "State the data-masking policy for extracted test data (which fields must be masked, whether production data may leave the estate at all)",
+      "status": "open",
+      "id": "F0003",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-test-lpar",
+      "severity": "high",
+      "message": "VSAMMQ profile: test_lpar is not in the store \u2014 whether a test LPAR is available to run the migrated code against",
+      "evidence": [],
+      "request": "Confirm whether a test LPAR (or a sandbox subsystem) is available for parallel runs, and who can grant access",
+      "status": "open",
+      "id": "F0004",
+      "owner": "human"
+    },
+    {
+      "kind": "cics-file-undefined",
+      "severity": "medium",
+      "message": "CICS FILE ACCTDAT is used by COACCT01 but no DEFINE FILE(ACCTDAT) exists in the scanned CSD input",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:396"
+      ],
+      "request": "Provide the CSD definition (CEDA VIEW FILE(ACCTDAT)) or confirm the resource is remote/defined elsewhere",
+      "status": "open",
+      "id": "F0005",
+      "owner": "human"
+    },
+    {
+      "kind": "mq-usage",
+      "severity": "medium",
+      "message": "program(s) COACCT01, CODATE01 call the MQ API (MQCLOSE, MQGET, MQOPEN, MQPUT) \u2014 queue manager and queue names are MQOD/MQCNO fields set at run time",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:233",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:267",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:302",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:352",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:479",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:516"
+      ],
+      "request": "Provide the queue manager name(s) and queue definitions (DISPLAY QLOCAL) these programs use, or the copybook/control file that sets MQOD-OBJECTNAME",
+      "status": "open",
+      "id": "F0006",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-batch-window",
+      "severity": "medium",
+      "message": "VSAMMQ profile: batch_window is not in the store \u2014 in which window the module's batch has to finish",
+      "evidence": [],
+      "request": "Confirm the batch window (start, hard deadline) the module's jobs must fit into",
+      "status": "open",
+      "id": "F0007",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-compiler",
+      "severity": "medium",
+      "message": "VSAMMQ profile: compiler is not in the store \u2014 which compiler builds the module",
+      "evidence": [],
+      "request": "Provide the compile JCL (Enterprise COBOL release and the PROC used) for the module",
+      "status": "open",
+      "id": "F0008",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-compiler-options",
+      "severity": "medium",
+      "message": "VSAMMQ profile: compiler_options is not in the store \u2014 which compiler options the module is built with",
+      "evidence": [],
+      "request": "Provide the compile step PARM= (NUMPROC, TRUNC, DYNAM, ARCH, ...) the module is built with; options change behaviour, so they belong to the build path",
+      "status": "open",
+      "id": "F0009",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-copybook-library",
+      "severity": "medium",
+      "message": "VSAMMQ profile: copybook_library_concatenation is not in the store \u2014 out of which libraries the module compiles its copybooks",
+      "evidence": [],
+      "request": "Provide the SYSLIB concatenation of the module's compile JCL (copybook library order)",
+      "status": "open",
+      "id": "F0010",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-database-managers",
+      "severity": "medium",
+      "message": "VSAMMQ profile: database_managers is not in the store \u2014 which database systems the estate runs, and at which level \u2014 assumed 'IBM Db2 for z/OS 12' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "List the database systems installed (Db2, IMS DL/I, IDMS, Adabas, ...) with their versions: the scan proves only what this module touches, which is a lower bound",
+      "status": "open",
+      "id": "F0011",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-db2-library-level",
+      "severity": "medium",
+      "message": "VSAMMQ profile: db2_library_level is not in the store \u2014 which DB2 level the module is built and run against",
+      "evidence": [],
+      "request": "Provide the DB2 library concatenation (SDSNLOAD / SDSNEXIT) of the module's steps, which names the DB2 level",
+      "status": "open",
+      "id": "F0012",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-db2-plans",
+      "severity": "medium",
+      "message": "VSAMMQ profile: db2_plans is not in the store \u2014 which plans the module runs under",
+      "evidence": [],
+      "request": "Provide the plan / package names the module runs under (DSN RUN cards or the bind JCL)",
+      "status": "open",
+      "id": "F0013",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-db2-subsystem",
+      "severity": "medium",
+      "message": "VSAMMQ profile: db2_subsystem is not in the store \u2014 which DB2 subsystem the module binds and runs against",
+      "evidence": [],
+      "request": "State the DB2 subsystem id the module runs against in production",
+      "status": "open",
+      "id": "F0014",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-dynamic-call-convention",
+      "severity": "medium",
+      "message": "VSAMMQ profile: dynamic_call_convention is not in the store \u2014 how the module reaches programs by name",
+      "evidence": [],
+      "request": "Confirm how dynamic CALLs are resolved at run time (dispatcher table, CICS LINK, compiler DYNAM) and what supplies the program name",
+      "status": "open",
+      "id": "F0015",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-file-transfer",
+      "severity": "medium",
+      "message": "VSAMMQ profile: file_transfer is not in the store \u2014 how files cross the boundary of the estate \u2014 assumed 'IBM Connect:Direct' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the file-transfer product (Connect:Direct, FTP/SFTP, XCOM, MFT) used to move datasets in and out",
+      "status": "open",
+      "id": "F0016",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-library-manager",
+      "severity": "medium",
+      "message": "VSAMMQ profile: library_manager is not in the store \u2014 which source / change manager holds the members \u2014 assumed 'Broadcom Endevor' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the source library manager (Endevor, ChangeMan, Panvalet, Librarian, plain PDS) and how a member is promoted to production",
+      "status": "open",
+      "id": "F0017",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-load-library-concatenation",
+      "severity": "medium",
+      "message": "VSAMMQ profile: load_library_concatenation is not in the store \u2014 out of which libraries the module's load modules are fetched",
+      "evidence": [],
+      "request": "Provide the STEPLIB/JOBLIB concatenation the module's jobs run with (the JCL in the scan names none)",
+      "status": "open",
+      "id": "F0018",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-non-relational-stores",
+      "severity": "medium",
+      "message": "VSAMMQ profile: non_relational_stores is not in the store \u2014 which non-relational stores the module reads and writes",
+      "evidence": [],
+      "request": "Confirm the non-relational stores (VSAM, IMS DB, IDMS, sequential) the module uses",
+      "status": "open",
+      "id": "F0019",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-online-monitors",
+      "severity": "medium",
+      "message": "VSAMMQ profile: online_monitors reads IBM CICS Transaction Server from this module's store, which is what this module proves and not what the estate has \u2014 which transaction monitors the estate runs, and at which level",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:1",
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:1"
+      ],
+      "request": "List the online monitors installed (CICS TS, IMS TM, none) with their versions: the scan proves only what this module uses, which is a lower bound",
+      "status": "open",
+      "id": "F0020",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-output-manager",
+      "severity": "medium",
+      "message": "VSAMMQ profile: output_manager is not in the store \u2014 which product owns the printed output once it leaves the spool \u2014 assumed 'Broadcom CA View' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the output / report manager (CA View, CA Deliver, Control-D, CA Spool) and what it does with each SYSOUT class the jobs write to",
+      "status": "open",
+      "id": "F0021",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-scheduler-product",
+      "severity": "medium",
+      "message": "VSAMMQ profile: scheduler_product is not in the store \u2014 which scheduler runs the batch \u2014 assumed 'BMC Control-M' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the scheduler product and version, and provide an export of the definitions (see DETECTORS.md \"Scheduler definitions\")",
+      "status": "open",
+      "id": "F0022",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-security-manager",
+      "severity": "medium",
+      "message": "VSAMMQ profile: security_manager is not in the store \u2014 which external security manager guards the datasets \u2014 assumed 'IBM RACF' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the security manager (RACF, CA ACF2, CA Top Secret) and who owns the dataset profiles",
+      "status": "open",
+      "id": "F0023",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-sort-product",
+      "severity": "medium",
+      "message": "VSAMMQ profile: sort_product is not in the store \u2014 which sort product PGM=SORT resolves to \u2014 assumed 'IBM DFSORT' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the sort product installed (IBM DFSORT or Syncsort MFX): PGM=SORT is a linkage alias and does not say which one runs",
+      "status": "open",
+      "id": "F0024",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-standard-compiler",
+      "severity": "medium",
+      "message": "VSAMMQ profile: standard_compiler is not in the store \u2014 which compiler the shop builds production code with \u2014 assumed 'IBM Enterprise COBOL for z/OS 6.3' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the shop-standard compiler and release (Enterprise COBOL 6.x, ...); a single module's compile step is that module's, not the estate's",
+      "status": "open",
+      "id": "F0025",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-standard-compiler-options",
+      "severity": "medium",
+      "message": "VSAMMQ profile: standard_compiler_options is not in the store \u2014 which compile options the shop builds production code with \u2014 assumed 'RENT,NUMPROC(NOPFD),TRUNC(STD),ARCH(8),SSRANGE(NO)' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the shop-standard compile options (NUMPROC, TRUNC, ARCH, RENT, SSRANGE, ...) a module is expected to be built with",
+      "status": "open",
+      "id": "F0026",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-tape-manager",
+      "severity": "medium",
+      "message": "VSAMMQ profile: tape_manager is not in the store \u2014 which tape manager owns the volumes the jobs allocate \u2014 assumed 'Broadcom CA 1' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the tape / removable-media manager (CA 1, CA TLMS, DFSMSrmm) and the retention rules it applies: UNIT=TAPE proves tape is used, never which catalogue owns it",
+      "status": "open",
+      "id": "F0027",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-volumes",
+      "severity": "medium",
+      "message": "VSAMMQ profile: volumes is not in the store \u2014 how much data the module moves per run",
+      "evidence": [],
+      "request": "Provide the production volumes (records in / out per run, DB2 row counts, file sizes) the module handles",
+      "status": "open",
+      "id": "F0028",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-zos-version",
+      "severity": "medium",
+      "message": "VSAMMQ profile: zos_version is not in the store \u2014 which z/OS release the estate runs \u2014 assumed 'IBM z/OS 2.5' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the z/OS release of the production LPAR (D IPLINFO, or the release the shop is on)",
+      "status": "open",
+      "id": "F0029",
+      "owner": "human"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COACCT01 contains 4 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:191",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:326",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:396",
+        "../app/app-vsam-mq/cbl/COACCT01.cbl:549"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0030",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program CODATE01 contains 5 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:140",
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:275",
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:343",
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:347",
+        "../app/app-vsam-mq/cbl/CODATE01.cbl:453"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0031",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COACCT01 is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/COACCT01.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0032",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program CODATE01 is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/app-vsam-mq/cbl/CODATE01.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0033",
+      "owner": "informational"
+    },
+    {
+      "kind": "not-re-detected",
+      "severity": "info",
+      "message": "2 of 2 program/job/PROC description(s) and 1 of 1 business-logic summary(ies) are unwritten \u2014 the report renders them blank, which is not evidence that the artifacts have no business logic",
+      "evidence": [
+        "descriptions.json"
+      ],
+      "request": null,
+      "status": "closed",
+      "previous_kind": "descriptions-unwritten",
+      "previous_severity": "medium",
+      "previous_scan": "2026-10-08T04:11:15Z",
+      "superseded_by": [],
+      "closure": {
+        "by": "previous-scan",
+        "how": "reported by the scan of 2026-10-08T04:11:15Z as descriptions-unwritten/medium; not produced by the current scan (inputs or detectors changed)",
+        "evidence": [
+          "descriptions.json"
+        ]
+      },
+      "id": "F0034",
+      "owner": "informational"
+    }
+  ]
+}

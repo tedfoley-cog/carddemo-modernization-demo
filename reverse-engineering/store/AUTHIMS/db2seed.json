@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "module": "AUTHIMS",
+    "generated_at": "2026-10-08T04:11:45Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "sql": [
+        "../app/app-authorization-ims-db2-mq/ddl"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "path": "../app/app-authorization-ims-db2-mq/ddl/AUTHFRDS.ddl",
+      "kind": "sql",
+      "lines": 28,
+      "code_lines": 28
+    },
+    {
+      "path": "../app/app-authorization-ims-db2-mq/ddl/XAUTHFRD.ddl",
+      "kind": "sql",
+      "lines": 4,
+      "code_lines": 4
+    }
+  ],
+  "tables": [
+    {
+      "name": "CARDDEMO.AUTHFRDS",
+      "columns": [
+        {
+          "name": "CARD_NUM",
+          "type": "CHAR(16)"
+        },
+        {
+          "name": "AUTH_TS",
+          "type": "TIMESTAMP"
+        },
+        {
+          "name": "AUTH_TYPE",
+          "type": "CHAR(4)"
+        },
+        {
+          "name": "CARD_EXPIRY_DATE",
+          "type": "CHAR(4)"
+        },
+        {
+          "name": "MESSAGE_TYPE",
+          "type": "CHAR(6)"
+        },
+        {
+          "name": "MESSAGE_SOURCE",
+          "type": "CHAR(6)"
+        },
+        {
+          "name": "AUTH_ID_CODE",
+          "type": "CHAR(6)"
+        },
+        {
+          "name": "AUTH_RESP_CODE",
+          "type": "CHAR(2)"
+        },
+        {
+          "name": "AUTH_RESP_REASON",
+          "type": "CHAR(4)"
+        },
+        {
+          "name": "PROCESSING_CODE",
+          "type": "CHAR(6)"
+        },
+        {
+          "name": "TRANSACTION_AMT",
+          "type": "DECIMAL(12,2)"
+        },
+        {
+          "name": "APPROVED_AMT",
+          "type": "DECIMAL(12,2)"
+        },
+        {
+          "name": "MERCHANT_CATAGORY_CODE",
+          "type": "CHAR(4)"
+        },
+        {
+          "name": "ACQR_COUNTRY_CODE",
+          "type": "CHAR(3)"
+        },
+        {
+          "name": "POS_ENTRY_MODE",
+          "type": "SMALLINT"
+        },
+        {
+          "name": "MERCHANT_ID",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "MERCHANT_NAME",
+          "type": "VARCHAR(22)"
+        },
+        {
+          "name": "MERCHANT_CITY",
+          "type": "CHAR(13)"
+        },
+        {
+          "name": "MERCHANT_STATE",
+          "type": "CHAR(02)"
+        },
+        {
+          "name": "MERCHANT_ZIP",
+          "type": "CHAR(09)"
+        },
+        {
+          "name": "TRANSACTION_ID",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "MATCH_STATUS",
+          "type": "CHAR(1)"
+        },
+        {
+          "name": "AUTH_FRAUD",
+          "type": "CHAR(1)"
+        },
+        {
+          "name": "FRAUD_RPT_DATE",
+          "type": "DATE"
+        },
+        {
+          "name": "ACCT_ID",
+          "type": "DECIMAL(11)"
+        },
+        {
+          "name": "CUST_ID",
+          "type": "DECIMAL(9)"
+        }
+      ],
+      "rows": [],
+      "sources": [
+        "../app/app-authorization-ims-db2-mq/ddl/AUTHFRDS.ddl:1"
+      ]
+    }
+  ],
+  "unparsed": []
+}

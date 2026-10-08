@@ -1,0 +1,663 @@
+{
+  "meta": {
+    "module": "TRANTYPE",
+    "generated_at": "2026-10-08T04:11:56Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {}
+  },
+  "findings": [
+    {
+      "kind": "missing-copybook",
+      "severity": "high",
+      "message": "copy COCOM01Y is included by 2 program(s) (COTRTLIC, COTRTUPC) but no scanned copybook defines it",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:375",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:292"
+      ],
+      "request": "Provide copybook member 'COCOM01Y' from the production copybook library (SYSLIB)",
+      "status": "open",
+      "id": "F0001",
+      "owner": "human"
+    },
+    {
+      "kind": "missing-copybook",
+      "severity": "high",
+      "message": "copy COTTL01Y is included by 2 program(s) (COTRTLIC, COTRTUPC) but no scanned copybook defines it",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:430",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:262"
+      ],
+      "request": "Provide copybook member 'COTTL01Y' from the production copybook library (SYSLIB)",
+      "status": "open",
+      "id": "F0002",
+      "owner": "human"
+    },
+    {
+      "kind": "missing-copybook",
+      "severity": "high",
+      "message": "copy CSDAT01Y is included by 2 program(s) (COTRTLIC, COTRTUPC) but no scanned copybook defines it",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:480",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:268"
+      ],
+      "request": "Provide copybook member 'CSDAT01Y' from the production copybook library (SYSLIB)",
+      "status": "open",
+      "id": "F0003",
+      "owner": "human"
+    },
+    {
+      "kind": "missing-copybook",
+      "severity": "high",
+      "message": "copy CSMSG01Y is included by 2 program(s) (COTRTLIC, COTRTUPC) but no scanned copybook defines it",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:482",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:271"
+      ],
+      "request": "Provide copybook member 'CSMSG01Y' from the production copybook library (SYSLIB)",
+      "status": "open",
+      "id": "F0004",
+      "owner": "human"
+    },
+    {
+      "kind": "missing-copybook",
+      "severity": "high",
+      "message": "copy CSMSG02Y is included by 1 program(s) (COTRTUPC) but no scanned copybook defines it",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:274"
+      ],
+      "request": "Provide copybook member 'CSMSG02Y' from the production copybook library (SYSLIB)",
+      "status": "open",
+      "id": "F0005",
+      "owner": "human"
+    },
+    {
+      "kind": "missing-copybook",
+      "severity": "high",
+      "message": "copy CSSETATY is included by 1 program(s) (COTRTUPC) but no scanned copybook defines it",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1358"
+      ],
+      "request": "Provide copybook member 'CSSETATY' from the production copybook library (SYSLIB)",
+      "status": "open",
+      "id": "F0006",
+      "owner": "human"
+    },
+    {
+      "kind": "missing-copybook",
+      "severity": "high",
+      "message": "copy CSUSR01Y is included by 2 program(s) (COTRTLIC, COTRTUPC) but no scanned copybook defines it",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:485",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:277"
+      ],
+      "request": "Provide copybook member 'CSUSR01Y' from the production copybook library (SYSLIB)",
+      "status": "open",
+      "id": "F0007",
+      "owner": "human"
+    },
+    {
+      "kind": "missing-copybook",
+      "severity": "high",
+      "message": "copy CVACT02Y is included by 1 program(s) (COTRTLIC) but no scanned copybook defines it",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:490"
+      ],
+      "request": "Provide copybook member 'CVACT02Y' from the production copybook library (SYSLIB)",
+      "status": "open",
+      "id": "F0008",
+      "owner": "human"
+    },
+    {
+      "kind": "missing-copybook",
+      "severity": "high",
+      "message": "copy CVCRD01Y is included by 2 program(s) (COTRTLIC, COTRTUPC) but no scanned copybook defines it",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:327",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:241"
+      ],
+      "request": "Provide copybook member 'CVCRD01Y' from the production copybook library (SYSLIB)",
+      "status": "open",
+      "id": "F0009",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-environment-topology",
+      "severity": "high",
+      "message": "TRANTYPE profile: environment_topology is not in the store \u2014 which LPARs and environments (production / test / DR) the estate has \u2014 the scanned JCL allocates datasets under the high-level qualifier(s) AWS, INPFILE, OEM, OEMA: a naming observation, which is not proof of which LPAR or environment runs them",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:41",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:42",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:53",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:66",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:78",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:22",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:66",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:96"
+      ],
+      "request": "State the LPARs and environments, how a dataset or job name says which one it belongs to, and which sysplex they sit in: the scan can only list the qualifiers it saw",
+      "status": "open",
+      "id": "F0010",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-masking-policy",
+      "severity": "high",
+      "message": "TRANTYPE profile: masking_policy is not in the store \u2014 what may leave the estate, and in what shape",
+      "evidence": [],
+      "request": "State the data-masking policy for extracted test data (which fields must be masked, whether production data may leave the estate at all)",
+      "status": "open",
+      "id": "F0011",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-test-lpar",
+      "severity": "high",
+      "message": "TRANTYPE profile: test_lpar is not in the store \u2014 whether a test LPAR is available to run the migrated code against",
+      "evidence": [],
+      "request": "Confirm whether a test LPAR (or a sandbox subsystem) is available for parallel runs, and who can grant access",
+      "status": "open",
+      "id": "F0012",
+      "owner": "human"
+    },
+    {
+      "kind": "cics-resource-variable",
+      "severity": "medium",
+      "message": "program COTRTUPC: EXEC CICS SEND MAP names its map through data item CCARD-NEXT-MAPSET; CCARD-NEXT-MAPSET is not defined in the scanned program/copybooks",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1433"
+      ],
+      "request": "Determine the value(s) CCARD-NEXT-MAPSET holds when COTRTUPC runs EXEC CICS SEND MAP (trace its writers; it may come from a COMMAREA, a table or a control file)",
+      "status": "open",
+      "id": "F0013",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COTRTLIC CICS-XCTL CDEMO-TO-PROGRAM (../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620): data item CDEMO-TO-PROGRAM is not defined in the scanned data division (unscanned includes: CVCRD01Y, SQLCA, COCOM01Y, DFHBMSCA, DFHAID, COTTL01Y, CSDAT01Y, CSMSG01Y, CSUSR01Y, CVACT02Y) \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl"
+      ],
+      "request": "Locate the definition of CDEMO-TO-PROGRAM (unscanned copybook or include?)",
+      "status": "open",
+      "site": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+      "sites": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620"
+      ],
+      "end_kind": "unknown-item",
+      "id": "F0014",
+      "owner": "agent"
+    },
+    {
+      "kind": "dynamic-call-open",
+      "severity": "medium",
+      "message": "COTRTUPC CICS-XCTL CDEMO-TO-PROGRAM (../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457): data item CDEMO-TO-PROGRAM is not defined in the scanned data division (unscanned includes: CVCRD01Y, DFHBMSCA, DFHAID, COTTL01Y, CSDAT01Y, CSMSG01Y, CSMSG02Y, CSUSR01Y, SQLCA, COCOM01Y, CSSETATY) \u2014 resolve with the dynamic-call-resolution skill",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl"
+      ],
+      "request": "Locate the definition of CDEMO-TO-PROGRAM (unscanned copybook or include?)",
+      "status": "open",
+      "site": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457",
+      "sites": [
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457"
+      ],
+      "end_kind": "unknown-item",
+      "id": "F0015",
+      "owner": "agent"
+    },
+    {
+      "kind": "profile-batch-window",
+      "severity": "medium",
+      "message": "TRANTYPE profile: batch_window is not in the store \u2014 in which window the module's batch has to finish",
+      "evidence": [],
+      "request": "Confirm the batch window (start, hard deadline) the module's jobs must fit into",
+      "status": "open",
+      "id": "F0016",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-compiler",
+      "severity": "medium",
+      "message": "TRANTYPE profile: compiler is not in the store \u2014 which compiler builds the module",
+      "evidence": [],
+      "request": "Provide the compile JCL (Enterprise COBOL release and the PROC used) for the module",
+      "status": "open",
+      "id": "F0017",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-compiler-options",
+      "severity": "medium",
+      "message": "TRANTYPE profile: compiler_options is not in the store \u2014 which compiler options the module is built with",
+      "evidence": [],
+      "request": "Provide the compile step PARM= (NUMPROC, TRUNC, DYNAM, ARCH, ...) the module is built with; options change behaviour, so they belong to the build path",
+      "status": "open",
+      "id": "F0018",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-copybook-library",
+      "severity": "medium",
+      "message": "TRANTYPE profile: copybook_library_concatenation is not in the store \u2014 out of which libraries the module compiles its copybooks",
+      "evidence": [],
+      "request": "Provide the SYSLIB concatenation of the module's compile JCL (copybook library order)",
+      "status": "open",
+      "id": "F0019",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-database-managers",
+      "severity": "medium",
+      "message": "TRANTYPE profile: database_managers reads IBM Db2 for z/OS from this module's store, which is what this module proves and not what the estate has \u2014 which database systems the estate runs, and at which level",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:29",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:118",
+        "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:87"
+      ],
+      "request": "List the database systems installed (Db2, IMS DL/I, IDMS, Adabas, ...) with their versions: the scan proves only what this module touches, which is a lower bound",
+      "status": "open",
+      "id": "F0020",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-db2-library-level",
+      "severity": "medium",
+      "message": "TRANTYPE profile: db2_library_level is not in the store \u2014 which DB2 level the module is built and run against",
+      "evidence": [],
+      "request": "Provide the DB2 library concatenation (SDSNLOAD / SDSNEXIT) of the module's steps, which names the DB2 level",
+      "status": "open",
+      "id": "F0021",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-file-transfer",
+      "severity": "medium",
+      "message": "TRANTYPE profile: file_transfer is not in the store \u2014 how files cross the boundary of the estate \u2014 assumed 'IBM Connect:Direct' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the file-transfer product (Connect:Direct, FTP/SFTP, XCOM, MFT) used to move datasets in and out",
+      "status": "open",
+      "id": "F0022",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-interfaces",
+      "severity": "medium",
+      "message": "TRANTYPE profile: interfaces is not in the store \u2014 what the module exchanges with the world outside it",
+      "evidence": [],
+      "request": "Confirm the module's interfaces (modules it calls but does not own, MQ, remote systems, transfers) and who owns the other side",
+      "status": "open",
+      "id": "F0023",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-library-manager",
+      "severity": "medium",
+      "message": "TRANTYPE profile: library_manager is not in the store \u2014 which source / change manager holds the members \u2014 assumed 'Broadcom Endevor' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the source library manager (Endevor, ChangeMan, Panvalet, Librarian, plain PDS) and how a member is promoted to production",
+      "status": "open",
+      "id": "F0024",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-online-monitors",
+      "severity": "medium",
+      "message": "TRANTYPE profile: online_monitors reads IBM CICS Transaction Server from this module's store, which is what this module proves and not what the estate has \u2014 which transaction monitors the estate runs, and at which level",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:1",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457"
+      ],
+      "request": "List the online monitors installed (CICS TS, IMS TM, none) with their versions: the scan proves only what this module uses, which is a lower bound",
+      "status": "open",
+      "id": "F0025",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-output-manager",
+      "severity": "medium",
+      "message": "TRANTYPE profile: output_manager is not in the store \u2014 which product owns the printed output once it leaves the spool \u2014 21 DD(s) write to SYSOUT: the jobs print, but a spool class never names the product that archives or delivers the output \u2014 assumed 'Broadcom CA View' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:43",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:44",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:45",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:55",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:56",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:57",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:68",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:69"
+      ],
+      "request": "State the output / report manager (CA View, CA Deliver, Control-D, CA Spool) and what it does with each SYSOUT class the jobs write to",
+      "status": "open",
+      "id": "F0026",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-scheduler-product",
+      "severity": "medium",
+      "message": "TRANTYPE profile: scheduler_product is not in the store \u2014 which scheduler runs the batch \u2014 assumed 'BMC Control-M' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the scheduler product and version, and provide an export of the definitions (see DETECTORS.md \"Scheduler definitions\")",
+      "status": "open",
+      "id": "F0027",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-security-manager",
+      "severity": "medium",
+      "message": "TRANTYPE profile: security_manager is not in the store \u2014 which external security manager guards the datasets \u2014 assumed 'IBM RACF' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the security manager (RACF, CA ACF2, CA Top Secret) and who owns the dataset profiles",
+      "status": "open",
+      "id": "F0028",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-sort-product",
+      "severity": "medium",
+      "message": "TRANTYPE profile: sort_product is not in the store \u2014 which sort product PGM=SORT resolves to \u2014 assumed 'IBM DFSORT' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the sort product installed (IBM DFSORT or Syncsort MFX): PGM=SORT is a linkage alias and does not say which one runs",
+      "status": "open",
+      "id": "F0029",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-standard-compiler",
+      "severity": "medium",
+      "message": "TRANTYPE profile: standard_compiler is not in the store \u2014 which compiler the shop builds production code with \u2014 assumed 'IBM Enterprise COBOL for z/OS 6.3' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the shop-standard compiler and release (Enterprise COBOL 6.x, ...); a single module's compile step is that module's, not the estate's",
+      "status": "open",
+      "id": "F0030",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-standard-compiler-options",
+      "severity": "medium",
+      "message": "TRANTYPE profile: standard_compiler_options is not in the store \u2014 which compile options the shop builds production code with \u2014 assumed 'RENT,NUMPROC(NOPFD),TRUNC(STD),ARCH(8),SSRANGE(NO)' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the shop-standard compile options (NUMPROC, TRUNC, ARCH, RENT, SSRANGE, ...) a module is expected to be built with",
+      "status": "open",
+      "id": "F0031",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-tape-manager",
+      "severity": "medium",
+      "message": "TRANTYPE profile: tape_manager is not in the store \u2014 which tape manager owns the volumes the jobs allocate \u2014 assumed 'Broadcom CA 1' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the tape / removable-media manager (CA 1, CA TLMS, DFSMSrmm) and the retention rules it applies: UNIT=TAPE proves tape is used, never which catalogue owns it",
+      "status": "open",
+      "id": "F0032",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-volumes",
+      "severity": "medium",
+      "message": "TRANTYPE profile: volumes is not in the store \u2014 how much data the module moves per run",
+      "evidence": [],
+      "request": "Provide the production volumes (records in / out per run, DB2 row counts, file sizes) the module handles",
+      "status": "open",
+      "id": "F0033",
+      "owner": "human"
+    },
+    {
+      "kind": "profile-zos-version",
+      "severity": "medium",
+      "message": "TRANTYPE profile: zos_version is not in the store \u2014 which z/OS release the estate runs \u2014 assumed 'IBM z/OS 2.5' from mftb's typical-shop defaults until somebody confirms it",
+      "evidence": [],
+      "request": "State the z/OS release of the production LPAR (D IPLINFO, or the release the shop is on)",
+      "status": "open",
+      "id": "F0034",
+      "owner": "human"
+    },
+    {
+      "kind": "copybook-call-sites",
+      "severity": "info",
+      "message": "copybook CSDB2RPY contains 1 call site(s); they execute inside every including program (COTRTLIC) \u2014 include them in path tracing",
+      "evidence": [
+        "../app/app-transaction-type-db2/cpy/CSDB2RPY.cpy"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0035",
+      "owner": "agent"
+    },
+    {
+      "kind": "db2-no-dclgen",
+      "severity": "info",
+      "message": "table SYSIBM.SYSDUMMY1: COTRTLIC access it without a DECLARE TABLE (DCLGEN); host variables come from copybook CSDB2RWY, so the precompiler never checked them against the table. Checked here against nothing (no DDL scanned, no DCLGEN): 0 ok / 0 mismatch / 0 unchecked",
+      "evidence": [
+        "../app/app-transaction-type-db2/cpy/CSDB2RPY.cpy:23-28"
+      ],
+      "request": "No action if the DDL check is clean; otherwise regenerate DCLGEN members from the live catalog and INCLUDE them so the precompiler enforces the layouts",
+      "status": "open",
+      "id": "F0036",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COTRTLIC contains 12 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:616",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:620",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:910",
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:931"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0037",
+      "owner": "informational"
+    },
+    {
+      "kind": "out-of-scope-cics",
+      "severity": "info",
+      "message": "program COTRTUPC contains 12 EXEC CICS statement(s) \u2014 online flow is not traced by the batch inventory; its resources are listed in connections.json (CICS)",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:348",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:453",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:457",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:567",
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl:642"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0038",
+      "owner": "informational"
+    },
+    {
+      "kind": "profile-multiple-build-paths",
+      "severity": "info",
+      "message": "TRANTYPE is built and run under 2 build paths: BP01 = no load library, DB2 OEM.DB2.DAZ1.SDSNEXIT > OEMA.DB2.VERSIONA.SDSNLOAD; BP02 = AWS.M2.CARDDEMO.LOADLIB, DB2 OEM.DB2.DAZ1.SDSNEXIT > OEMA.DB2.VERSIONA.SDSNLOAD \u2014 the module is not one unit of migration, each path is",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:41",
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:42",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:22",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:23",
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:24"
+      ],
+      "request": "Confirm that the 2 build paths are intended (different DB2 level, load concatenation or compile options inside one module) and which one the migration targets",
+      "status": "open",
+      "id": "F0039",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COTRTLIC is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0040",
+      "owner": "informational"
+    },
+    {
+      "kind": "unreferenced-program",
+      "severity": "info",
+      "message": "program COTRTUPC is not executed by any scanned job step (it may be CALLed by other programs; call-edge analysis is a later phase)",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl"
+      ],
+      "request": null,
+      "status": "open",
+      "id": "F0041",
+      "owner": "informational"
+    },
+    {
+      "kind": "control-cards-resolved",
+      "severity": "info",
+      "message": "job CREADB2 step CRCRDDB runs launcher IKJEFT01 -> program DSNTIAD",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:52",
+        "../app/app-transaction-type-db2/ctl/DB2TIAD1.ctl"
+      ],
+      "request": null,
+      "status": "closed",
+      "closure": {
+        "by": "scanner",
+        "how": "SYSTSIN points at &LBNM..CNTL(DB2TIAD1) and the scanned control-card member ../app/app-transaction-type-db2/ctl/DB2TIAD1.ctl contains RUN PROGRAM(DSNTIAD)",
+        "evidence": [
+          "../app/app-transaction-type-db2/jcl/CREADB21.jcl:52",
+          "../app/app-transaction-type-db2/ctl/DB2TIAD1.ctl"
+        ]
+      },
+      "id": "F0042",
+      "owner": "informational"
+    },
+    {
+      "kind": "control-cards-resolved",
+      "severity": "info",
+      "message": "job CREADB2 step LDTCCAT runs launcher IKJEFT01 -> program DSNTEP4",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:77",
+        "../app/app-transaction-type-db2/ctl/DB2TEP41.ctl"
+      ],
+      "request": null,
+      "status": "closed",
+      "closure": {
+        "by": "scanner",
+        "how": "SYSTSIN points at &LBNM..CNTL(DB2TEP41) and the scanned control-card member ../app/app-transaction-type-db2/ctl/DB2TEP41.ctl contains RUN PROGRAM(DSNTEP4)",
+        "evidence": [
+          "../app/app-transaction-type-db2/jcl/CREADB21.jcl:77",
+          "../app/app-transaction-type-db2/ctl/DB2TEP41.ctl"
+        ]
+      },
+      "id": "F0043",
+      "owner": "informational"
+    },
+    {
+      "kind": "control-cards-resolved",
+      "severity": "info",
+      "message": "job CREADB2 step RUNTEP2 runs launcher IKJEFT01 -> program DSNTEP4",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:65",
+        "../app/app-transaction-type-db2/ctl/DB2TEP41.ctl"
+      ],
+      "request": null,
+      "status": "closed",
+      "closure": {
+        "by": "scanner",
+        "how": "SYSTSIN points at &LBNM..CNTL(DB2TEP41) and the scanned control-card member ../app/app-transaction-type-db2/ctl/DB2TEP41.ctl contains RUN PROGRAM(DSNTEP4)",
+        "evidence": [
+          "../app/app-transaction-type-db2/jcl/CREADB21.jcl:65",
+          "../app/app-transaction-type-db2/ctl/DB2TEP41.ctl"
+        ]
+      },
+      "id": "F0044",
+      "owner": "informational"
+    },
+    {
+      "kind": "db2-command",
+      "severity": "info",
+      "message": "job CREADB2 step FREEPLN runs launcher IKJEFT01: member DB2FREE (../app/app-transaction-type-db2/ctl/DB2FREE.ctl) issues DSN subcommand(s) FREE; no application program is run",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/CREADB21.jcl:40"
+      ],
+      "request": null,
+      "status": "closed",
+      "closure": {
+        "by": "scanner",
+        "how": "every subcommand of the DSN stream (FREE) is DB2 administration (mftb/knowledge/ DSN_SUBCOMMANDS); only RUN PROGRAM starts an application program",
+        "evidence": [
+          "../app/app-transaction-type-db2/jcl/CREADB21.jcl:40"
+        ]
+      },
+      "id": "F0045",
+      "owner": "informational"
+    },
+    {
+      "kind": "dynamic-call-resolved",
+      "severity": "info",
+      "message": "COTRTLIC CICS-XCTL LIT-ADDTPGM (../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648) resolves to COTRTUPC",
+      "evidence": [
+        "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648"
+      ],
+      "request": null,
+      "status": "closed",
+      "site": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:648",
+      "closure": {
+        "by": "scanner",
+        "how": "2 deterministic hop(s): definition LIT-ADDTPGM -> value-clause LIT-ADDTPGM",
+        "evidence": [
+          "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl:50"
+        ]
+      },
+      "id": "F0046",
+      "owner": "informational"
+    },
+    {
+      "kind": "launcher-resolved",
+      "severity": "info",
+      "message": "job MNTTRDB2 step STEP1 runs launcher IKJEFT01 -> program COBTUPDT (plan CARDDEMO)",
+      "evidence": [
+        "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:21"
+      ],
+      "request": null,
+      "status": "closed",
+      "closure": {
+        "by": "scanner",
+        "how": "RUN PROGRAM(COBTUPDT) found in the inline SYSTSIN stream",
+        "evidence": [
+          "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:21"
+        ]
+      },
+      "id": "F0047",
+      "owner": "informational"
+    },
+    {
+      "kind": "not-re-detected",
+      "severity": "info",
+      "message": "1 of 1 business-logic summary(ies) are unwritten \u2014 the report renders them blank, which is not evidence that the artifacts have no business logic",
+      "evidence": [
+        "descriptions.json"
+      ],
+      "request": null,
+      "status": "closed",
+      "previous_kind": "descriptions-unwritten",
+      "previous_severity": "info",
+      "previous_scan": "2026-10-08T04:11:46Z",
+      "superseded_by": [],
+      "closure": {
+        "by": "previous-scan",
+        "how": "reported by the scan of 2026-10-08T04:11:46Z as descriptions-unwritten/info; not produced by the current scan (inputs or detectors changed)",
+        "evidence": [
+          "descriptions.json"
+        ]
+      },
+      "id": "F0048",
+      "owner": "informational"
+    }
+  ]
+}

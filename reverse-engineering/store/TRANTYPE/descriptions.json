@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "module": "TRANTYPE",
+    "generated_at": "2026-10-08T04:11:56Z",
+    "tool": "mftb 0.2.1",
+    "inputs": [
+      "programs.json",
+      "jobs.json"
+    ]
+  },
+  "author": "agent",
+  "summary": {
+    "subjects": 6,
+    "written": 6,
+    "unknown": 0,
+    "by_kind": {
+      "program": 3,
+      "jcl": 3,
+      "proc": 0
+    },
+    "with_key_points": 0,
+    "overviews": 1,
+    "overviews_written": 1
+  },
+  "overviews": [
+    {
+      "kind": "module",
+      "name": "TRANTYPE",
+      "key_points": [
+        "Reference-data extension: maintains transaction types and categories in DB2 through CICS list/update screens and a batch update job."
+      ],
+      "basis": [
+        "app/app-transaction-type-db2/README.md:1-40"
+      ],
+      "written_by": "agent"
+    }
+  ],
+  "descriptions": [
+    {
+      "kind": "program",
+      "name": "COBTUPDT",
+      "path": "../app/app-transaction-type-db2/cbl/COBTUPDT.cbl",
+      "description": "Update Transaction type based on user input       *00040032",
+      "key_points": [],
+      "basis": [
+        "app/app-transaction-type-db2/cbl/COBTUPDT.cbl:4"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COTRTLIC",
+      "path": "../app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+      "description": "List Transaction Type for updates and deletes",
+      "key_points": [],
+      "basis": [
+        "app/app-transaction-type-db2/cbl/COTRTLIC.cbl:4"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "program",
+      "name": "COTRTUPC",
+      "path": "../app/app-transaction-type-db2/cbl/COTRTUPC.cbl",
+      "description": "Accept and process TRANSACTION TYPE UPDATE        *00040000",
+      "key_points": [],
+      "basis": [
+        "app/app-transaction-type-db2/cbl/COTRTUPC.cbl:4"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "CREADB2",
+      "path": "../app/app-transaction-type-db2/jcl/CREADB21.jcl",
+      "description": "Runs IKJEFT01, IEFBR14 (5 steps)",
+      "key_points": [],
+      "basis": [
+        "app/app-transaction-type-db2/jcl/CREADB21.jcl:40-77"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "MNTTRDB2",
+      "path": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl",
+      "description": "Runs IKJEFT01 (1 step)",
+      "key_points": [],
+      "basis": [
+        "app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:21-21"
+      ],
+      "written_by": "agent"
+    },
+    {
+      "kind": "jcl",
+      "name": "TRANEXTR",
+      "path": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl",
+      "description": "Runs IEBGENER, IEFBR14, IKJEFT01 (5 steps)",
+      "key_points": [],
+      "basis": [
+        "app/app-transaction-type-db2/jcl/TRANEXTR.jcl:31-95"
+      ],
+      "written_by": "agent"
+    }
+  ]
+}

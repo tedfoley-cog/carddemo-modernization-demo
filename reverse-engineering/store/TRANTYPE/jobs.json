@@ -1,0 +1,1161 @@
+{
+  "meta": {
+    "module": "TRANTYPE",
+    "generated_at": "2026-10-08T04:11:55Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "jcl": [
+        "../app/app-transaction-type-db2/jcl"
+      ],
+      "procs": [],
+      "cntl": [
+        "../app/app-transaction-type-db2/ctl"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "path": "../app/app-transaction-type-db2/ctl/DB2CREAT.ctl",
+      "kind": "cntl",
+      "lines": 106,
+      "code_lines": 86
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/DB2FREE.ctl",
+      "kind": "cntl",
+      "lines": 19,
+      "code_lines": 19
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/DB2LTCAT.ctl",
+      "kind": "cntl",
+      "lines": 39,
+      "code_lines": 38
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/DB2LTTYP.ctl",
+      "kind": "cntl",
+      "lines": 24,
+      "code_lines": 24
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/DB2TEP41.ctl",
+      "kind": "cntl",
+      "lines": 18,
+      "code_lines": 18
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/DB2TIAD1.ctl",
+      "kind": "cntl",
+      "lines": 17,
+      "code_lines": 17
+    },
+    {
+      "path": "../app/app-transaction-type-db2/ctl/REPROCT.ctl",
+      "kind": "cntl",
+      "lines": 15,
+      "code_lines": 15
+    },
+    {
+      "path": "../app/app-transaction-type-db2/jcl/CREADB21.jcl",
+      "kind": "jcl",
+      "lines": 84,
+      "code_lines": 40
+    },
+    {
+      "path": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl",
+      "kind": "jcl",
+      "lines": 30,
+      "code_lines": 12
+    },
+    {
+      "path": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl",
+      "kind": "jcl",
+      "lines": 122,
+      "code_lines": 83
+    }
+  ],
+  "procs": [],
+  "proc_defs": [],
+  "proc_facts": [],
+  "jobs": [
+    {
+      "name": "CREADB2",
+      "kind": "job",
+      "path": "../app/app-transaction-type-db2/jcl/CREADB21.jcl",
+      "steps": [
+        {
+          "job": "CREADB2",
+          "step": "FREEPLN",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IKJEFT01",
+          "kind": "launcher",
+          "program": null,
+          "resolution": "db2-command",
+          "plan": null,
+          "psb": null,
+          "parm": null,
+          "cond": null,
+          "if_context": [],
+          "dds": [
+            {
+              "name": "STEPLIB",
+              "dsn": "OEM.DB2.DAZ1.SDSNEXIT",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 41,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:41"
+            },
+            {
+              "name": "",
+              "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 42,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:42"
+            },
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 43,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:43"
+            },
+            {
+              "name": "SYSTSPRT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 44,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:44"
+            },
+            {
+              "name": "SYSUDUMP",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 45,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:45"
+            },
+            {
+              "name": "SYSTSIN",
+              "dsn": "&LBNM..CNTL(DB2FREE)",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 46,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:46"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [
+            {
+              "kind": "db2-command",
+              "commands": [
+                "FREE"
+              ],
+              "detail": "member DB2FREE (../app/app-transaction-type-db2/ctl/DB2FREE.ctl) issues DSN subcommand(s) FREE; no application program is run"
+            }
+          ],
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:40"
+        },
+        {
+          "job": "CREADB2",
+          "step": "CRCRDDB",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IKJEFT01",
+          "kind": "utility",
+          "program": null,
+          "resolution": "systsin-member",
+          "plan": null,
+          "psb": null,
+          "parm": null,
+          "cond": null,
+          "if_context": [],
+          "dds": [
+            {
+              "name": "STEPLIB",
+              "dsn": "OEM.DB2.&DB2S..RUNLIB.LOAD",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 53,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:53"
+            },
+            {
+              "name": "",
+              "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 54,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:54"
+            },
+            {
+              "name": "SYSTSPRT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 55,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:55"
+            },
+            {
+              "name": "SYSUDUMP",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 56,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:56"
+            },
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 57,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:57"
+            },
+            {
+              "name": "SYSTSIN",
+              "dsn": "&LBNM..CNTL(DB2TIAD1)",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 58,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:58"
+            },
+            {
+              "name": "SYSIN",
+              "dsn": "&LBNM..CNTL(DB2CREAT)",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 59,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:59"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [
+            {
+              "kind": "launcher-utility",
+              "utility": "DSNTIAD",
+              "detail": "control-card member DB2TIAD1 runs utility DSNTIAD"
+            },
+            {
+              "kind": "control-cards-resolved",
+              "member": "DB2TIAD1",
+              "dsn": "&LBNM..CNTL(DB2TIAD1)",
+              "program": "DSNTIAD",
+              "member_source": "../app/app-transaction-type-db2/ctl/DB2TIAD1.ctl",
+              "detail": "SYSTSIN member DB2TIAD1 (../app/app-transaction-type-db2/ctl/DB2TIAD1.ctl) runs PROGRAM(DSNTIAD)"
+            }
+          ],
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:52"
+        },
+        {
+          "job": "CREADB2",
+          "step": "LDTTYPE",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IEFBR14",
+          "kind": "utility",
+          "program": null,
+          "resolution": null,
+          "plan": null,
+          "psb": null,
+          "parm": null,
+          "cond": "(0,NE)",
+          "if_context": [],
+          "dds": [],
+          "unresolved_symbolics": [],
+          "facts": [],
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:64"
+        },
+        {
+          "job": "CREADB2",
+          "step": "RUNTEP2",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IKJEFT01",
+          "kind": "utility",
+          "program": null,
+          "resolution": "systsin-member",
+          "plan": "DSNTEP4",
+          "psb": null,
+          "parm": null,
+          "cond": null,
+          "if_context": [],
+          "dds": [
+            {
+              "name": "STEPLIB",
+              "dsn": "OEM.DB2.&DB2S..RUNLIB.LOAD",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 66,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:66"
+            },
+            {
+              "name": "",
+              "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 67,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:67"
+            },
+            {
+              "name": "SYSTSPRT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 68,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:68"
+            },
+            {
+              "name": "SYSUDUMP",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 69,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:69"
+            },
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 70,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:70"
+            },
+            {
+              "name": "SYSTSIN",
+              "dsn": "&LBNM..CNTL(DB2TEP41)",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 71,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:71"
+            },
+            {
+              "name": "SYSIN",
+              "dsn": "&LBNM..CNTL(DB2LTTYP)",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 72,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:72"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [
+            {
+              "kind": "launcher-utility",
+              "utility": "DSNTEP4",
+              "detail": "control-card member DB2TEP41 runs utility DSNTEP4"
+            },
+            {
+              "kind": "control-cards-resolved",
+              "member": "DB2TEP41",
+              "dsn": "&LBNM..CNTL(DB2TEP41)",
+              "program": "DSNTEP4",
+              "member_source": "../app/app-transaction-type-db2/ctl/DB2TEP41.ctl",
+              "detail": "SYSTSIN member DB2TEP41 (../app/app-transaction-type-db2/ctl/DB2TEP41.ctl) runs PROGRAM(DSNTEP4)"
+            }
+          ],
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:65"
+        },
+        {
+          "job": "CREADB2",
+          "step": "LDTCCAT",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IKJEFT01",
+          "kind": "utility",
+          "program": null,
+          "resolution": "systsin-member",
+          "plan": "DSNTEP4",
+          "psb": null,
+          "parm": null,
+          "cond": "(0,NE)",
+          "if_context": [],
+          "dds": [
+            {
+              "name": "STEPLIB",
+              "dsn": "OEM.DB2.&DB2S..RUNLIB.LOAD",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 78,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:78"
+            },
+            {
+              "name": "",
+              "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 79,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:79"
+            },
+            {
+              "name": "SYSTSPRT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 80,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:80"
+            },
+            {
+              "name": "SYSUDUMP",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 81,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:81"
+            },
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 82,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:82"
+            },
+            {
+              "name": "SYSTSIN",
+              "dsn": "&LBNM..CNTL(DB2TEP41)",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 83,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:83"
+            },
+            {
+              "name": "SYSIN",
+              "dsn": "&LBNM..CNTL(DB2LTCAT)",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 84,
+              "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:84"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [
+            {
+              "kind": "launcher-utility",
+              "utility": "DSNTEP4",
+              "detail": "control-card member DB2TEP41 runs utility DSNTEP4"
+            },
+            {
+              "kind": "control-cards-resolved",
+              "member": "DB2TEP41",
+              "dsn": "&LBNM..CNTL(DB2TEP41)",
+              "program": "DSNTEP4",
+              "member_source": "../app/app-transaction-type-db2/ctl/DB2TEP41.ctl",
+              "detail": "SYSTSIN member DB2TEP41 (../app/app-transaction-type-db2/ctl/DB2TEP41.ctl) runs PROGRAM(DSNTEP4)"
+            }
+          ],
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:77"
+        }
+      ],
+      "facts": [
+        {
+          "kind": "job-level-dd",
+          "name": "JOBLIB",
+          "detail": "DSN=OEM.DB2.&DB2S..SDSNLOAD,DISP=SHR",
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:32"
+        },
+        {
+          "kind": "job-level-dd",
+          "name": "",
+          "detail": "DSN=OEM.DB2.&DB2S..SDSNLOAD,DISP=SHR",
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:33"
+        },
+        {
+          "kind": "job-level-dd",
+          "name": "",
+          "detail": "DSN=CEE.SCEERUN,DISP=SHR",
+          "source": "../app/app-transaction-type-db2/jcl/CREADB21.jcl:34"
+        }
+      ]
+    },
+    {
+      "name": "MNTTRDB2",
+      "kind": "job",
+      "path": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl",
+      "steps": [
+        {
+          "job": "MNTTRDB2",
+          "step": "STEP1",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IKJEFT01",
+          "kind": "launcher",
+          "program": "COBTUPDT",
+          "resolution": "systsin-inline",
+          "plan": "CARDDEMO",
+          "psb": null,
+          "parm": null,
+          "cond": null,
+          "if_context": [],
+          "dds": [
+            {
+              "name": "STEPLIB",
+              "dsn": "OEM.DB2.DAZ1.SDSNEXIT",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 22,
+              "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:22"
+            },
+            {
+              "name": "",
+              "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 23,
+              "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:23"
+            },
+            {
+              "name": "",
+              "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 24,
+              "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:24"
+            },
+            {
+              "name": "DBRMLIB",
+              "dsn": "AWS.M2.CARDDEMO.DBRMLIB",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 25,
+              "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:25"
+            },
+            {
+              "name": "SYSTSPRT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 26,
+              "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:26"
+            },
+            {
+              "name": "INPFILE",
+              "dsn": "INPFILE",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 27,
+              "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:27"
+            },
+            {
+              "name": "SYSTSIN",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": true,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": "     DSN SYSTEM(DAZ1)\n          RUN PROGRAM(COBTUPDT) PLAN(CARDDEMO)",
+              "line": 28,
+              "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:28"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [],
+          "source": "../app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:21"
+        }
+      ],
+      "facts": []
+    },
+    {
+      "name": "TRANEXTR",
+      "kind": "job",
+      "path": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl",
+      "steps": [
+        {
+          "job": "TRANEXTR",
+          "step": "STEP10",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IEBGENER",
+          "kind": "utility",
+          "program": null,
+          "resolution": null,
+          "plan": null,
+          "psb": null,
+          "parm": null,
+          "cond": null,
+          "if_context": [],
+          "dds": [
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 32,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:32"
+            },
+            {
+              "name": "SYSIN",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 33,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:33"
+            },
+            {
+              "name": "SYSUT1",
+              "dsn": "&HLQ..TRANTYPE.PS",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 34,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:34"
+            },
+            {
+              "name": "SYSUT2",
+              "dsn": "&HLQ..TRANTYPE.BKUP(+1)",
+              "disp": "(NEW,CATLG)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {
+                "DCB": "(LRECL=60,RECFM=FB,BLKSIZE=600)"
+              },
+              "inline_text": null,
+              "line": 35,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:35"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [],
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:31"
+        },
+        {
+          "job": "TRANEXTR",
+          "step": "STEP20",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IEBGENER",
+          "kind": "utility",
+          "program": null,
+          "resolution": null,
+          "plan": null,
+          "psb": null,
+          "parm": null,
+          "cond": "(0,NE)",
+          "if_context": [],
+          "dds": [
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 43,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:43"
+            },
+            {
+              "name": "SYSIN",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 44,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:44"
+            },
+            {
+              "name": "SYSUT1",
+              "dsn": "&HLQ..TRANCATG.PS",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 45,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:45"
+            },
+            {
+              "name": "SYSUT2",
+              "dsn": "&HLQ..TRANCATG.PS.BKUP(+1)",
+              "disp": "(NEW,CATLG)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {
+                "DCB": "(LRECL=60,RECFM=FB,BLKSIZE=600)"
+              },
+              "inline_text": null,
+              "line": 46,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:46"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [],
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:42"
+        },
+        {
+          "job": "TRANEXTR",
+          "step": "STEP30",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IEFBR14",
+          "kind": "utility",
+          "program": null,
+          "resolution": null,
+          "plan": null,
+          "psb": null,
+          "parm": null,
+          "cond": "(0,NE)",
+          "if_context": [],
+          "dds": [
+            {
+              "name": "DD01",
+              "dsn": "&HLQ..TRANTYPE.PS",
+              "disp": "(MOD,DELETE,DELETE)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {
+                "UNIT": "SYSDA"
+              },
+              "inline_text": null,
+              "line": 54,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:54"
+            },
+            {
+              "name": "DD02",
+              "dsn": "&HLQ..TRANCATG.PS",
+              "disp": "(MOD,DELETE,DELETE)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {
+                "UNIT": "SYSDA"
+              },
+              "inline_text": null,
+              "line": 58,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:58"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [],
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:53"
+        },
+        {
+          "job": "TRANEXTR",
+          "step": "STEP40",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IKJEFT01",
+          "kind": "utility",
+          "program": null,
+          "resolution": "systsin-inline",
+          "plan": "DSNTIAUL",
+          "psb": null,
+          "parm": null,
+          "cond": "(0,NE)",
+          "if_context": [],
+          "dds": [
+            {
+              "name": "STEPLIB",
+              "dsn": "OEM.DB2.DAZ1.RUNLIB.LOAD",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 66,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:66"
+            },
+            {
+              "name": "",
+              "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 67,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:67"
+            },
+            {
+              "name": "SYSTSPRT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 68,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:68"
+            },
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 69,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:69"
+            },
+            {
+              "name": "SYSUDUMP",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 70,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:70"
+            },
+            {
+              "name": "SYSPUNCH",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 71,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:71"
+            },
+            {
+              "name": "SYSREC00",
+              "dsn": "&HLQ..TRANTYPE.PS",
+              "disp": "(NEW,CATLG,DELETE)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 72,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:72"
+            },
+            {
+              "name": "SYSIN",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": true,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": " SELECT CAST(CONCAT(CONCAT(\n   TR_TYPE\n  ,CAST(TR_DESCRIPTION AS CHAR(50))\n   )\n  ,REPEAT('0',8)\n ) AS CHAR(60))\n  FROM\n  CARDDEMO.TRANSACTION_TYPE\n  ORDER BY TR_TYPE;",
+              "line": 75,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:75"
+            },
+            {
+              "name": "SYSTSIN",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": true,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": "  DSN SYSTEM(DAZ1)\n  RUN PROGRAM(DSNTIAUL) -\n  PLAN(DSNTIAUL) -\n  PARMS('SQL')",
+              "line": 86,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:86"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [
+            {
+              "kind": "launcher-utility",
+              "utility": "DSNTIAUL",
+              "detail": "SYSTSIN runs utility DSNTIAUL"
+            }
+          ],
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:65"
+        },
+        {
+          "job": "TRANEXTR",
+          "step": "STEP50",
+          "proc": null,
+          "proc_step": null,
+          "pgm": "IKJEFT01",
+          "kind": "utility",
+          "program": null,
+          "resolution": "systsin-inline",
+          "plan": "DSNTIAUL",
+          "psb": null,
+          "parm": null,
+          "cond": "(4,LT)",
+          "if_context": [],
+          "dds": [
+            {
+              "name": "STEPLIB",
+              "dsn": "OEM.DB2.DAZ1.RUNLIB.LOAD",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 96,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:96"
+            },
+            {
+              "name": "",
+              "dsn": "OEMA.DB2.VERSIONA.SDSNLOAD",
+              "disp": "SHR",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 97,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:97"
+            },
+            {
+              "name": "SYSTSPRT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 98,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:98"
+            },
+            {
+              "name": "SYSPRINT",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 99,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:99"
+            },
+            {
+              "name": "SYSUDUMP",
+              "dsn": null,
+              "disp": null,
+              "sysout": "*",
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 100,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:100"
+            },
+            {
+              "name": "SYSPUNCH",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": false,
+              "dummy": true,
+              "attrs": {},
+              "inline_text": null,
+              "line": 101,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:101"
+            },
+            {
+              "name": "SYSREC00",
+              "dsn": "&HLQ..TRANCATG.PS",
+              "disp": "(NEW,CATLG,DELETE)",
+              "sysout": null,
+              "inline": false,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": null,
+              "line": 102,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:102"
+            },
+            {
+              "name": "SYSIN",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": true,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": "  SELECT CAST(\n        TRC_TYPE_CODE\n     || TRC_TYPE_CATEGORY\n     || CAST(TRC_CAT_DATA AS CHAR(50))\n     || REPEAT('0',4)\n                      AS CHAR(60))\n  FROM  CARDDEMO.TRANSACTION_TYPE_CATEGORY\n  ORDER BY\n        TRC_TYPE_CODE\n      , TRC_TYPE_CATEGORY;",
+              "line": 105,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:105"
+            },
+            {
+              "name": "SYSTSIN",
+              "dsn": null,
+              "disp": null,
+              "sysout": null,
+              "inline": true,
+              "dummy": false,
+              "attrs": {},
+              "inline_text": "  DSN SYSTEM(DAZ1)\n  RUN PROGRAM(DSNTIAUL) -\n  PLAN(DSNTIAUL) -\n  PARMS('SQL')",
+              "line": 117,
+              "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:117"
+            }
+          ],
+          "unresolved_symbolics": [],
+          "facts": [
+            {
+              "kind": "launcher-utility",
+              "utility": "DSNTIAUL",
+              "detail": "SYSTSIN runs utility DSNTIAUL"
+            }
+          ],
+          "source": "../app/app-transaction-type-db2/jcl/TRANEXTR.jcl:95"
+        }
+      ],
+      "facts": []
+    }
+  ],
+  "missing_includes": [],
+  "unrecognized": []
+}
