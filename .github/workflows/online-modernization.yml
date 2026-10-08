@@ -2,11 +2,11 @@ name: online-modernization
 
 on:
   pull_request:
-    paths: ["modern/carddemo-online/**", "modern/carddemo-ui/**", "validation/online/**", "deploy/**",
+    paths: ["modern/pom.xml", "modern/carddemo-domain/**", "modern/carddemo-online/**", "modern/carddemo-ui/**", "validation/online/**", "deploy/**",
             ".github/workflows/online-modernization.yml"]
   push:
     branches: [main]
-    paths: ["modern/carddemo-online/**", "modern/carddemo-ui/**", "deploy/**"]
+    paths: ["modern/pom.xml", "modern/carddemo-domain/**", "modern/carddemo-online/**", "modern/carddemo-ui/**", "deploy/**"]
   workflow_dispatch:
     inputs:
       deploy:
@@ -24,13 +24,13 @@ permissions:
 jobs:
   api:
     runs-on: ubuntu-latest
-    defaults: { run: { working-directory: modern/carddemo-online } }
+    defaults: { run: { working-directory: modern } }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: "21", cache: maven }
       - name: Unit + Testcontainers integration tests, JaCoCo
-        run: mvn -B verify
+        run: mvn -B -pl carddemo-online -am verify
       - uses: actions/upload-artifact@v4
         if: always()
         with:
