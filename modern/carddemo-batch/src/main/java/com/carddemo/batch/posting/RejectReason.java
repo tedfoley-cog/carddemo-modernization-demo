@@ -1,6 +1,9 @@
 package com.carddemo.batch.posting;
 
-/** CBTRN02C WS-VALIDATION-FAIL-REASON / -DESC values. */
+/**
+ * CBTRN02C WS-VALIDATION-FAIL-REASON / -DESC values.
+ * <p>Requirements: BAT-POST-01, BAT-POST-02 (docs/BUSINESS_REQUIREMENTS.md).
+ */
 public enum RejectReason {
     INVALID_CARD(100, "INVALID CARD NUMBER FOUND"),
     ACCOUNT_NOT_FOUND(101, "ACCOUNT RECORD NOT FOUND"),

@@ -6,6 +6,7 @@ package com.carddemo.batch.statement;
  * rest. Storage is contiguous, so an 11th transaction for a card lands on the next card's
  * slot exactly as it does in the COBOL (documented in LEGACY-DEFECTS.md). Subscripts that fall
  * outside the whole table are undefined behaviour on the mainframe and are rejected here.
+ * <p>Requirements: BAT-STM-01 (docs/BUSINESS_REQUIREMENTS.md).
  */
 final class StatementTable {
 

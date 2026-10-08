@@ -13,7 +13,10 @@ import org.springframework.batch.item.Chunk;
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.ItemWriter;
 
-/** CBTRN02C 2900-WRITE-TRANSACTION-FILE and 2500-WRITE-REJECT-REC for a chunk of outcomes. */
+/**
+ * CBTRN02C 2900-WRITE-TRANSACTION-FILE and 2500-WRITE-REJECT-REC for a chunk of outcomes.
+ * <p>Requirements: BAT-POST-03 (docs/BUSINESS_REQUIREMENTS.md).
+ */
 public class PostingOutcomeWriter implements ItemWriter<PostingOutcome>, StepExecutionListener {
 
     private final CardTransactionRepository transactions;

@@ -11,6 +11,7 @@ import java.time.LocalDate;
 /**
  * Daily transaction report writer (CBTRN03C, layouts from CVTRA07Y). Stateful control-break
  * logic: account totals on card change, page totals every 20 lines, grand total at end.
+ * <p>Requirements: BAT-RPT-01 (docs/BUSINESS_REQUIREMENTS.md).
  */
 public final class TransactionReport {
 

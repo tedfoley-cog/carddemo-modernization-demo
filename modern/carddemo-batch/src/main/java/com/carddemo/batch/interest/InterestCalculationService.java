@@ -28,6 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Monthly interest calculation (CBACT04C). Account rewrites are part of one transaction, so an
  * abend leaves ACCTDATA as it was, while interest transactions already written to SYSTRAN stay
  * written, matching the legacy dataset state after a U0999.
+ * <p>Requirements: BAT-INT-01, BAT-INT-02, BAT-INT-03 (docs/BUSINESS_REQUIREMENTS.md).
  */
 @Service
 public class InterestCalculationService {

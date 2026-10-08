@@ -14,7 +14,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
-/** Account statement generation (CBSTM03A, file access as in CBSTM03B). */
+/**
+ * Account statement generation (CBSTM03A, file access as in CBSTM03B).
+ * <p>Requirements: BAT-STM-01 (docs/BUSINESS_REQUIREMENTS.md).
+ */
 public final class StatementGenerator {
 
     /** CBSTM03B keyed reads (M03B-READ-K) of CUSTFILE and ACCTFILE. */

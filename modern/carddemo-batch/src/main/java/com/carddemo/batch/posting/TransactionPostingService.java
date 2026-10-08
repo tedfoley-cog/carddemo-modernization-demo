@@ -16,7 +16,10 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 
-/** Daily transaction validation and posting (CBTRN02C). */
+/**
+ * Daily transaction validation and posting (CBTRN02C).
+ * <p>Requirements: BAT-POST-01, BAT-POST-02, BAT-POST-03 (docs/BUSINESS_REQUIREMENTS.md).
+ */
 @Service
 public class TransactionPostingService {
 

@@ -22,6 +22,7 @@ import org.springframework.transaction.PlatformTransactionManager;
  * COMBTRAN (app/jcl/COMBTRAN.jcl STEP05R SORT + STEP10 REPRO): BAT-CMB-01. The SORT/REPRO pair
  * merges the SYSTRAN hand-off into the transaction master in TRAN-ID order; with a keyed table
  * that is an insert of the system transactions, ordering being a property of the key.
+ * <p>Requirements: BAT-CMB-01 (docs/BUSINESS_REQUIREMENTS.md).
  */
 @Configuration
 public class CombineTransactionsJobConfig {
