@@ -87,6 +87,9 @@ def compare_dirs(legacy: Path, modern: Path):
     for name, (lrecl, fields_fn, keys, desc) in ARTIFACTS.items():
         lp, mp = legacy / name, modern / name
         if not lp.exists():
+            if mp.exists():
+                results.append({"artifact": name, "description": desc, "status": "EXTRA",
+                                "legacy_records": 0, "modern_records": len(recs(mp, lrecl))})
             continue
         if not mp.exists():
             results.append({"artifact": name, "description": desc, "status": "MISSING",
@@ -141,7 +144,13 @@ def main(argv=None):
     ap.add_argument("modern", type=Path)
     ap.add_argument("--report", type=Path)
     a = ap.parse_args(argv)
+    if not a.legacy.is_dir() or not a.modern.is_dir():
+        print(f"compare: missing output directory: {a.legacy if not a.legacy.is_dir() else a.modern}", file=sys.stderr)
+        return 2
     results = compare_dirs(a.legacy, a.modern)
+    if not results:
+        print(f"compare: no known artifacts in {a.legacy}; nothing was compared", file=sys.stderr)
+        return 2
     md = render_md(results, a.legacy, a.modern)
     print(md)
     if a.report:
@@ -149,7 +158,7 @@ def main(argv=None):
         (a.report / "batch-parity.json").write_text(json.dumps(results, indent=1, default=str))
         (a.report / "batch-parity.md").write_text(md)
         (a.report / "batch-parity.html").write_text(render_html(results, a.legacy, a.modern))
-    if any(r["status"] == "MISSING" for r in results):
+    if any(r["status"] in ("MISSING", "EXTRA") for r in results):
         return 2
     return 0 if all(r["status"] == "MATCH" for r in results) else 1
 
