@@ -70,7 +70,7 @@ class InterestCalculationServiceTest {
     }
 
     private static LegacyFixes fixes(boolean skipMissingGroup, boolean updateLast) {
-        return new LegacyFixes(false, false, skipMissingGroup, false, false, false, updateLast, false);
+        return new LegacyFixes(false, false, skipMissingGroup, false, false, false, updateLast, false, false);
     }
 
     @BeforeEach

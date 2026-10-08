@@ -14,9 +14,9 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 /**
- * Resolves the ASCII seed files (app/data/ASCII layout). A file present in the configured seed
- * directory overrides the default bundled with the application, file by file, like the legacy
- * harness's {@code --data-dir}.
+ * Resolves the ASCII seed files (app/data/ASCII layout) from the configured seed directory. A missing
+ * file is an error unless {@code seed-defaults} is on (parity scenarios), in which case the extract
+ * bundled with the application is used, file by file, like the legacy harness's {@code --data-dir}.
  */
 @Component
 public class SeedFiles {
@@ -24,9 +24,11 @@ public class SeedFiles {
     static final String DEFAULTS = "seed-defaults/";
 
     private final Path seedDir;
+    private final boolean seedDefaults;
 
     public SeedFiles(CardDemoBatchProperties properties) {
         this.seedDir = properties.seedDir();
+        this.seedDefaults = properties.seedDefaults();
     }
 
     /** Records of a seed file, CR stripped, blank lines skipped, space padded to the LRECL. */
@@ -50,6 +52,10 @@ public class SeedFiles {
         try {
             if (seedDir != null && !seedDir.toString().isEmpty() && Files.isRegularFile(seedDir.resolve(fileName))) {
                 return Files.readAllBytes(seedDir.resolve(fileName));
+            }
+            if (!seedDefaults) {
+                throw new IllegalStateException("Seed file " + fileName + " not found in seed directory '"
+                        + seedDir + "' (set CARDDEMO_SEED_DEFAULTS=true to fall back to the bundled extracts)");
             }
             try (InputStream in = new ClassPathResource(DEFAULTS + fileName).getInputStream()) {
                 return in.readAllBytes();

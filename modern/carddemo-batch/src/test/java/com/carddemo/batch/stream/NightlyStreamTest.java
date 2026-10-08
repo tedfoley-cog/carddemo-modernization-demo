@@ -17,7 +17,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.test.context.ActiveProfiles;
 
 /** Runs the whole stream on the shipped seed data (H2, PostgreSQL mode) and checks its contract. */
-@SpringBootTest(properties = "carddemo.batch.out-dir=target/it-out/base")
+@SpringBootTest(properties = {"carddemo.batch.out-dir=target/it-out/base", "carddemo.batch.load-seeds=true",
+        "carddemo.batch.seed-defaults=true"})
 @ActiveProfiles("test")
 class NightlyStreamTest {
 

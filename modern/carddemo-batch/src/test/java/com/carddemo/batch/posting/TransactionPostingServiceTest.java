@@ -98,7 +98,7 @@ class TransactionPostingServiceTest {
         account.setCurrentBalance(new BigDecimal("5000.00"));
         assertThat(service.validateAccount(account, daily("1.00").transaction())).isNull();
         TransactionPostingService fixed = new TransactionPostingService(xrefs, accounts, balances, clock,
-                TestProperties.with(new LegacyFixes(false, true, false, false, false, false, false, false)));
+                TestProperties.with(new LegacyFixes(false, true, false, false, false, false, false, false, false)));
         assertThat(fixed.validateAccount(account, daily("1.00").transaction())).isEqualTo(RejectReason.OVERLIMIT);
     }
 
@@ -120,7 +120,7 @@ class TransactionPostingServiceTest {
         DailyTransaction both = daily(CARD, "900.00", LocalDateTime.of(2023, 3, 1, 0, 0));
         assertThat(service.validateAccount(account, both.transaction())).isEqualTo(RejectReason.ACCOUNT_EXPIRED);
         TransactionPostingService fixed = new TransactionPostingService(xrefs, accounts, balances, clock,
-                TestProperties.with(new LegacyFixes(true, false, false, false, false, false, false, false)));
+                TestProperties.with(new LegacyFixes(true, false, false, false, false, false, false, false, false)));
         assertThat(fixed.validateAccount(account, both.transaction())).isEqualTo(RejectReason.OVERLIMIT);
     }
 

@@ -16,6 +16,7 @@ that change the golden files will differ on purpose.
 | 6 | BAT-INT-01 | The **last** account in TCATBALF never gets its interest added, and its cycle buckets are never reset. The EOF `ELSE PERFORM 1050-UPDATE-ACCOUNT` can't be reached, because the END-OF-FILE flag is set inside the same iteration. (Found during parity: account 50 in the base data.) | `app/cbl/CBACT04C.cbl:189-221` (unreachable :220) | `InterestCalculationService.calculate` | `update-last-interest-account` |
 | 7 | BAT-RPT-01 | At end of file, TRANREPT adds the last transaction's amount to the page and account totals a second time before printing the final page and grand totals. It also never prints an account total for the last card. | `app/cbl/CBTRN03C.cbl:285-289` (ADD TRAN-AMT at :287) | `TransactionReport.finish` | `report-no-double-count-last-amount` |
 | 8 | BAT-INT-02 | When the *disclosure group* file fails to open, INTCALC prints "ERROR OPENING DALY REJECTS FILE". This affects only a diagnostic message, not data. The modern code logs the same text when the disclosure-group read fails, and keeps the root cause attached. | `app/cbl/CBACT04C.cbl:280-281` | `InterestCalculationService.findDisclosureGroup` | `correct-disclosure-open-message` |
+| 9 | BAT-STM-01 | Customer name, address lines and transaction id/description are STRINGed into STATEMNT.HTML without HTML escaping. A field containing `<`, `>` or `&` changes the markup, and a crafted value can inject script into the statement. | `app/cbl/CBSTM03A.CBL:558-592` (5200-WRITE-HTML-NMADBS), `:675-716` (6000-WRITE-TRANS) | `StatementGenerator.htmlLine` | `escape-statement-html` |
 
 ## Proposed fixes (not applied)
 
@@ -27,3 +28,4 @@ that change the golden files will differ on purpose.
 6. Perform `1050-UPDATE-ACCOUNT` after the loop when at least one record was read (`update-last-interest-account=true`).
 7. Drop the extra ADD at EOF and write the final account total (`report-no-double-count-last-amount=true` removes the double count).
 8. Correct the message text. Cosmetic only.
+9. HTML-escape every data field written to the statement, shortening the field so the record still fits LRECL 100 (`escape-statement-html=true`). Longer term, render statements with a templating engine that escapes by default.

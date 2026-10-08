@@ -34,7 +34,8 @@ carddemo:
     report-end-date: ${CARDDEMO_REPORT_END_DATE:2022-07-06}
     seed-dir: ${seed-dir:${CARDDEMO_SEED_DIR:}}
     out-dir: ${out:${CARDDEMO_OUT_DIR:out}}
-    load-seeds: ${CARDDEMO_LOAD_SEEDS:true}
+    load-seeds: ${CARDDEMO_LOAD_SEEDS:false}
+    seed-defaults: ${CARDDEMO_SEED_DEFAULTS:false}
     export-parity-artifacts: ${CARDDEMO_EXPORT_PARITY:true}
     legacy-fixes:
       keep-overlimit-reason: false
@@ -45,6 +46,7 @@ carddemo:
       report-no-double-count-last-amount: false
       update-last-interest-account: false
       correct-disclosure-open-message: false
+      escape-statement-html: false
 
 logging:
   level:

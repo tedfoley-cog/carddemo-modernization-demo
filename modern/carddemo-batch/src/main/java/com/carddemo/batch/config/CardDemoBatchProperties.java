@@ -29,8 +29,10 @@ public record CardDemoBatchProperties(
         Path seedDir,
         /** Directory receiving the sequential datasets, reports and parity artifacts. */
         @NotNull Path outDir,
-        /** Load seed files into the database before running. */
+        /** Replace the master tables with the seed files before running. Off by default so a scheduled run never wipes live data. */
         boolean loadSeeds,
+        /** Scenario/parity mode: a seed file missing from seedDir falls back to the bundled extract. Off = fail hard. */
+        boolean seedDefaults,
         /** Write the KSDS unload artifacts (ACCTDATA.dat, TCATBALF.dat, TRANSACT.dat) after the run. */
         boolean exportParityArtifacts,
         @NotNull LegacyFixes legacyFixes) {
@@ -47,6 +49,7 @@ public record CardDemoBatchProperties(
             boolean skipOrphanXref,
             boolean reportNoDoubleCountLastAmount,
             boolean updateLastInterestAccount,
-            boolean correctDisclosureOpenMessage) {
+            boolean correctDisclosureOpenMessage,
+            boolean escapeStatementHtml) {
     }
 }

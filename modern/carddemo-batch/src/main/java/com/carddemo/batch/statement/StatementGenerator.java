@@ -44,13 +44,16 @@ public final class StatementGenerator {
     private static final String TD_ROW_DETAIL = "<td style=\"width:55%; padding:0px 5px; background-color:#f2f2f2; text-align:left;\">";
     private static final String TD_ROW_AMOUNT = "<td style=\"width:20%; padding:0px 5px; background-color:#f2f2f2; text-align:right;\">";
     private static final String DASHES = "-".repeat(80);
+    static final int HTML_LRECL = 100;
 
     private final Lookups lookups;
     private final boolean unboundedTable;
+    private final boolean escapeHtml;
 
-    public StatementGenerator(Lookups lookups, boolean unboundedTable) {
+    public StatementGenerator(Lookups lookups, boolean unboundedTable, boolean escapeHtml) {
         this.lookups = lookups;
         this.unboundedTable = unboundedTable;
+        this.escapeHtml = escapeHtml;
     }
 
     /**
@@ -193,10 +196,10 @@ public final class StatementGenerator {
     /** CBSTM03A 5200-WRITE-HTML-NMADBS */
     private void writeHtmlNameAddressBasics(String name, String add1, String add2, String add3, String acctId,
                                             String balance, String fico, RecordSink html) {
-        html.write("<p style=\"font-size:16px\">" + untilDoubleSpace(name.substring(0, 50)) + "  </p>");
-        html.write("<p>" + untilDoubleSpace(add1) + "  </p>");
-        html.write("<p>" + untilDoubleSpace(add2) + "  </p>");
-        html.write("<p>" + untilDoubleSpace(add3) + "  </p>");
+        html.write(htmlLine("<p style=\"font-size:16px\">", untilDoubleSpace(name.substring(0, 50)), "  </p>"));
+        html.write(htmlLine("<p>", untilDoubleSpace(add1), "  </p>"));
+        html.write(htmlLine("<p>", untilDoubleSpace(add2), "  </p>"));
+        html.write(htmlLine("<p>", untilDoubleSpace(add3), "  </p>"));
         for (String line : List.of(TD_END, TR_END, TR_START, TD_SECTION, "<p style=\"font-size:16px\">Basic Details</p>",
                 TD_END, TR_END, TR_START, TD_GREY)) {
             html.write(line);
@@ -220,13 +223,13 @@ public final class StatementGenerator {
         statement.write(id + " " + detail + "$" + edited);
         html.write(TR_START);
         html.write(TD_ROW_ID);
-        html.write("<p>" + id + "</p>");
+        html.write(htmlLine("<p>", id, "</p>"));
         html.write(TD_END);
         html.write(TD_ROW_DETAIL);
-        html.write("<p>" + detail + "</p>");
+        html.write(htmlLine("<p>", detail, "</p>"));
         html.write(TD_END);
         html.write(TD_ROW_AMOUNT);
-        html.write("<p>" + edited + "</p>");
+        html.write(htmlLine("<p>", edited, "</p>"));
         html.write(TD_END);
         html.write(TR_END);
     }
@@ -236,6 +239,39 @@ public final class StatementGenerator {
         String padded = FixedWidth.padRight(value, length);
         int space = padded.indexOf(' ');
         return space < 0 ? padded : padded.substring(0, space);
+    }
+
+    /**
+     * CBSTM03A STRINGs data fields into the HTML lines as-is (LEGACY-DEFECTS #9). With
+     * {@code escape-statement-html} on, the field is HTML-escaped and shortened to fit the 100-byte record.
+     */
+    private String htmlLine(String prefix, String field, String suffix) {
+        return escapeHtml ? escapedLine(prefix, field, suffix, HTML_LRECL) : prefix + field + suffix;
+    }
+
+    static String escapedLine(String prefix, String field, String suffix, int lrecl) {
+        String value = field;
+        String escaped = escapeHtml(value);
+        while (!value.isEmpty() && prefix.length() + escaped.length() + suffix.length() > lrecl) {
+            value = value.substring(0, value.length() - 1);
+            escaped = escapeHtml(value);
+        }
+        return prefix + escaped + suffix;
+    }
+
+    static String escapeHtml(String value) {
+        StringBuilder out = new StringBuilder(value.length());
+        for (char c : value.toCharArray()) {
+            switch (c) {
+                case '&' -> out.append("&amp;");
+                case '<' -> out.append("&lt;");
+                case '>' -> out.append("&gt;");
+                case '"' -> out.append("&quot;");
+                case '\'' -> out.append("&#39;");
+                default -> out.append(c);
+            }
+        }
+        return out.toString();
     }
 
     /** {@code STRING field DELIMITED BY '  '} */

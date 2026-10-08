@@ -35,7 +35,8 @@ for s in "${SCENARIOS[@]}"; do
   legacy_runs+=("$WORK/legacy/$s")
 
   start=$(date +%s.%N)
-  "$JAVA" -jar "$JAR" --seed-dir="$data" --out="$WORK/modern/$s/out" ${MODERN_ARGS:-} \
+  "$JAVA" -jar "$JAR" --seed-dir="$data" --out="$WORK/modern/$s/out" \
+    --carddemo.batch.load-seeds=true --carddemo.batch.seed-defaults=true ${MODERN_ARGS:-} \
     > "$WORK/modern/$s.log" 2>&1
   echo "  modern exit=$? ($(echo "$(date +%s.%N) - $start" | bc | cut -c1-6)s)"
   grep -E " JOB " "$WORK/modern/$s.log" | sed 's/^.* JOB /  JOB /'

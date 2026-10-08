@@ -12,7 +12,9 @@ import com.carddemo.domain.repository.CardTransactionRepository;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.Clock;
+import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.BatchStatus;
+import org.springframework.batch.core.ExitStatus;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobExecutionListener;
@@ -81,10 +83,18 @@ public class PostTransactionsJobConfig {
                     return;
                 }
                 ExecutionContext ctx = execution.getExecutionContext();
-                publisher.publish(TransactionsPostedEvent.TYPE, new TransactionsPostedEvent(
-                        properties.jobName(), LocalDateTime.now(clock), ctx.getLong(StreamContext.RECORDS, 0),
-                        ctx.getLong("posted", 0), ctx.getLong("rejected", 0),
-                        new BigDecimal(ctx.getString("postedAmount", "0")), ctx.getInt(StreamContext.RETURN_CODE, 0)));
+                try {
+                    publisher.publish(TransactionsPostedEvent.TYPE, new TransactionsPostedEvent(
+                            properties.jobName(), LocalDateTime.now(clock), ctx.getLong(StreamContext.RECORDS, 0),
+                            ctx.getLong("posted", 0), ctx.getLong("rejected", 0),
+                            new BigDecimal(ctx.getString("postedAmount", "0")), ctx.getInt(StreamContext.RETURN_CODE, 0)));
+                } catch (RuntimeException e) {
+                    LoggerFactory.getLogger(PostTransactionsJobConfig.class)
+                            .error("transactions-posted hand-off failed; failing postTransactionsJob", e);
+                    execution.setStatus(BatchStatus.FAILED);
+                    execution.setExitStatus(ExitStatus.FAILED.addExitDescription(e));
+                    execution.addFailureException(e);
+                }
             }
         };
     }

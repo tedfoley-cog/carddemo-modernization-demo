@@ -14,11 +14,11 @@ public final class TestProperties {
     }
 
     public static CardDemoBatchProperties legacy() {
-        return with(new LegacyFixes(false, false, false, false, false, false, false, false));
+        return with(new LegacyFixes(false, false, false, false, false, false, false, false, false));
     }
 
     public static CardDemoBatchProperties with(LegacyFixes fixes) {
         return new CardDemoBatchProperties("nightlyStream", BUSINESS_TS, "2022071800", LocalDate.of(2022, 1, 1),
-                LocalDate.of(2022, 7, 6), null, Path.of("target/test-out"), true, true, fixes);
+                LocalDate.of(2022, 7, 6), null, Path.of("target/test-out"), true, true, true, fixes);
     }
 }

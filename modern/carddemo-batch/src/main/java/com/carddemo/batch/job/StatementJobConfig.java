@@ -62,7 +62,8 @@ public class StatementJobConfig {
                     }
                     try (SequentialDataset stmt = SequentialDataset.openOutput(properties.outDir().resolve(StreamContext.STATEMNT), 80);
                          SequentialDataset html = SequentialDataset.openOutput(properties.outDir().resolve(StreamContext.STATEMNT_HTML), 100)) {
-                        int statements = new StatementGenerator(lookups, properties.legacyFixes().unboundedStatementTable())
+                        int statements = new StatementGenerator(lookups, properties.legacyFixes().unboundedStatementTable(),
+                                properties.legacyFixes().escapeStatementHtml())
                                 .generate(trnx, cardXrefs.iterator(), stmt, html);
                         chunkContext.getStepContext().getStepExecution().getJobExecution().getExecutionContext()
                                 .putLong(StreamContext.RECORDS, statements);
