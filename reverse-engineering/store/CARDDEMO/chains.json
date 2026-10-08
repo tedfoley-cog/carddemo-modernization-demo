@@ -1,7 +1,7 @@
 {
   "meta": {
     "module": "CARDDEMO",
-    "generated_at": "2026-10-08T04:12:45Z",
+    "generated_at": "2026-10-08T04:14:19Z",
     "tool": "mftb 0.2.1",
     "inputs": {
       "selectors": [
@@ -17,7 +17,7 @@
       "table": "CARDDEMO",
       "requested_as": "CARDDEMO",
       "selection_basis": "CARDDEMO is a table in ../app/scheduler/CardDemo.ca7",
-      "generated_at": "2026-10-08T04:12:45Z",
+      "generated_at": "2026-10-08T04:14:19Z",
       "jobs": [
         {
           "job": "CLOSEFIL",
@@ -2055,7 +2055,7 @@
       "table": "DAILY-TransactionBackup",
       "requested_as": "DAILY-TransactionBackup",
       "selection_basis": "DAILY-TRANSACTIONBACKUP is a table in ../app/scheduler/CardDemo.controlm",
-      "generated_at": "2026-10-08T04:12:45Z",
+      "generated_at": "2026-10-08T04:14:19Z",
       "jobs": [
         {
           "job": "CLOSEFIL",
@@ -2467,7 +2467,7 @@
       "table": "DisclosureGroupsRefresh",
       "requested_as": "DisclosureGroupsRefresh",
       "selection_basis": "DISCLOSUREGROUPSREFRESH is a table in ../app/scheduler/CardDemo.controlm",
-      "generated_at": "2026-10-08T04:12:45Z",
+      "generated_at": "2026-10-08T04:14:19Z",
       "jobs": [
         {
           "job": "CLOSEFIL",
@@ -2815,7 +2815,7 @@
       "table": "MONTHLY-InterestCalculation",
       "requested_as": "MONTHLY-InterestCalculation",
       "selection_basis": "MONTHLY-INTERESTCALCULATION is a table in ../app/scheduler/CardDemo.controlm",
-      "generated_at": "2026-10-08T04:12:45Z",
+      "generated_at": "2026-10-08T04:14:19Z",
       "jobs": [
         {
           "job": "CLOSEFIL",

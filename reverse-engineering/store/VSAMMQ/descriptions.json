@@ -1,7 +1,7 @@
 {
   "meta": {
     "module": "VSAMMQ",
-    "generated_at": "2026-10-08T04:11:46Z",
+    "generated_at": "2026-10-08T04:14:30Z",
     "tool": "mftb 0.2.1",
     "inputs": [
       "programs.json",
@@ -27,11 +27,12 @@
       "kind": "module",
       "name": "VSAMMQ",
       "key_points": [
-        "Integration extension: MQ request/reply services that expose the account file and the system date to non-mainframe callers."
+        "Integration extension: two MQ request/reply services running under CICS, one returning account records from the VSAM account file and one returning the system date and time."
       ],
       "basis": [
-        "app/app-vsam-mq/cbl/COACCT01.cbl:17-23",
-        "app/app-vsam-mq/cbl/CODATE01.cbl:17-23"
+        "app/app-vsam-mq/cbl/COACCT01.cbl:352",
+        "app/app-vsam-mq/cbl/COACCT01.cbl:396-397",
+        "app/app-vsam-mq/cbl/CODATE01.cbl:343-347"
       ],
       "written_by": "agent"
     }
@@ -41,10 +42,13 @@
       "kind": "program",
       "name": "COACCT01",
       "path": "../app/app-vsam-mq/cbl/COACCT01.cbl",
-      "description": "MQ request/reply server: answers account inquiries from the VSAM account file over response/error/reply queues",
+      "description": "MQ request/reply server: gets a request from the input queue, reads the account file (ACCTDAT) with EXEC CICS READ and puts the reply on the reply queue",
       "key_points": [],
       "basis": [
-        "app/app-vsam-mq/cbl/COACCT01.cbl:17-23"
+        "app/app-vsam-mq/cbl/COACCT01.cbl:116",
+        "app/app-vsam-mq/cbl/COACCT01.cbl:352",
+        "app/app-vsam-mq/cbl/COACCT01.cbl:396-397",
+        "app/app-vsam-mq/cbl/COACCT01.cbl:479"
       ],
       "written_by": "agent"
     },
@@ -52,10 +56,12 @@
       "kind": "program",
       "name": "CODATE01",
       "path": "../app/app-vsam-mq/cbl/CODATE01.cbl",
-      "description": "MQ request/reply server: returns the system date over response/error/reply queues",
+      "description": "MQ request/reply server: gets a request from the input queue and replies with the CICS system date and time (ASKTIME/FORMATTIME)",
       "key_points": [],
       "basis": [
-        "app/app-vsam-mq/cbl/CODATE01.cbl:17-39"
+        "app/app-vsam-mq/cbl/CODATE01.cbl:301",
+        "app/app-vsam-mq/cbl/CODATE01.cbl:343-347",
+        "app/app-vsam-mq/cbl/CODATE01.cbl:383"
       ],
       "written_by": "agent"
     }

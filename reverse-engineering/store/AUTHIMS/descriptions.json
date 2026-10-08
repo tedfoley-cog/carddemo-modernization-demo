@@ -1,7 +1,7 @@
 {
   "meta": {
     "module": "AUTHIMS",
-    "generated_at": "2026-10-08T04:11:45Z",
+    "generated_at": "2026-10-08T04:14:20Z",
     "tool": "mftb 0.2.1",
     "inputs": [
       "programs.json",
@@ -27,11 +27,14 @@
       "kind": "module",
       "name": "AUTHIMS",
       "key_points": [
-        "Card authorization extension: authorization requests arrive over MQ, pending authorizations are kept in an IMS database (with DB2 for fraud/history) and operators review them on CICS screens."
+        "Card authorization extension: requests arrive over MQ, a CICS program applies business rules to approve or decline and replies on an MQ queue.",
+        "Authorizations are stored in an IMS database; suspicious ones can be marked fraudulent and are stored in DB2 for fraud analytics."
       ],
       "basis": [
-        "app/app-authorization-ims-db2-mq/README.md:1-40",
-        "app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL:244"
+        "app/app-authorization-ims-db2-mq/README.md:40-44",
+        "app/app-authorization-ims-db2-mq/README.md:54-56",
+        "app/app-authorization-ims-db2-mq/README.md:70-74",
+        "app/app-authorization-ims-db2-mq/README.md:81-82"
       ],
       "written_by": "agent"
     }

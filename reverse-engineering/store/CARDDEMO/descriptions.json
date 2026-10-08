@@ -1,7 +1,7 @@
 {
   "meta": {
     "module": "CARDDEMO",
-    "generated_at": "2026-10-08T04:13:02Z",
+    "generated_at": "2026-10-08T04:14:19Z",
     "tool": "mftb 0.2.1",
     "inputs": [
       "programs.json",
@@ -45,12 +45,18 @@
       "name": "CARDDEMO",
       "key_points": [
         "Posts the day's card transactions to accounts and balance categories, rejecting invalid-card, unknown-account, over-limit and expired-account items to a dated reject file.",
-        "Also produces the transaction report and customer statements and refreshes the reference files, bracketed by closing and reopening the CICS files so online and batch never update the same VSAM at once."
+        "The same CA-7 schedule also builds customer statements and reloads the transaction type, category and category-balance reference files, with CLOSEFIL/OPENFIL jobs closing and reopening the CICS files around the batch work."
       ],
       "basis": [
         "app/jcl/POSTTRAN.jcl:23-42",
         "app/cbl/CBTRN02C.cbl:385-420",
-        "app/scheduler/CardDemo.controlm:1-40"
+        "app/scheduler/CardDemo.ca7:18-19",
+        "app/scheduler/CardDemo.ca7:70",
+        "app/scheduler/CardDemo.ca7:124",
+        "app/scheduler/CardDemo.ca7:162",
+        "app/scheduler/CardDemo.ca7:244",
+        "app/scheduler/CardDemo.ca7:271",
+        "app/scheduler/CardDemo.ca7:468"
       ],
       "written_by": "agent"
     },
@@ -58,11 +64,12 @@
       "kind": "chain",
       "name": "DAILY-TransactionBackup",
       "key_points": [
-        "Daily safety copy of the posted-transaction file: closes the CICS files, REPROs TRANSACT to a backup and redefines the cluster, then reopens the files for online use."
+        "Daily copy of the posted-transaction file: with the CICS files closed it copies TRANSACT through the REPROC procedure, then deletes and redefines the TRANSACT cluster and its alternate index before the files are reopened."
       ],
       "basis": [
         "app/scheduler/CardDemo.controlm:3-25",
-        "app/jcl/TRANBKP.jcl:23-51"
+        "app/jcl/TRANBKP.jcl:23-27",
+        "app/jcl/TRANBKP.jcl:37-65"
       ],
       "written_by": "agent"
     },
@@ -70,11 +77,11 @@
       "kind": "chain",
       "name": "WEEKLY-TransactionTypesDBRefresh",
       "key_points": [
-        "Weekly maintenance of the DB2 transaction-type reference table through a TSO batch (IKJEFT01) step."
+        "Weekly maintenance of the DB2 transaction-type table: runs COBTUPDT under DSN (plan CARDDEMO) against an update file of type code (cols 2-3) and description (cols 4-53)."
       ],
       "basis": [
         "app/scheduler/CardDemo.controlm:26-31",
-        "app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:21"
+        "app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:8-30"
       ],
       "written_by": "agent"
     },
@@ -82,11 +89,12 @@
       "kind": "chain",
       "name": "DisclosureGroupsRefresh",
       "key_points": [
-        "Reloads the disclosure-group (interest rate) reference file from its flat-file master with the CICS files closed; the monthly interest run depends on it being complete."
+        "Reloads the disclosure-group (interest rate) file from its flat-file master with the CICS files closed; the interest program reads this file and abends if a DEFAULT rate row is missing."
       ],
       "basis": [
         "app/scheduler/CardDemo.controlm:32-56",
-        "app/jcl/DISCGRP.jcl:22-59"
+        "app/jcl/DISCGRP.jcl:22-59",
+        "app/cbl/CBACT04C.cbl:415-440"
       ],
       "written_by": "agent"
     },
@@ -94,10 +102,13 @@
       "kind": "chain",
       "name": "TransactionTypesDBRefresh",
       "key_points": [
-        "Extracts the DB2 transaction-type and category tables back to the VSAM reference files used by the core application."
+        "Backs up the transaction type and category flat files to new generations, then re-extracts them from the DB2 transaction-type table for transaction report generation.",
+        "The JCL says it runs once a day, but Control-M defines it in a weekly folder triggered by MNTTRDB2: schedule and documentation disagree."
       ],
       "basis": [
-        "app/scheduler/CardDemo.controlm:57-63"
+        "app/scheduler/CardDemo.controlm:57-62",
+        "app/app-transaction-type-db2/jcl/TRANEXTR.jcl:19-21",
+        "app/app-transaction-type-db2/jcl/TRANEXTR.jcl:31-73"
       ],
       "written_by": "agent"
     },
