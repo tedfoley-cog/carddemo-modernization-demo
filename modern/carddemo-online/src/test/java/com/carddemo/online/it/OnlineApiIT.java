@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.math.BigDecimal;
+import com.carddemo.online.repo.UserSecurityRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,9 @@ class OnlineApiIT {
     @Autowired
     JdbcTemplate jdbc;
 
+    @Autowired
+    UserSecurityRepository userSecurity;
+
     String token(String user) throws Exception {
         String body = mvc.perform(post("/api/v1/auth/signon").contentType(MediaType.APPLICATION_JSON)
                 .content("{\"userId\":\"" + user + "\",\"password\":\"PASSWORD\"}")).andExpect(status().isOk())
@@ -99,6 +103,23 @@ class OnlineApiIT {
         signon("ADMIN001", "PASSWORD").andExpect(jsonPath("$.nextProgram").value("COADM01C"))
                 .andExpect(jsonPath("$.userType").value("A"));
         signon("USER0001", "PASSWORD").andExpect(jsonPath("$.nextProgram").value("COMEN01C"));
+    }
+
+    @Test
+    @DisplayName("ONL-SEC-03 COADM01C admin re-check: a demoted admin's unexpired token gets 403 on admin APIs")
+    void demotedAdminLosesAccess() throws Exception {
+        String t = token("ADMIN001");
+        mvc.perform(get("/api/v1/admin/users").header("Authorization", "Bearer " + t)).andExpect(status().isOk());
+        var admin = userSecurity.findById("ADMIN001").orElseThrow();
+        admin.setUserType("U");
+        userSecurity.save(admin);
+        try {
+            mvc.perform(get("/api/v1/admin/users").header("Authorization", "Bearer " + t))
+                    .andExpect(status().isForbidden());
+        } finally {
+            admin.setUserType("A");
+            userSecurity.save(admin);
+        }
     }
 
     @Test

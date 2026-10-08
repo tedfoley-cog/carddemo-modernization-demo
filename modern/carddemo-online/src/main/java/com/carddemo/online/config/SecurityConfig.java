@@ -1,5 +1,7 @@
 package com.carddemo.online.config;
 
+import com.carddemo.online.repo.UserSecurityRepository;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +22,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class SecurityConfig {
 
     @Bean
-    SecurityFilterChain api(HttpSecurity http, JwtService jwt) throws Exception {
+    SecurityFilterChain api(HttpSecurity http, JwtService jwt, UserSecurityRepository users) throws Exception {
         http.csrf(c -> c.disable())
                 .cors(c -> { })
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -33,7 +35,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/admin/**", "/api/v1/users/**").hasRole("ADMIN")
                         .requestMatchers("/internal/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
-                .addFilterBefore(new JwtAuthFilter(jwt), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtAuthFilter(jwt, users), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
