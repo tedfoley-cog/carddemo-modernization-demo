@@ -24,7 +24,7 @@ Latency in ms:
 | Transaction list | saturation | 7.7 | 25.2 | 45.1 | 147.8 | read p95 <= 200 | met |
 | Sign-on | saturation | 377.8 | 529.5 | 579.6 | 689.2 | navigation < 2 s | met |
 
-Sign-on is the most expensive call because it issues a signed token per request; it is CPU bound and scales
+Sign-on is the most expensive call because it verifies a BCrypt password hash and signs a token per request; it is CPU bound and scales
 horizontally on Cloud Run. Reproduce with:
 
 ```bash
