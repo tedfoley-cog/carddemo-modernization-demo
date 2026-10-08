@@ -133,4 +133,20 @@ export const scenarios: Scenario[] = [
         compareOnly: ['transactionId', 'cardNumber', 'merchantName', 'origDate', 'procDate'] },
     ],
   },
+  {
+    id: 'X01', title: 'Cross-stack: POSTTRAN-posted transactions on COTRN00C/COTRN01C', requirements: ['XST-01', 'ONL-LST-01'],
+    steps: [
+      { title: 'Sign on USER0001', step: { do: 'signon', user: 'USER0001', password: 'PASSWORD' } },
+      { title: 'Menu option 06', step: { do: 'menu', option: 6 }, expect: { program: 'COTRN00C' } },
+      { title: 'First page lists batch-posted rows', step: { do: 'transactionList' },
+        expect: { fields: { row1: '0000000000683580 | 06/10/22 | Purchase at Abshire-Lowe | +00000504.77' } },
+        compareOnly: ['row2', 'row3'] },
+      { title: 'Back to menu', step: { do: 'back' } },
+      { title: 'Menu option 07', step: { do: 'menu', option: 7 }, expect: { program: 'COTRN01C' } },
+      { title: 'Posted DALYTRAN record 0000000000683580', step: { do: 'transactionView', transactionId: '0000000000683580' },
+        expect: { fields: { typeCd: '01', categoryCd: '0001', source: 'POS TERM', description: 'Purchase at Abshire-Lowe',
+          amount: '+00000504.77', merchantId: '800000000', cardNumber: '4859452612877065', origDate: '2022-06-10' } },
+        compareOnly: ['merchantName', 'procDate'] },
+    ],
+  },
 ];

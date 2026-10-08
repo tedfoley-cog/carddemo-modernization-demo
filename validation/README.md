@@ -31,6 +31,14 @@ The Java CLI under `modern/` loads seeds only with `--carddemo.batch.load-seeds=
 extracts for files missing from the seed directory only with `--carddemo.batch.seed-defaults=true`. Both are off by
 default so a scheduled run never replaces live data or mixes in sample data; `validation/batch/run_parity.sh` passes both.
 
+## Online parity and cross-stack state
+`validation/online/run-parity.sh` drives the same abstract user steps against the CICS region (3270 JSON API) and the
+React UI. Each side starts from its own batch stream. Legacy `batch.py` POSTTRAN writes the VSAM-equivalent files the
+region serves. The modern batch POSTTRAN (`carddemo-batch.jar --carddemo.batch.job-name=POSTTRAN`) writes the PostgreSQL
+schema the online API reads. Both modules use the one Flyway schema in `modern/carddemo-domain`. Scenario X01
+(`XST-01`) checks that DALYTRAN records posted by batch appear on COTRN00C/COTRN01C on both sides. Report:
+`validation/online/report.html`, traceability: `validation/online/traceability.md`.
+
 ## Coverage
 `python3 -m validation.coverage.cobol_coverage <legacy-run>... --report <dir>` turns GnuCOBOL statement traces into
 paragraph/statement coverage of the legacy programs across all scenarios, listing every unexecuted paragraph.

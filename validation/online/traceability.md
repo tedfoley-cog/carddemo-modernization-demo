@@ -20,6 +20,7 @@ Surefire/JaCoCo reports can be grepped by requirement or by COBOL paragraph. Par
 | ONL-BIL-03 | COBIL00C `UPDATE-ACCTDAT-FILE` (balance to zero, "nothing to pay") | `BillPayService` | `BillPay.tsx`, `AccountView.tsx` | `OnlineApiIT` "ONL-BIL-02 + ONL-BIL-03 ..." | P08 |
 | ONL-TRA-01 | COTRN02C `VALIDATE-INPUT-KEY-FIELDS`, `VALIDATE-INPUT-DATA-FIELDS`, `ADD-TRANSACTION` | `TransactionAddService`, `TransactionIdGenerator` | `TransactionAdd.tsx` | `TransactionAddRulesTest`, `OnlineApiIT` "ONL-TRA-01 ..." | P09 |
 | ONL-LST-01 | COTRN00C `PROCESS-PF7/PF8-KEY`; COTRN01C `READ-TRANSACT-FILE`; COCRDLIC `9000-READ-FORWARD`/`9100-READ-BACKWARDS`; COCRDSLC; COCRDUPC; COUSR00C-03C | `TransactionQueryService`, `CardService`, `UserAdminService` | `TransactionList.tsx`, `TransactionView.tsx`, `CardList.tsx`, `CardView.tsx`, `CardUpdate.tsx`, `UserList.tsx`, `UserMaintenance.tsx` | `CardServiceRulesTest`, `OnlineApiIT` "ONL-LST-01 ..." | P06 |
+| XST-01 | POSTTRAN `CBTRN02C` `2900-WRITE-TRANSACTION-FILE` / `2800-UPDATE-ACCOUNT-REC` -> COTRN00C `PROCESS-PAGE-FORWARD`, COTRN01C `READ-TRANSACT-FILE` (batch and online share TRANSACT/ACCTDATA) | `carddemo-batch` `postTransactionsJob` writes `card_transaction`/`account` (shared `carddemo-domain` schema); `TransactionQueryService` reads them | `TransactionList.tsx`, `TransactionView.tsx` | `run-parity.sh` runs modern POSTTRAN, then the API with `CARDDEMO_SEED_MODE=users` | X01 (all P0x scenarios also run on batch-produced state) |
 
 ## Legacy quirks (kept, not fixed)
 
@@ -48,6 +49,6 @@ Surefire/JaCoCo reports can be grepped by requirement or by COBOL paragraph. Par
 
 | Control | Where | Test |
 |---|---|---|
-| Seeding off by default (`CARDDEMO_SEED_MODE` defaults to `none`). Fixture users with known passwords load only when `run-parity.sh`, the runbook or local dev sets `reload`. Terraform never sets it. | `application.yml`, `SeedRunner` | `OnlineApiIT` (sets `reload` explicitly), parity run |
-| Admin role re-checked against `user_security` on every request made with an admin token, so a demoted admin gets 403 right away. Other tokens keep the 30-minute TTL. | `JwtAuthFilter.stillAdmin` | `OnlineApiIT` "ONL-SEC-03 COADM01C admin re-check ..." |
+| Seeding off by default (`CARDDEMO_SEED_MODE` defaults to `none`). Fixture users with known passwords load only when `run-parity.sh`, the runbook or local dev sets `users` or `reload`. Terraform never sets it. | `application.yml`, `SeedRunner` | `OnlineApiIT` (sets `users` or `reload` explicitly), parity run |
+| Admin role re-checked against `app_user` (USRSEC) on every request made with an admin token, so a demoted admin gets 403 right away. Other tokens keep the 30-minute TTL. | `JwtAuthFilter.stillAdmin` | `OnlineApiIT` "ONL-SEC-03 COADM01C admin re-check ..." |
 | A missing or short (< 32 bytes) `CARDDEMO_JWT_SECRET` stops start-up, so instances never fall back to their own per-instance keys. Only the explicit `local` profile uses an ephemeral key. | `JwtService` constructor | `JwtServiceTest` "ONL-SEC-03 COMMAREA replacement ..." |

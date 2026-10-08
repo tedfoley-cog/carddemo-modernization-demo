@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-10-08T04:39:41.172Z",
+  "generatedAt": "2026-10-08T05:09:56.597Z",
   "legacyUrl": "http://localhost:3270",
   "modernUrl": "http://localhost:4173",
   "businessDate": "2022-07-06",
   "summary": {
-    "scenarios": 9,
-    "passed": 9,
+    "scenarios": 10,
+    "passed": 10,
     "failed": 0,
-    "steps": 44,
-    "comparisons": 69,
+    "steps": 50,
+    "comparisons": 84,
     "failedComparisons": 0
   },
   "scenarios": [
@@ -1238,6 +1238,222 @@
           ],
           "legacyShot": "screenshots/P09-8-legacy.jpg",
           "modernShot": "screenshots/P09-8-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "X01",
+      "title": "Cross-stack: POSTTRAN-posted transactions on COTRN00C/COTRN01C",
+      "requirements": [
+        "XST-01",
+        "ONL-LST-01"
+      ],
+      "pass": true,
+      "steps": [
+        {
+          "n": 1,
+          "title": "Sign on USER0001",
+          "action": "{\"do\":\"signon\",\"user\":\"USER0001\",\"password\":\"PASSWORD\"}",
+          "comparisons": [],
+          "legacyShot": "screenshots/X01-1-legacy.jpg",
+          "modernShot": "screenshots/X01-1-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 2,
+          "title": "Menu option 06",
+          "action": "{\"do\":\"menu\",\"option\":6}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COTRN00C",
+              "legacy": "COTRN00C",
+              "modern": "COTRN00C",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/X01-2-legacy.jpg",
+          "modernShot": "screenshots/X01-2-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 3,
+          "title": "First page lists batch-posted rows",
+          "action": "{\"do\":\"transactionList\"}",
+          "comparisons": [
+            {
+              "check": "field row1",
+              "expected": "0000000000683580 | 06/10/22 | Purchase at Abshire-Lowe | +00000504.77",
+              "legacy": "0000000000683580 | 06/10/22 | Purchase at Abshire-Lowe | +00000504.77",
+              "modern": "0000000000683580 | 06/10/22 | Purchase at Abshire-Lowe | +00000504.77",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field row2",
+              "expected": "(legacy value)",
+              "legacy": "0000000001774260 | 06/10/22 | Return item at Nitzsche, N | -00000919.00",
+              "modern": "0000000001774260 | 06/10/22 | Return item at Nitzsche, N | -00000919.00",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field row3",
+              "expected": "(legacy value)",
+              "legacy": "0000000006292564 | 06/10/22 | Purchase at Ernser, Roob a | +00000067.88",
+              "modern": "0000000006292564 | 06/10/22 | Purchase at Ernser, Roob a | +00000067.88",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/X01-3-legacy.jpg",
+          "modernShot": "screenshots/X01-3-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 4,
+          "title": "Back to menu",
+          "action": "{\"do\":\"back\"}",
+          "comparisons": [],
+          "legacyShot": "screenshots/X01-4-legacy.jpg",
+          "modernShot": "screenshots/X01-4-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 5,
+          "title": "Menu option 07",
+          "action": "{\"do\":\"menu\",\"option\":7}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COTRN01C",
+              "legacy": "COTRN01C",
+              "modern": "COTRN01C",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/X01-5-legacy.jpg",
+          "modernShot": "screenshots/X01-5-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 6,
+          "title": "Posted DALYTRAN record 0000000000683580",
+          "action": "{\"do\":\"transactionView\",\"transactionId\":\"0000000000683580\"}",
+          "comparisons": [
+            {
+              "check": "field typeCd",
+              "expected": "01",
+              "legacy": "01",
+              "modern": "01",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field categoryCd",
+              "expected": "0001",
+              "legacy": "0001",
+              "modern": "0001",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field source",
+              "expected": "POS TERM",
+              "legacy": "POS TERM",
+              "modern": "POS TERM",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field description",
+              "expected": "Purchase at Abshire-Lowe",
+              "legacy": "Purchase at Abshire-Lowe",
+              "modern": "Purchase at Abshire-Lowe",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field amount",
+              "expected": "+00000504.77",
+              "legacy": "+00000504.77",
+              "modern": "+00000504.77",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field merchantId",
+              "expected": "800000000",
+              "legacy": "800000000",
+              "modern": "800000000",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field cardNumber",
+              "expected": "4859452612877065",
+              "legacy": "4859452612877065",
+              "modern": "4859452612877065",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field origDate",
+              "expected": "2022-06-10",
+              "legacy": "2022-06-10",
+              "modern": "2022-06-10",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field merchantName",
+              "expected": "(legacy value)",
+              "legacy": "Abshire-Lowe",
+              "modern": "Abshire-Lowe",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field procDate",
+              "expected": "(legacy value)",
+              "legacy": "2022-07-06",
+              "modern": "2022-07-06",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/X01-6-legacy.jpg",
+          "modernShot": "screenshots/X01-6-modern.jpg",
           "legacyMessage": "",
           "modernMessage": "",
           "pass": true
