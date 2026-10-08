@@ -1,20 +1,30 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { api, ApiError, getSession } from '../api/client';
+import { api, ApiError, getSession, setSession } from '../api/client';
 import type { MenuOption } from '../api/types';
 import { Card, Message, ScreenHeader } from '../components/ui';
 import { ROUTES } from '../routes';
 
 /** COMEN01C / COMEN1A and COADM01C / COADM1A. */
 export default function Menu() {
-  const admin = getSession()?.userType === 'A';
   const navigate = useNavigate();
+  const [admin, setAdmin] = useState(getSession()?.userType === 'A');
   const [options, setOptions] = useState<MenuOption[]>([]);
   const [error, setError] = useState<string>();
 
+  // The server re-checks USRSEC on every request; follow its menu if the user type changed since sign-on.
   useEffect(() => {
-    api.get<MenuOption[]>('/menu').then(setOptions);
-  }, []);
+    api.get<MenuOption[]>('/menu').then((o) => {
+      setOptions(o);
+      const isAdmin = o.some((x) => x.program === 'COUSR00C');
+      setAdmin(isAdmin);
+      const s = getSession();
+      if (s && (s.userType === 'A') !== isAdmin) {
+        setSession({ ...s, userType: isAdmin ? 'A' : 'U' });
+        navigate(isAdmin ? ROUTES.COADM01C.path : ROUTES.COMEN01C.path, { replace: true });
+      }
+    });
+  }, [navigate]);
 
   const select = async (o: MenuOption) => {
     try {
