@@ -1,0 +1,20 @@
+server {
+  listen ${PORT};
+  root /usr/share/nginx/html;
+
+  location /api/ {
+    proxy_pass ${API_URL};
+    proxy_set_header Host $proxy_host;
+    proxy_set_header Origin "";
+    proxy_ssl_server_name on;
+  }
+
+  location /assets/ {
+    add_header Cache-Control "public, max-age=31536000, immutable";
+  }
+
+  location / {
+    add_header Cache-Control "no-cache";
+    try_files $uri /index.html;
+  }
+}
