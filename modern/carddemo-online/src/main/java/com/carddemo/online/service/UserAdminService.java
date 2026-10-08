@@ -1,6 +1,6 @@
 package com.carddemo.online.service;
 
-import com.carddemo.online.domain.UserSecurity;
+import com.carddemo.domain.model.UserSecurity;
 import com.carddemo.online.repo.UserSecurityRepository;
 import java.util.ArrayList;
 import java.util.Collections;

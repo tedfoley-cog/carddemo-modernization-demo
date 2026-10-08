@@ -1,6 +1,7 @@
 package com.carddemo.online.service;
 
-import com.carddemo.online.domain.Card;
+import com.carddemo.online.legacy.LegacyDates;
+import com.carddemo.domain.model.Card;
 import com.carddemo.online.repo.CardRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,14 +69,14 @@ public class CardService {
             }
             String b = before;
             List<Card> prev = new ArrayList<>(cards.browseBackward(before, acct, card,
-                    PageRequest.of(0, PAGE_SIZE + 1)).stream().filter(c -> !c.getCardNum().equals(b)).toList());
+                    PageRequest.of(0, PAGE_SIZE + 1)).stream().filter(c -> !c.getCardNumber().equals(b)).toList());
             List<Card> rows = new ArrayList<>(prev.subList(0, Math.min(PAGE_SIZE, prev.size())));
             java.util.Collections.reverse(rows);
             return new CardPage(page - 1, toRows(rows), true, "TYPE S FOR DETAIL, U TO UPDATE ANY RECORD");
         }
         String from = after == null ? "" : after;
         List<Card> found = cards.browseForward(from, acct, card, PageRequest.of(0, PAGE_SIZE + 2)).stream()
-                .filter(c -> after == null || !c.getCardNum().equals(after)).toList();
+                .filter(c -> after == null || !c.getCardNumber().equals(after)).toList();
         if (found.isEmpty()) {
             throw new LegacyRuleException(after == null ? "NO RECORDS FOUND FOR THIS SEARCH CONDITION."
                     : "NO MORE PAGES TO DISPLAY", null, "COCRDLIC 9000-READ-FORWARD");
@@ -133,10 +134,10 @@ public class CardService {
         CardChanges n = req.changes();
         c.setEmbossedName(n.embossedName().trim());
         c.setActiveStatus(n.activeStatus().trim());
-        String day = c.getExpirationDate() != null && c.getExpirationDate().length() >= 10
-                ? c.getExpirationDate().substring(8, 10) : "01";
-        c.setExpirationDate(String.format("%04d-%02d-%s", Integer.parseInt(n.expiryYear().trim()),
-                Integer.parseInt(n.expiryMonth().trim()), day));
+        String day = c.getExpirationDate() != null
+                ? String.format("%02d", c.getExpirationDate().getDayOfMonth()) : "01";
+        c.setExpirationDate(LegacyDates.date(String.format("%04d-%02d-%s", Integer.parseInt(n.expiryYear().trim()),
+                Integer.parseInt(n.expiryMonth().trim()), day)));
         return new CardOutcome("C", AccountUpdateService.MSG_COMMITTED, detail(c, "Changes committed to database"));
     }
 
@@ -200,14 +201,14 @@ public class CardService {
     }
 
     private static CardChanges current(Card c) {
-        String exp = c.getExpirationDate() == null ? "" : c.getExpirationDate();
+        String exp = LegacyDates.text(c.getExpirationDate());
         return new CardChanges(c.getEmbossedName(), c.getActiveStatus(), AccountFields.part(exp, 5, 7),
                 AccountFields.part(exp, 0, 4));
     }
 
     private static CardDetail detail(Card c, String info) {
         CardChanges cur = current(c);
-        return new CardDetail(String.format("%011d", c.getAcctId()), c.getCardNum(), c.getEmbossedName(),
+        return new CardDetail(String.format("%011d", c.getAccountId()), c.getCardNumber(), c.getEmbossedName(),
                 c.getActiveStatus(), cur.expiryMonth(), cur.expiryYear(), info);
     }
 
@@ -234,7 +235,7 @@ public class CardService {
     }
 
     private static List<CardRow> toRows(List<Card> list) {
-        return list.stream().map(c -> new CardRow(String.format("%011d", c.getAcctId()), c.getCardNum(),
+        return list.stream().map(c -> new CardRow(String.format("%011d", c.getAccountId()), c.getCardNumber(),
                 c.getActiveStatus())).toList();
     }
 }

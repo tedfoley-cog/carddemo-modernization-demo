@@ -21,6 +21,7 @@
     <modules>
         <module>carddemo-domain</module>
         <module>carddemo-batch</module>
+        <module>carddemo-online</module>
     </modules>
 
     <properties>

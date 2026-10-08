@@ -1,7 +1,8 @@
 package com.carddemo.online.service;
 
-import com.carddemo.online.domain.Account;
-import com.carddemo.online.domain.Customer;
+import com.carddemo.online.legacy.LegacyDates;
+import com.carddemo.domain.model.Account;
+import com.carddemo.domain.model.Customer;
 import com.carddemo.online.legacy.LegacyFormat;
 
 /**
@@ -28,25 +29,25 @@ public record AccountFields(
 
     /** COACTUPC 3202-SHOW-ORIGINAL-VALUES. */
     public static AccountFields of(Account a, Customer c) {
-        String ssn = String.format("%09d", c.getSsn());
+        String ssn = (c.getSsn() == null ? "" : c.getSsn());
         return new AccountFields(
                 a.getActiveStatus(),
-                part(a.getOpenDate(), 0, 4), part(a.getOpenDate(), 5, 7), part(a.getOpenDate(), 8, 10),
+                part(LegacyDates.text(a.getOpenDate()), 0, 4), part(LegacyDates.text(a.getOpenDate()), 5, 7), part(LegacyDates.text(a.getOpenDate()), 8, 10),
                 LegacyFormat.currency(a.getCreditLimit()),
-                part(a.getExpirationDate(), 0, 4), part(a.getExpirationDate(), 5, 7), part(a.getExpirationDate(), 8, 10),
+                part(LegacyDates.text(a.getExpirationDate()), 0, 4), part(LegacyDates.text(a.getExpirationDate()), 5, 7), part(LegacyDates.text(a.getExpirationDate()), 8, 10),
                 LegacyFormat.currency(a.getCashCreditLimit()),
-                part(a.getReissueDate(), 0, 4), part(a.getReissueDate(), 5, 7), part(a.getReissueDate(), 8, 10),
-                LegacyFormat.currency(a.getCurrBal()), LegacyFormat.currency(a.getCurrCycCredit()),
-                LegacyFormat.currency(a.getCurrCycDebit()),
+                part(LegacyDates.text(a.getReissueDate()), 0, 4), part(LegacyDates.text(a.getReissueDate()), 5, 7), part(LegacyDates.text(a.getReissueDate()), 8, 10),
+                LegacyFormat.currency(a.getCurrentBalance()), LegacyFormat.currency(a.getCurrentCycleCredit()),
+                LegacyFormat.currency(a.getCurrentCycleDebit()),
                 a.getGroupId(),
                 ssn.substring(0, 3), ssn.substring(3, 5), ssn.substring(5),
-                part(c.getDob(), 0, 4), part(c.getDob(), 5, 7), part(c.getDob(), 8, 10),
-                LegacyFormat.zeroPad(c.getFicoScore(), 3),
+                part(LegacyDates.text(c.getDateOfBirth()), 0, 4), part(LegacyDates.text(c.getDateOfBirth()), 5, 7), part(LegacyDates.text(c.getDateOfBirth()), 8, 10),
+                LegacyFormat.zeroPad(c.getFicoCreditScore(), 3),
                 c.getFirstName(), c.getMiddleName(), c.getLastName(),
-                c.getAddrLine1(), c.getAddrLine2(), c.getAddrLine3(), c.getStateCd(), c.getZip(), c.getCountryCd(),
-                part(c.getPhone1(), 1, 4), part(c.getPhone1(), 5, 8), part(c.getPhone1(), 9, 13),
-                part(c.getPhone2(), 1, 4), part(c.getPhone2(), 5, 8), part(c.getPhone2(), 9, 13),
-                c.getGovtIssuedId(), c.getEftAccountId(), c.getPriCardHolderInd());
+                c.getAddressLine1(), c.getAddressLine2(), c.getAddressLine3(), c.getStateCode(), c.getZip(), c.getCountryCode(),
+                part(c.getPhoneNumber1(), 1, 4), part(c.getPhoneNumber1(), 5, 8), part(c.getPhoneNumber1(), 9, 13),
+                part(c.getPhoneNumber2(), 1, 4), part(c.getPhoneNumber2(), 5, 8), part(c.getPhoneNumber2(), 9, 13),
+                c.getGovernmentIssuedId(), c.getEftAccountId(), c.getPrimaryCardHolder());
     }
 
     static String part(String s, int from, int to) {

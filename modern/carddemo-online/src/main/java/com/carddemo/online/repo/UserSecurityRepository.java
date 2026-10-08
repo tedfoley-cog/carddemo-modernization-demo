@@ -1,6 +1,6 @@
 package com.carddemo.online.repo;
 
-import com.carddemo.online.domain.UserSecurity;
+import com.carddemo.domain.model.UserSecurity;
 import java.util.List;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

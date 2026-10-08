@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import java.time.LocalDate;
 
 /** Card holder (copybook CVCUS01Y / CUSTREC, VSAM CUSTDATA). */
@@ -14,6 +15,11 @@ public class Customer extends AssignedIdEntity<Long> {
     @Id
     @Column(name = "customer_id")
     private Long id;
+
+    /** Optimistic lock for online READ UPDATE / REWRITE (V2 migration). */
+    @Version
+    @Column(name = "version", nullable = false)
+    private long version;
 
     @Column(name = "first_name", length = 25)
     private String firstName;
@@ -103,4 +109,6 @@ public class Customer extends AssignedIdEntity<Long> {
     public void setPrimaryCardHolder(String primaryCardHolder) { this.primaryCardHolder = primaryCardHolder; }
     public Integer getFicoCreditScore() { return ficoCreditScore; }
     public void setFicoCreditScore(Integer ficoCreditScore) { this.ficoCreditScore = ficoCreditScore; }
+
+    public long getVersion() { return version; }
 }

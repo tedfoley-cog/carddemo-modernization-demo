@@ -1,6 +1,7 @@
 package com.carddemo.online.service;
 
-import com.carddemo.online.domain.Transaction;
+import com.carddemo.online.legacy.LegacyDates;
+import com.carddemo.domain.model.CardTransaction;
 import com.carddemo.online.legacy.LegacyFormat;
 import com.carddemo.online.repo.TransactionRepository;
 import java.util.ArrayList;
@@ -42,13 +43,13 @@ public class TransactionQueryService {
                 throw new LegacyRuleException("You are already at the top of the page...", null,
                         "COTRN00C PROCESS-PF7-KEY");
             }
-            List<Transaction> prev = new ArrayList<>(transactions.findByTranIdLessThanOrderByTranIdDesc(before,
+            List<CardTransaction> prev = new ArrayList<>(transactions.findByTransactionIdLessThanOrderByTransactionIdDesc(before,
                     PageRequest.of(0, PAGE_SIZE)));
             Collections.reverse(prev);
             return new TranPage(page - 1, rows(prev), true, "");
         }
         if (after != null) {
-            List<Transaction> next = transactions.findByTranIdGreaterThanOrderByTranIdAsc(after,
+            List<CardTransaction> next = transactions.findByTransactionIdGreaterThanOrderByTransactionIdAsc(after,
                     PageRequest.of(0, PAGE_SIZE + 1));
             if (next.isEmpty()) {
                 throw new LegacyRuleException("You are already at the bottom of the page...", null,
@@ -64,7 +65,7 @@ public class TransactionQueryService {
             }
             key = fromId.trim();
         }
-        return page(1, transactions.findByTranIdGreaterThanEqualOrderByTranIdAsc(key, PageRequest.of(0, PAGE_SIZE + 1)));
+        return page(1, transactions.findByTransactionIdGreaterThanEqualOrderByTransactionIdAsc(key, PageRequest.of(0, PAGE_SIZE + 1)));
     }
 
     /** COTRN00C PROCESS-ENTER-KEY selection column: only S/s is valid. */
@@ -83,22 +84,22 @@ public class TransactionQueryService {
         }
         // TRNIDIN is moved as-is (left-justified) into TRAN-ID; a short id is not zero-padded
         String key = tranId.trim();
-        Transaction t = transactions.findById(key).orElseThrow(() -> LegacyRuleException.notFound(
+        CardTransaction t = transactions.findById(key).orElseThrow(() -> LegacyRuleException.notFound(
                 "Transaction ID NOT found...", "transactionId", "COTRN01C READ-TRANSACT-FILE"));
-        return new TranDetail(t.getTranId(), t.getCardNum(), t.getTypeCd(), String.format("%04d", t.getCatCd()),
-                t.getSource(), t.getDesc(), LegacyFormat.signedAmount(t.getAmt(), 8), date10(t.getOrigTs()), date10(t.getProcTs()),
+        return new TranDetail(t.getTransactionId(), t.getCardNumber(), t.getTypeCode(), String.format("%04d", t.getCategoryCode()),
+                t.getSource(), t.getDescription(), LegacyFormat.signedAmount(t.getAmount(), 8), date10(LegacyDates.origTs(t)), date10(LegacyDates.procTs(t)),
                 String.format("%09d", t.getMerchantId()), t.getMerchantName(), t.getMerchantCity(),
                 t.getMerchantZip());
     }
 
-    private static TranPage page(int pageNo, List<Transaction> found) {
-        List<Transaction> rows = found.subList(0, Math.min(PAGE_SIZE, found.size()));
+    private static TranPage page(int pageNo, List<CardTransaction> found) {
+        List<CardTransaction> rows = found.subList(0, Math.min(PAGE_SIZE, found.size()));
         return new TranPage(pageNo, rows(rows), found.size() > PAGE_SIZE, "");
     }
 
-    private static List<TranRow> rows(List<Transaction> list) {
-        return list.stream().map(t -> new TranRow(t.getTranId(), LegacyFormat.mmddyy(t.getOrigTs()),
-                truncate(t.getDesc(), 26), LegacyFormat.signedAmount(t.getAmt(), 8))).toList();
+    private static List<TranRow> rows(List<CardTransaction> list) {
+        return list.stream().map(t -> new TranRow(t.getTransactionId(), LegacyFormat.mmddyy(LegacyDates.origTs(t)),
+                truncate(t.getDescription(), 26), LegacyFormat.signedAmount(t.getAmount(), 8))).toList();
     }
 
     /** TDESCnn on COTRN0A is 26 bytes; the MOVE truncates. */

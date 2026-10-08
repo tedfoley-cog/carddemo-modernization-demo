@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import java.time.LocalDate;
 
 /** Payment card (copybook CVACT02Y, VSAM CARDDATA). */
@@ -14,6 +15,11 @@ public class Card extends AssignedIdEntity<String> {
     @Id
     @Column(name = "card_number", length = 16)
     private String cardNumber;
+
+    /** Optimistic lock for online READ UPDATE / REWRITE (V2 migration). */
+    @Version
+    @Column(name = "version", nullable = false)
+    private long version;
 
     @Column(name = "account_id", nullable = false)
     private Long accountId;
@@ -44,4 +50,6 @@ public class Card extends AssignedIdEntity<String> {
     public void setExpirationDate(LocalDate expirationDate) { this.expirationDate = expirationDate; }
     public String getActiveStatus() { return activeStatus; }
     public void setActiveStatus(String activeStatus) { this.activeStatus = activeStatus; }
+
+    public long getVersion() { return version; }
 }

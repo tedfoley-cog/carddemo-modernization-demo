@@ -3,25 +3,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.3.4</version>
-    <relativePath/>
+    <groupId>com.carddemo.modern</groupId>
+    <artifactId>carddemo-modern</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.carddemo</groupId>
   <artifactId>carddemo-online</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
   <name>carddemo-online</name>
   <description>Stateless REST API replacing the CardDemo CICS online programs</description>
 
   <properties>
-    <java.version>21</java.version>
     <testcontainers.version>1.21.4</testcontainers.version>
     <springdoc.version>2.6.0</springdoc.version>
     <jjwt.version>0.12.6</jjwt.version>
   </properties>
 
   <dependencies>
+    <!-- Shared JPA entities and the single Flyway schema used by batch and online -->
+    <dependency><groupId>com.carddemo.modern</groupId><artifactId>carddemo-domain</artifactId></dependency>
     <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-web</artifactId></dependency>
     <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-data-jpa</artifactId></dependency>
     <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-security</artifactId></dependency>

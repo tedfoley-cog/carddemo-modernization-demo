@@ -217,9 +217,9 @@ class OnlineApiIT {
     @Test
     @DisplayName("ONL-BIL-02 + ONL-BIL-03 COBIL00C WRITE-TRANSACT-FILE / UPDATE-ACCTDAT-FILE: full balance paid, then nothing to pay")
     void billPayFlow() throws Exception {
-        BigDecimal before = jdbc.queryForObject("select acct_curr_bal from account where acct_id = 2", BigDecimal.class);
+        BigDecimal before = jdbc.queryForObject("select current_balance from account where account_id = 2", BigDecimal.class);
         assertThat(before).isPositive();
-        String maxBefore = jdbc.queryForObject("select max(tran_id) from transaction", String.class);
+        String maxBefore = jdbc.queryForObject("select max(transaction_id) from card_transaction", String.class);
         as("USER0001", post("/api/v1/bill-payments").content("{\"accountId\":\"00000000002\"}"))
                 .andExpect(jsonPath("$.message").value("Confirm to make a bill payment..."));
         JsonNode paid = json(as("USER0001", post("/api/v1/bill-payments")
@@ -227,12 +227,12 @@ class OnlineApiIT {
         String id = paid.get("transactionId").asText();
         assertThat(id).isEqualTo(String.format("%016d", Long.parseLong(maxBefore.trim()) + 1));
         assertThat(paid.get("message").asText()).isEqualTo("Payment successful.  Your Transaction ID is " + id + ".");
-        assertThat(jdbc.queryForObject("select acct_curr_bal from account where acct_id = 2", BigDecimal.class))
+        assertThat(jdbc.queryForObject("select current_balance from account where account_id = 2", BigDecimal.class))
                 .isEqualByComparingTo("0");
-        var row = jdbc.queryForMap("select * from transaction where tran_id = ?", id);
-        assertThat(row.get("tran_type_cd").toString().trim()).isEqualTo("02");
-        assertThat(row.get("tran_desc").toString().trim()).isEqualTo("BILL PAYMENT - ONLINE");
-        assertThat((BigDecimal) row.get("tran_amt")).isEqualByComparingTo(before);
+        var row = jdbc.queryForMap("select * from card_transaction where transaction_id = ?", id);
+        assertThat(row.get("type_code").toString().trim()).isEqualTo("02");
+        assertThat(row.get("description").toString().trim()).isEqualTo("BILL PAYMENT - ONLINE");
+        assertThat((BigDecimal) row.get("amount")).isEqualByComparingTo(before);
         as("USER0001", post("/api/v1/bill-payments").content("{\"accountId\":\"00000000002\",\"confirm\":\"Y\"}"))
                 .andExpect(jsonPath("$.message").value("You have nothing to pay..."));
     }

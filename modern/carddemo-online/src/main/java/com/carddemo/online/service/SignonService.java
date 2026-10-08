@@ -3,7 +3,7 @@ package com.carddemo.online.service;
 import com.carddemo.online.config.CardDemoProperties;
 import com.carddemo.online.config.JwtService;
 import com.carddemo.online.config.SessionUser;
-import com.carddemo.online.domain.UserSecurity;
+import com.carddemo.domain.model.UserSecurity;
 import com.carddemo.online.repo.UserSecurityRepository;
 import java.util.Locale;
 import java.util.Optional;
@@ -61,7 +61,7 @@ public class SignonService {
         SessionUser session = new SessionUser(u.getUserId(), u.getUserType(),
                 (u.getFirstName() + " " + u.getLastName()).trim());
         return new SignonResult(jwt.issue(session), jwt.ttlSeconds(), u.getUserId(), u.getUserType(),
-                session.displayName(), u.isAdmin() ? "COADM01C" : "COMEN01C", u.isAdmin() ? "CA00" : "CM00");
+                session.displayName(), "A".equals(u.getUserType()) ? "COADM01C" : "COMEN01C", "A".equals(u.getUserType()) ? "CA00" : "CM00");
     }
 
     private static boolean isBlank(String s) {

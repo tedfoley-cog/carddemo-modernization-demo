@@ -1,9 +1,10 @@
 package com.carddemo.online.service;
 
+import com.carddemo.online.legacy.LegacyDates;
 import com.carddemo.online.config.BusinessClock;
-import com.carddemo.online.domain.Account;
-import com.carddemo.online.domain.CardXref;
-import com.carddemo.online.domain.Customer;
+import com.carddemo.domain.model.Account;
+import com.carddemo.domain.model.CardXref;
+import com.carddemo.domain.model.Customer;
 import com.carddemo.online.legacy.LegacyFormat;
 import com.carddemo.online.legacy.Numval;
 import com.carddemo.online.repo.AccountRepository;
@@ -70,7 +71,7 @@ public class AccountUpdateService {
     public AccountUpdateData fetch(String accountIdInput) {
         long id = editAccount(accountIdInput);
         Loaded l = load(id);
-        return new AccountUpdateData(LegacyFormat.zeroPad(id, 11), LegacyFormat.zeroPad(l.customer.getCustId(), 9),
+        return new AccountUpdateData(LegacyFormat.zeroPad(id, 11), LegacyFormat.zeroPad(l.customer.getId(), 9),
                 l.cardNum, INFO_SHOW, AccountFields.of(l.account, l.customer));
     }
 
@@ -89,9 +90,9 @@ public class AccountUpdateService {
         checkChangesAndEdit(req);
         Account a = accounts.findForUpdate(id).orElseThrow(() -> LegacyRuleException.conflict(
                 "Could not lock account record for update", "COACTUPC 9600-WRITE-PROCESSING"));
-        CardXref x = xrefs.findFirstByAcctIdOrderByCardNumAsc(id).orElseThrow(() -> LegacyRuleException.conflict(
+        CardXref x = xrefs.findFirstByAccountIdOrderByCardNumberAsc(id).orElseThrow(() -> LegacyRuleException.conflict(
                 "Could not lock customer record for update", "COACTUPC 9600-WRITE-PROCESSING"));
-        Customer c = customers.findForUpdate(x.getCustId()).orElseThrow(() -> LegacyRuleException.conflict(
+        Customer c = customers.findForUpdate(x.getCustomerId()).orElseThrow(() -> LegacyRuleException.conflict(
                 "Could not lock customer record for update", "COACTUPC 9600-WRITE-PROCESSING"));
         // ONL-ACU-02  9700-CHECK-CHANGE-IN-REC
         if (!same(AccountFields.of(a, c), req.original())) {
@@ -174,30 +175,30 @@ public class AccountUpdateService {
         a.setActiveStatus(f.activeStatus().trim());
         a.setCreditLimit(num(f.creditLimit()));
         a.setCashCreditLimit(num(f.cashCreditLimit()));
-        a.setCurrBal(num(f.currentBalance()));
-        a.setCurrCycCredit(num(f.currentCycleCredit()));
-        a.setCurrCycDebit(num(f.currentCycleDebit()));
-        a.setOpenDate(date(f.openYear(), f.openMonth(), f.openDay()));
-        a.setExpirationDate(date(f.expiryYear(), f.expiryMonth(), f.expiryDay()));
-        a.setReissueDate(date(f.reissueYear(), f.reissueMonth(), f.reissueDay()));
+        a.setCurrentBalance(num(f.currentBalance()));
+        a.setCurrentCycleCredit(num(f.currentCycleCredit()));
+        a.setCurrentCycleDebit(num(f.currentCycleDebit()));
+        a.setOpenDate(LegacyDates.date(date(f.openYear(), f.openMonth(), f.openDay())));
+        a.setExpirationDate(LegacyDates.date(date(f.expiryYear(), f.expiryMonth(), f.expiryDay())));
+        a.setReissueDate(LegacyDates.date(date(f.reissueYear(), f.reissueMonth(), f.reissueDay())));
         a.setGroupId(t(f.groupId()));
         c.setFirstName(t(f.firstName()));
         c.setMiddleName(t(f.middleName()));
         c.setLastName(t(f.lastName()));
-        c.setAddrLine1(t(f.addressLine1()));
-        c.setAddrLine2(t(f.addressLine2()));
-        c.setAddrLine3(t(f.city()));
-        c.setStateCd(t(f.state()));
-        c.setCountryCd(t(f.country()));
+        c.setAddressLine1(t(f.addressLine1()));
+        c.setAddressLine2(t(f.addressLine2()));
+        c.setAddressLine3(t(f.city()));
+        c.setStateCode(t(f.state()));
+        c.setCountryCode(t(f.country()));
         c.setZip(t(f.zip()));
-        c.setPhone1(phone(f.phone1a(), f.phone1b(), f.phone1c()));
-        c.setPhone2(phone(f.phone2a(), f.phone2b(), f.phone2c()));
-        c.setSsn(Long.parseLong(t(f.ssn1()) + t(f.ssn2()) + t(f.ssn3())));
-        c.setGovtIssuedId(t(f.governmentId()));
-        c.setDob(date(f.dobYear(), f.dobMonth(), f.dobDay()));
+        c.setPhoneNumber1(phone(f.phone1a(), f.phone1b(), f.phone1c()));
+        c.setPhoneNumber2(phone(f.phone2a(), f.phone2b(), f.phone2c()));
+        c.setSsn(String.format("%09d", Long.parseLong(t(f.ssn1()) + t(f.ssn2()) + t(f.ssn3()))));
+        c.setGovernmentIssuedId(t(f.governmentId()));
+        c.setDateOfBirth(LegacyDates.date(date(f.dobYear(), f.dobMonth(), f.dobDay())));
         c.setEftAccountId(t(f.eftAccountId()));
-        c.setPriCardHolderInd(t(f.primaryCardHolder()));
-        c.setFicoScore(Integer.parseInt(t(f.ficoScore()).substring(0, 3)));
+        c.setPrimaryCardHolder(t(f.primaryCardHolder()));
+        c.setFicoCreditScore(Integer.parseInt(t(f.ficoScore()).substring(0, 3)));
     }
 
     private static String t(String s) {
@@ -226,16 +227,16 @@ public class AccountUpdateService {
     /** 9000-READ-ACCT: xref (CXACAIX) -> account -> customer, same messages as COACTVWC. */
     private Loaded load(long id) {
         String acct = LegacyFormat.zeroPad(id, 11);
-        CardXref x = xrefs.findFirstByAcctIdOrderByCardNumAsc(id).orElseThrow(() -> LegacyRuleException.notFound(
+        CardXref x = xrefs.findFirstByAccountIdOrderByCardNumberAsc(id).orElseThrow(() -> LegacyRuleException.notFound(
                 "Account:" + acct + " not found in Cross ref file.  " + AccountViewService.RESP_NOTFND, "accountId",
                 "COACTUPC 9200-GETCARDXREF-BYACCT"));
         Account a = accounts.findById(id).orElseThrow(() -> LegacyRuleException.notFound(
                 "Account:" + acct + " not found in Acct Master file." + AccountViewService.RESP_NOTFND, "accountId",
                 "COACTUPC 9300-GETACCTDATA-BYACCT"));
-        Customer c = customers.findById(x.getCustId()).orElseThrow(() -> LegacyRuleException.notFound(
-                "CustId:" + LegacyFormat.zeroPad(x.getCustId(), 9)
+        Customer c = customers.findById(x.getCustomerId()).orElseThrow(() -> LegacyRuleException.notFound(
+                "CustId:" + LegacyFormat.zeroPad(x.getCustomerId(), 9)
                         + " not found in customer master.Resp: 000000013  REAS:0000",
                 "accountId", "COACTUPC 9400-GETCUSTDATA-BYCUST"));
-        return new Loaded(a, c, x.getCardNum());
+        return new Loaded(a, c, x.getCardNumber());
     }
 }

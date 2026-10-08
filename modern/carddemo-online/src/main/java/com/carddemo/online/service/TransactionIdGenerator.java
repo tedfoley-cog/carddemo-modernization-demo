@@ -22,8 +22,8 @@ public class TransactionIdGenerator {
     /** Must be called inside the transaction that inserts the row. */
     public String next() {
         jdbc.queryForObject("select pg_advisory_xact_lock(4711)", Object.class);
-        long last = transactions.findFirstByOrderByTranIdDesc()
-                .map(t -> Long.parseLong(t.getTranId().trim()))
+        long last = transactions.findFirstByOrderByTransactionIdDesc()
+                .map(t -> Long.parseLong(t.getTransactionId().trim()))
                 .orElse(0L);
         return String.format("%016d", last + 1);
     }

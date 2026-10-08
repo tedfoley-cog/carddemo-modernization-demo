@@ -21,7 +21,7 @@ public record CardDemoProperties(String clock, Jwt jwt, Seed seed, Quirks quirks
     /**
      * @param workdir  legacy runtime work directory (batch.py --workdir), uses out/*.dat then ds/*.PS
      * @param appData  CardDemo app/data directory (ASCII + EBCDIC) used when no workdir file exists
-     * @param mode     none | if-empty | reload
+     * @param mode     none | if-empty | reload | users (fixture users only; business data written by modern batch)
      */
     public record Seed(String workdir, String appData, String mode) {
     }

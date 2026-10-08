@@ -1,8 +1,9 @@
 package com.carddemo.online.service;
 
-import com.carddemo.online.domain.Account;
-import com.carddemo.online.domain.CardXref;
-import com.carddemo.online.domain.Customer;
+import com.carddemo.online.legacy.LegacyDates;
+import com.carddemo.domain.model.Account;
+import com.carddemo.domain.model.CardXref;
+import com.carddemo.domain.model.Customer;
 import com.carddemo.online.legacy.LegacyFormat;
 import com.carddemo.online.repo.AccountRepository;
 import com.carddemo.online.repo.CardXrefRepository;
@@ -57,7 +58,7 @@ public class AccountViewService {
         long id = editAccount(accountIdInput, "COACTVWC");
         String acct = LegacyFormat.zeroPad(id, 11);
         // ONL-ACV-02  COACTVWC 9200-GETCARDXREF-BYACCT (READ CXACAIX)
-        CardXref xref = xrefs.findFirstByAcctIdOrderByCardNumAsc(id).orElseThrow(() -> LegacyRuleException.notFound(
+        CardXref xref = xrefs.findFirstByAccountIdOrderByCardNumberAsc(id).orElseThrow(() -> LegacyRuleException.notFound(
                 "Account:" + acct + " not found in Cross ref file.  " + RESP_NOTFND, "accountId",
                 "COACTVWC 9200-GETCARDXREF-BYACCT"));
         // COACTVWC 9300-GETACCTDATA-BYACCT
@@ -65,25 +66,25 @@ public class AccountViewService {
                 "Account:" + acct + " not found in Acct Master file." + RESP_NOTFND, "accountId",
                 "COACTVWC 9300-GETACCTDATA-BYACCT"));
         // COACTVWC 9400-GETCUSTDATA-BYCUST
-        Customer c = customers.findById(xref.getCustId()).orElseThrow(() -> LegacyRuleException.notFound(
-                "CustId:" + LegacyFormat.zeroPad(xref.getCustId(), 9)
+        Customer c = customers.findById(xref.getCustomerId()).orElseThrow(() -> LegacyRuleException.notFound(
+                "CustId:" + LegacyFormat.zeroPad(xref.getCustomerId(), 9)
                         + " not found in customer master.Resp: 000000013  REAS:0000",
                 "accountId", "COACTVWC 9400-GETCUSTDATA-BYCUST"));
-        return toView(a, c, xref.getCardNum());
+        return toView(a, c, xref.getCardNumber());
     }
 
     /** COACTVWC 1200-SETUP-SCREEN-VARS. */
     static AccountView toView(Account a, Customer c, String cardNum) {
         return new AccountView(
-                LegacyFormat.zeroPad(a.getAcctId(), 11), a.getActiveStatus(), a.getOpenDate(),
-                LegacyFormat.currency(a.getCreditLimit()), a.getExpirationDate(),
-                LegacyFormat.currency(a.getCashCreditLimit()), a.getReissueDate(),
-                LegacyFormat.currency(a.getCurrBal()), LegacyFormat.currency(a.getCurrCycCredit()),
-                a.getGroupId(), LegacyFormat.currency(a.getCurrCycDebit()),
-                LegacyFormat.zeroPad(c.getCustId(), 9), LegacyFormat.ssn(c.getSsn()), c.getDob(),
-                LegacyFormat.zeroPad(c.getFicoScore(), 3), c.getFirstName(), c.getMiddleName(), c.getLastName(),
-                c.getAddrLine1(), c.getAddrLine2(), c.getAddrLine3(), c.getStateCd(), c.getZip(),
-                c.getCountryCd(), c.getPhone1(), c.getPhone2(), c.getGovtIssuedId(), c.getEftAccountId(),
-                c.getPriCardHolderInd(), cardNum);
+                LegacyFormat.zeroPad(a.getId(), 11), a.getActiveStatus(), LegacyDates.text(a.getOpenDate()),
+                LegacyFormat.currency(a.getCreditLimit()), LegacyDates.text(a.getExpirationDate()),
+                LegacyFormat.currency(a.getCashCreditLimit()), LegacyDates.text(a.getReissueDate()),
+                LegacyFormat.currency(a.getCurrentBalance()), LegacyFormat.currency(a.getCurrentCycleCredit()),
+                a.getGroupId(), LegacyFormat.currency(a.getCurrentCycleDebit()),
+                LegacyFormat.zeroPad(c.getId(), 9), LegacyFormat.ssn(Long.parseLong(c.getSsn().trim())), LegacyDates.text(c.getDateOfBirth()),
+                LegacyFormat.zeroPad(c.getFicoCreditScore(), 3), c.getFirstName(), c.getMiddleName(), c.getLastName(),
+                c.getAddressLine1(), c.getAddressLine2(), c.getAddressLine3(), c.getStateCode(), c.getZip(),
+                c.getCountryCode(), c.getPhoneNumber1(), c.getPhoneNumber2(), c.getGovernmentIssuedId(), c.getEftAccountId(),
+                c.getPrimaryCardHolder(), cardNum);
     }
 }

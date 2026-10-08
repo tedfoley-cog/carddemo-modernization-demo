@@ -1,9 +1,10 @@
 package com.carddemo.online.service;
 
+import com.carddemo.online.legacy.LegacyDates;
 import com.carddemo.online.config.BusinessClock;
-import com.carddemo.online.domain.Account;
-import com.carddemo.online.domain.CardXref;
-import com.carddemo.online.domain.Transaction;
+import com.carddemo.domain.model.Account;
+import com.carddemo.domain.model.CardXref;
+import com.carddemo.domain.model.CardTransaction;
 import com.carddemo.online.legacy.LegacyFormat;
 import com.carddemo.online.repo.AccountRepository;
 import com.carddemo.online.repo.CardXrefRepository;
@@ -59,40 +60,39 @@ public class BillPayService {
         Account a = (c.isEmpty() ? accounts.findById(id) : accounts.findForUpdate(id))
                 .orElseThrow(() -> LegacyRuleException.notFound("Account ID NOT found...", "accountId",
                         "COBIL00C READ-ACCTDAT-FILE"));
-        String balance = LegacyFormat.signedAmount(a.getCurrBal(), 10);
+        String balance = LegacyFormat.signedAmount(a.getCurrentBalance(), 10);
         // ONL-BIL-02
-        if (a.getCurrBal().signum() <= 0) {
+        if (a.getCurrentBalance().signum() <= 0) {
             throw new LegacyRuleException("You have nothing to pay...", "accountId", p);
         }
         if (c.isEmpty()) {
             return new BillPayResult(LegacyFormat.zeroPad(id, 11), balance, "Confirm to make a bill payment...", null);
         }
         // ONL-BIL-03  READ-CXACAIX-FILE, WRITE-TRANSACT-FILE, UPDATE-ACCTDAT-FILE
-        CardXref x = xrefs.findFirstByAcctIdOrderByCardNumAsc(id).orElseThrow(() -> LegacyRuleException.notFound(
+        CardXref x = xrefs.findFirstByAccountIdOrderByCardNumberAsc(id).orElseThrow(() -> LegacyRuleException.notFound(
                 "Account ID NOT found...", "accountId", "COBIL00C READ-CXACAIX-FILE"));
-        Transaction t = new Transaction();
-        t.setTranId(ids.next());
-        t.setTypeCd("02");
-        t.setCatCd(2);
+        CardTransaction t = new CardTransaction();
+        t.setTransactionId(ids.next());
+        t.setTypeCode("02");
+        t.setCategoryCode(2);
         t.setSource("POS TERM");
-        t.setDesc("BILL PAYMENT - ONLINE");
-        t.setAmt(a.getCurrBal());
-        t.setCardNum(x.getCardNum());
+        t.setDescription("BILL PAYMENT - ONLINE");
+        t.setAmount(a.getCurrentBalance());
+        t.setCardNumber(x.getCardNumber());
         t.setMerchantId(999999999L);
         t.setMerchantName("BILL PAYMENT");
         t.setMerchantCity("N/A");
         t.setMerchantZip("N/A");
         String ts = clock.legacyTimestamp();
-        t.setOrigTs(ts);
-        t.setProcTs(ts);
+        LegacyDates.stamp(t, ts, ts);
         transactions.save(t);
-        a.setCurrBal(a.getCurrBal().subtract(t.getAmt()));
+        a.setCurrentBalance(a.getCurrentBalance().subtract(t.getAmount()));
         var cache = caches.getCache("accountView");
         if (cache != null) {
             cache.evict(LegacyFormat.zeroPad(id, 11));
         }
-        return new BillPayResult(LegacyFormat.zeroPad(id, 11), LegacyFormat.signedAmount(a.getCurrBal(), 10),
-                "Payment successful.  Your Transaction ID is " + t.getTranId() + ".", t.getTranId());
+        return new BillPayResult(LegacyFormat.zeroPad(id, 11), LegacyFormat.signedAmount(a.getCurrentBalance(), 10),
+                "Payment successful.  Your Transaction ID is " + t.getTransactionId() + ".", t.getTransactionId());
     }
 
     /** ACTIDINI is moved to an X(11) key; a non-numeric or short id simply is not found. */

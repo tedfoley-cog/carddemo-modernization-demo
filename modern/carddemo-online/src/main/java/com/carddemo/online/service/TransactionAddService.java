@@ -1,7 +1,8 @@
 package com.carddemo.online.service;
 
-import com.carddemo.online.domain.CardXref;
-import com.carddemo.online.domain.Transaction;
+import com.carddemo.online.legacy.LegacyDates;
+import com.carddemo.domain.model.CardXref;
+import com.carddemo.domain.model.CardTransaction;
 import com.carddemo.online.legacy.Numval;
 import com.carddemo.online.repo.CardXrefRepository;
 import com.carddemo.online.repo.TransactionRepository;
@@ -46,23 +47,22 @@ public class TransactionAddService {
         switch (c) {
             case "Y", "y" -> {
                 // ADD-TRANSACTION
-                Transaction t = new Transaction();
-                t.setTranId(ids.next());
-                t.setTypeCd(r.typeCd().trim());
-                t.setCatCd(Integer.parseInt(r.categoryCd().trim()));
+                CardTransaction t = new CardTransaction();
+                t.setTransactionId(ids.next());
+                t.setTypeCode(r.typeCd().trim());
+                t.setCategoryCode(Integer.parseInt(r.categoryCd().trim()));
                 t.setSource(r.source());
-                t.setDesc(r.description());
-                t.setAmt(Numval.parse(r.amount()).orElseThrow());
-                t.setCardNum(x.getCardNum());
+                t.setDescription(r.description());
+                t.setAmount(Numval.parse(r.amount()).orElseThrow());
+                t.setCardNumber(x.getCardNumber());
                 t.setMerchantId(Long.parseLong(r.merchantId().trim()));
                 t.setMerchantName(r.merchantName());
                 t.setMerchantCity(r.merchantCity());
                 t.setMerchantZip(r.merchantZip());
-                t.setOrigTs(r.origDate());
-                t.setProcTs(r.procDate());
+                LegacyDates.stamp(t, r.origDate(), r.procDate());
                 transactions.save(t);
-                return new AddResult(acct(x), x.getCardNum(), amount,
-                        "Transaction added successfully.  Your Tran ID is " + t.getTranId() + ".", t.getTranId());
+                return new AddResult(acct(x), x.getCardNumber(), amount,
+                        "Transaction added successfully.  Your Tran ID is " + t.getTransactionId() + ".", t.getTransactionId());
             }
             case "N", "n", "" -> throw new LegacyRuleException("Confirm to add this transaction...", "confirm",
                     P + "PROCESS-ENTER-KEY");
@@ -79,7 +79,7 @@ public class TransactionAddService {
                 throw new LegacyRuleException("Account ID must be Numeric...", "accountId", para);
             }
             long id = parseKey(r.accountId(), 11, "Account ID NOT found...", "accountId", P + "READ-CXACAIX-FILE");
-            return xrefs.findFirstByAcctIdOrderByCardNumAsc(id).orElseThrow(() -> LegacyRuleException.notFound(
+            return xrefs.findFirstByAccountIdOrderByCardNumberAsc(id).orElseThrow(() -> LegacyRuleException.notFound(
                     "Account ID NOT found...", "accountId", P + "READ-CXACAIX-FILE"));
         }
         if (!blank(r.cardNumber())) {
@@ -169,7 +169,7 @@ public class TransactionAddService {
     }
 
     private static String acct(CardXref x) {
-        return String.format("%011d", x.getAcctId());
+        return String.format("%011d", x.getAccountId());
     }
 
     static BigDecimal amount(String s) {
