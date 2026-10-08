@@ -39,7 +39,7 @@ carddemo:
   seed:
     workdir: ${CARDDEMO_SEED_WORKDIR:}
     app-data: ${CARDDEMO_APP_DATA:../../app/data}
-    mode: ${CARDDEMO_SEED_MODE:if-empty}
+    mode: ${CARDDEMO_SEED_MODE:none}
   quirks:
     blank-phone-accepted: ${CARDDEMO_QUIRK_BLANK_PHONE_ACCEPTED:true}
     case-insensitive-password: ${CARDDEMO_QUIRK_CASE_INSENSITIVE_PASSWORD:true}
