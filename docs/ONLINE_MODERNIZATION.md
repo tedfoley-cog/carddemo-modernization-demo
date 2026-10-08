@@ -68,9 +68,18 @@ API documentation: `http://localhost:8080/swagger-ui.html` (OpenAPI at `/v3/api-
 ## Configuration
 
 All configuration is environment based (`application.yml`): `CARDDEMO_DB_URL/USER/PASSWORD`,
-`CARDDEMO_JWT_SECRET` (required, >= 32 bytes), `CARDDEMO_SEED_MODE` (`none` | `if-empty` | `reload`),
+`CARDDEMO_JWT_SECRET` (required, >= 32 bytes; start-up fails without it unless `SPRING_PROFILES_ACTIVE` includes `local`, which uses an ephemeral key), `CARDDEMO_SEED_MODE` (`none` (default) | `if-empty` | `reload`),
 `CARDDEMO_SEED_WORKDIR`, `CARDDEMO_CORS_ORIGINS`, `SPRING_PROFILES_ACTIVE=redis` with `REDIS_HOST` for the cache,
 `PORT` (Cloud Run). Production values come from Secret Manager (see `deploy/terraform`).
+
+Seeding is off by default. The legacy seed data includes fixture users with a known password (`ADMIN001`,
+`USER0001`, ... / `PASSWORD`). They exist only for parity and demos: `run-parity.sh`, the runbook above and local
+development turn seeding on explicitly with `CARDDEMO_SEED_MODE=reload`. Terraform and Cloud Run never set it, so a
+deployed database starts with no users. Load users through a controlled bootstrap instead.
+
+Admin role checks are not trusted from the token alone. For an admin token, `JwtAuthFilter` re-reads the user's
+`user_type` from `user_security` on every request (a primary-key read), so a demoted or deleted admin gets 403 on
+admin APIs at once. Other users keep the 30-minute token TTL.
 
 ## Deploy
 
@@ -87,3 +96,16 @@ Nothing is deployed by default.
 - Card list / card update and user administration are covered by unit + API tests; the browser parity
   scenarios cover sign-on, menus, account view/update, transaction list/view/add and bill pay.
 - Load numbers are from a single VM; they must be re-run in a GCP performance environment.
+
+## Known limitations
+
+- The API Cloud Run service grants `roles/run.invoker` to `allUsers`, with `INTERNAL_ONLY` ingress. Every
+  `/api` route except sign-on also needs the application JWT. This is acceptable for the demo because the UI's
+  nginx proxy forwards the browser's bearer token, not a Google ID token. Production alternative: make the UI service
+  account the only invoker, and have the proxy (or a BFF) attach a Google ID token for the API audience. Then send
+  the application JWT in a separate header.
+- `/actuator/prometheus` (and `/actuator/health`, `/actuator/info`) are served without the application JWT on the
+  API port. That is acceptable here because the API has `INTERNAL_ONLY` ingress: only the VPC can reach it, and the
+  public UI proxy forwards only `/api`. Metrics hold request counts and latencies, not account data. Production
+  alternative: set `management.server.port` to a separate port that only the scraper can reach, and keep
+  `/livez` and `/readyz` on the main port with `management.endpoint.health.probes.add-additional-paths=true`.

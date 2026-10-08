@@ -9,7 +9,7 @@ Surefire/JaCoCo reports can be grepped by requirement or by COBOL paragraph. Par
 |---|---|---|---|---|---|
 | ONL-SEC-01 | COSGN00C `PROCESS-ENTER-KEY` (mandatory user id / password) | `SignonService.signon`, `AuthController` | `SignOn.tsx` | `OnlineApiIT` "ONL-SEC-01 COSGN00C PROCESS-ENTER-KEY" | P03 |
 | ONL-SEC-02 | COSGN00C `READ-USER-SEC-FILE` (wrong password / user not found, upper-cased credentials) | `SignonService.signon` | `SignOn.tsx` | `OnlineApiIT` "ONL-SEC-02 COSGN00C READ-USER-SEC-FILE" | P01 |
-| ONL-SEC-03 | COSGN00C `READ-USER-SEC-FILE` (`SEC-USR-TYPE` A -> COADM01C, U -> COMEN01C); COMMAREA | `SignonService`, `JwtService`, `JwtAuthFilter`, `SecurityConfig` | `SignOn.tsx`, `App.tsx` route guard | `OnlineApiIT` "ONL-SEC-03 ..." (routing, 401/403) | P02 |
+| ONL-SEC-03 | COSGN00C `READ-USER-SEC-FILE` (`SEC-USR-TYPE` A -> COADM01C, U -> COMEN01C); COMMAREA | `SignonService`, `JwtService`, `JwtAuthFilter`, `SecurityConfig` | `SignOn.tsx`, `App.tsx` route guard | `OnlineApiIT` "ONL-SEC-03 ..." (routing, 401/403, demoted admin's unexpired token -> 403 via `JwtAuthFilter` USRSEC re-check) | P02 |
 | ONL-NAV-01 | COMEN01C / COADM01C `PROCESS-ENTER-KEY`, `COMEN02Y` / `COADM02Y` option tables, `PGMIDERR-ERR-PARA` | `MenuService`, `MenuController` | `Menu.tsx`, `routes.ts` | `NavigationRulesTest`, `OnlineApiIT` "ONL-NAV-01 ..." | P02, P03-P09 (menu steps) |
 | ONL-ACV-01 | COACTVWC `2210-EDIT-ACCOUNT` | `AccountViewService.view` | `AccountView.tsx` | `OnlineApiIT` "ONL-ACV-01 COACTVWC 2210-EDIT-ACCOUNT" | P04 |
 | ONL-ACV-02 | COACTVWC `9200-GETCARDXREF-BYACCT`, `9300-GETACCTDATA-BYACCT`, `9400-GETCUSTDATA-BYCUST`, `1200-SETUP-SCREEN-VARS` | `AccountViewService`, `LegacyFormat.currency/ssn` | `AccountView.tsx` | `OnlineApiIT` "ONL-ACV-02 ...", `LegacyFormatTest` | P03, P08 |
@@ -43,3 +43,11 @@ Surefire/JaCoCo reports can be grepped by requirement or by COBOL paragraph. Par
 | Component | Defect | Status |
 |---|---|---|
 | `legacy-runtime/cics/gen_fh.py` (generated VSAM file handlers) | `STARTBR` / `READPREV` with `RIDFLD` = HIGH-VALUES did not position at end of file as CICS does, so COBIL00C/COTRN02C computed TRAN-ID `0000000000000001` and the second payment failed with `Tran ID already exist...` | Fixed in this branch |
+
+## Modern-only security controls (no legacy equivalent)
+
+| Control | Where | Test |
+|---|---|---|
+| Seeding off by default (`CARDDEMO_SEED_MODE` defaults to `none`). Fixture users with known passwords load only when `run-parity.sh`, the runbook or local dev sets `reload`. Terraform never sets it. | `application.yml`, `SeedRunner` | `OnlineApiIT` (sets `reload` explicitly), parity run |
+| Admin role re-checked against `user_security` on every request made with an admin token, so a demoted admin gets 403 right away. Other tokens keep the 30-minute TTL. | `JwtAuthFilter.stillAdmin` | `OnlineApiIT` "ONL-SEC-03 COADM01C admin re-check ..." |
+| A missing or short (< 32 bytes) `CARDDEMO_JWT_SECRET` stops start-up, so instances never fall back to their own per-instance keys. Only the explicit `local` profile uses an ephemeral key. | `JwtService` constructor | `JwtServiceTest` "ONL-SEC-03 COMMAREA replacement ..." |
