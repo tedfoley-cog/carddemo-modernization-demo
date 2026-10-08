@@ -1,0 +1,10 @@
+spring:
+  cache:
+    type: redis
+    redis:
+      time-to-live: ${CARDDEMO_CACHE_TTL:PT5M}
+      key-prefix: "carddemo:"
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT:6379}

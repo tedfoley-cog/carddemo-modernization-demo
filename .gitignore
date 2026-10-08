@@ -10,3 +10,11 @@ runs/
 reports/tmp/
 __pycache__/
 *.pyc
+
+# modern online stack
+modern/**/target/
+modern/**/node_modules/
+modern/**/dist/
+validation/online/node_modules/
+validation/online/test-results/
+validation/online/.work/
