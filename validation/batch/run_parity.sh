@@ -20,7 +20,7 @@ for s in "${SCENARIOS[@]}"; do
   echo "=== scenario $s"
   data="$WORK/data/$s"
   rm -rf "$data" "$WORK/legacy/$s" "$WORK/modern/$s"
-  mkdir -p "$data" "$WORK/modern/$s"
+  mkdir -p "$data" "$WORK/legacy" "$WORK/modern/$s"
   if [ "$s" = base ]; then
     cp app/data/ASCII/*.txt "$data/"
   else
@@ -29,6 +29,9 @@ for s in "${SCENARIOS[@]}"; do
 
   python3 legacy-runtime/batch.py --workdir "$WORK/legacy/$s" --data-dir "$data" --trace \
     > "$WORK/legacy/$s.log" 2>&1
+  if [ ! -f "$WORK/legacy/$s/out/RETURN-CODES.txt" ]; then
+    echo "  legacy run produced no artifacts (see $WORK/legacy/$s.log)"; status=1; continue
+  fi
   legacy_runs+=("$WORK/legacy/$s")
 
   start=$(date +%s.%N)
@@ -37,6 +40,9 @@ for s in "${SCENARIOS[@]}"; do
   echo "  modern exit=$? ($(echo "$(date +%s.%N) - $start" | bc | cut -c1-6)s)"
   grep -E " JOB " "$WORK/modern/$s.log" | sed 's/^.* JOB /  JOB /'
 
+  if [ ! -f "$WORK/modern/$s/out/RETURN-CODES.txt" ]; then
+    echo "  modern run produced no artifacts (see $WORK/modern/$s.log)"; status=1; continue
+  fi
   mkdir -p "reports/batch/$s"
   if ! python3 -m validation.batch.compare "$WORK/legacy/$s/out" "$WORK/modern/$s/out" --report "reports/batch/$s"; then
     echo "  MISMATCH in $s (see reports/batch/$s)"
