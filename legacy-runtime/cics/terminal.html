@@ -1,0 +1,67 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>CardDemo - CICS 3270 (legacy)</title>
+<style>
+ body{background:#111;color:#ddd;font-family:system-ui,sans-serif;margin:0;padding:16px}
+ header{display:flex;gap:16px;align-items:baseline;margin-bottom:8px}
+ header b{color:#7fd17f} header span{color:#888;font-size:13px}
+ #scr{position:relative;background:#000;width:calc(80*10.2px);height:calc(24*21px);padding:10px;border:2px solid #333;
+      font:17px/21px "IBM Plex Mono","DejaVu Sans Mono",monospace}
+ .row{position:absolute;left:10px;white-space:pre;height:21px}
+ .seg{position:absolute;white-space:pre}
+ input.f{position:absolute;height:19px;padding:0;border:0;border-bottom:1px solid #2a6e2a;background:transparent;
+        font:inherit;outline:none;caret-color:#fff}
+ input.f:focus{background:#0b2a0b}
+ #oia{margin-top:6px;font:13px monospace;color:#7fd17f;background:#0a0a0a;padding:4px 10px;width:calc(80*10.2px);border:1px solid #333}
+ .keys{margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;width:calc(80*10.2px + 24px)}
+ .keys button{background:#222;color:#ccc;border:1px solid #444;padding:3px 8px;font:12px monospace;cursor:pointer}
+</style></head>
+<body>
+<header><b>CardDemo legacy - original COBOL/CICS programs</b><span>GnuCOBOL + Linux CICS runtime | 3270 model 2 (24x80) | Enter=Enter, F1-F12=PF keys, Esc=Clear</span></header>
+<div id="scr"></div>
+<div id="oia">connecting...</div>
+<div class="keys" id="keys"></div>
+<script>
+const W=10.2,H=21;
+const COL={0xF1:"#5c8cff",0xF2:"#ff5050",0xF3:"#ff7ad9",0xF4:"#50ff50",0xF5:"#40e0e0",0xF6:"#ffff50",0xF7:"#ffffff"};
+let id=null,st=null,busy=false;
+function color(f){ if(f.color&&COL[f.color])return COL[f.color];
+  if(f.prot) return f.bright?"#ffffff":"#5c8cff"; return f.bright?"#ff5050":"#50ff50"; }
+function render(s){
+  st=s; const el=document.getElementById('scr'); el.innerHTML='';
+  if(!s.formatted){
+    s.text.forEach((t,r)=>{const d=document.createElement('div');d.className='row';d.style.top=(10+r*H)+'px';d.style.color='#50ff50';d.textContent=t;el.appendChild(d);});
+    const i=document.createElement('input');i.className='f';i.id='tran';i.style.left='10px';i.style.top=(10+(s.text.filter(x=>x).length+1)*H)+'px';
+    i.style.width=(80*W)+'px';i.style.color='#50ff50';i.maxLength=80;el.appendChild(i);i.focus();
+  } else {
+    let first=null;
+    s.fields.forEach(f=>{
+      const x=10+(f.col-1)*W, y=10+(f.row-1)*H;
+      if(f.prot){ if(f.dark)return; const d=document.createElement('div');d.className='seg';
+        d.style.left=x+'px';d.style.top=y+'px';d.style.color=color(f);d.textContent=f.value;d.dataset.name=f.name||'';el.appendChild(d);}
+      else { const i=document.createElement('input');i.className='f';i.dataset.i=f.i;i.name=f.name||('f'+f.i);
+        i.type=f.dark?'password':'text';i.maxLength=f.len;i.value=f.value.replace(/\s+$/,'');
+        i.style.left=x+'px';i.style.top=y+'px';i.style.width=(f.len*W)+'px';i.style.color=color(f);el.appendChild(i);
+        if(s.cursor&&s.cursor[0]==f.row&&s.cursor[1]==f.col)first=i; if(!first)first=i; }
+    });
+    if(first)first.focus();
+  }
+  const t=s.last_task;
+  document.getElementById('oia').textContent=`${s.id} | map ${s.map||'-'} | next TRANSID ${s.next_transid||'-'}`+
+    (t?` | last task #${t.task} ${t.transid}: ${t.programs.join(' > ')} (${t.commands.length} EXEC CICS)${t.abend?' ABEND '+t.abend.code:''}`:'');
+}
+async function api(path,body){const r=await fetch(path,{method:body?'POST':'GET',headers:{'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});return r.json();}
+async function key(aid){
+  if(busy)return; busy=true; document.getElementById('oia').textContent='X SYSTEM';
+  const fields={}; document.querySelectorAll('input.f[data-i]').forEach(i=>fields[i.dataset.i]=i.value);
+  const tran=document.getElementById('tran'); 
+  render(await api('/api/key',{id,aid,fields,tran:tran?tran.value:null})); busy=false;
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'){e.preventDefault();key('ENTER');}
+  else if(e.key==='Escape'){e.preventDefault();key('CLEAR');}
+  else if(/^F([1-9]|1[0-2])$/.test(e.key)){e.preventDefault();key('P'+e.key);}
+});
+const kb=document.getElementById('keys');
+['ENTER','CLEAR',...Array.from({length:12},(_,i)=>'PF'+(i+1))].forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>key(k);kb.appendChild(b);});
+(async()=>{ const q=new URLSearchParams(location.search).get('id'); const s=q?await api('/api/screen?id='+q):await api('/api/session',{}); id=s.id; render(s); })();
+</script></body></html>
