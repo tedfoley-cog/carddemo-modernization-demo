@@ -1,0 +1,100 @@
+name: online-modernization
+
+on:
+  pull_request:
+    paths: ["modern/pom.xml", "modern/carddemo-domain/**", "modern/carddemo-online/**", "modern/carddemo-ui/**", "validation/online/**", "deploy/**",
+            ".github/workflows/online-modernization.yml"]
+  push:
+    branches: [main]
+    paths: ["modern/pom.xml", "modern/carddemo-domain/**", "modern/carddemo-online/**", "modern/carddemo-ui/**", "deploy/**"]
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: "Build images and deploy to Cloud Run (requires GCP_WORKLOAD_IDENTITY_PROVIDER etc.)"
+        type: boolean
+        default: false
+      environment:
+        type: choice
+        options: [dev]
+        default: dev
+
+permissions:
+  contents: read
+
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: modern } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "21", cache: maven }
+      - name: Unit + Testcontainers integration tests, JaCoCo
+        run: mvn -B -pl carddemo-online -am verify
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: api-test-reports
+          path: |
+            modern/carddemo-online/target/site/jacoco
+            modern/carddemo-online/target/surefire-reports
+            modern/carddemo-online/target/failsafe-reports
+
+  ui:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: modern/carddemo-ui } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20", cache: npm, cache-dependency-path: modern/carddemo-ui/package-lock.json }
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+  terraform:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: deploy/terraform } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+      - run: terraform fmt -check -recursive
+      - run: terraform init -backend=false
+      - run: terraform validate
+
+  deploy:
+    # Never runs on PRs or pushes: only a manual dispatch with deploy=true, and only when the GCP
+    # identity variables are configured on the environment.
+    if: github.event_name == 'workflow_dispatch' && inputs.deploy && vars.GCP_WORKLOAD_IDENTITY_PROVIDER != ''
+    needs: [api, ui, terraform]
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      REGISTRY: ${{ vars.GCP_REGION }}-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/carddemo
+    steps:
+      - uses: actions/checkout@v4
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOY_SERVICE_ACCOUNT }}
+      - uses: google-github-actions/setup-gcloud@v2
+      - run: gcloud auth configure-docker "${{ vars.GCP_REGION }}-docker.pkg.dev" --quiet
+      - name: Build and push images
+        run: |
+          docker build -f modern/carddemo-online/Dockerfile -t "$REGISTRY/online-api:$GITHUB_SHA" .
+          docker build -t "$REGISTRY/online-ui:$GITHUB_SHA" modern/carddemo-ui
+          docker push "$REGISTRY/online-api:$GITHUB_SHA"
+          docker push "$REGISTRY/online-ui:$GITHUB_SHA"
+      - uses: hashicorp/setup-terraform@v3
+      - name: Terraform apply
+        working-directory: deploy/terraform
+        run: |
+          terraform init -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}"
+          terraform apply -auto-approve \
+            -var="project_id=${{ vars.GCP_PROJECT_ID }}" -var="region=${{ vars.GCP_REGION }}" \
+            -var="env=${{ inputs.environment }}" \
+            -var="api_image=$REGISTRY/online-api:$GITHUB_SHA" -var="ui_image=$REGISTRY/online-ui:$GITHUB_SHA"

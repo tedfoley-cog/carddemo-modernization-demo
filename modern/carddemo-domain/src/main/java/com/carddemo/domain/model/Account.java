@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -15,6 +16,11 @@ public class Account extends AssignedIdEntity<Long> {
     @Id
     @Column(name = "account_id")
     private Long id;
+
+    /** Optimistic lock for online READ UPDATE / REWRITE (V2 migration). */
+    @Version
+    @Column(name = "version", nullable = false)
+    private long version;
 
     @Column(name = "active_status", length = 1)
     private String activeStatus;
@@ -74,4 +80,6 @@ public class Account extends AssignedIdEntity<Long> {
     public void setAddressZip(String addressZip) { this.addressZip = addressZip; }
     public String getGroupId() { return groupId; }
     public void setGroupId(String groupId) { this.groupId = groupId; }
+
+    public long getVersion() { return version; }
 }

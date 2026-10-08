@@ -1,0 +1,87 @@
+server:
+  port: ${PORT:8080}
+  shutdown: graceful
+  forward-headers-strategy: framework
+
+spring:
+  application:
+    name: carddemo-online
+  datasource:
+    url: ${CARDDEMO_DB_URL:jdbc:postgresql://localhost:5432/carddemo}
+    username: ${CARDDEMO_DB_USER:carddemo}
+    password: ${CARDDEMO_DB_PASSWORD:}
+    hikari:
+      maximum-pool-size: ${CARDDEMO_DB_POOL:20}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none  # Flyway owns the schema (CHAR(n) columns mirror PIC X(n))
+    properties:
+      hibernate.jdbc.batch_size: 500
+  flyway:
+    enabled: true
+  cache:
+    type: ${CARDDEMO_CACHE_TYPE:none}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+
+carddemo:
+  clock: ${CARDDEMO_CLOCK:2022-07-06T10:00:00}
+  jwt:
+    secret: ${CARDDEMO_JWT_SECRET:}
+    ttl: ${CARDDEMO_JWT_TTL:PT30M}
+    issuer: carddemo-online
+  seed:
+    workdir: ${CARDDEMO_SEED_WORKDIR:}
+    app-data: ${CARDDEMO_APP_DATA:../../app/data}
+    mode: ${CARDDEMO_SEED_MODE:none}
+  quirks:
+    blank-phone-accepted: ${CARDDEMO_QUIRK_BLANK_PHONE_ACCEPTED:true}
+    case-insensitive-password: ${CARDDEMO_QUIRK_CASE_INSENSITIVE_PASSWORD:true}
+    transaction-id-max-plus-one: ${CARDDEMO_QUIRK_TRAN_ID_MAX_PLUS_ONE:true}
+  cors:
+    allowed-origins: ${CARDDEMO_CORS_ORIGINS:http://localhost:5173}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+    tags:
+      application: carddemo-online
+  health:
+    redis:
+      enabled: false
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+---
+spring:
+  config:
+    activate:
+      on-profile: redis
+  cache:
+    type: redis
+    redis:
+      time-to-live: ${CARDDEMO_CACHE_TTL:PT60S}
+management:
+  health:
+    redis:
+      enabled: true

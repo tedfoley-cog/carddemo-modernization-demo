@@ -1,0 +1,5 @@
+project_id = "<gcp-project-id>"
+region     = "europe-west2"
+env        = "dev"
+api_image  = "europe-west2-docker.pkg.dev/<gcp-project-id>/carddemo/online-api:<git-sha>"
+ui_image   = "europe-west2-docker.pkg.dev/<gcp-project-id>/carddemo/online-ui:<git-sha>"

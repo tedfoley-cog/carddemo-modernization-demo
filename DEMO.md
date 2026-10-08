@@ -4,8 +4,12 @@ Everything below runs live; no slides. Total ~45 min (RE 5, FE 15, validation 20
 
 ## 0. Before the session (10 min)
 
+Prerequisites: GnuCOBOL 3.x (with BDB), Python 3, Java 21, Maven, Node 20+, Docker (PostgreSQL 16).
+
 ```bash
 legacy-runtime/build.sh && legacy-runtime/cics/build_cics.sh        # GnuCOBOL build of the original COBOL
+TRACE=1 legacy-runtime/build.sh                                      # traced build, used for COBOL coverage
+mvn -f modern/pom.xml verify                                         # modern build, unit + integration tests, JaCoCo
 python3 legacy-runtime/batch.py --workdir /tmp/run1 --jobs POSTTRAN  # seed VSAM-equivalent files, post the day
 python3 legacy-runtime/cics/region.py --workdir /tmp/run1 --reuse --port 3270   # original CICS screens in a browser
 ```
@@ -55,21 +59,40 @@ before opening the PR.
 **Batch golden files** (`validation/README.md`):
 
 ```bash
-python3 -m validation.batch.scenarios edge /tmp/s-edge
-python3 legacy-runtime/batch.py --workdir /tmp/legacy --data-dir /tmp/s-edge --trace
-# modern run on the same seed + clock -> /tmp/modern/out
-python3 -m validation.batch.compare /tmp/legacy/out /tmp/modern/out --report /tmp/parity
+validation/batch/run_parity.sh                         # base, edge, abend-intcalc, orphan-xref -> reports/batch/<scenario>/
+CARDDEMO_DB_URL=jdbc:postgresql://localhost:5432/carddemo CARDDEMO_DB_USER=carddemo CARDDEMO_DB_PASSWORD=... \
+MODERN_ARGS=--spring.profiles.active=postgres validation/batch/run_parity.sh base   # same, modern side on PostgreSQL 16
 ```
 
-Record-by-record, field-by-field comparison by copybook key; abend scenarios must fail at the same step with
-the same code. Scenarios: `edge`, `abend-intcalc`, `orphan-xref`, `volume`.
+For each scenario the script generates the seed data, runs the real COBOL stream and the Spring Batch stream on
+the same seed and clock, and compares the outputs record by record and field by field, keyed by the copybook key
+(`python3 -m validation.batch.compare`). The abend scenarios have to fail at the same step with the same code.
+The comparator exits non-zero on any missing, extra or different artifact, and also when it found nothing to compare.
 
-**Online parity** (`validation/online/`): the same scripted user journeys (sign-on, wrong password, account view,
-invalid account, bill pay, account-update validation) driven against the 3270 screen and the React app in the
-browser, screen-recorded, with the resulting VSAM / PostgreSQL state compared afterwards.
+**Online parity** (`validation/online/`): 10 scripted Playwright journeys, each driven against the 3270 screen
+and the React app. P01-P09 cover a wrong password, admin routing, account view, invalid account ids,
+account-update validation, the transaction list, bill-pay errors, a real bill payment and a transaction add.
+X01 is cross-stack: the nightly POSTTRAN runs first on each side (COBOL `batch.py` into the VSAM-equivalent files,
+Spring Batch into the shared PostgreSQL schema), then the posted transactions are checked on the transaction list
+and transaction view (COTRN00C/COTRN01C vs React). All P0x journeys also run on that batch-produced state; the API
+starts with `CARDDEMO_SEED_MODE=users`, so only the fixture users are seeded and the business data comes from batch.
+The field values are compared, and the state-changing journeys read back the resulting balance and transaction
+list through the screens:
+
+```bash
+CARDDEMO_DB_URL=jdbc:postgresql://localhost:5432/carddemo CARDDEMO_DB_USER=carddemo CARDDEMO_DB_PASSWORD=... \
+CARDDEMO_JWT_SECRET=$(openssl rand -hex 32) validation/online/run-parity.sh   # -> validation/online/report.html
+```
+
+Then the same journeys are run in Devin's browser and screen-recorded, legacy and modern side by side.
+
+Preserved legacy behavior worth calling out: POSTTRAN replaces the transaction table before posting (the legacy
+step opens TRANSACT `OUTPUT`, `app/cbl/CBTRN02C.cbl:256`), so on the shared database online-added transactions do not survive the next batch
+run, exactly as on the mainframe. Other known limitations (no first-admin bootstrap with seeding off, `allUsers`
+invoker with internal ingress, actuator exposure) are in `docs/ONLINE_MODERNIZATION.md`.
 
 **Coverage**:
-- legacy: `python3 -m validation.coverage.cobol_coverage <runs> --report <dir>` — paragraph/statement coverage of
+- legacy: `python3 -m validation.coverage.cobol_coverage <runs> --report <dir>` (run by `run_parity.sh`) — paragraph/statement coverage of
   the COBOL from GnuCOBOL traces, listing every paragraph the scenarios never executed;
 - modern: JaCoCo line/branch coverage;
 - traceability: requirement -> COBOL paragraph -> Java class -> test, so an uncovered legacy paragraph is an
