@@ -106,7 +106,7 @@ class OnlineApiIT {
     }
 
     @Test
-    @DisplayName("ONL-SEC-03 COADM01C admin re-check: a demoted admin's unexpired token gets 403 on admin APIs")
+    @DisplayName("ONL-SEC-03 COADM01C admin re-check: a demoted admin's unexpired token gets 403 on admin APIs and the COMEN01C menu")
     void demotedAdminLosesAccess() throws Exception {
         String t = token("ADMIN001");
         mvc.perform(get("/api/v1/admin/users").header("Authorization", "Bearer " + t)).andExpect(status().isOk());
@@ -116,6 +116,8 @@ class OnlineApiIT {
         try {
             mvc.perform(get("/api/v1/admin/users").header("Authorization", "Bearer " + t))
                     .andExpect(status().isForbidden());
+            mvc.perform(get("/api/v1/menu").header("Authorization", "Bearer " + t))
+                    .andExpect(jsonPath("$.length()").value(11));
         } finally {
             admin.setUserType("A");
             userSecurity.save(admin);
