@@ -14,16 +14,22 @@ export default function Menu() {
 
   // The server re-checks USRSEC on every request; follow its menu if the user type changed since sign-on.
   useEffect(() => {
+    let active = true;
+    const token = getSession()?.token;
     api.get<MenuOption[]>('/menu').then((o) => {
+      const s = getSession();
+      if (!active || !s || s.token !== token) return;
       setOptions(o);
       const isAdmin = o.some((x) => x.program === 'COUSR00C');
       setAdmin(isAdmin);
-      const s = getSession();
-      if (s && (s.userType === 'A') !== isAdmin) {
+      if ((s.userType === 'A') !== isAdmin) {
         setSession({ ...s, userType: isAdmin ? 'A' : 'U' });
         navigate(isAdmin ? ROUTES.COADM01C.path : ROUTES.COMEN01C.path, { replace: true });
       }
     });
+    return () => {
+      active = false;
+    };
   }, [navigate]);
 
   const select = async (o: MenuOption) => {
