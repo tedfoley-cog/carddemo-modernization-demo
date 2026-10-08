@@ -81,8 +81,8 @@ development turn seeding on explicitly: `users` loads only USRSEC (business data
 deployed database starts with no users. Load users through a controlled bootstrap instead.
 
 Admin role checks are not trusted from the token alone. For an admin token, `JwtAuthFilter` re-reads the user's
-`user_type` from `app_user` (USRSEC) on every request (a primary-key read), so a demoted or deleted admin gets 403 on
-admin APIs at once. Other users keep the 30-minute token TTL.
+`user_type` from `app_user` (USRSEC) on every request (a primary-key read), so a demoted admin gets 403 on
+admin APIs and the regular COMEN01C menu at once, and a deleted admin's token is rejected (401). Other users keep the 30-minute token TTL.
 
 ## Shared schema with the batch stream
 
