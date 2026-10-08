@@ -33,6 +33,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class InterestCalculationService {
 
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(InterestCalculationService.class);
+
     static final int ABEND_CODE = 999;
     private static final BigDecimal MONTHS_TIMES_PERCENT = BigDecimal.valueOf(1200);
     private static final Sort TCATBAL_KEY = Sort.by("id.accountId", "id.typeCode", "id.categoryCode");
@@ -107,12 +109,12 @@ public class InterestCalculationService {
 
     /** CBACT04C 1200-GET-INTEREST-RATE and 1200-A-GET-DEFAULT-INT-RATE */
     BigDecimal interestRate(String accountGroupId, String typeCode, int categoryCode) {
-        Optional<DisclosureGroup> specific = disclosureGroups.findById(
+        Optional<DisclosureGroup> specific = findDisclosureGroup(
                 new DisclosureGroupId(accountGroupId, typeCode, categoryCode));
         if (specific.isPresent()) {
             return specific.get().getInterestRate();
         }
-        Optional<DisclosureGroup> fallback = disclosureGroups.findById(
+        Optional<DisclosureGroup> fallback = findDisclosureGroup(
                 new DisclosureGroupId(DisclosureGroupId.DEFAULT_GROUP, typeCode, categoryCode));
         if (fallback.isPresent()) {
             return fallback.get().getInterestRate();
@@ -121,6 +123,20 @@ public class InterestCalculationService {
             return BigDecimal.ZERO;
         }
         throw new LegacyAbendException(ABEND_CODE, "DISCLOSURE GROUP RECORD MISSING: DEFAULT/" + typeCode + "/" + categoryCode);
+    }
+
+    /**
+     * CBACT04C 0200-DISCGRP-OPEN: an unreadable disclosure-group file is reported with the
+     * DALY REJECTS message (LEGACY-DEFECTS #8) unless the message fix is enabled.
+     */
+    private Optional<DisclosureGroup> findDisclosureGroup(DisclosureGroupId id) {
+        try {
+            return disclosureGroups.findById(id);
+        } catch (org.springframework.dao.DataAccessException e) {
+            log.error(properties.legacyFixes().correctDisclosureOpenMessage()
+                    ? "ERROR READING DISCLOSURE GROUP FILE" : "ERROR OPENING DALY REJECTS FILE", e);
+            throw e;
+        }
     }
 
     /** CBACT04C 1300-COMPUTE-INTEREST: truncating COMPUTE into WS-MONTHLY-INT PIC S9(09)V99. */

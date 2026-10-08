@@ -14,7 +14,7 @@ public final class TestProperties {
     }
 
     public static CardDemoBatchProperties legacy() {
-        return with(new LegacyFixes(false, false, false, false, false, false, false));
+        return with(new LegacyFixes(false, false, false, false, false, false, false, false));
     }
 
     public static CardDemoBatchProperties with(LegacyFixes fixes) {

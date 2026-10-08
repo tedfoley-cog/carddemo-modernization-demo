@@ -46,6 +46,7 @@ public record CardDemoBatchProperties(
             boolean unboundedStatementTable,
             boolean skipOrphanXref,
             boolean reportNoDoubleCountLastAmount,
-            boolean updateLastInterestAccount) {
+            boolean updateLastInterestAccount,
+            boolean correctDisclosureOpenMessage) {
     }
 }
