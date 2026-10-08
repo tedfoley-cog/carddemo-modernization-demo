@@ -91,6 +91,11 @@ def fh_source(ds) -> str:
            WHEN 'STARTBR'
               PERFORM SET-KEY
               {on_alt("START F KEY >= F-PK", "START F KEY >= F-AK")}
+      * CICS: a RIDFLD of HIGH-VALUES positions at end of file for a
+      * following READPREV instead of raising NOTFND.
+              IF WS-ST = '23' AND FH-KEY(1:{ln}) = HIGH-VALUES
+                 MOVE '00' TO WS-ST
+              END-IF
               MOVE 'Y' TO WS-STARTED
            WHEN 'STARTEQ'
               PERFORM SET-KEY
@@ -107,6 +112,12 @@ def fh_source(ds) -> str:
                  MOVE 'N' TO WS-STARTED
                  PERFORM SET-KEY
                  {on_alt("READ F KEY IS F-PK", "READ F KEY IS F-AK")}
+      * RIDFLD past the last key (e.g. HIGH-VALUES): CICS positions at
+      * end of file and READPREV returns the last record.
+                 IF WS-ST = '23'
+                    {on_alt("START F KEY <= F-PK", "START F KEY <= F-AK")}
+                    READ F PREVIOUS
+                 END-IF
               ELSE
                  READ F PREVIOUS
               END-IF
