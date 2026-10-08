@@ -58,6 +58,15 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${project.basedir}/../../app/data/ASCII</directory>
+                <targetPath>seed-defaults</targetPath>
+            </resource>
+        </resources>
         <finalName>carddemo-batch</finalName>
         <plugins>
             <plugin>

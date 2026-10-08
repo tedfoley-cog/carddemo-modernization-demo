@@ -76,10 +76,11 @@ public class InterestCalculationService {
                 computeFees();
             }
         }
-        if (run.account == null) {
-            throw new LegacyAbendException(ABEND_CODE, "1050-UPDATE-ACCOUNT REWRITE without a prior READ (TCATBALF empty)");
+        // The EOF branch of the PERFORM UNTIL is unreachable once the last READ sets END-OF-FILE,
+        // so the last account's interest is never rewritten (LEGACY-DEFECTS #6).
+        if (run.account != null && properties.legacyFixes().updateLastInterestAccount()) {
+            updateAccount(run);
         }
-        updateAccount(run);
         return read;
     }
 

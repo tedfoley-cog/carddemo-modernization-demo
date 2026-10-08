@@ -43,6 +43,7 @@ carddemo:
       unbounded-statement-table: false
       skip-orphan-xref: false
       report-no-double-count-last-amount: false
+      update-last-interest-account: false
 
 logging:
   level:

@@ -22,11 +22,14 @@ public class CategoryBalanceCodec implements RecordCodec<TransactionCategoryBala
 
     @Override
     public String encode(TransactionCategoryBalance b) {
-        return layout().writer()
+        String record = layout().writer()
                 .number("TRANCAT-ACCT-ID", b.getId().accountId())
                 .text("TRANCAT-TYPE-CD", b.getId().typeCode())
                 .number("TRANCAT-CD", b.getId().categoryCode())
                 .number("TRAN-CAT-BAL", b.getBalance())
                 .toString();
+        // TRAN-CAT-BAL-RECORD FILLER is zero-filled in the shipped data and kept by INITIALIZE in
+        // CBTRN02C 2700-A-CREATE-TCATBAL-REC, so every TCATBALF record carries 22 zeros there.
+        return record.substring(0, 28) + "0".repeat(22);
     }
 }
