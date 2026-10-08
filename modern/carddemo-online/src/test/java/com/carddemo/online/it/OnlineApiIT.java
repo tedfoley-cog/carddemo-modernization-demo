@@ -125,6 +125,20 @@ class OnlineApiIT {
     }
 
     @Test
+    @DisplayName("ONL-SEC-03 COADM01C admin re-check: a deleted admin's unexpired token is rejected (401)")
+    void deletedAdminLosesAccess() throws Exception {
+        String t = token("ADMIN001");
+        var admin = userSecurity.findById("ADMIN001").orElseThrow();
+        userSecurity.delete(admin);
+        try {
+            mvc.perform(get("/api/v1/menu").header("Authorization", "Bearer " + t))
+                    .andExpect(status().isUnauthorized());
+        } finally {
+            userSecurity.save(admin);
+        }
+    }
+
+    @Test
     @DisplayName("ONL-SEC-03 stateless token replaces COMMAREA: no token -> 401, user on admin API -> 403")
     void tokenRequired() throws Exception {
         mvc.perform(get("/api/v1/accounts").param("accountId", "00000000001")).andExpect(status().isUnauthorized());
