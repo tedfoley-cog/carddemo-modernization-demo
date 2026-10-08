@@ -13,6 +13,8 @@ import java.util.Optional;
 import javax.crypto.SecretKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.env.Environment;
+import org.springframework.core.env.Profiles;
 import org.springframework.stereotype.Service;
 
 /**
@@ -25,14 +27,25 @@ public class JwtService {
     private final SecretKey key;
     private final CardDemoProperties.Jwt cfg;
 
-    public JwtService(CardDemoProperties props) {
+    static final int MIN_SECRET_BYTES = 32;
+
+    /**
+     * A per-instance random key would make tokens fail across Cloud Run instances, so a missing or weak
+     * CARDDEMO_JWT_SECRET stops start-up. Only the explicit {@code local} profile falls back to an ephemeral key.
+     */
+    public JwtService(CardDemoProperties props, Environment env) {
         this.cfg = props.jwt();
         String secret = cfg.secret();
-        if (secret == null || secret.isBlank()) {
+        if (secret == null || secret.getBytes(StandardCharsets.UTF_8).length < MIN_SECRET_BYTES) {
+            if (!env.acceptsProfiles(Profiles.of("local"))) {
+                throw new IllegalStateException("CARDDEMO_JWT_SECRET must be set to at least " + MIN_SECRET_BYTES
+                        + " bytes (or run with the 'local' profile for an ephemeral development key)");
+            }
             byte[] random = new byte[48];
             new SecureRandom().nextBytes(random);
             secret = Base64.getEncoder().encodeToString(random);
-            log.warn("CARDDEMO_JWT_SECRET not set: using an ephemeral per-instance key (dev only)");
+            log.warn("CARDDEMO_JWT_SECRET missing or shorter than {} bytes: using an ephemeral key ('local' profile)",
+                    MIN_SECRET_BYTES);
         }
         this.key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
     }
