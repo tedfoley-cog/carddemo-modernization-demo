@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Runs the online parity harness end to end: fresh legacy seed -> CICS region + modern API + UI -> report.
-# Requires: legacy-runtime/cics/build_cics.sh already run, the API jar built (mvn -f modern/carddemo-online package),
+# Requires: legacy-runtime/build.sh and legacy-runtime/cics/build_cics.sh already run, the API jar built (mvn -f modern/carddemo-online package),
 # PostgreSQL reachable via CARDDEMO_DB_URL/USER/PASSWORD and CARDDEMO_JWT_SECRET set. SKIP_START=1 reuses running services.
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
@@ -17,6 +17,7 @@ wait_for() { for _ in $(seq 1 120); do curl -sf -o /dev/null "$1" && return 0; s
 
 if [ -z "${SKIP_START:-}" ]; then
   : "${CARDDEMO_DB_URL:?set CARDDEMO_DB_URL}" "${CARDDEMO_JWT_SECRET:?set CARDDEMO_JWT_SECRET}"
+  [ -d "$ROOT/legacy-runtime/build/bin" ] || { echo "run legacy-runtime/build.sh and legacy-runtime/cics/build_cics.sh first" >&2; exit 2; }
   rm -rf "$WORK" && mkdir -p "$WORK" "$HERE/.work"
   echo "== seeding legacy datasets in $WORK (batch POSTTRAN)"
   python3 "$ROOT/legacy-runtime/batch.py" --workdir "$WORK" --jobs POSTTRAN > "$HERE/.work/batch.log" 2>&1

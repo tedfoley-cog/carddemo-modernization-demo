@@ -31,7 +31,8 @@ Prerequisites: GnuCOBOL 3.x with BDB (see `legacy-runtime/README.md`), Python 3.
 Node 20, Docker (PostgreSQL and Testcontainers).
 
 ```bash
-# 1. legacy: build the CICS programs once
+# 1. legacy: build the batch programs (seed/POSTTRAN) and the CICS programs once
+legacy-runtime/build.sh
 legacy-runtime/cics/build_cics.sh
 
 # 2. PostgreSQL for the modern API (any PostgreSQL 14+ works)
