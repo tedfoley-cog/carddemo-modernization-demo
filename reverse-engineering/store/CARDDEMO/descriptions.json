@@ -1,7 +1,7 @@
 {
   "meta": {
     "module": "CARDDEMO",
-    "generated_at": "2026-10-08T04:11:45Z",
+    "generated_at": "2026-10-08T04:13:02Z",
     "tool": "mftb 0.2.1",
     "inputs": [
       "programs.json",
@@ -21,7 +21,7 @@
     },
     "with_key_points": 0,
     "overviews": 7,
-    "overviews_written": 1
+    "overviews_written": 7
   },
   "overviews": [
     {
@@ -43,43 +43,76 @@
     {
       "kind": "chain",
       "name": "CARDDEMO",
-      "key_points": [],
-      "basis": [],
+      "key_points": [
+        "Posts the day's card transactions to accounts and balance categories, rejecting invalid-card, unknown-account, over-limit and expired-account items to a dated reject file.",
+        "Also produces the transaction report and customer statements and refreshes the reference files, bracketed by closing and reopening the CICS files so online and batch never update the same VSAM at once."
+      ],
+      "basis": [
+        "app/jcl/POSTTRAN.jcl:23-42",
+        "app/cbl/CBTRN02C.cbl:385-420",
+        "app/scheduler/CardDemo.controlm:1-40"
+      ],
       "written_by": "agent"
     },
     {
       "kind": "chain",
       "name": "DAILY-TransactionBackup",
-      "key_points": [],
-      "basis": [],
+      "key_points": [
+        "Daily safety copy of the posted-transaction file: closes the CICS files, REPROs TRANSACT to a backup and redefines the cluster, then reopens the files for online use."
+      ],
+      "basis": [
+        "app/scheduler/CardDemo.controlm:3-25",
+        "app/jcl/TRANBKP.jcl:23-51"
+      ],
       "written_by": "agent"
     },
     {
       "kind": "chain",
       "name": "WEEKLY-TransactionTypesDBRefresh",
-      "key_points": [],
-      "basis": [],
+      "key_points": [
+        "Weekly maintenance of the DB2 transaction-type reference table through a TSO batch (IKJEFT01) step."
+      ],
+      "basis": [
+        "app/scheduler/CardDemo.controlm:26-31",
+        "app/app-transaction-type-db2/jcl/MNTTRDB2.jcl:21"
+      ],
       "written_by": "agent"
     },
     {
       "kind": "chain",
       "name": "DisclosureGroupsRefresh",
-      "key_points": [],
-      "basis": [],
+      "key_points": [
+        "Reloads the disclosure-group (interest rate) reference file from its flat-file master with the CICS files closed; the monthly interest run depends on it being complete."
+      ],
+      "basis": [
+        "app/scheduler/CardDemo.controlm:32-56",
+        "app/jcl/DISCGRP.jcl:22-59"
+      ],
       "written_by": "agent"
     },
     {
       "kind": "chain",
       "name": "TransactionTypesDBRefresh",
-      "key_points": [],
-      "basis": [],
+      "key_points": [
+        "Extracts the DB2 transaction-type and category tables back to the VSAM reference files used by the core application."
+      ],
+      "basis": [
+        "app/scheduler/CardDemo.controlm:57-63"
+      ],
       "written_by": "agent"
     },
     {
       "kind": "chain",
       "name": "MONTHLY-InterestCalculation",
-      "key_points": [],
-      "basis": [],
+      "key_points": [
+        "Monthly interest and fee accrual: computes interest per account and transaction category from the disclosure-group rates and books it as system transactions merged into the transaction file.",
+        "A missing DEFAULT disclosure-group row abends the run, so the month-end cycle depends on reference-data completeness."
+      ],
+      "basis": [
+        "app/scheduler/CardDemo.controlm:64-80",
+        "app/cbl/CBACT04C.cbl:415-440",
+        "app/jcl/INTCALC.jcl:22-34"
+      ],
       "written_by": "agent"
     }
   ],

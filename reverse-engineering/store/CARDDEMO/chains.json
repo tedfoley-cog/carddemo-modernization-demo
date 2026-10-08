@@ -1,0 +1,3431 @@
+{
+  "meta": {
+    "module": "CARDDEMO",
+    "generated_at": "2026-10-08T04:12:45Z",
+    "tool": "mftb 0.2.1",
+    "inputs": {
+      "selectors": [
+        "CARDDEMO",
+        "MONTHLY-InterestCalculation",
+        "DAILY-TransactionBackup",
+        "DisclosureGroupsRefresh"
+      ]
+    }
+  },
+  "chains": [
+    {
+      "table": "CARDDEMO",
+      "requested_as": "CARDDEMO",
+      "selection_basis": "CARDDEMO is a table in ../app/scheduler/CardDemo.ca7",
+      "generated_at": "2026-10-08T04:12:45Z",
+      "jobs": [
+        {
+          "job": "CLOSEFIL",
+          "memname": "CLOSEFIL",
+          "level": 86,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/CLOSEFIL.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:18",
+          "steps": [
+            {
+              "step": "CLCIFIL",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SDSF",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/CLOSEFIL.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "CBPAUP0J",
+          "memname": "CBPAUP0J",
+          "level": 87,
+          "variants": 1,
+          "scanned": false,
+          "setvars": [],
+          "path": null,
+          "source": "../app/scheduler/CardDemo.ca7:43",
+          "steps": []
+        },
+        {
+          "job": "CREASTMT",
+          "memname": "CREASTMT",
+          "level": 87,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/CREASTMT.JCL",
+          "source": "../app/scheduler/CardDemo.ca7:468",
+          "steps": [
+            {
+              "step": "DELDEF01",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "(DELETE)",
+                  "dsn": "AWS.M2.CARDDEMO.TRXFL.SEQ",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DELETE",
+                  "source": "../app/jcl/CREASTMT.JCL:24"
+                },
+                {
+                  "dd": "(DELETE)",
+                  "dsn": "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DELETE",
+                  "source": "../app/jcl/CREASTMT.JCL:24"
+                },
+                {
+                  "dd": "(DEFINE)",
+                  "dsn": "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DEFINE CLUSTER",
+                  "source": "../app/jcl/CREASTMT.JCL:24"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/CREASTMT.JCL:22"
+            },
+            {
+              "step": "STEP010",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SORT",
+              "program": null,
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "SORTIN",
+                  "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "utility-convention SORT SORTIN",
+                  "source": "../app/jcl/CREASTMT.JCL:45"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "SORTOUT",
+                  "dsn": "AWS.M2.CARDDEMO.TRXFL.SEQ",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(NEW,CATLG,DELETE)",
+                  "basis": "utility-convention SORT SORTOUT",
+                  "source": "../app/jcl/CREASTMT.JCL:48"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/CREASTMT.JCL:44"
+            },
+            {
+              "step": "STEP020",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "INFILE",
+                  "dsn": "AWS.M2.CARDDEMO.TRXFL.SEQ",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "IDCAMS REPRO INFILE",
+                  "source": "../app/jcl/CREASTMT.JCL:58"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "OUTFILE",
+                  "dsn": "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "IDCAMS REPRO OUTFILE",
+                  "source": "../app/jcl/CREASTMT.JCL:59"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [
+                "COND=(0,NE)"
+              ],
+              "source": "../app/jcl/CREASTMT.JCL:56"
+            },
+            {
+              "step": "STEP030",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IEFBR14",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "HTMLFILE",
+                  "dsn": "AWS.M2.CARDDEMO.STATEMNT.HTML",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(MOD,DELETE,DELETE)",
+                  "basis": "IEFBR14 allocation/deletion DISP=(MOD,DELETE,DELETE)",
+                  "source": "../app/jcl/CREASTMT.JCL:67"
+                },
+                {
+                  "dd": "STMTFILE",
+                  "dsn": "AWS.M2.CARDDEMO.STATEMNT.PS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(MOD,DELETE,DELETE)",
+                  "basis": "IEFBR14 allocation/deletion DISP=(MOD,DELETE,DELETE)",
+                  "source": "../app/jcl/CREASTMT.JCL:72"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [
+                "COND=(0,NE)"
+              ],
+              "source": "../app/jcl/CREASTMT.JCL:66"
+            },
+            {
+              "step": "STEP040",
+              "proc_step": null,
+              "kind": "program",
+              "pgm": "CBSTM03A",
+              "program": "CBSTM03A",
+              "reached": [
+                "CBSTM03B"
+              ],
+              "reads": [
+                {
+                  "dd": "TRNXFILE",
+                  "dsn": "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBSTM03B TRNX-FILE)",
+                  "source": "../app/jcl/CREASTMT.JCL:83"
+                },
+                {
+                  "dd": "XREFFILE",
+                  "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBSTM03B XREF-FILE)",
+                  "source": "../app/jcl/CREASTMT.JCL:84"
+                },
+                {
+                  "dd": "CUSTFILE",
+                  "dsn": "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBSTM03B CUST-FILE)",
+                  "source": "../app/jcl/CREASTMT.JCL:86"
+                },
+                {
+                  "dd": "ACCTFILE",
+                  "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBSTM03B ACCT-FILE)",
+                  "source": "../app/jcl/CREASTMT.JCL:85"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "STMTFILE",
+                  "dsn": "AWS.M2.CARDDEMO.STATEMNT.PS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(NEW,CATLG,DELETE)",
+                  "basis": "open-mode OUTPUT (CBSTM03A STMT-FILE)",
+                  "source": "../app/jcl/CREASTMT.JCL:87"
+                },
+                {
+                  "dd": "HTMLFILE",
+                  "dsn": "AWS.M2.CARDDEMO.STATEMNT.HTML",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(NEW,CATLG,DELETE)",
+                  "basis": "open-mode OUTPUT (CBSTM03A HTML-FILE)",
+                  "source": "../app/jcl/CREASTMT.JCL:92"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [
+                "COND=(0,NE)"
+              ],
+              "source": "../app/jcl/CREASTMT.JCL:79"
+            }
+          ]
+        },
+        {
+          "job": "PRTCATBL",
+          "memname": "PRTCATBL",
+          "level": 87,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/PRTCATBL.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:537",
+          "steps": [
+            {
+              "step": "DELDEF",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IEFBR14",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "THEFILE",
+                  "dsn": "AWS.M2.CARDDEMO.TCATBALF.REPT",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(MOD,DELETE)",
+                  "basis": "IEFBR14 allocation/deletion DISP=(MOD,DELETE)",
+                  "source": "../app/jcl/PRTCATBL.jcl:22"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/PRTCATBL.jcl:21"
+            },
+            {
+              "step": "STEP05R",
+              "proc_step": "PRC001",
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "FILEIN",
+                  "dsn": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "disp-only SHR (no program binding)",
+                  "source": "../app/jcl/PRTCATBL.jcl:32"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "FILEOUT",
+                  "dsn": "AWS.M2.CARDDEMO.TCATBALF.BKUP",
+                  "generation": "+1",
+                  "member": null,
+                  "disp": "(NEW,CATLG,DELETE)",
+                  "basis": "disp-only NEW (no program binding)",
+                  "source": "../app/jcl/PRTCATBL.jcl:35"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/proc/REPROC.prc:21"
+            },
+            {
+              "step": "STEP10R",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SORT",
+              "program": null,
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "SORTIN",
+                  "dsn": "AWS.M2.CARDDEMO.TCATBALF.BKUP",
+                  "generation": "+1",
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "utility-convention SORT SORTIN",
+                  "source": "../app/jcl/PRTCATBL.jcl:44"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "SORTOUT",
+                  "dsn": "AWS.M2.CARDDEMO.TCATBALF.REPT",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(NEW,CATLG,DELETE)",
+                  "basis": "utility-convention SORT SORTOUT",
+                  "source": "../app/jcl/PRTCATBL.jcl:59"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/PRTCATBL.jcl:43"
+            }
+          ]
+        },
+        {
+          "job": "READACCT",
+          "memname": "READACCT",
+          "level": 87,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/READACCT.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:340",
+          "steps": [
+            {
+              "step": "PREDEL",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IEFBR14",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "DD01",
+                  "dsn": "AWS.M2.CARDDEMO.ACCTDATA.PSCOMP",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(MOD,DELETE,DELETE)",
+                  "basis": "IEFBR14 allocation/deletion DISP=(MOD,DELETE,DELETE)",
+                  "source": "../app/jcl/READACCT.jcl:23"
+                },
+                {
+                  "dd": "DD02",
+                  "dsn": "AWS.M2.CARDDEMO.ACCTDATA.ARRYPS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(MOD,DELETE,DELETE)",
+                  "basis": "IEFBR14 allocation/deletion DISP=(MOD,DELETE,DELETE)",
+                  "source": "../app/jcl/READACCT.jcl:25"
+                },
+                {
+                  "dd": "DD03",
+                  "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VBPS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(MOD,DELETE,DELETE)",
+                  "basis": "IEFBR14 allocation/deletion DISP=(MOD,DELETE,DELETE)",
+                  "source": "../app/jcl/READACCT.jcl:27"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/READACCT.jcl:22"
+            },
+            {
+              "step": "STEP05",
+              "proc_step": null,
+              "kind": "program",
+              "pgm": "CBACT01C",
+              "program": "CBACT01C",
+              "reached": [
+                "COBDATFT"
+              ],
+              "reads": [
+                {
+                  "dd": "ACCTFILE",
+                  "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBACT01C ACCTFILE-FILE)",
+                  "source": "../app/jcl/READACCT.jcl:35"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "OUTFILE",
+                  "dsn": "AWS.M2.CARDDEMO.ACCTDATA.PSCOMP",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(NEW,CATLG,DELETE)",
+                  "basis": "open-mode OUTPUT (CBACT01C OUT-FILE)",
+                  "source": "../app/jcl/READACCT.jcl:37"
+                },
+                {
+                  "dd": "ARRYFILE",
+                  "dsn": "AWS.M2.CARDDEMO.ACCTDATA.ARRYPS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(NEW,CATLG,DELETE)",
+                  "basis": "open-mode OUTPUT (CBACT01C ARRY-FILE)",
+                  "source": "../app/jcl/READACCT.jcl:41"
+                },
+                {
+                  "dd": "VBRCFILE",
+                  "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VBPS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "(NEW,CATLG,DELETE)",
+                  "basis": "open-mode OUTPUT (CBACT01C VBRC-FILE)",
+                  "source": "../app/jcl/READACCT.jcl:45"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/READACCT.jcl:32"
+            }
+          ]
+        },
+        {
+          "job": "TRANTYPE",
+          "memname": "TRANTYPE",
+          "level": 87,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/TRANTYPE.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:162",
+          "steps": [
+            {
+              "step": "STEP05",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "(DELETE)",
+                  "dsn": "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DELETE",
+                  "source": "../app/jcl/TRANTYPE.jcl:24"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/TRANTYPE.jcl:22"
+            },
+            {
+              "step": "STEP10",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "(DEFINE)",
+                  "dsn": "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DEFINE CLUSTER",
+                  "source": "../app/jcl/TRANTYPE.jcl:35"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/TRANTYPE.jcl:33"
+            },
+            {
+              "step": "STEP15",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "TRANTYPE",
+                  "dsn": "AWS.M2.CARDDEMO.TRANTYPE.PS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "IDCAMS REPRO INFILE",
+                  "source": "../app/jcl/TRANTYPE.jcl:56"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "TTYPVSAM",
+                  "dsn": "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "OLD",
+                  "basis": "IDCAMS REPRO OUTFILE",
+                  "source": "../app/jcl/TRANTYPE.jcl:58"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/TRANTYPE.jcl:54"
+            }
+          ]
+        },
+        {
+          "job": "POSTTRAN",
+          "memname": "POSTTRAN",
+          "level": 88,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/POSTTRAN.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:70",
+          "steps": [
+            {
+              "step": "STEP15",
+              "proc_step": null,
+              "kind": "program",
+              "pgm": "CBTRN02C",
+              "program": "CBTRN02C",
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "DALYTRAN",
+                  "dsn": "AWS.M2.CARDDEMO.DALYTRAN.PS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBTRN02C DALYTRAN-FILE)",
+                  "source": "../app/jcl/POSTTRAN.jcl:30"
+                },
+                {
+                  "dd": "XREFFILE",
+                  "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBTRN02C XREF-FILE)",
+                  "source": "../app/jcl/POSTTRAN.jcl:32"
+                },
+                {
+                  "dd": "ACCTFILE",
+                  "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode I-O (CBTRN02C ACCOUNT-FILE)",
+                  "source": "../app/jcl/POSTTRAN.jcl:39"
+                },
+                {
+                  "dd": "TCATBALF",
+                  "dsn": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode I-O (CBTRN02C TCATBAL-FILE)",
+                  "source": "../app/jcl/POSTTRAN.jcl:41"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "TRANFILE",
+                  "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode OUTPUT (CBTRN02C TRANSACT-FILE)",
+                  "source": "../app/jcl/POSTTRAN.jcl:28"
+                },
+                {
+                  "dd": "DALYREJS",
+                  "dsn": "AWS.M2.CARDDEMO.DALYREJS",
+                  "generation": "+1",
+                  "member": null,
+                  "disp": "(NEW,CATLG,DELETE)",
+                  "basis": "open-mode OUTPUT (CBTRN02C DALYREJS-FILE)",
+                  "source": "../app/jcl/POSTTRAN.jcl:34"
+                },
+                {
+                  "dd": "ACCTFILE",
+                  "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode I-O (CBTRN02C ACCOUNT-FILE)",
+                  "source": "../app/jcl/POSTTRAN.jcl:39"
+                },
+                {
+                  "dd": "TCATBALF",
+                  "dsn": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode I-O (CBTRN02C TCATBAL-FILE)",
+                  "source": "../app/jcl/POSTTRAN.jcl:41"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/POSTTRAN.jcl:23"
+            }
+          ]
+        },
+        {
+          "job": "READCARD",
+          "memname": "READCARD",
+          "level": 88,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/READCARD.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:367",
+          "steps": [
+            {
+              "step": "STEP05",
+              "proc_step": null,
+              "kind": "program",
+              "pgm": "CBACT02C",
+              "program": "CBACT02C",
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "CARDFILE",
+                  "dsn": "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBACT02C CARDFILE-FILE)",
+                  "source": "../app/jcl/READCARD.jcl:25"
+                }
+              ],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/READCARD.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "TXT2PDF1",
+          "memname": "TXT2PDF1",
+          "level": 88,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/TXT2PDF1.JCL",
+          "source": "../app/scheduler/CardDemo.ca7:495",
+          "steps": [
+            {
+              "step": "TXT2PDF",
+              "proc_step": null,
+              "kind": "launcher",
+              "pgm": "IKJEFT1B",
+              "program": null,
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "SYSEXEC",
+                  "dsn": "AWS.M2.LBD.TXT2PDF.EXEC",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "disp-only SHR (no program binding)",
+                  "source": "../app/jcl/TXT2PDF1.JCL:31"
+                },
+                {
+                  "dd": "INDD",
+                  "dsn": "AWS.M2.CARDDEMO.STATEMNT.PS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "disp-only SHR (no program binding)",
+                  "source": "../app/jcl/TXT2PDF1.JCL:33"
+                }
+              ],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [
+                "COND=(0,NE)"
+              ],
+              "source": "../app/jcl/TXT2PDF1.JCL:24",
+              "parm": "('')"
+            }
+          ]
+        },
+        {
+          "job": "READCUST",
+          "memname": "READCUST",
+          "level": 89,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/READCUST.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:394",
+          "steps": [
+            {
+              "step": "STEP05",
+              "proc_step": null,
+              "kind": "program",
+              "pgm": "CBCUS01C",
+              "program": "CBCUS01C",
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "CUSTFILE",
+                  "dsn": "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBCUS01C CUSTFILE-FILE)",
+                  "source": "../app/jcl/READCUST.jcl:24"
+                }
+              ],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/READCUST.jcl:21"
+            }
+          ]
+        },
+        {
+          "job": "WAITSTEP",
+          "memname": "WAITSTEP",
+          "level": 89,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/WAITSTEP.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:97",
+          "steps": [
+            {
+              "step": "WAIT",
+              "proc_step": null,
+              "kind": "program",
+              "pgm": "COBSWAIT",
+              "program": "COBSWAIT",
+              "reached": [
+                "MVSWAIT"
+              ],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/WAITSTEP.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "CLOSEFIL1",
+          "memname": "CLOSEFIL",
+          "level": 90,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/CLOSEFIL.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:216",
+          "steps": [
+            {
+              "step": "CLCIFIL",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SDSF",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/CLOSEFIL.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "CLOSEFIL2",
+          "memname": "CLOSEFIL",
+          "level": 90,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/CLOSEFIL.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:217",
+          "steps": [
+            {
+              "step": "CLCIFIL",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SDSF",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/CLOSEFIL.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "OPENFIL",
+          "memname": "OPENFIL",
+          "level": 90,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/OPENFIL.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:124",
+          "steps": [
+            {
+              "step": "OPCIFIL",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SDSF",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/OPENFIL.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "READXREF",
+          "memname": "READXREF",
+          "level": 90,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/READXREF.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:421",
+          "steps": [
+            {
+              "step": "STEP05",
+              "proc_step": null,
+              "kind": "program",
+              "pgm": "CBACT03C",
+              "program": "CBACT03C",
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "XREFFILE",
+                  "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBACT03C XREFFILE-FILE)",
+                  "source": "../app/jcl/READXREF.jcl:25"
+                }
+              ],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/READXREF.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "TCATBALF",
+          "memname": "TCATBALF",
+          "level": 91,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/TCATBALF.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:271",
+          "steps": [
+            {
+              "step": "STEP05",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "(DELETE)",
+                  "dsn": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DELETE",
+                  "source": "../app/jcl/TCATBALF.jcl:24"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/TCATBALF.jcl:22"
+            },
+            {
+              "step": "STEP10",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "(DEFINE)",
+                  "dsn": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DEFINE CLUSTER",
+                  "source": "../app/jcl/TCATBALF.jcl:35"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/TCATBALF.jcl:33"
+            },
+            {
+              "step": "STEP15",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "TCATBAL",
+                  "dsn": "AWS.M2.CARDDEMO.TCATBALF.PS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "IDCAMS REPRO INFILE",
+                  "source": "../app/jcl/TCATBALF.jcl:56"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "TCATBALV",
+                  "dsn": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "OLD",
+                  "basis": "IDCAMS REPRO OUTFILE",
+                  "source": "../app/jcl/TCATBALF.jcl:58"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/TCATBALF.jcl:54"
+            }
+          ]
+        },
+        {
+          "job": "TRANCATG",
+          "memname": "TRANCATG",
+          "level": 91,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/TRANCATG.jcl",
+          "source": "../app/scheduler/CardDemo.ca7:244",
+          "steps": [
+            {
+              "step": "STEP05",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "(DELETE)",
+                  "dsn": "AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DELETE",
+                  "source": "../app/jcl/TRANCATG.jcl:24"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/TRANCATG.jcl:22"
+            },
+            {
+              "step": "STEP10",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "(DEFINE)",
+                  "dsn": "AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DEFINE CLUSTER",
+                  "source": "../app/jcl/TRANCATG.jcl:35"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/TRANCATG.jcl:33"
+            },
+            {
+              "step": "STEP15",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "TRANCATG",
+                  "dsn": "AWS.M2.CARDDEMO.TRANCATG.PS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "IDCAMS REPRO INFILE",
+                  "source": "../app/jcl/TRANCATG.jcl:56"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "TCATVSAM",
+                  "dsn": "AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "OLD",
+                  "basis": "IDCAMS REPRO OUTFILE",
+                  "source": "../app/jcl/TRANCATG.jcl:58"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/TRANCATG.jcl:54"
+            }
+          ]
+        }
+      ],
+      "infrastructure": [
+        {
+          "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+          "dds": [
+            "STEPLIB"
+          ],
+          "jobs": [
+            "CREASTMT",
+            "POSTTRAN",
+            "READACCT",
+            "READCARD",
+            "READCUST",
+            "READXREF",
+            "WAITSTEP"
+          ]
+        },
+        {
+          "dsn": "AWS.M2.LBD.TXT2PDF.LOAD",
+          "dds": [
+            "STEPLIB"
+          ],
+          "jobs": [
+            "TXT2PDF1"
+          ]
+        }
+      ],
+      "lineage": [
+        {
+          "dsn": "AWS.M2.CARDDEMO.STATEMNT.PS",
+          "from": {
+            "job": "CREASTMT",
+            "step": "STEP040",
+            "proc_step": null,
+            "generation": null
+          },
+          "to": {
+            "job": "TXT2PDF1",
+            "step": "TXT2PDF",
+            "proc_step": null,
+            "generation": null
+          },
+          "basis": "scheduler order: CREASTMT (level 87) precedes TXT2PDF1 (level 88)",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:87",
+            "../app/jcl/TXT2PDF1.JCL:33"
+          ]
+        },
+        {
+          "dsn": "AWS.M2.CARDDEMO.TCATBALF.BKUP",
+          "from": {
+            "job": "PRTCATBL",
+            "step": "STEP05R",
+            "proc_step": "PRC001",
+            "generation": "+1"
+          },
+          "to": {
+            "job": "PRTCATBL",
+            "step": "STEP10R",
+            "proc_step": null,
+            "generation": "+1"
+          },
+          "basis": "same-job step order",
+          "evidence": [
+            "../app/jcl/PRTCATBL.jcl:35",
+            "../app/jcl/PRTCATBL.jcl:44"
+          ]
+        },
+        {
+          "dsn": "AWS.M2.CARDDEMO.TRXFL.SEQ",
+          "from": {
+            "job": "CREASTMT",
+            "step": "STEP010",
+            "proc_step": null,
+            "generation": null
+          },
+          "to": {
+            "job": "CREASTMT",
+            "step": "STEP020",
+            "proc_step": null,
+            "generation": null
+          },
+          "basis": "same-job step order",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:48",
+            "../app/jcl/CREASTMT.JCL:58"
+          ]
+        },
+        {
+          "dsn": "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS",
+          "from": {
+            "job": "CREASTMT",
+            "step": "STEP020",
+            "proc_step": null,
+            "generation": null
+          },
+          "to": {
+            "job": "CREASTMT",
+            "step": "STEP040",
+            "proc_step": null,
+            "generation": null
+          },
+          "basis": "same-job step order",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:59",
+            "../app/jcl/CREASTMT.JCL:83"
+          ]
+        }
+      ],
+      "shared_state": [],
+      "inputs": [
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+          "consumers": [
+            "CREASTMT.STEP040",
+            "READACCT.STEP05",
+            "POSTTRAN.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:85",
+            "../app/jcl/READACCT.jcl:35",
+            "../app/jcl/POSTTRAN.jcl:39"
+          ],
+          "basis": null,
+          "other_chain": "MONTHLY-InterestCalculation"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS",
+          "consumers": [
+            "READCARD.STEP05"
+          ],
+          "evidence": [
+            "../app/jcl/READCARD.jcl:25",
+            "../app/csd/CARDDEMO.CSD:25"
+          ],
+          "basis": "produced online: CICS FCT CARDDAT allows READ,BROWSE,ADD,UPDATE,DELETE",
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+          "consumers": [
+            "CREASTMT.STEP040",
+            "POSTTRAN.STEP15",
+            "READXREF.STEP05"
+          ],
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:84",
+            "../app/jcl/POSTTRAN.jcl:32",
+            "../app/jcl/READXREF.jcl:25"
+          ],
+          "basis": null,
+          "other_chain": "MONTHLY-InterestCalculation, TRANREPT"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS",
+          "consumers": [
+            "CREASTMT.STEP040",
+            "READCUST.STEP05"
+          ],
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:86",
+            "../app/jcl/READCUST.jcl:24",
+            "../app/csd/CARDDEMO.CSD:50"
+          ],
+          "basis": "produced online: CICS FCT CUSTDAT allows READ,BROWSE,ADD,UPDATE,DELETE",
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.DALYTRAN.PS",
+          "consumers": [
+            "POSTTRAN.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/POSTTRAN.jcl:30"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TCATBALF.PS",
+          "consumers": [
+            "TCATBALF.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/TCATBALF.jcl:56"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+          "consumers": [
+            "PRTCATBL.STEP05R.PRC001",
+            "POSTTRAN.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/PRTCATBL.jcl:32",
+            "../app/jcl/POSTTRAN.jcl:41"
+          ],
+          "basis": null,
+          "other_chain": "MONTHLY-InterestCalculation"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRANCATG.PS",
+          "consumers": [
+            "TRANCATG.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/TRANCATG.jcl:56"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+          "consumers": [
+            "CREASTMT.STEP010"
+          ],
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:45"
+          ],
+          "basis": null,
+          "other_chain": "DAILY-TransactionBackup, MONTHLY-InterestCalculation, TRANREPT"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRANTYPE.PS",
+          "consumers": [
+            "TRANTYPE.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/TRANTYPE.jcl:56"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.LBD.TXT2PDF.EXEC",
+          "consumers": [
+            "TXT2PDF1.TXT2PDF"
+          ],
+          "evidence": [
+            "../app/jcl/TXT2PDF1.JCL:31"
+          ],
+          "basis": null,
+          "other_chain": null
+        }
+      ],
+      "outputs": [
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.ACCTDATA.ARRYPS",
+          "producers": [
+            "READACCT.PREDEL",
+            "READACCT.STEP05"
+          ],
+          "evidence": [
+            "../app/jcl/READACCT.jcl:25",
+            "../app/jcl/READACCT.jcl:41"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.ACCTDATA.PSCOMP",
+          "producers": [
+            "READACCT.PREDEL",
+            "READACCT.STEP05"
+          ],
+          "evidence": [
+            "../app/jcl/READACCT.jcl:23",
+            "../app/jcl/READACCT.jcl:37"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.ACCTDATA.VBPS",
+          "producers": [
+            "READACCT.PREDEL",
+            "READACCT.STEP05"
+          ],
+          "evidence": [
+            "../app/jcl/READACCT.jcl:27",
+            "../app/jcl/READACCT.jcl:45"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+          "producers": [
+            "POSTTRAN.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/POSTTRAN.jcl:39"
+          ],
+          "basis": null,
+          "other_chain": "MONTHLY-InterestCalculation"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.DALYREJS",
+          "producers": [
+            "POSTTRAN.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/POSTTRAN.jcl:34"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.STATEMNT.HTML",
+          "producers": [
+            "CREASTMT.STEP030",
+            "CREASTMT.STEP040"
+          ],
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:67",
+            "../app/jcl/CREASTMT.JCL:92"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.STATEMNT.PS",
+          "producers": [
+            "CREASTMT.STEP030"
+          ],
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:72"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TCATBALF.REPT",
+          "producers": [
+            "PRTCATBL.DELDEF",
+            "PRTCATBL.STEP10R"
+          ],
+          "evidence": [
+            "../app/jcl/PRTCATBL.jcl:22",
+            "../app/jcl/PRTCATBL.jcl:59"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+          "producers": [
+            "POSTTRAN.STEP15",
+            "TCATBALF.STEP05",
+            "TCATBALF.STEP10",
+            "TCATBALF.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/POSTTRAN.jcl:41",
+            "../app/jcl/TCATBALF.jcl:24",
+            "../app/jcl/TCATBALF.jcl:35",
+            "../app/jcl/TCATBALF.jcl:58"
+          ],
+          "basis": null,
+          "other_chain": "MONTHLY-InterestCalculation"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS",
+          "producers": [
+            "TRANCATG.STEP05",
+            "TRANCATG.STEP10",
+            "TRANCATG.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/TRANCATG.jcl:24",
+            "../app/jcl/TRANCATG.jcl:35",
+            "../app/jcl/TRANCATG.jcl:58"
+          ],
+          "basis": null,
+          "other_chain": "TRANREPT"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+          "producers": [
+            "POSTTRAN.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/POSTTRAN.jcl:28"
+          ],
+          "basis": null,
+          "other_chain": "DAILY-TransactionBackup, MONTHLY-InterestCalculation, TRANREPT"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS",
+          "producers": [
+            "TRANTYPE.STEP05",
+            "TRANTYPE.STEP10",
+            "TRANTYPE.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/TRANTYPE.jcl:24",
+            "../app/jcl/TRANTYPE.jcl:35",
+            "../app/jcl/TRANTYPE.jcl:58"
+          ],
+          "basis": null,
+          "other_chain": "TRANREPT"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRXFL.SEQ",
+          "producers": [
+            "CREASTMT.DELDEF01"
+          ],
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:24"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS",
+          "producers": [
+            "CREASTMT.DELDEF01",
+            "CREASTMT.DELDEF01"
+          ],
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:24",
+            "../app/jcl/CREASTMT.JCL:24"
+          ],
+          "basis": null,
+          "other_chain": null
+        }
+      ],
+      "paths": [
+        {
+          "job": "CREASTMT",
+          "path": "bypass",
+          "when": "NOT COND=(0,NE)",
+          "effect": "STEP020 skipped; not written: AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:56"
+          ]
+        },
+        {
+          "job": "CREASTMT",
+          "path": "bypass",
+          "when": "NOT COND=(0,NE)",
+          "effect": "STEP030 skipped; not written: AWS.M2.CARDDEMO.STATEMNT.HTML, AWS.M2.CARDDEMO.STATEMNT.PS",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:66"
+          ]
+        },
+        {
+          "job": "CREASTMT",
+          "path": "bypass",
+          "when": "NOT COND=(0,NE)",
+          "effect": "STEP040 skipped; not written: AWS.M2.CARDDEMO.STATEMNT.HTML, AWS.M2.CARDDEMO.STATEMNT.PS",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:79"
+          ]
+        },
+        {
+          "job": "TXT2PDF1",
+          "path": "bypass",
+          "when": "NOT COND=(0,NE)",
+          "effect": "TXT2PDF skipped",
+          "evidence": [
+            "../app/jcl/TXT2PDF1.JCL:24"
+          ]
+        }
+      ],
+      "unreached": {
+        "programs": [
+          "CBACT04C",
+          "CBEXPORT",
+          "CBIMPORT",
+          "CBTRN01C",
+          "CBTRN03C",
+          "CSUTLDTC"
+        ],
+        "note": "batch (non-CICS) programs of the module no CARDDEMO step runs or reaches statically"
+      },
+      "notes": [
+        {
+          "text": "POSTTRAN is the daily posting step: DALYTRAN is validated against CARDXREF and ACCTDATA; good items are written to TRANSACT and update ACCTDATA and TCATBALF, bad items go to the DALYREJS(+1) generation",
+          "evidence": [
+            "app/jcl/POSTTRAN.jcl:23-42"
+          ]
+        },
+        {
+          "text": "Reject reasons are numeric codes 100 (invalid card), 101 (account not found), 102 (over limit), 103 (after account expiry), 109 (balance-category rewrite failure)",
+          "evidence": [
+            "app/cbl/CBTRN02C.cbl:385",
+            "app/cbl/CBTRN02C.cbl:397",
+            "app/cbl/CBTRN02C.cbl:410",
+            "app/cbl/CBTRN02C.cbl:417",
+            "app/cbl/CBTRN02C.cbl:556"
+          ]
+        }
+      ],
+      "asks": [
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "CLOSEFIL",
+          "message": "CLOSEFIL CLCIFIL (utility SDSF) cannot be traversed: utility",
+          "evidence": [
+            "../app/jcl/CLOSEFIL.jcl:22"
+          ],
+          "request": "Provide the PROC/program so the step's data flow can be read",
+          "status": "open"
+        },
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "CBPAUP0J",
+          "message": "CBPAUP0J is scheduled in CARDDEMO but no JCL member was scanned for it",
+          "evidence": [
+            "../app/scheduler/CardDemo.ca7:43"
+          ],
+          "request": "Provide the JCL member CBPAUP0J",
+          "status": "open"
+        },
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "PRTCATBL",
+          "message": "PRTCATBL STEP05R.PRC001 runs IDCAMS with control cards outside the store",
+          "evidence": [
+            "../app/proc/REPROC.prc:21"
+          ],
+          "request": "Provide the SYSIN member for PRTCATBL STEP05R.PRC001",
+          "status": "open"
+        },
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "TXT2PDF1",
+          "message": "TXT2PDF1 TXT2PDF (launcher IKJEFT1B) cannot be traversed: tso-exec",
+          "evidence": [
+            "../app/jcl/TXT2PDF1.JCL:24"
+          ],
+          "request": "Provide the PROC/program so the step's data flow can be read",
+          "status": "open"
+        },
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "CLOSEFIL1",
+          "message": "CLOSEFIL1 CLCIFIL (utility SDSF) cannot be traversed: utility",
+          "evidence": [
+            "../app/jcl/CLOSEFIL.jcl:22"
+          ],
+          "request": "Provide the PROC/program so the step's data flow can be read",
+          "status": "open"
+        },
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "CLOSEFIL2",
+          "message": "CLOSEFIL2 CLCIFIL (utility SDSF) cannot be traversed: utility",
+          "evidence": [
+            "../app/jcl/CLOSEFIL.jcl:22"
+          ],
+          "request": "Provide the PROC/program so the step's data flow can be read",
+          "status": "open"
+        },
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "OPENFIL",
+          "message": "OPENFIL OPCIFIL (utility SDSF) cannot be traversed: utility",
+          "evidence": [
+            "../app/jcl/OPENFIL.jcl:22"
+          ],
+          "request": "Provide the PROC/program so the step's data flow can be read",
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "CREASTMT",
+          "message": "CARDDEMO reads AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS which table(s) MONTHLY-InterestCalculation also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:85",
+            "../app/jcl/READACCT.jcl:35"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "CREASTMT",
+          "message": "CARDDEMO reads AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS which table(s) MONTHLY-InterestCalculation, TRANREPT also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:84",
+            "../app/jcl/POSTTRAN.jcl:32"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-input-unproduced",
+          "severity": "medium",
+          "job": "POSTTRAN",
+          "message": "AWS.M2.CARDDEMO.DALYTRAN.PS is read by POSTTRAN.STEP15 and written by no job of any scanned table",
+          "evidence": [
+            "../app/jcl/POSTTRAN.jcl:30"
+          ],
+          "request": "Identify the producer of AWS.M2.CARDDEMO.DALYTRAN.PS (online region, another application, external feed?)",
+          "status": "open"
+        },
+        {
+          "kind": "chain-input-unproduced",
+          "severity": "medium",
+          "job": "TCATBALF",
+          "message": "AWS.M2.CARDDEMO.TCATBALF.PS is read by TCATBALF.STEP15 and written by no job of any scanned table",
+          "evidence": [
+            "../app/jcl/TCATBALF.jcl:56"
+          ],
+          "request": "Identify the producer of AWS.M2.CARDDEMO.TCATBALF.PS (online region, another application, external feed?)",
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "PRTCATBL",
+          "message": "CARDDEMO reads AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS which table(s) MONTHLY-InterestCalculation also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/PRTCATBL.jcl:32",
+            "../app/jcl/POSTTRAN.jcl:41"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-input-unproduced",
+          "severity": "medium",
+          "job": "TRANCATG",
+          "message": "AWS.M2.CARDDEMO.TRANCATG.PS is read by TRANCATG.STEP15 and written by no job of any scanned table",
+          "evidence": [
+            "../app/jcl/TRANCATG.jcl:56"
+          ],
+          "request": "Identify the producer of AWS.M2.CARDDEMO.TRANCATG.PS (online region, another application, external feed?)",
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "CREASTMT",
+          "message": "CARDDEMO reads AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS which table(s) DAILY-TransactionBackup, MONTHLY-InterestCalculation, TRANREPT also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:45"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-input-unproduced",
+          "severity": "medium",
+          "job": "TRANTYPE",
+          "message": "AWS.M2.CARDDEMO.TRANTYPE.PS is read by TRANTYPE.STEP15 and written by no job of any scanned table",
+          "evidence": [
+            "../app/jcl/TRANTYPE.jcl:56"
+          ],
+          "request": "Identify the producer of AWS.M2.CARDDEMO.TRANTYPE.PS (online region, another application, external feed?)",
+          "status": "open"
+        },
+        {
+          "kind": "chain-input-unproduced",
+          "severity": "medium",
+          "job": "TXT2PDF1",
+          "message": "AWS.M2.LBD.TXT2PDF.EXEC is read by TXT2PDF1.TXT2PDF and written by no job of any scanned table",
+          "evidence": [
+            "../app/jcl/TXT2PDF1.JCL:31"
+          ],
+          "request": "Identify the producer of AWS.M2.LBD.TXT2PDF.EXEC (online region, another application, external feed?)",
+          "status": "open"
+        },
+        {
+          "kind": "chain-output-unconsumed",
+          "severity": "info",
+          "job": "READACCT",
+          "message": "AWS.M2.CARDDEMO.ACCTDATA.ARRYPS written by READACCT.PREDEL, READACCT.STEP05 is read by no job of any scanned table (downstream feed, backup, or dead output)",
+          "evidence": [
+            "../app/jcl/READACCT.jcl:25",
+            "../app/jcl/READACCT.jcl:41"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-output-unconsumed",
+          "severity": "info",
+          "job": "READACCT",
+          "message": "AWS.M2.CARDDEMO.ACCTDATA.PSCOMP written by READACCT.PREDEL, READACCT.STEP05 is read by no job of any scanned table (downstream feed, backup, or dead output)",
+          "evidence": [
+            "../app/jcl/READACCT.jcl:23",
+            "../app/jcl/READACCT.jcl:37"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-output-unconsumed",
+          "severity": "info",
+          "job": "READACCT",
+          "message": "AWS.M2.CARDDEMO.ACCTDATA.VBPS written by READACCT.PREDEL, READACCT.STEP05 is read by no job of any scanned table (downstream feed, backup, or dead output)",
+          "evidence": [
+            "../app/jcl/READACCT.jcl:27",
+            "../app/jcl/READACCT.jcl:45"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "POSTTRAN",
+          "message": "CARDDEMO writes AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS which table(s) MONTHLY-InterestCalculation also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/POSTTRAN.jcl:39"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-output-unconsumed",
+          "severity": "info",
+          "job": "POSTTRAN",
+          "message": "AWS.M2.CARDDEMO.DALYREJS written by POSTTRAN.STEP15 is read by no job of any scanned table (downstream feed, backup, or dead output)",
+          "evidence": [
+            "../app/jcl/POSTTRAN.jcl:34"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-output-unconsumed",
+          "severity": "info",
+          "job": "CREASTMT",
+          "message": "AWS.M2.CARDDEMO.STATEMNT.HTML written by CREASTMT.STEP030, CREASTMT.STEP040 is read by no job of any scanned table (downstream feed, backup, or dead output)",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:67",
+            "../app/jcl/CREASTMT.JCL:92"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-output-unconsumed",
+          "severity": "info",
+          "job": "CREASTMT",
+          "message": "AWS.M2.CARDDEMO.STATEMNT.PS written by CREASTMT.STEP030 is read by no job of any scanned table (downstream feed, backup, or dead output)",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:72"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-output-unconsumed",
+          "severity": "info",
+          "job": "PRTCATBL",
+          "message": "AWS.M2.CARDDEMO.TCATBALF.REPT written by PRTCATBL.DELDEF, PRTCATBL.STEP10R is read by no job of any scanned table (downstream feed, backup, or dead output)",
+          "evidence": [
+            "../app/jcl/PRTCATBL.jcl:22",
+            "../app/jcl/PRTCATBL.jcl:59"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "POSTTRAN",
+          "message": "CARDDEMO writes AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS which table(s) MONTHLY-InterestCalculation also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/POSTTRAN.jcl:41",
+            "../app/jcl/TCATBALF.jcl:24"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "TRANCATG",
+          "message": "CARDDEMO writes AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS which table(s) TRANREPT also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/TRANCATG.jcl:24",
+            "../app/jcl/TRANCATG.jcl:35"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "POSTTRAN",
+          "message": "CARDDEMO writes AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS which table(s) DAILY-TransactionBackup, MONTHLY-InterestCalculation, TRANREPT also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/POSTTRAN.jcl:28"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "TRANTYPE",
+          "message": "CARDDEMO writes AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS which table(s) TRANREPT also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/TRANTYPE.jcl:24",
+            "../app/jcl/TRANTYPE.jcl:35"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-output-unconsumed",
+          "severity": "info",
+          "job": "CREASTMT",
+          "message": "AWS.M2.CARDDEMO.TRXFL.SEQ written by CREASTMT.DELDEF01 is read by no job of any scanned table (downstream feed, backup, or dead output)",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:24"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-output-unconsumed",
+          "severity": "info",
+          "job": "CREASTMT",
+          "message": "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS written by CREASTMT.DELDEF01, CREASTMT.DELDEF01 is read by no job of any scanned table (downstream feed, backup, or dead output)",
+          "evidence": [
+            "../app/jcl/CREASTMT.JCL:24",
+            "../app/jcl/CREASTMT.JCL:24"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-path-unproven",
+          "severity": "medium",
+          "job": "POSTTRAN",
+          "message": "CBTRN02C validates over-limit (102) then expiry (103) without stopping: a transaction that is both over limit and past expiry is rejected as 103 only, so the 102 reason is silently lost in DALYREJS",
+          "evidence": [
+            "app/cbl/CBTRN02C.cbl:403-420"
+          ],
+          "request": "Business owner: should the reject carry the first failing rule (102) or the last (103)? The modernized job reproduces 103 for parity until decided",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "table": "DAILY-TransactionBackup",
+      "requested_as": "DAILY-TransactionBackup",
+      "selection_basis": "DAILY-TRANSACTIONBACKUP is a table in ../app/scheduler/CardDemo.controlm",
+      "generated_at": "2026-10-08T04:12:45Z",
+      "jobs": [
+        {
+          "job": "CLOSEFIL",
+          "memname": "CLOSEFIL",
+          "level": 0,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/CLOSEFIL.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:4",
+          "steps": [
+            {
+              "step": "CLCIFIL",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SDSF",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/CLOSEFIL.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "TRANBKP",
+          "memname": "TRANBKP",
+          "level": 1,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/TRANBKP.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:8",
+          "steps": [
+            {
+              "step": "STEP05R",
+              "proc_step": "PRC001",
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "FILEIN",
+                  "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "disp-only SHR (no program binding)",
+                  "source": "../app/jcl/TRANBKP.jcl:26"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "FILEOUT",
+                  "dsn": "AWS.M2.CARDDEMO.TRANSACT.BKUP",
+                  "generation": "+1",
+                  "member": null,
+                  "disp": "(NEW,CATLG,DELETE)",
+                  "basis": "disp-only NEW (no program binding)",
+                  "source": "../app/jcl/TRANBKP.jcl:29"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/proc/REPROC.prc:21"
+            },
+            {
+              "step": "STEP05",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "(DELETE)",
+                  "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DELETE",
+                  "source": "../app/jcl/TRANBKP.jcl:39"
+                },
+                {
+                  "dd": "(DELETE)",
+                  "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DELETE",
+                  "source": "../app/jcl/TRANBKP.jcl:39"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/TRANBKP.jcl:37"
+            },
+            {
+              "step": "STEP10",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "(DEFINE)",
+                  "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DEFINE CLUSTER",
+                  "source": "../app/jcl/TRANBKP.jcl:53"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [
+                "COND=(4,LT)"
+              ],
+              "source": "../app/jcl/TRANBKP.jcl:51"
+            }
+          ]
+        },
+        {
+          "job": "WAITSTEP",
+          "memname": "WAITSTEP",
+          "level": 2,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/WAITSTEP.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:14",
+          "steps": [
+            {
+              "step": "WAIT",
+              "proc_step": null,
+              "kind": "program",
+              "pgm": "COBSWAIT",
+              "program": "COBSWAIT",
+              "reached": [
+                "MVSWAIT"
+              ],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/WAITSTEP.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "OPENFIL",
+          "memname": "OPENFIL",
+          "level": 3,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/OPENFIL.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:20",
+          "steps": [
+            {
+              "step": "OPCIFIL",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SDSF",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/OPENFIL.jcl:22"
+            }
+          ]
+        }
+      ],
+      "infrastructure": [
+        {
+          "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+          "dds": [
+            "STEPLIB"
+          ],
+          "jobs": [
+            "WAITSTEP"
+          ]
+        }
+      ],
+      "lineage": [],
+      "shared_state": [],
+      "inputs": [
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+          "consumers": [
+            "TRANBKP.STEP05R.PRC001"
+          ],
+          "evidence": [
+            "../app/jcl/TRANBKP.jcl:26"
+          ],
+          "basis": null,
+          "other_chain": "CARDDEMO, MONTHLY-InterestCalculation, TRANREPT"
+        }
+      ],
+      "outputs": [
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRANSACT.BKUP",
+          "producers": [
+            "TRANBKP.STEP05R.PRC001"
+          ],
+          "evidence": [
+            "../app/jcl/TRANBKP.jcl:29"
+          ],
+          "basis": null,
+          "other_chain": "MONTHLY-InterestCalculation, TRANREPT"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX",
+          "producers": [
+            "TRANBKP.STEP05"
+          ],
+          "evidence": [
+            "../app/jcl/TRANBKP.jcl:39"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+          "producers": [
+            "TRANBKP.STEP05",
+            "TRANBKP.STEP10"
+          ],
+          "evidence": [
+            "../app/jcl/TRANBKP.jcl:39",
+            "../app/jcl/TRANBKP.jcl:53"
+          ],
+          "basis": null,
+          "other_chain": "CARDDEMO, MONTHLY-InterestCalculation, TRANREPT"
+        }
+      ],
+      "paths": [
+        {
+          "job": "CLOSEFIL",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=None min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:4"
+          ]
+        },
+        {
+          "job": "TRANBKP",
+          "path": "bypass",
+          "when": "NOT COND=(4,LT)",
+          "effect": "STEP10 skipped; not written: AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+          "evidence": [
+            "../app/jcl/TRANBKP.jcl:51"
+          ]
+        },
+        {
+          "job": "TRANBKP",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=None min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:8"
+          ]
+        },
+        {
+          "job": "WAITSTEP",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=None min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:14"
+          ]
+        },
+        {
+          "job": "OPENFIL",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=None min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:20"
+          ]
+        }
+      ],
+      "unreached": {
+        "programs": [
+          "CBACT01C",
+          "CBACT02C",
+          "CBACT03C",
+          "CBACT04C",
+          "CBCUS01C",
+          "CBEXPORT",
+          "CBIMPORT",
+          "CBSTM03A",
+          "CBSTM03B",
+          "CBTRN01C",
+          "CBTRN02C",
+          "CBTRN03C",
+          "CSUTLDTC"
+        ],
+        "note": "batch (non-CICS) programs of the module no DAILY-TransactionBackup step runs or reaches statically"
+      },
+      "notes": [],
+      "asks": [
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "CLOSEFIL",
+          "message": "CLOSEFIL CLCIFIL (utility SDSF) cannot be traversed: utility",
+          "evidence": [
+            "../app/jcl/CLOSEFIL.jcl:22"
+          ],
+          "request": "Provide the PROC/program so the step's data flow can be read",
+          "status": "open"
+        },
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "TRANBKP",
+          "message": "TRANBKP STEP05R.PRC001 runs IDCAMS with control cards outside the store",
+          "evidence": [
+            "../app/proc/REPROC.prc:21"
+          ],
+          "request": "Provide the SYSIN member for TRANBKP STEP05R.PRC001",
+          "status": "open"
+        },
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "OPENFIL",
+          "message": "OPENFIL OPCIFIL (utility SDSF) cannot be traversed: utility",
+          "evidence": [
+            "../app/jcl/OPENFIL.jcl:22"
+          ],
+          "request": "Provide the PROC/program so the step's data flow can be read",
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "TRANBKP",
+          "message": "DAILY-TransactionBackup reads AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS which table(s) CARDDEMO, MONTHLY-InterestCalculation, TRANREPT also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/TRANBKP.jcl:26"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "TRANBKP",
+          "message": "DAILY-TransactionBackup writes AWS.M2.CARDDEMO.TRANSACT.BKUP which table(s) MONTHLY-InterestCalculation, TRANREPT also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/TRANBKP.jcl:29"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-output-unconsumed",
+          "severity": "info",
+          "job": "TRANBKP",
+          "message": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX written by TRANBKP.STEP05 is read by no job of any scanned table (downstream feed, backup, or dead output)",
+          "evidence": [
+            "../app/jcl/TRANBKP.jcl:39"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "TRANBKP",
+          "message": "DAILY-TransactionBackup writes AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS which table(s) CARDDEMO, MONTHLY-InterestCalculation, TRANREPT also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/TRANBKP.jcl:39",
+            "../app/jcl/TRANBKP.jcl:53"
+          ],
+          "request": null,
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "table": "DisclosureGroupsRefresh",
+      "requested_as": "DisclosureGroupsRefresh",
+      "selection_basis": "DISCLOSUREGROUPSREFRESH is a table in ../app/scheduler/CardDemo.controlm",
+      "generated_at": "2026-10-08T04:12:45Z",
+      "jobs": [
+        {
+          "job": "CLOSEFIL",
+          "memname": "CLOSEFIL",
+          "level": 0,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/CLOSEFIL.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:33",
+          "steps": [
+            {
+              "step": "CLCIFIL",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SDSF",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/CLOSEFIL.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "DISCGRP",
+          "memname": "DISCGRP",
+          "level": 1,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/DISCGRP.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:38",
+          "steps": [
+            {
+              "step": "STEP05",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "(DELETE)",
+                  "dsn": "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DELETE",
+                  "source": "../app/jcl/DISCGRP.jcl:24"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/DISCGRP.jcl:22"
+            },
+            {
+              "step": "STEP10",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [
+                {
+                  "dd": "(DEFINE)",
+                  "dsn": "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": null,
+                  "basis": "IDCAMS DEFINE CLUSTER",
+                  "source": "../app/jcl/DISCGRP.jcl:35"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/DISCGRP.jcl:33"
+            },
+            {
+              "step": "STEP15",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "DISCGRP",
+                  "dsn": "AWS.M2.CARDDEMO.DISCGRP.PS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "IDCAMS REPRO INFILE",
+                  "source": "../app/jcl/DISCGRP.jcl:56"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "DISCVSAM",
+                  "dsn": "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "OLD",
+                  "basis": "IDCAMS REPRO OUTFILE",
+                  "source": "../app/jcl/DISCGRP.jcl:58"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/DISCGRP.jcl:54"
+            }
+          ]
+        },
+        {
+          "job": "WAITSTEP",
+          "memname": "WAITSTEP",
+          "level": 2,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/WAITSTEP.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:44",
+          "steps": [
+            {
+              "step": "WAIT",
+              "proc_step": null,
+              "kind": "program",
+              "pgm": "COBSWAIT",
+              "program": "COBSWAIT",
+              "reached": [
+                "MVSWAIT"
+              ],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/WAITSTEP.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "OPENFIL",
+          "memname": "OPENFIL",
+          "level": 3,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/OPENFIL.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:50",
+          "steps": [
+            {
+              "step": "OPCIFIL",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SDSF",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/OPENFIL.jcl:22"
+            }
+          ]
+        }
+      ],
+      "infrastructure": [
+        {
+          "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+          "dds": [
+            "STEPLIB"
+          ],
+          "jobs": [
+            "WAITSTEP"
+          ]
+        }
+      ],
+      "lineage": [],
+      "shared_state": [],
+      "inputs": [
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.DISCGRP.PS",
+          "consumers": [
+            "DISCGRP.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/DISCGRP.jcl:56"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "condition",
+          "name": "WEEKLY-TransactionTypesDBRefresh-MNTTRDB2 ODAT",
+          "consumers": [
+            "CLOSEFIL"
+          ],
+          "other_chain": "WEEKLY-TransactionTypesDBRefresh",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:33"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS",
+          "producers": [
+            "DISCGRP.STEP05",
+            "DISCGRP.STEP10",
+            "DISCGRP.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/DISCGRP.jcl:24",
+            "../app/jcl/DISCGRP.jcl:35",
+            "../app/jcl/DISCGRP.jcl:58"
+          ],
+          "basis": null,
+          "other_chain": "MONTHLY-InterestCalculation"
+        }
+      ],
+      "paths": [
+        {
+          "job": "CLOSEFIL",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=00005M min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:33"
+          ]
+        },
+        {
+          "job": "DISCGRP",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=00005M min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:38"
+          ]
+        },
+        {
+          "job": "WAITSTEP",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=00005M min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:44"
+          ]
+        },
+        {
+          "job": "OPENFIL",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=00005M min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:50"
+          ]
+        }
+      ],
+      "unreached": {
+        "programs": [
+          "CBACT01C",
+          "CBACT02C",
+          "CBACT03C",
+          "CBACT04C",
+          "CBCUS01C",
+          "CBEXPORT",
+          "CBIMPORT",
+          "CBSTM03A",
+          "CBSTM03B",
+          "CBTRN01C",
+          "CBTRN02C",
+          "CBTRN03C",
+          "CSUTLDTC"
+        ],
+        "note": "batch (non-CICS) programs of the module no DisclosureGroupsRefresh step runs or reaches statically"
+      },
+      "notes": [],
+      "asks": [
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "CLOSEFIL",
+          "message": "CLOSEFIL CLCIFIL (utility SDSF) cannot be traversed: utility",
+          "evidence": [
+            "../app/jcl/CLOSEFIL.jcl:22"
+          ],
+          "request": "Provide the PROC/program so the step's data flow can be read",
+          "status": "open"
+        },
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "OPENFIL",
+          "message": "OPENFIL OPCIFIL (utility SDSF) cannot be traversed: utility",
+          "evidence": [
+            "../app/jcl/OPENFIL.jcl:22"
+          ],
+          "request": "Provide the PROC/program so the step's data flow can be read",
+          "status": "open"
+        },
+        {
+          "kind": "chain-input-unproduced",
+          "severity": "medium",
+          "job": "DISCGRP",
+          "message": "AWS.M2.CARDDEMO.DISCGRP.PS is read by DISCGRP.STEP15 and written by no job of any scanned table",
+          "evidence": [
+            "../app/jcl/DISCGRP.jcl:56"
+          ],
+          "request": "Identify the producer of AWS.M2.CARDDEMO.DISCGRP.PS (online region, another application, external feed?)",
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "DISCGRP",
+          "message": "DisclosureGroupsRefresh writes AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS which table(s) MONTHLY-InterestCalculation also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/DISCGRP.jcl:24",
+            "../app/jcl/DISCGRP.jcl:35"
+          ],
+          "request": null,
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "table": "MONTHLY-InterestCalculation",
+      "requested_as": "MONTHLY-InterestCalculation",
+      "selection_basis": "MONTHLY-INTERESTCALCULATION is a table in ../app/scheduler/CardDemo.controlm",
+      "generated_at": "2026-10-08T04:12:45Z",
+      "jobs": [
+        {
+          "job": "CLOSEFIL",
+          "memname": "CLOSEFIL",
+          "level": 0,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/CLOSEFIL.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:65",
+          "steps": [
+            {
+              "step": "CLCIFIL",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SDSF",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/CLOSEFIL.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "INTCALC",
+          "memname": "INTCALC",
+          "level": 1,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/INTCALC.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:69",
+          "steps": [
+            {
+              "step": "STEP15",
+              "proc_step": null,
+              "kind": "program",
+              "pgm": "CBACT04C",
+              "program": "CBACT04C",
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "TCATBALF",
+                  "dsn": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBACT04C TCATBAL-FILE)",
+                  "source": "../app/jcl/INTCALC.jcl:27"
+                },
+                {
+                  "dd": "XREFFILE",
+                  "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBACT04C XREF-FILE)",
+                  "source": "../app/jcl/INTCALC.jcl:29"
+                },
+                {
+                  "dd": "ACCTFILE",
+                  "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode I-O (CBACT04C ACCOUNT-FILE)",
+                  "source": "../app/jcl/INTCALC.jcl:33"
+                },
+                {
+                  "dd": "DISCGRP",
+                  "dsn": "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode INPUT (CBACT04C DISCGRP-FILE)",
+                  "source": "../app/jcl/INTCALC.jcl:35"
+                },
+                {
+                  "dd": "XREFFIL1",
+                  "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX.PATH",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "disp-only SHR (no program binding)",
+                  "source": "../app/jcl/INTCALC.jcl:31"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "ACCTFILE",
+                  "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "open-mode I-O (CBACT04C ACCOUNT-FILE)",
+                  "source": "../app/jcl/INTCALC.jcl:33"
+                },
+                {
+                  "dd": "TRANSACT",
+                  "dsn": "AWS.M2.CARDDEMO.SYSTRAN",
+                  "generation": "+1",
+                  "member": null,
+                  "disp": "(NEW,CATLG,DELETE)",
+                  "basis": "open-mode OUTPUT (CBACT04C TRANSACT-FILE)",
+                  "source": "../app/jcl/INTCALC.jcl:37"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/INTCALC.jcl:22",
+              "parm": "'2022071800'"
+            }
+          ]
+        },
+        {
+          "job": "COMBTRAN",
+          "memname": "COMBTRAN",
+          "level": 2,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/COMBTRAN.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:75",
+          "steps": [
+            {
+              "step": "STEP05R",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SORT",
+              "program": null,
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "SORTIN",
+                  "dsn": "AWS.M2.CARDDEMO.TRANSACT.BKUP",
+                  "generation": "0",
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "utility-convention SORT SORTIN",
+                  "source": "../app/jcl/COMBTRAN.jcl:23"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "SORTOUT",
+                  "dsn": "AWS.M2.CARDDEMO.TRANSACT.COMBINED",
+                  "generation": "+1",
+                  "member": null,
+                  "disp": "(NEW,CATLG,DELETE)",
+                  "basis": "utility-convention SORT SORTOUT",
+                  "source": "../app/jcl/COMBTRAN.jcl:33"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/COMBTRAN.jcl:22"
+            },
+            {
+              "step": "STEP10",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "IDCAMS",
+              "program": null,
+              "reached": [],
+              "reads": [
+                {
+                  "dd": "TRANSACT",
+                  "dsn": "AWS.M2.CARDDEMO.TRANSACT.COMBINED",
+                  "generation": "+1",
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "IDCAMS REPRO INFILE",
+                  "source": "../app/jcl/COMBTRAN.jcl:43"
+                }
+              ],
+              "writes": [
+                {
+                  "dd": "TRANVSAM",
+                  "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+                  "generation": null,
+                  "member": null,
+                  "disp": "SHR",
+                  "basis": "IDCAMS REPRO OUTFILE",
+                  "source": "../app/jcl/COMBTRAN.jcl:45"
+                }
+              ],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/COMBTRAN.jcl:41"
+            }
+          ]
+        },
+        {
+          "job": "WAITSTEP",
+          "memname": "WAITSTEP",
+          "level": 3,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/WAITSTEP.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:81",
+          "steps": [
+            {
+              "step": "WAIT",
+              "proc_step": null,
+              "kind": "program",
+              "pgm": "COBSWAIT",
+              "program": "COBSWAIT",
+              "reached": [
+                "MVSWAIT"
+              ],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/WAITSTEP.jcl:22"
+            }
+          ]
+        },
+        {
+          "job": "OPENFIL",
+          "memname": "OPENFIL",
+          "level": 4,
+          "variants": 1,
+          "scanned": true,
+          "setvars": [],
+          "path": "../app/jcl/OPENFIL.jcl",
+          "source": "../app/scheduler/CardDemo.controlm:87",
+          "steps": [
+            {
+              "step": "OPCIFIL",
+              "proc_step": null,
+              "kind": "utility",
+              "pgm": "SDSF",
+              "program": null,
+              "reached": [],
+              "reads": [],
+              "writes": [],
+              "db2": [],
+              "ims": [],
+              "idms": [],
+              "conditions": [],
+              "source": "../app/jcl/OPENFIL.jcl:22"
+            }
+          ]
+        }
+      ],
+      "infrastructure": [
+        {
+          "dsn": "AWS.M2.CARDDEMO.LOADLIB",
+          "dds": [
+            "STEPLIB"
+          ],
+          "jobs": [
+            "INTCALC",
+            "WAITSTEP"
+          ]
+        }
+      ],
+      "lineage": [
+        {
+          "dsn": "AWS.M2.CARDDEMO.TRANSACT.COMBINED",
+          "from": {
+            "job": "COMBTRAN",
+            "step": "STEP05R",
+            "proc_step": null,
+            "generation": "+1"
+          },
+          "to": {
+            "job": "COMBTRAN",
+            "step": "STEP10",
+            "proc_step": null,
+            "generation": "+1"
+          },
+          "basis": "same-job step order",
+          "evidence": [
+            "../app/jcl/COMBTRAN.jcl:33",
+            "../app/jcl/COMBTRAN.jcl:43"
+          ]
+        }
+      ],
+      "shared_state": [],
+      "inputs": [
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+          "consumers": [
+            "INTCALC.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:33"
+          ],
+          "basis": null,
+          "other_chain": "CARDDEMO"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX.PATH",
+          "consumers": [
+            "INTCALC.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:31",
+            "../app/csd/CARDDEMO.CSD:63"
+          ],
+          "basis": "produced online: CICS FCT CXACAIX allows READ,BROWSE,ADD,UPDATE,DELETE",
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+          "consumers": [
+            "INTCALC.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:29"
+          ],
+          "basis": null,
+          "other_chain": "CARDDEMO, TRANREPT"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS",
+          "consumers": [
+            "INTCALC.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:35"
+          ],
+          "basis": null,
+          "other_chain": "DisclosureGroupsRefresh"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+          "consumers": [
+            "INTCALC.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:27"
+          ],
+          "basis": null,
+          "other_chain": "CARDDEMO"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRANSACT.BKUP",
+          "consumers": [
+            "COMBTRAN.STEP05R"
+          ],
+          "evidence": [
+            "../app/jcl/COMBTRAN.jcl:23"
+          ],
+          "basis": null,
+          "other_chain": "DAILY-TransactionBackup, TRANREPT"
+        }
+      ],
+      "outputs": [
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+          "producers": [
+            "INTCALC.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:33"
+          ],
+          "basis": null,
+          "other_chain": "CARDDEMO"
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.SYSTRAN",
+          "producers": [
+            "INTCALC.STEP15"
+          ],
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:37"
+          ],
+          "basis": null,
+          "other_chain": null
+        },
+        {
+          "kind": "dataset",
+          "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+          "producers": [
+            "COMBTRAN.STEP10"
+          ],
+          "evidence": [
+            "../app/jcl/COMBTRAN.jcl:45"
+          ],
+          "basis": null,
+          "other_chain": "CARDDEMO, DAILY-TransactionBackup, TRANREPT"
+        }
+      ],
+      "paths": [
+        {
+          "job": "CLOSEFIL",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=None min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:65"
+          ]
+        },
+        {
+          "job": "INTCALC",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=None min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:69"
+          ]
+        },
+        {
+          "job": "COMBTRAN",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=None min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:75"
+          ]
+        },
+        {
+          "job": "WAITSTEP",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=None min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:81"
+          ]
+        },
+        {
+          "job": "OPENFIL",
+          "path": "restart",
+          "when": "NOTOK, automatic rerun",
+          "effect": "MAXRERUN=5 INTERVAL=None min (definition only; program/JCL restart behaviour not proven here)",
+          "evidence": [
+            "../app/scheduler/CardDemo.controlm:87"
+          ]
+        }
+      ],
+      "unreached": {
+        "programs": [
+          "CBACT01C",
+          "CBACT02C",
+          "CBACT03C",
+          "CBCUS01C",
+          "CBEXPORT",
+          "CBIMPORT",
+          "CBSTM03A",
+          "CBSTM03B",
+          "CBTRN01C",
+          "CBTRN02C",
+          "CBTRN03C",
+          "CSUTLDTC"
+        ],
+        "note": "batch (non-CICS) programs of the module no MONTHLY-InterestCalculation step runs or reaches statically"
+      },
+      "notes": [
+        {
+          "text": "The monthly chain closes the CICS files, runs INTCALC (CBACT04C, PARM run date), merges system transactions into TRANSACT with COMBTRAN (SORT + REPRO), then reopens the files",
+          "evidence": [
+            "app/scheduler/CardDemo.controlm:64-80",
+            "app/jcl/INTCALC.jcl:22-34"
+          ]
+        },
+        {
+          "text": "Tech debt: the DISCGRP open-failure path displays 'ERROR OPENING DALY REJECTS FILE' (copy-paste message), misleading operators during an incident",
+          "evidence": [
+            "app/cbl/CBACT04C.cbl:269-284"
+          ]
+        }
+      ],
+      "asks": [
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "CLOSEFIL",
+          "message": "CLOSEFIL CLCIFIL (utility SDSF) cannot be traversed: utility",
+          "evidence": [
+            "../app/jcl/CLOSEFIL.jcl:22"
+          ],
+          "request": "Provide the PROC/program so the step's data flow can be read",
+          "status": "open"
+        },
+        {
+          "kind": "chain-step-opaque",
+          "severity": "medium",
+          "job": "OPENFIL",
+          "message": "OPENFIL OPCIFIL (utility SDSF) cannot be traversed: utility",
+          "evidence": [
+            "../app/jcl/OPENFIL.jcl:22"
+          ],
+          "request": "Provide the PROC/program so the step's data flow can be read",
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "INTCALC",
+          "message": "MONTHLY-InterestCalculation reads AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS which table(s) CARDDEMO also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:33"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "INTCALC",
+          "message": "MONTHLY-InterestCalculation reads AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS which table(s) CARDDEMO, TRANREPT also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:29"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "INTCALC",
+          "message": "MONTHLY-InterestCalculation reads AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS which table(s) DisclosureGroupsRefresh also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:35"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "INTCALC",
+          "message": "MONTHLY-InterestCalculation reads AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS which table(s) CARDDEMO also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:27"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "COMBTRAN",
+          "message": "MONTHLY-InterestCalculation reads AWS.M2.CARDDEMO.TRANSACT.BKUP which table(s) DAILY-TransactionBackup, TRANREPT also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/COMBTRAN.jcl:23"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "INTCALC",
+          "message": "MONTHLY-InterestCalculation writes AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS which table(s) CARDDEMO also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:33"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-output-unconsumed",
+          "severity": "info",
+          "job": "INTCALC",
+          "message": "AWS.M2.CARDDEMO.SYSTRAN written by INTCALC.STEP15 is read by no job of any scanned table (downstream feed, backup, or dead output)",
+          "evidence": [
+            "../app/jcl/INTCALC.jcl:37"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-shared-dataset",
+          "severity": "info",
+          "job": "COMBTRAN",
+          "message": "MONTHLY-InterestCalculation writes AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS which table(s) CARDDEMO, DAILY-TransactionBackup, TRANREPT also touch - cross-chain lineage",
+          "evidence": [
+            "../app/jcl/COMBTRAN.jcl:45"
+          ],
+          "request": null,
+          "status": "open"
+        },
+        {
+          "kind": "chain-path-unproven",
+          "severity": "medium",
+          "job": "INTCALC",
+          "message": "CBACT04C falls back to the DEFAULT disclosure group on status 23, but abends (9999-ABEND-PROGRAM) if the DEFAULT row is itself missing for that transaction type/category, stopping the monthly interest run",
+          "evidence": [
+            "app/cbl/CBACT04C.cbl:415-440"
+          ],
+          "request": "Operations: is a DEFAULT disclosure-group row guaranteed for every type/category? If not, the abend is a latent production risk",
+          "status": "open"
+        }
+      ]
+    }
+  ]
+}

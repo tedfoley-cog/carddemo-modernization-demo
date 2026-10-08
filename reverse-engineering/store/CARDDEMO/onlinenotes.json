@@ -1,0 +1,3210 @@
+{
+ "notes": [
+  {
+   "transid": "CA00",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CA00",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CAUP",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CAUP",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CAVW",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CAVW",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CB00",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CB00",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CC00",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CC00",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CCDL",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CCDL",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CCLI",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CCLI",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CCUP",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CCUP",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CM00",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CM00",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CR00",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CR00",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CT00",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CT00",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CT01",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CT01",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CT02",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CT02",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CU00",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CU00",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CU01",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CU01",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CU02",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CU02",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CU03",
+   "note": "COMEN01C XCTLs to the program in the selected row of the main-menu table CDEMO-MENU-OPT (12 entries, e.g. COACTVWC, COBIL00C); the target is data-driven but bounded by this table",
+   "evidence": [
+    "app/cbl/COMEN01C.cbl:156",
+    "app/cpy/COMEN02Y.cpy:28",
+    "app/cpy/COMEN02Y.cpy:83",
+    "app/cpy/COMEN02Y.cpy:94-97"
+   ]
+  },
+  {
+   "transid": "CU03",
+   "note": "COADM01C XCTLs through the admin-menu table CDEMO-ADMIN-OPT (9 entries)",
+   "evidence": [
+    "app/cbl/COADM01C.cbl:145",
+    "app/cpy/COADM02Y.cpy:56-59"
+   ]
+  },
+  {
+   "transid": "CC00",
+   "note": "CC00 is the sign-on entry: the CSD maps it to COSGN00C, which XCTLs to COMEN01C (user) or COADM01C (admin) after reading USRSEC",
+   "evidence": [
+    "app/csd/CARDDEMO.CSD:378"
+   ]
+  }
+ ],
+ "closures": [
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CA00",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAUP",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CAVW",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CB00",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CC00",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCDL",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCLI",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CCUP",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CM00",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CR00",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT00",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT01",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CT02",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU00",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU01",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU02",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COACTUP",
+   "how": "BMS macro source app/bms/COACTUP.bms and symbolic map app/cpy-bms/COACTUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTUP.bms:1",
+    "app/cpy-bms/COACTUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COACTVW",
+   "how": "BMS macro source app/bms/COACTVW.bms and symbolic map app/cpy-bms/COACTVW.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COACTVW.bms:1",
+    "app/cpy-bms/COACTVW.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COADM01",
+   "how": "BMS macro source app/bms/COADM01.bms and symbolic map app/cpy-bms/COADM01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COADM01.bms:1",
+    "app/cpy-bms/COADM01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COBIL00",
+   "how": "BMS macro source app/bms/COBIL00.bms and symbolic map app/cpy-bms/COBIL00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COBIL00.bms:1",
+    "app/cpy-bms/COBIL00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COCRDLI",
+   "how": "BMS macro source app/bms/COCRDLI.bms and symbolic map app/cpy-bms/COCRDLI.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDLI.bms:1",
+    "app/cpy-bms/COCRDLI.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COCRDSL",
+   "how": "BMS macro source app/bms/COCRDSL.bms and symbolic map app/cpy-bms/COCRDSL.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDSL.bms:1",
+    "app/cpy-bms/COCRDSL.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COCRDUP",
+   "how": "BMS macro source app/bms/COCRDUP.bms and symbolic map app/cpy-bms/COCRDUP.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COCRDUP.bms:1",
+    "app/cpy-bms/COCRDUP.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COMEN01",
+   "how": "BMS macro source app/bms/COMEN01.bms and symbolic map app/cpy-bms/COMEN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COMEN01.bms:1",
+    "app/cpy-bms/COMEN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "CORPT00",
+   "how": "BMS macro source app/bms/CORPT00.bms and symbolic map app/cpy-bms/CORPT00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/CORPT00.bms:1",
+    "app/cpy-bms/CORPT00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COSGN00",
+   "how": "BMS macro source app/bms/COSGN00.bms and symbolic map app/cpy-bms/COSGN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COSGN00.bms:1",
+    "app/cpy-bms/COSGN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COTRN00",
+   "how": "BMS macro source app/bms/COTRN00.bms and symbolic map app/cpy-bms/COTRN00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN00.bms:1",
+    "app/cpy-bms/COTRN00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COTRN01",
+   "how": "BMS macro source app/bms/COTRN01.bms and symbolic map app/cpy-bms/COTRN01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN01.bms:1",
+    "app/cpy-bms/COTRN01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COTRN02",
+   "how": "BMS macro source app/bms/COTRN02.bms and symbolic map app/cpy-bms/COTRN02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COTRN02.bms:1",
+    "app/cpy-bms/COTRN02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COUSR00",
+   "how": "BMS macro source app/bms/COUSR00.bms and symbolic map app/cpy-bms/COUSR00.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR00.bms:1",
+    "app/cpy-bms/COUSR00.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COUSR01",
+   "how": "BMS macro source app/bms/COUSR01.bms and symbolic map app/cpy-bms/COUSR01.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR01.bms:1",
+    "app/cpy-bms/COUSR01.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COUSR02",
+   "how": "BMS macro source app/bms/COUSR02.bms and symbolic map app/cpy-bms/COUSR02.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR02.bms:1",
+    "app/cpy-bms/COUSR02.CPY:1"
+   ]
+  },
+  {
+   "kind": "online-map-no-source",
+   "transid": "CU03",
+   "match": "COUSR03",
+   "how": "BMS macro source app/bms/COUSR03.bms and symbolic map app/cpy-bms/COUSR03.CPY are in the repository; the Linux CICS runtime parses this BMS source to render the screen",
+   "evidence": [
+    "app/bms/COUSR03.bms:1",
+    "app/cpy-bms/COUSR03.CPY:1"
+   ]
+  }
+ ],
+ "asks": []
+}

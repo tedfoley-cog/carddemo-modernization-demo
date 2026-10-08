@@ -1,0 +1,73 @@
+{
+ "meta": {
+  "module": "CARDDEMO",
+  "written_by": "batch-chain-analysis skill"
+ },
+ "tables": {
+  "CARDDEMO": {
+   "directions": [],
+   "closures": [],
+   "asks": [
+    {
+     "kind": "chain-path-unproven",
+     "severity": "medium",
+     "job": "POSTTRAN",
+     "message": "CBTRN02C validates over-limit (102) then expiry (103) without stopping: a transaction that is both over limit and past expiry is rejected as 103 only, so the 102 reason is silently lost in DALYREJS",
+     "evidence": [
+      "app/cbl/CBTRN02C.cbl:403-420"
+     ],
+     "request": "Business owner: should the reject carry the first failing rule (102) or the last (103)? The modernized job reproduces 103 for parity until decided"
+    }
+   ],
+   "notes": [
+    {
+     "text": "POSTTRAN is the daily posting step: DALYTRAN is validated against CARDXREF and ACCTDATA; good items are written to TRANSACT and update ACCTDATA and TCATBALF, bad items go to the DALYREJS(+1) generation",
+     "evidence": [
+      "app/jcl/POSTTRAN.jcl:23-42"
+     ]
+    },
+    {
+     "text": "Reject reasons are numeric codes 100 (invalid card), 101 (account not found), 102 (over limit), 103 (after account expiry), 109 (balance-category rewrite failure)",
+     "evidence": [
+      "app/cbl/CBTRN02C.cbl:385",
+      "app/cbl/CBTRN02C.cbl:397",
+      "app/cbl/CBTRN02C.cbl:410",
+      "app/cbl/CBTRN02C.cbl:417",
+      "app/cbl/CBTRN02C.cbl:556"
+     ]
+    }
+   ]
+  },
+  "MONTHLY-InterestCalculation": {
+   "directions": [],
+   "closures": [],
+   "asks": [
+    {
+     "kind": "chain-path-unproven",
+     "severity": "medium",
+     "job": "INTCALC",
+     "message": "CBACT04C falls back to the DEFAULT disclosure group on status 23, but abends (9999-ABEND-PROGRAM) if the DEFAULT row is itself missing for that transaction type/category, stopping the monthly interest run",
+     "evidence": [
+      "app/cbl/CBACT04C.cbl:415-440"
+     ],
+     "request": "Operations: is a DEFAULT disclosure-group row guaranteed for every type/category? If not, the abend is a latent production risk"
+    }
+   ],
+   "notes": [
+    {
+     "text": "The monthly chain closes the CICS files, runs INTCALC (CBACT04C, PARM run date), merges system transactions into TRANSACT with COMBTRAN (SORT + REPRO), then reopens the files",
+     "evidence": [
+      "app/scheduler/CardDemo.controlm:64-80",
+      "app/jcl/INTCALC.jcl:22-34"
+     ]
+    },
+    {
+     "text": "Tech debt: the DISCGRP open-failure path displays 'ERROR OPENING DALY REJECTS FILE' (copy-paste message), misleading operators during an incident",
+     "evidence": [
+      "app/cbl/CBACT04C.cbl:269-284"
+     ]
+    }
+   ]
+  }
+ }
+}
