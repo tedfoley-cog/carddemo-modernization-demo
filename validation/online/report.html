@@ -1,0 +1,309 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Online parity report</title>
+<style>body{font:14px system-ui,sans-serif;margin:2rem;color:#1b2430;background:#f6f8fa}h1{margin:0 0 .25rem}table{border-collapse:collapse;background:#fff}
+td,th{border:1px solid #dde3ea;padding:.3rem .5rem;text-align:left;vertical-align:top}th{background:#eef2f6}code{font:12px ui-monospace,monospace;white-space:pre-wrap}
+.b{font:600 11px ui-monospace,monospace;padding:.1rem .35rem;border-radius:3px}.ok{background:#dcfae6;color:#067647}.ko{background:#fee4e2;color:#b42318}
+section{background:#fff;border:1px solid #dde3ea;border-radius:8px;padding:1rem 1.25rem;margin:1.25rem 0}.step{border-top:1px solid #eef1f5;padding-top:.75rem;margin-top:.75rem}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:1rem}figure{margin:0}figure img{width:100%;border:1px solid #dde3ea;border-radius:4px}figcaption{font-size:12px;color:#5d6b7b}
+tr.bad td{background:#fff6f5}.req{color:#5d6b7b}.err{color:#b42318}.meta{color:#5d6b7b}small{color:#5d6b7b;font-weight:400}</style></head><body>
+<h1>CardDemo online parity: legacy CICS vs modern stack</h1>
+<p class="meta">Generated 2026-10-08T04:39:41.172Z &middot; business date 2022-07-06 &middot; legacy http://localhost:3270 &middot; modern http://localhost:4173</p>
+<p><b>9/9</b> scenarios passed &middot; 44 steps &middot; 69/69 field comparisons matched.
+Blanks are shown as &middot; so message spacing differences are visible.</p>
+<table><tr><th>ID</th><th>Scenario</th><th>Requirements</th><th>Steps</th><th>Result</th></tr><tr><td><a href="#P01">P01</a></td><td>Sign-on rejects a wrong password</td>
+    <td>ONL-SEC-02</td><td>2</td><td><span class="b ok">PASS</span></td></tr><tr><td><a href="#P02">P02</a></td><td>Admin is routed to the admin menu</td>
+    <td>ONL-SEC-03, ONL-NAV-01</td><td>1</td><td><span class="b ok">PASS</span></td></tr><tr><td><a href="#P03">P03</a></td><td>Account view shows account and customer</td>
+    <td>ONL-SEC-01, ONL-NAV-01, ONL-ACV-02</td><td>3</td><td><span class="b ok">PASS</span></td></tr><tr><td><a href="#P04">P04</a></td><td>Account view rejects invalid account ids</td>
+    <td>ONL-ACV-01</td><td>5</td><td><span class="b ok">PASS</span></td></tr><tr><td><a href="#P05">P05</a></td><td>Account update field validation</td>
+    <td>ONL-ACU-01</td><td>7</td><td><span class="b ok">PASS</span></td></tr><tr><td><a href="#P06">P06</a></td><td>Transaction list first page</td>
+    <td>ONL-LST-01</td><td>3</td><td><span class="b ok">PASS</span></td></tr><tr><td><a href="#P07">P07</a></td><td>Bill payment negative paths</td>
+    <td>ONL-BIL-01</td><td>4</td><td><span class="b ok">PASS</span></td></tr><tr><td><a href="#P08">P08</a></td><td>Bill payment pays the full balance (state change)</td>
+    <td>ONL-BIL-02, ONL-BIL-03, ONL-LST-01</td><td>11</td><td><span class="b ok">PASS</span></td></tr><tr><td><a href="#P09">P09</a></td><td>Transaction add (state change)</td>
+    <td>ONL-TRA-01</td><td>8</td><td><span class="b ok">PASS</span></td></tr></table>
+  <section id="P01"><h2>P01 &middot; Sign-on rejects a wrong password <span class="b ok">PASS</span></h2>
+  <p class="req">Requirements: ONL-SEC-02</p>
+  
+    <div class="step"><h3>Step 1: USER0001 / WRONGPWD <small>{&quot;do&quot;:&quot;signon&quot;,&quot;user&quot;:&quot;USER0001&quot;,&quot;password&quot;:&quot;WRONGPWD&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P01-1-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P01-1-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>screen (program)</td><td><code>COSGN00C</code></td><td><code>COSGN00C</code></td><td><code>COSGN00C</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>message</td><td><code>Wrong&middot;Password.&middot;Try&middot;again&middot;...</code></td><td><code>Wrong&middot;Password.&middot;Try&middot;again&middot;...</code></td><td><code>Wrong&middot;Password.&middot;Try&middot;again&middot;...</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 2: Unknown user <small>{&quot;do&quot;:&quot;signon&quot;,&quot;user&quot;:&quot;NOBODY01&quot;,&quot;password&quot;:&quot;PASSWORD&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P01-2-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P01-2-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>screen (program)</td><td><code>COSGN00C</code></td><td><code>COSGN00C</code></td><td><code>COSGN00C</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>message</td><td><code>User&middot;not&middot;found.&middot;Try&middot;again&middot;...</code></td><td><code>User&middot;not&middot;found.&middot;Try&middot;again&middot;...</code></td><td><code>User&middot;not&middot;found.&middot;Try&middot;again&middot;...</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+  </section>
+  <section id="P02"><h2>P02 &middot; Admin is routed to the admin menu <span class="b ok">PASS</span></h2>
+  <p class="req">Requirements: ONL-SEC-03, ONL-NAV-01</p>
+  
+    <div class="step"><h3>Step 1: ADMIN001 / PASSWORD <small>{&quot;do&quot;:&quot;signon&quot;,&quot;user&quot;:&quot;ADMIN001&quot;,&quot;password&quot;:&quot;PASSWORD&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P02-1-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P02-1-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>screen (program)</td><td><code>COADM01C</code></td><td><code>COADM01C</code></td><td><code>COADM01C</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+  </section>
+  <section id="P03"><h2>P03 &middot; Account view shows account and customer <span class="b ok">PASS</span></h2>
+  <p class="req">Requirements: ONL-SEC-01, ONL-NAV-01, ONL-ACV-02</p>
+  
+    <div class="step"><h3>Step 1: Sign on USER0001 <small>{&quot;do&quot;:&quot;signon&quot;,&quot;user&quot;:&quot;USER0001&quot;,&quot;password&quot;:&quot;PASSWORD&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P03-1-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P03-1-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>screen (program)</td><td><code>COMEN01C</code></td><td><code>COMEN01C</code></td><td><code>COMEN01C</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 2: Menu option 01 <small>{&quot;do&quot;:&quot;menu&quot;,&quot;option&quot;:1}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P03-2-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P03-2-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>screen (program)</td><td><code>COACTVWC</code></td><td><code>COACTVWC</code></td><td><code>COACTVWC</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 3: Account 00000000001 <small>{&quot;do&quot;:&quot;accountView&quot;,&quot;accountId&quot;:&quot;00000000001&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P03-3-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P03-3-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>field creditLimit</td><td><code>+&middot;2,020.00</code></td><td><code>+&middot;2,020.00</code></td><td><code>+&middot;2,020.00</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field cashCreditLimit</td><td><code>+&middot;1,020.00</code></td><td><code>+&middot;1,020.00</code></td><td><code>+&middot;1,020.00</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field currentBalance</td><td><code>+&middot;1,288.10</code></td><td><code>+&middot;1,288.10</code></td><td><code>+&middot;1,288.10</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field currentCycleCredit</td><td><code>+&middot;1,164.87</code></td><td><code>+&middot;1,164.87</code></td><td><code>+&middot;1,164.87</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field currentCycleDebit</td><td><code>-&middot;70.77</code></td><td><code>-&middot;70.77</code></td><td><code>-&middot;70.77</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field customerName</td><td><code>Immanuel&middot;Madeline&middot;Kessler</code></td><td><code>Immanuel&middot;Madeline&middot;Kessler</code></td><td><code>Immanuel&middot;Madeline&middot;Kessler</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field ssn</td><td><code>020-97-3888</code></td><td><code>020-97-3888</code></td><td><code>020-97-3888</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field ficoScore</td><td><code>274</code></td><td><code>274</code></td><td><code>274</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field openDate</td><td><code>2014-11-20</code></td><td><code>2014-11-20</code></td><td><code>2014-11-20</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field activeStatus</td><td><code>Y</code></td><td><code>Y</code></td><td><code>Y</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field customerId</td><td><code>000000001</code></td><td><code>000000001</code></td><td><code>000000001</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+  </section>
+  <section id="P04"><h2>P04 &middot; Account view rejects invalid account ids <span class="b ok">PASS</span></h2>
+  <p class="req">Requirements: ONL-ACV-01</p>
+  
+    <div class="step"><h3>Step 1: Sign on USER0001 <small>{&quot;do&quot;:&quot;signon&quot;,&quot;user&quot;:&quot;USER0001&quot;,&quot;password&quot;:&quot;PASSWORD&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P04-1-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P04-1-modern.jpg"></figure></div>
+    
+    </div>
+    <div class="step"><h3>Step 2: Menu option 01 <small>{&quot;do&quot;:&quot;menu&quot;,&quot;option&quot;:1}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P04-2-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P04-2-modern.jpg"></figure></div>
+    
+    </div>
+    <div class="step"><h3>Step 3: Account &quot;1&quot; <small>{&quot;do&quot;:&quot;accountView&quot;,&quot;accountId&quot;:&quot;1&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P04-3-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P04-3-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>Account&middot;Filter&middot;must&middot;&middot;be&middot;a&middot;non-zero&middot;11&middot;digit&middot;number</code></td><td><code>Account&middot;Filter&middot;must&middot;&middot;be&middot;a&middot;non-zero&middot;11&middot;digit&middot;number</code></td><td><code>Account&middot;Filter&middot;must&middot;&middot;be&middot;a&middot;non-zero&middot;11&middot;digit&middot;number</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 4: Account 00000000000 <small>{&quot;do&quot;:&quot;accountView&quot;,&quot;accountId&quot;:&quot;00000000000&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P04-4-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P04-4-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>Account&middot;Filter&middot;must&middot;&middot;be&middot;a&middot;non-zero&middot;11&middot;digit&middot;number</code></td><td><code>Account&middot;Filter&middot;must&middot;&middot;be&middot;a&middot;non-zero&middot;11&middot;digit&middot;number</code></td><td><code>Account&middot;Filter&middot;must&middot;&middot;be&middot;a&middot;non-zero&middot;11&middot;digit&middot;number</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 5: Account not on file <small>{&quot;do&quot;:&quot;accountView&quot;,&quot;accountId&quot;:&quot;99999999999&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P04-5-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P04-5-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>Account:99999999999&middot;not&middot;found&middot;in&middot;Cross&middot;ref&middot;file.&middot;&middot;Resp:000000013&middot;&middot;Reas:0000</code></td><td><code>Account:99999999999&middot;not&middot;found&middot;in&middot;Cross&middot;ref&middot;file.&middot;&middot;Resp:000000013&middot;&middot;Reas:0000</code></td><td><code>Account:99999999999&middot;not&middot;found&middot;in&middot;Cross&middot;ref&middot;file.&middot;&middot;Resp:000000013&middot;&middot;Reas:0000</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+  </section>
+  <section id="P05"><h2>P05 &middot; Account update field validation <span class="b ok">PASS</span></h2>
+  <p class="req">Requirements: ONL-ACU-01</p>
+  
+    <div class="step"><h3>Step 1: Sign on USER0001 <small>{&quot;do&quot;:&quot;signon&quot;,&quot;user&quot;:&quot;USER0001&quot;,&quot;password&quot;:&quot;PASSWORD&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P05-1-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P05-1-modern.jpg"></figure></div>
+    
+    </div>
+    <div class="step"><h3>Step 2: Menu option 02 <small>{&quot;do&quot;:&quot;menu&quot;,&quot;option&quot;:2}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P05-2-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P05-2-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>screen (program)</td><td><code>COACTUPC</code></td><td><code>COACTUPC</code></td><td><code>COACTUPC</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 3: Fetch 00000000001 <small>{&quot;do&quot;:&quot;accountUpdateFetch&quot;,&quot;accountId&quot;:&quot;00000000001&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P05-3-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P05-3-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>field activeStatus</td><td><code>Y</code></td><td><code>Y</code></td><td><code>Y</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field ficoScore</td><td><code>274</code></td><td><code>274</code></td><td><code>274</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field state</td><td><code>NC</code></td><td><code>NC</code></td><td><code>NC</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field zip</td><td><code>12546</code></td><td><code>12546</code></td><td><code>12546</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 4: Status X (1220-EDIT-YESNO) <small>{&quot;do&quot;:&quot;accountUpdateEdit&quot;,&quot;changes&quot;:{&quot;activeStatus&quot;:&quot;X&quot;}}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P05-4-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P05-4-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>Account&middot;Status&middot;must&middot;be&middot;Y&middot;or&middot;N.</code></td><td><code>Account&middot;Status&middot;must&middot;be&middot;Y&middot;or&middot;N.</code></td><td><code>Account&middot;Status&middot;must&middot;be&middot;Y&middot;or&middot;N.</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 5: Open month 13 (EDIT-MONTH) <small>{&quot;do&quot;:&quot;accountUpdateEdit&quot;,&quot;changes&quot;:{&quot;activeStatus&quot;:&quot;Y&quot;,&quot;openMonth&quot;:&quot;13&quot;}}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P05-5-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P05-5-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>Open&middot;Date:&middot;Month&middot;must&middot;be&middot;a&middot;number&middot;between&middot;1&middot;and&middot;12.</code></td><td><code>Open&middot;Date:&middot;Month&middot;must&middot;be&middot;a&middot;number&middot;between&middot;1&middot;and&middot;12.</code></td><td><code>Open&middot;Date:&middot;Month&middot;must&middot;be&middot;a&middot;number&middot;between&middot;1&middot;and&middot;12.</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 6: Credit limit ABC (1250-EDIT-SIGNED-9V2) <small>{&quot;do&quot;:&quot;accountUpdateEdit&quot;,&quot;changes&quot;:{&quot;openMonth&quot;:&quot;11&quot;,&quot;creditLimit&quot;:&quot;ABC&quot;}}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P05-6-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P05-6-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>Credit&middot;Limit&middot;is&middot;not&middot;valid</code></td><td><code>Credit&middot;Limit&middot;is&middot;not&middot;valid</code></td><td><code>Credit&middot;Limit&middot;is&middot;not&middot;valid</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 7: Seeded FICO 274 is out of range (QUIRK) <small>{&quot;do&quot;:&quot;accountUpdateEdit&quot;,&quot;changes&quot;:{&quot;creditLimit&quot;:&quot;2020.00&quot;,&quot;firstName&quot;:&quot;Immanuelle&quot;}}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P05-7-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P05-7-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>FICO&middot;Score:&middot;should&middot;be&middot;between&middot;300&middot;and&middot;850</code></td><td><code>FICO&middot;Score:&middot;should&middot;be&middot;between&middot;300&middot;and&middot;850</code></td><td><code>FICO&middot;Score:&middot;should&middot;be&middot;between&middot;300&middot;and&middot;850</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+  </section>
+  <section id="P06"><h2>P06 &middot; Transaction list first page <span class="b ok">PASS</span></h2>
+  <p class="req">Requirements: ONL-LST-01</p>
+  
+    <div class="step"><h3>Step 1: Sign on USER0001 <small>{&quot;do&quot;:&quot;signon&quot;,&quot;user&quot;:&quot;USER0001&quot;,&quot;password&quot;:&quot;PASSWORD&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P06-1-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P06-1-modern.jpg"></figure></div>
+    
+    </div>
+    <div class="step"><h3>Step 2: Menu option 06 <small>{&quot;do&quot;:&quot;menu&quot;,&quot;option&quot;:6}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P06-2-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P06-2-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>screen (program)</td><td><code>COTRN00C</code></td><td><code>COTRN00C</code></td><td><code>COTRN00C</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 3: First rows <small>{&quot;do&quot;:&quot;transactionList&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P06-3-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P06-3-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>field row1</td><td><code>(legacy&middot;value)</code></td><td><code>0000000000683580&middot;|&middot;06/10/22&middot;|&middot;Purchase&middot;at&middot;Abshire-Lowe&middot;|&middot;+00000504.77</code></td><td><code>0000000000683580&middot;|&middot;06/10/22&middot;|&middot;Purchase&middot;at&middot;Abshire-Lowe&middot;|&middot;+00000504.77</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field row2</td><td><code>(legacy&middot;value)</code></td><td><code>0000000001774260&middot;|&middot;06/10/22&middot;|&middot;Return&middot;item&middot;at&middot;Nitzsche,&middot;N&middot;|&middot;-00000919.00</code></td><td><code>0000000001774260&middot;|&middot;06/10/22&middot;|&middot;Return&middot;item&middot;at&middot;Nitzsche,&middot;N&middot;|&middot;-00000919.00</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field row3</td><td><code>(legacy&middot;value)</code></td><td><code>0000000006292564&middot;|&middot;06/10/22&middot;|&middot;Purchase&middot;at&middot;Ernser,&middot;Roob&middot;a&middot;|&middot;+00000067.88</code></td><td><code>0000000006292564&middot;|&middot;06/10/22&middot;|&middot;Purchase&middot;at&middot;Ernser,&middot;Roob&middot;a&middot;|&middot;+00000067.88</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+  </section>
+  <section id="P07"><h2>P07 &middot; Bill payment negative paths <span class="b ok">PASS</span></h2>
+  <p class="req">Requirements: ONL-BIL-01</p>
+  
+    <div class="step"><h3>Step 1: Sign on USER0001 <small>{&quot;do&quot;:&quot;signon&quot;,&quot;user&quot;:&quot;USER0001&quot;,&quot;password&quot;:&quot;PASSWORD&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P07-1-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P07-1-modern.jpg"></figure></div>
+    
+    </div>
+    <div class="step"><h3>Step 2: Menu option 10 <small>{&quot;do&quot;:&quot;menu&quot;,&quot;option&quot;:10}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P07-2-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P07-2-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>screen (program)</td><td><code>COBIL00C</code></td><td><code>COBIL00C</code></td><td><code>COBIL00C</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 3: Blank account <small>{&quot;do&quot;:&quot;billPay&quot;,&quot;accountId&quot;:&quot;&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P07-3-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P07-3-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>Acct&middot;ID&middot;can&middot;NOT&middot;be&middot;empty...</code></td><td><code>Acct&middot;ID&middot;can&middot;NOT&middot;be&middot;empty...</code></td><td><code>Acct&middot;ID&middot;can&middot;NOT&middot;be&middot;empty...</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 4: Non-numeric account &quot;ABC&quot; <small>{&quot;do&quot;:&quot;billPay&quot;,&quot;accountId&quot;:&quot;ABC&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P07-4-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P07-4-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>Account&middot;ID&middot;NOT&middot;found...</code></td><td><code>Account&middot;ID&middot;NOT&middot;found...</code></td><td><code>Account&middot;ID&middot;NOT&middot;found...</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+  </section>
+  <section id="P08"><h2>P08 &middot; Bill payment pays the full balance (state change) <span class="b ok">PASS</span></h2>
+  <p class="req">Requirements: ONL-BIL-02, ONL-BIL-03, ONL-LST-01</p>
+  
+    <div class="step"><h3>Step 1: Sign on USER0001 <small>{&quot;do&quot;:&quot;signon&quot;,&quot;user&quot;:&quot;USER0001&quot;,&quot;password&quot;:&quot;PASSWORD&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P08-1-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P08-1-modern.jpg"></figure></div>
+    
+    </div>
+    <div class="step"><h3>Step 2: Menu option 10 <small>{&quot;do&quot;:&quot;menu&quot;,&quot;option&quot;:10}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P08-2-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P08-2-modern.jpg"></figure></div>
+    
+    </div>
+    <div class="step"><h3>Step 3: Account 00000000001 <small>{&quot;do&quot;:&quot;billPay&quot;,&quot;accountId&quot;:&quot;00000000001&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P08-3-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P08-3-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>Confirm&middot;to&middot;make&middot;a&middot;bill&middot;payment...</code></td><td><code>Confirm&middot;to&middot;make&middot;a&middot;bill&middot;payment...</code></td><td><code>Confirm&middot;to&middot;make&middot;a&middot;bill&middot;payment...</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field currentBalance</td><td><code>+0000001288.10</code></td><td><code>+0000001288.10</code></td><td><code>+0000001288.10</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 4: Confirm Y <small>{&quot;do&quot;:&quot;billPay&quot;,&quot;accountId&quot;:&quot;00000000001&quot;,&quot;confirm&quot;:&quot;Y&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P08-4-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P08-4-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>/^Payment&middot;successful\.&middot;&middot;Your&middot;Transaction&middot;ID&middot;is&middot;\d+\.$/</code></td><td><code>Payment&middot;successful.&middot;&middot;Your&middot;Transaction&middot;ID&middot;is&middot;0000000996722788.</code></td><td><code>Payment&middot;successful.&middot;&middot;Your&middot;Transaction&middot;ID&middot;is&middot;0000000996722788.</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 5: Pay again <small>{&quot;do&quot;:&quot;billPay&quot;,&quot;accountId&quot;:&quot;00000000001&quot;,&quot;confirm&quot;:&quot;Y&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P08-5-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P08-5-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>You&middot;have&middot;nothing&middot;to&middot;pay...</code></td><td><code>You&middot;have&middot;nothing&middot;to&middot;pay...</code></td><td><code>You&middot;have&middot;nothing&middot;to&middot;pay...</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 6: Back to menu <small>{&quot;do&quot;:&quot;back&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P08-6-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P08-6-modern.jpg"></figure></div>
+    
+    </div>
+    <div class="step"><h3>Step 7: Menu option 07 <small>{&quot;do&quot;:&quot;menu&quot;,&quot;option&quot;:7}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P08-7-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P08-7-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>screen (program)</td><td><code>COTRN01C</code></td><td><code>COTRN01C</code></td><td><code>COTRN01C</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 8: Persisted TRANSACT row <small>{&quot;do&quot;:&quot;transactionView&quot;,&quot;transactionId&quot;:&quot;$lastTranId&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P08-8-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P08-8-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>field typeCd</td><td><code>02</code></td><td><code>02</code></td><td><code>02</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field categoryCd</td><td><code>0002</code></td><td><code>0002</code></td><td><code>0002</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field source</td><td><code>POS&middot;TERM</code></td><td><code>POS&middot;TERM</code></td><td><code>POS&middot;TERM</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field description</td><td><code>BILL&middot;PAYMENT&middot;-&middot;ONLINE</code></td><td><code>BILL&middot;PAYMENT&middot;-&middot;ONLINE</code></td><td><code>BILL&middot;PAYMENT&middot;-&middot;ONLINE</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field amount</td><td><code>+00001288.10</code></td><td><code>+00001288.10</code></td><td><code>+00001288.10</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field transactionId</td><td><code>(legacy&middot;value)</code></td><td><code>0000000996722788</code></td><td><code>0000000996722788</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field cardNumber</td><td><code>(legacy&middot;value)</code></td><td><code>9680294154603697</code></td><td><code>9680294154603697</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field merchantName</td><td><code>(legacy&middot;value)</code></td><td><code>BILL&middot;PAYMENT</code></td><td><code>BILL&middot;PAYMENT</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field origDate</td><td><code>(legacy&middot;value)</code></td><td><code>2022-07-06</code></td><td><code>2022-07-06</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field procDate</td><td><code>(legacy&middot;value)</code></td><td><code>2022-07-06</code></td><td><code>2022-07-06</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 9: Back to menu <small>{&quot;do&quot;:&quot;back&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P08-9-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P08-9-modern.jpg"></figure></div>
+    
+    </div>
+    <div class="step"><h3>Step 10: Menu option 01 <small>{&quot;do&quot;:&quot;menu&quot;,&quot;option&quot;:1}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P08-10-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P08-10-modern.jpg"></figure></div>
+    
+    </div>
+    <div class="step"><h3>Step 11: Balance is now zero <small>{&quot;do&quot;:&quot;accountView&quot;,&quot;accountId&quot;:&quot;00000000001&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P08-11-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P08-11-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>field currentBalance</td><td><code>+&middot;.00</code></td><td><code>+&middot;.00</code></td><td><code>+&middot;.00</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field creditLimit</td><td><code>+&middot;2,020.00</code></td><td><code>+&middot;2,020.00</code></td><td><code>+&middot;2,020.00</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+  </section>
+  <section id="P09"><h2>P09 &middot; Transaction add (state change) <span class="b ok">PASS</span></h2>
+  <p class="req">Requirements: ONL-TRA-01</p>
+  
+    <div class="step"><h3>Step 1: Sign on USER0001 <small>{&quot;do&quot;:&quot;signon&quot;,&quot;user&quot;:&quot;USER0001&quot;,&quot;password&quot;:&quot;PASSWORD&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P09-1-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P09-1-modern.jpg"></figure></div>
+    
+    </div>
+    <div class="step"><h3>Step 2: Menu option 08 <small>{&quot;do&quot;:&quot;menu&quot;,&quot;option&quot;:8}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P09-2-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P09-2-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>screen (program)</td><td><code>COTRN02C</code></td><td><code>COTRN02C</code></td><td><code>COTRN02C</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 3: Amount not in -99999999.99 format <small>{&quot;do&quot;:&quot;transactionAdd&quot;,&quot;fields&quot;:{&quot;typeCd&quot;:&quot;01&quot;,&quot;categoryCd&quot;:&quot;0001&quot;,&quot;source&quot;:&quot;POS TERM&quot;,&quot;description&quot;:&quot;Parity harness purchase&quot;,&quot;amount&quot;:&quot;42.50&quot;,&quot;origDate&quot;:&quot;2022-07-06&quot;,&quot;procDate&quot;:&quot;2022-07-06&quot;,&quot;merchantId&quot;:&quot;800000001&quot;,&quot;merchantName&quot;:&quot;Parity Coffee&quot;,&quot;merchantCity&quot;:&quot;Austin&quot;,&quot;merchantZip&quot;:&quot;73301&quot;,&quot;accountId&quot;:&quot;00000000001&quot;}}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P09-3-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P09-3-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>Amount&middot;should&middot;be&middot;in&middot;format&middot;-99999999.99</code></td><td><code>Amount&middot;should&middot;be&middot;in&middot;format&middot;-99999999.99</code></td><td><code>Amount&middot;should&middot;be&middot;in&middot;format&middot;-99999999.99</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 4: Valid data, no confirmation <small>{&quot;do&quot;:&quot;transactionAdd&quot;,&quot;fields&quot;:{&quot;typeCd&quot;:&quot;01&quot;,&quot;categoryCd&quot;:&quot;0001&quot;,&quot;source&quot;:&quot;POS TERM&quot;,&quot;description&quot;:&quot;Parity harness purchase&quot;,&quot;amount&quot;:&quot;+00000042.50&quot;,&quot;origDate&quot;:&quot;2022-07-06&quot;,&quot;procDate&quot;:&quot;2022-07-06&quot;,&quot;merchantId&quot;:&quot;800000001&quot;,&quot;merchantName&quot;:&quot;Parity Coffee&quot;,&quot;merchantCity&quot;:&quot;Austin&quot;,&quot;merchantZip&quot;:&quot;73301&quot;,&quot;accountId&quot;:&quot;00000000001&quot;}}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P09-4-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P09-4-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>Confirm&middot;to&middot;add&middot;this&middot;transaction...</code></td><td><code>Confirm&middot;to&middot;add&middot;this&middot;transaction...</code></td><td><code>Confirm&middot;to&middot;add&middot;this&middot;transaction...</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 5: Confirm Y <small>{&quot;do&quot;:&quot;transactionAdd&quot;,&quot;fields&quot;:{&quot;typeCd&quot;:&quot;01&quot;,&quot;categoryCd&quot;:&quot;0001&quot;,&quot;source&quot;:&quot;POS TERM&quot;,&quot;description&quot;:&quot;Parity harness purchase&quot;,&quot;amount&quot;:&quot;+00000042.50&quot;,&quot;origDate&quot;:&quot;2022-07-06&quot;,&quot;procDate&quot;:&quot;2022-07-06&quot;,&quot;merchantId&quot;:&quot;800000001&quot;,&quot;merchantName&quot;:&quot;Parity Coffee&quot;,&quot;merchantCity&quot;:&quot;Austin&quot;,&quot;merchantZip&quot;:&quot;73301&quot;,&quot;accountId&quot;:&quot;00000000001&quot;},&quot;confirm&quot;:&quot;Y&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P09-5-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P09-5-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>message</td><td><code>/^Transaction&middot;added&middot;successfully\.&middot;&middot;Your&middot;Tran&middot;ID&middot;is&middot;\d+\.$/</code></td><td><code>Transaction&middot;added&middot;successfully.&middot;&middot;Your&middot;Tran&middot;ID&middot;is&middot;0000000996722789.</code></td><td><code>Transaction&middot;added&middot;successfully.&middot;&middot;Your&middot;Tran&middot;ID&middot;is&middot;0000000996722789.</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 6: Back to menu <small>{&quot;do&quot;:&quot;back&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P09-6-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P09-6-modern.jpg"></figure></div>
+    
+    </div>
+    <div class="step"><h3>Step 7: Menu option 07 <small>{&quot;do&quot;:&quot;menu&quot;,&quot;option&quot;:7}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P09-7-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P09-7-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>screen (program)</td><td><code>COTRN01C</code></td><td><code>COTRN01C</code></td><td><code>COTRN01C</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+    <div class="step"><h3>Step 8: Persisted TRANSACT row <small>{&quot;do&quot;:&quot;transactionView&quot;,&quot;transactionId&quot;:&quot;$lastTranId&quot;}</small> <span class="b ok">PASS</span></h3>
+    <div class="shots"><figure><figcaption>Legacy CICS (3270)</figcaption><img loading="lazy" src="screenshots/P09-8-legacy.jpg"></figure>
+    <figure><figcaption>Modern (React + Spring Boot)</figcaption><img loading="lazy" src="screenshots/P09-8-modern.jpg"></figure></div>
+    <table class="cmp"><tr><th>Check</th><th>Expected</th><th>Legacy</th><th>Modern</th><th>Legacy = expected</th><th>Modern = expected</th><th>Legacy = modern</th></tr>
+    <tr class=""><td>field typeCd</td><td><code>01</code></td><td><code>01</code></td><td><code>01</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field categoryCd</td><td><code>0001</code></td><td><code>0001</code></td><td><code>0001</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field description</td><td><code>Parity&middot;harness&middot;purchase</code></td><td><code>Parity&middot;harness&middot;purchase</code></td><td><code>Parity&middot;harness&middot;purchase</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field amount</td><td><code>+00000042.50</code></td><td><code>+00000042.50</code></td><td><code>+00000042.50</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field merchantId</td><td><code>800000001</code></td><td><code>800000001</code></td><td><code>800000001</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field transactionId</td><td><code>(legacy&middot;value)</code></td><td><code>0000000996722789</code></td><td><code>0000000996722789</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field cardNumber</td><td><code>(legacy&middot;value)</code></td><td><code>9680294154603697</code></td><td><code>9680294154603697</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field merchantName</td><td><code>(legacy&middot;value)</code></td><td><code>Parity&middot;Coffee</code></td><td><code>Parity&middot;Coffee</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field origDate</td><td><code>(legacy&middot;value)</code></td><td><code>2022-07-06</code></td><td><code>2022-07-06</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr><tr class=""><td>field procDate</td><td><code>(legacy&middot;value)</code></td><td><code>2022-07-06</code></td><td><code>2022-07-06</code></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td><td><span class="b ok">PASS</span></td></tr></table>
+    </div>
+  </section></body></html>

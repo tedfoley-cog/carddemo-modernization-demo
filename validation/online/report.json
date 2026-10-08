@@ -1,0 +1,1248 @@
+{
+  "generatedAt": "2026-10-08T04:39:41.172Z",
+  "legacyUrl": "http://localhost:3270",
+  "modernUrl": "http://localhost:4173",
+  "businessDate": "2022-07-06",
+  "summary": {
+    "scenarios": 9,
+    "passed": 9,
+    "failed": 0,
+    "steps": 44,
+    "comparisons": 69,
+    "failedComparisons": 0
+  },
+  "scenarios": [
+    {
+      "id": "P01",
+      "title": "Sign-on rejects a wrong password",
+      "requirements": [
+        "ONL-SEC-02"
+      ],
+      "pass": true,
+      "steps": [
+        {
+          "n": 1,
+          "title": "USER0001 / WRONGPWD",
+          "action": "{\"do\":\"signon\",\"user\":\"USER0001\",\"password\":\"WRONGPWD\"}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COSGN00C",
+              "legacy": "COSGN00C",
+              "modern": "COSGN00C",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "message",
+              "expected": "Wrong Password. Try again ...",
+              "legacy": "Wrong Password. Try again ...",
+              "modern": "Wrong Password. Try again ...",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P01-1-legacy.jpg",
+          "modernShot": "screenshots/P01-1-modern.jpg",
+          "legacyMessage": "Wrong Password. Try again ...",
+          "modernMessage": "Wrong Password. Try again ...",
+          "pass": true
+        },
+        {
+          "n": 2,
+          "title": "Unknown user",
+          "action": "{\"do\":\"signon\",\"user\":\"NOBODY01\",\"password\":\"PASSWORD\"}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COSGN00C",
+              "legacy": "COSGN00C",
+              "modern": "COSGN00C",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "message",
+              "expected": "User not found. Try again ...",
+              "legacy": "User not found. Try again ...",
+              "modern": "User not found. Try again ...",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P01-2-legacy.jpg",
+          "modernShot": "screenshots/P01-2-modern.jpg",
+          "legacyMessage": "User not found. Try again ...",
+          "modernMessage": "User not found. Try again ...",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "title": "Admin is routed to the admin menu",
+      "requirements": [
+        "ONL-SEC-03",
+        "ONL-NAV-01"
+      ],
+      "pass": true,
+      "steps": [
+        {
+          "n": 1,
+          "title": "ADMIN001 / PASSWORD",
+          "action": "{\"do\":\"signon\",\"user\":\"ADMIN001\",\"password\":\"PASSWORD\"}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COADM01C",
+              "legacy": "COADM01C",
+              "modern": "COADM01C",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P02-1-legacy.jpg",
+          "modernShot": "screenshots/P02-1-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "title": "Account view shows account and customer",
+      "requirements": [
+        "ONL-SEC-01",
+        "ONL-NAV-01",
+        "ONL-ACV-02"
+      ],
+      "pass": true,
+      "steps": [
+        {
+          "n": 1,
+          "title": "Sign on USER0001",
+          "action": "{\"do\":\"signon\",\"user\":\"USER0001\",\"password\":\"PASSWORD\"}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COMEN01C",
+              "legacy": "COMEN01C",
+              "modern": "COMEN01C",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P03-1-legacy.jpg",
+          "modernShot": "screenshots/P03-1-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 2,
+          "title": "Menu option 01",
+          "action": "{\"do\":\"menu\",\"option\":1}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COACTVWC",
+              "legacy": "COACTVWC",
+              "modern": "COACTVWC",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P03-2-legacy.jpg",
+          "modernShot": "screenshots/P03-2-modern.jpg",
+          "legacyMessage": "Enter or update id of account to display",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 3,
+          "title": "Account 00000000001",
+          "action": "{\"do\":\"accountView\",\"accountId\":\"00000000001\"}",
+          "comparisons": [
+            {
+              "check": "field creditLimit",
+              "expected": "+ 2,020.00",
+              "legacy": "+ 2,020.00",
+              "modern": "+ 2,020.00",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field cashCreditLimit",
+              "expected": "+ 1,020.00",
+              "legacy": "+ 1,020.00",
+              "modern": "+ 1,020.00",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field currentBalance",
+              "expected": "+ 1,288.10",
+              "legacy": "+ 1,288.10",
+              "modern": "+ 1,288.10",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field currentCycleCredit",
+              "expected": "+ 1,164.87",
+              "legacy": "+ 1,164.87",
+              "modern": "+ 1,164.87",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field currentCycleDebit",
+              "expected": "- 70.77",
+              "legacy": "- 70.77",
+              "modern": "- 70.77",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field customerName",
+              "expected": "Immanuel Madeline Kessler",
+              "legacy": "Immanuel Madeline Kessler",
+              "modern": "Immanuel Madeline Kessler",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field ssn",
+              "expected": "020-97-3888",
+              "legacy": "020-97-3888",
+              "modern": "020-97-3888",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field ficoScore",
+              "expected": "274",
+              "legacy": "274",
+              "modern": "274",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field openDate",
+              "expected": "2014-11-20",
+              "legacy": "2014-11-20",
+              "modern": "2014-11-20",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field activeStatus",
+              "expected": "Y",
+              "legacy": "Y",
+              "modern": "Y",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field customerId",
+              "expected": "000000001",
+              "legacy": "000000001",
+              "modern": "000000001",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P03-3-legacy.jpg",
+          "modernShot": "screenshots/P03-3-modern.jpg",
+          "legacyMessage": "Enter or update id of account to display",
+          "modernMessage": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "title": "Account view rejects invalid account ids",
+      "requirements": [
+        "ONL-ACV-01"
+      ],
+      "pass": true,
+      "steps": [
+        {
+          "n": 1,
+          "title": "Sign on USER0001",
+          "action": "{\"do\":\"signon\",\"user\":\"USER0001\",\"password\":\"PASSWORD\"}",
+          "comparisons": [],
+          "legacyShot": "screenshots/P04-1-legacy.jpg",
+          "modernShot": "screenshots/P04-1-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 2,
+          "title": "Menu option 01",
+          "action": "{\"do\":\"menu\",\"option\":1}",
+          "comparisons": [],
+          "legacyShot": "screenshots/P04-2-legacy.jpg",
+          "modernShot": "screenshots/P04-2-modern.jpg",
+          "legacyMessage": "Enter or update id of account to display",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 3,
+          "title": "Account \"1\"",
+          "action": "{\"do\":\"accountView\",\"accountId\":\"1\"}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "Account Filter must  be a non-zero 11 digit number",
+              "legacy": "Account Filter must  be a non-zero 11 digit number",
+              "modern": "Account Filter must  be a non-zero 11 digit number",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P04-3-legacy.jpg",
+          "modernShot": "screenshots/P04-3-modern.jpg",
+          "legacyMessage": "Account Filter must  be a non-zero 11 digit number",
+          "modernMessage": "Account Filter must  be a non-zero 11 digit number",
+          "pass": true
+        },
+        {
+          "n": 4,
+          "title": "Account 00000000000",
+          "action": "{\"do\":\"accountView\",\"accountId\":\"00000000000\"}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "Account Filter must  be a non-zero 11 digit number",
+              "legacy": "Account Filter must  be a non-zero 11 digit number",
+              "modern": "Account Filter must  be a non-zero 11 digit number",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P04-4-legacy.jpg",
+          "modernShot": "screenshots/P04-4-modern.jpg",
+          "legacyMessage": "Account Filter must  be a non-zero 11 digit number",
+          "modernMessage": "Account Filter must  be a non-zero 11 digit number",
+          "pass": true
+        },
+        {
+          "n": 5,
+          "title": "Account not on file",
+          "action": "{\"do\":\"accountView\",\"accountId\":\"99999999999\"}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "Account:99999999999 not found in Cross ref file.  Resp:000000013  Reas:0000",
+              "legacy": "Account:99999999999 not found in Cross ref file.  Resp:000000013  Reas:0000",
+              "modern": "Account:99999999999 not found in Cross ref file.  Resp:000000013  Reas:0000",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P04-5-legacy.jpg",
+          "modernShot": "screenshots/P04-5-modern.jpg",
+          "legacyMessage": "Account:99999999999 not found in Cross ref file.  Resp:000000013  Reas:0000",
+          "modernMessage": "Account:99999999999 not found in Cross ref file.  Resp:000000013  Reas:0000",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "title": "Account update field validation",
+      "requirements": [
+        "ONL-ACU-01"
+      ],
+      "pass": true,
+      "steps": [
+        {
+          "n": 1,
+          "title": "Sign on USER0001",
+          "action": "{\"do\":\"signon\",\"user\":\"USER0001\",\"password\":\"PASSWORD\"}",
+          "comparisons": [],
+          "legacyShot": "screenshots/P05-1-legacy.jpg",
+          "modernShot": "screenshots/P05-1-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 2,
+          "title": "Menu option 02",
+          "action": "{\"do\":\"menu\",\"option\":2}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COACTUPC",
+              "legacy": "COACTUPC",
+              "modern": "COACTUPC",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P05-2-legacy.jpg",
+          "modernShot": "screenshots/P05-2-modern.jpg",
+          "legacyMessage": "Enter or update id of account to update",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 3,
+          "title": "Fetch 00000000001",
+          "action": "{\"do\":\"accountUpdateFetch\",\"accountId\":\"00000000001\"}",
+          "comparisons": [
+            {
+              "check": "field activeStatus",
+              "expected": "Y",
+              "legacy": "Y",
+              "modern": "Y",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field ficoScore",
+              "expected": "274",
+              "legacy": "274",
+              "modern": "274",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field state",
+              "expected": "NC",
+              "legacy": "NC",
+              "modern": "NC",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field zip",
+              "expected": "12546",
+              "legacy": "12546",
+              "modern": "12546",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P05-3-legacy.jpg",
+          "modernShot": "screenshots/P05-3-modern.jpg",
+          "legacyMessage": "Update account details presented above.",
+          "modernMessage": "Update account details presented above.",
+          "pass": true
+        },
+        {
+          "n": 4,
+          "title": "Status X (1220-EDIT-YESNO)",
+          "action": "{\"do\":\"accountUpdateEdit\",\"changes\":{\"activeStatus\":\"X\"}}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "Account Status must be Y or N.",
+              "legacy": "Account Status must be Y or N.",
+              "modern": "Account Status must be Y or N.",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P05-4-legacy.jpg",
+          "modernShot": "screenshots/P05-4-modern.jpg",
+          "legacyMessage": "Account Status must be Y or N.",
+          "modernMessage": "Account Status must be Y or N.",
+          "pass": true
+        },
+        {
+          "n": 5,
+          "title": "Open month 13 (EDIT-MONTH)",
+          "action": "{\"do\":\"accountUpdateEdit\",\"changes\":{\"activeStatus\":\"Y\",\"openMonth\":\"13\"}}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "Open Date: Month must be a number between 1 and 12.",
+              "legacy": "Open Date: Month must be a number between 1 and 12.",
+              "modern": "Open Date: Month must be a number between 1 and 12.",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P05-5-legacy.jpg",
+          "modernShot": "screenshots/P05-5-modern.jpg",
+          "legacyMessage": "Open Date: Month must be a number between 1 and 12.",
+          "modernMessage": "Open Date: Month must be a number between 1 and 12.",
+          "pass": true
+        },
+        {
+          "n": 6,
+          "title": "Credit limit ABC (1250-EDIT-SIGNED-9V2)",
+          "action": "{\"do\":\"accountUpdateEdit\",\"changes\":{\"openMonth\":\"11\",\"creditLimit\":\"ABC\"}}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "Credit Limit is not valid",
+              "legacy": "Credit Limit is not valid",
+              "modern": "Credit Limit is not valid",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P05-6-legacy.jpg",
+          "modernShot": "screenshots/P05-6-modern.jpg",
+          "legacyMessage": "Credit Limit is not valid",
+          "modernMessage": "Credit Limit is not valid",
+          "pass": true
+        },
+        {
+          "n": 7,
+          "title": "Seeded FICO 274 is out of range (QUIRK)",
+          "action": "{\"do\":\"accountUpdateEdit\",\"changes\":{\"creditLimit\":\"2020.00\",\"firstName\":\"Immanuelle\"}}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "FICO Score: should be between 300 and 850",
+              "legacy": "FICO Score: should be between 300 and 850",
+              "modern": "FICO Score: should be between 300 and 850",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P05-7-legacy.jpg",
+          "modernShot": "screenshots/P05-7-modern.jpg",
+          "legacyMessage": "FICO Score: should be between 300 and 850",
+          "modernMessage": "FICO Score: should be between 300 and 850",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "title": "Transaction list first page",
+      "requirements": [
+        "ONL-LST-01"
+      ],
+      "pass": true,
+      "steps": [
+        {
+          "n": 1,
+          "title": "Sign on USER0001",
+          "action": "{\"do\":\"signon\",\"user\":\"USER0001\",\"password\":\"PASSWORD\"}",
+          "comparisons": [],
+          "legacyShot": "screenshots/P06-1-legacy.jpg",
+          "modernShot": "screenshots/P06-1-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 2,
+          "title": "Menu option 06",
+          "action": "{\"do\":\"menu\",\"option\":6}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COTRN00C",
+              "legacy": "COTRN00C",
+              "modern": "COTRN00C",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P06-2-legacy.jpg",
+          "modernShot": "screenshots/P06-2-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 3,
+          "title": "First rows",
+          "action": "{\"do\":\"transactionList\"}",
+          "comparisons": [
+            {
+              "check": "field row1",
+              "expected": "(legacy value)",
+              "legacy": "0000000000683580 | 06/10/22 | Purchase at Abshire-Lowe | +00000504.77",
+              "modern": "0000000000683580 | 06/10/22 | Purchase at Abshire-Lowe | +00000504.77",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field row2",
+              "expected": "(legacy value)",
+              "legacy": "0000000001774260 | 06/10/22 | Return item at Nitzsche, N | -00000919.00",
+              "modern": "0000000001774260 | 06/10/22 | Return item at Nitzsche, N | -00000919.00",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field row3",
+              "expected": "(legacy value)",
+              "legacy": "0000000006292564 | 06/10/22 | Purchase at Ernser, Roob a | +00000067.88",
+              "modern": "0000000006292564 | 06/10/22 | Purchase at Ernser, Roob a | +00000067.88",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P06-3-legacy.jpg",
+          "modernShot": "screenshots/P06-3-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "title": "Bill payment negative paths",
+      "requirements": [
+        "ONL-BIL-01"
+      ],
+      "pass": true,
+      "steps": [
+        {
+          "n": 1,
+          "title": "Sign on USER0001",
+          "action": "{\"do\":\"signon\",\"user\":\"USER0001\",\"password\":\"PASSWORD\"}",
+          "comparisons": [],
+          "legacyShot": "screenshots/P07-1-legacy.jpg",
+          "modernShot": "screenshots/P07-1-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 2,
+          "title": "Menu option 10",
+          "action": "{\"do\":\"menu\",\"option\":10}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COBIL00C",
+              "legacy": "COBIL00C",
+              "modern": "COBIL00C",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P07-2-legacy.jpg",
+          "modernShot": "screenshots/P07-2-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 3,
+          "title": "Blank account",
+          "action": "{\"do\":\"billPay\",\"accountId\":\"\"}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "Acct ID can NOT be empty...",
+              "legacy": "Acct ID can NOT be empty...",
+              "modern": "Acct ID can NOT be empty...",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P07-3-legacy.jpg",
+          "modernShot": "screenshots/P07-3-modern.jpg",
+          "legacyMessage": "Acct ID can NOT be empty...",
+          "modernMessage": "Acct ID can NOT be empty...",
+          "pass": true
+        },
+        {
+          "n": 4,
+          "title": "Non-numeric account \"ABC\"",
+          "action": "{\"do\":\"billPay\",\"accountId\":\"ABC\"}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "Account ID NOT found...",
+              "legacy": "Account ID NOT found...",
+              "modern": "Account ID NOT found...",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P07-4-legacy.jpg",
+          "modernShot": "screenshots/P07-4-modern.jpg",
+          "legacyMessage": "Account ID NOT found...",
+          "modernMessage": "Account ID NOT found...",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "title": "Bill payment pays the full balance (state change)",
+      "requirements": [
+        "ONL-BIL-02",
+        "ONL-BIL-03",
+        "ONL-LST-01"
+      ],
+      "pass": true,
+      "steps": [
+        {
+          "n": 1,
+          "title": "Sign on USER0001",
+          "action": "{\"do\":\"signon\",\"user\":\"USER0001\",\"password\":\"PASSWORD\"}",
+          "comparisons": [],
+          "legacyShot": "screenshots/P08-1-legacy.jpg",
+          "modernShot": "screenshots/P08-1-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 2,
+          "title": "Menu option 10",
+          "action": "{\"do\":\"menu\",\"option\":10}",
+          "comparisons": [],
+          "legacyShot": "screenshots/P08-2-legacy.jpg",
+          "modernShot": "screenshots/P08-2-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 3,
+          "title": "Account 00000000001",
+          "action": "{\"do\":\"billPay\",\"accountId\":\"00000000001\"}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "Confirm to make a bill payment...",
+              "legacy": "Confirm to make a bill payment...",
+              "modern": "Confirm to make a bill payment...",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field currentBalance",
+              "expected": "+0000001288.10",
+              "legacy": "+0000001288.10",
+              "modern": "+0000001288.10",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P08-3-legacy.jpg",
+          "modernShot": "screenshots/P08-3-modern.jpg",
+          "legacyMessage": "Confirm to make a bill payment...",
+          "modernMessage": "Confirm to make a bill payment...",
+          "pass": true
+        },
+        {
+          "n": 4,
+          "title": "Confirm Y",
+          "action": "{\"do\":\"billPay\",\"accountId\":\"00000000001\",\"confirm\":\"Y\"}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "/^Payment successful\\.  Your Transaction ID is \\d+\\.$/",
+              "legacy": "Payment successful.  Your Transaction ID is 0000000996722788.",
+              "modern": "Payment successful.  Your Transaction ID is 0000000996722788.",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P08-4-legacy.jpg",
+          "modernShot": "screenshots/P08-4-modern.jpg",
+          "legacyMessage": "Payment successful.  Your Transaction ID is 0000000996722788.",
+          "modernMessage": "Payment successful.  Your Transaction ID is 0000000996722788.",
+          "pass": true
+        },
+        {
+          "n": 5,
+          "title": "Pay again",
+          "action": "{\"do\":\"billPay\",\"accountId\":\"00000000001\",\"confirm\":\"Y\"}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "You have nothing to pay...",
+              "legacy": "You have nothing to pay...",
+              "modern": "You have nothing to pay...",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P08-5-legacy.jpg",
+          "modernShot": "screenshots/P08-5-modern.jpg",
+          "legacyMessage": "You have nothing to pay...",
+          "modernMessage": "You have nothing to pay...",
+          "pass": true
+        },
+        {
+          "n": 6,
+          "title": "Back to menu",
+          "action": "{\"do\":\"back\"}",
+          "comparisons": [],
+          "legacyShot": "screenshots/P08-6-legacy.jpg",
+          "modernShot": "screenshots/P08-6-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 7,
+          "title": "Menu option 07",
+          "action": "{\"do\":\"menu\",\"option\":7}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COTRN01C",
+              "legacy": "COTRN01C",
+              "modern": "COTRN01C",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P08-7-legacy.jpg",
+          "modernShot": "screenshots/P08-7-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 8,
+          "title": "Persisted TRANSACT row",
+          "action": "{\"do\":\"transactionView\",\"transactionId\":\"$lastTranId\"}",
+          "comparisons": [
+            {
+              "check": "field typeCd",
+              "expected": "02",
+              "legacy": "02",
+              "modern": "02",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field categoryCd",
+              "expected": "0002",
+              "legacy": "0002",
+              "modern": "0002",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field source",
+              "expected": "POS TERM",
+              "legacy": "POS TERM",
+              "modern": "POS TERM",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field description",
+              "expected": "BILL PAYMENT - ONLINE",
+              "legacy": "BILL PAYMENT - ONLINE",
+              "modern": "BILL PAYMENT - ONLINE",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field amount",
+              "expected": "+00001288.10",
+              "legacy": "+00001288.10",
+              "modern": "+00001288.10",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field transactionId",
+              "expected": "(legacy value)",
+              "legacy": "0000000996722788",
+              "modern": "0000000996722788",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field cardNumber",
+              "expected": "(legacy value)",
+              "legacy": "9680294154603697",
+              "modern": "9680294154603697",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field merchantName",
+              "expected": "(legacy value)",
+              "legacy": "BILL PAYMENT",
+              "modern": "BILL PAYMENT",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field origDate",
+              "expected": "(legacy value)",
+              "legacy": "2022-07-06",
+              "modern": "2022-07-06",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field procDate",
+              "expected": "(legacy value)",
+              "legacy": "2022-07-06",
+              "modern": "2022-07-06",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P08-8-legacy.jpg",
+          "modernShot": "screenshots/P08-8-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 9,
+          "title": "Back to menu",
+          "action": "{\"do\":\"back\"}",
+          "comparisons": [],
+          "legacyShot": "screenshots/P08-9-legacy.jpg",
+          "modernShot": "screenshots/P08-9-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 10,
+          "title": "Menu option 01",
+          "action": "{\"do\":\"menu\",\"option\":1}",
+          "comparisons": [],
+          "legacyShot": "screenshots/P08-10-legacy.jpg",
+          "modernShot": "screenshots/P08-10-modern.jpg",
+          "legacyMessage": "Enter or update id of account to display",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 11,
+          "title": "Balance is now zero",
+          "action": "{\"do\":\"accountView\",\"accountId\":\"00000000001\"}",
+          "comparisons": [
+            {
+              "check": "field currentBalance",
+              "expected": "+ .00",
+              "legacy": "+ .00",
+              "modern": "+ .00",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field creditLimit",
+              "expected": "+ 2,020.00",
+              "legacy": "+ 2,020.00",
+              "modern": "+ 2,020.00",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P08-11-legacy.jpg",
+          "modernShot": "screenshots/P08-11-modern.jpg",
+          "legacyMessage": "Enter or update id of account to display",
+          "modernMessage": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "P09",
+      "title": "Transaction add (state change)",
+      "requirements": [
+        "ONL-TRA-01"
+      ],
+      "pass": true,
+      "steps": [
+        {
+          "n": 1,
+          "title": "Sign on USER0001",
+          "action": "{\"do\":\"signon\",\"user\":\"USER0001\",\"password\":\"PASSWORD\"}",
+          "comparisons": [],
+          "legacyShot": "screenshots/P09-1-legacy.jpg",
+          "modernShot": "screenshots/P09-1-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 2,
+          "title": "Menu option 08",
+          "action": "{\"do\":\"menu\",\"option\":8}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COTRN02C",
+              "legacy": "COTRN02C",
+              "modern": "COTRN02C",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P09-2-legacy.jpg",
+          "modernShot": "screenshots/P09-2-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 3,
+          "title": "Amount not in -99999999.99 format",
+          "action": "{\"do\":\"transactionAdd\",\"fields\":{\"typeCd\":\"01\",\"categoryCd\":\"0001\",\"source\":\"POS TERM\",\"description\":\"Parity harness purchase\",\"amount\":\"42.50\",\"origDate\":\"2022-07-06\",\"procDate\":\"2022-07-06\",\"merchantId\":\"800000001\",\"merchantName\":\"Parity Coffee\",\"merchantCity\":\"Austin\",\"merchantZip\":\"73301\",\"accountId\":\"00000000001\"}}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "Amount should be in format -99999999.99",
+              "legacy": "Amount should be in format -99999999.99",
+              "modern": "Amount should be in format -99999999.99",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P09-3-legacy.jpg",
+          "modernShot": "screenshots/P09-3-modern.jpg",
+          "legacyMessage": "Amount should be in format -99999999.99",
+          "modernMessage": "Amount should be in format -99999999.99",
+          "pass": true
+        },
+        {
+          "n": 4,
+          "title": "Valid data, no confirmation",
+          "action": "{\"do\":\"transactionAdd\",\"fields\":{\"typeCd\":\"01\",\"categoryCd\":\"0001\",\"source\":\"POS TERM\",\"description\":\"Parity harness purchase\",\"amount\":\"+00000042.50\",\"origDate\":\"2022-07-06\",\"procDate\":\"2022-07-06\",\"merchantId\":\"800000001\",\"merchantName\":\"Parity Coffee\",\"merchantCity\":\"Austin\",\"merchantZip\":\"73301\",\"accountId\":\"00000000001\"}}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "Confirm to add this transaction...",
+              "legacy": "Confirm to add this transaction...",
+              "modern": "Confirm to add this transaction...",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P09-4-legacy.jpg",
+          "modernShot": "screenshots/P09-4-modern.jpg",
+          "legacyMessage": "Confirm to add this transaction...",
+          "modernMessage": "Confirm to add this transaction...",
+          "pass": true
+        },
+        {
+          "n": 5,
+          "title": "Confirm Y",
+          "action": "{\"do\":\"transactionAdd\",\"fields\":{\"typeCd\":\"01\",\"categoryCd\":\"0001\",\"source\":\"POS TERM\",\"description\":\"Parity harness purchase\",\"amount\":\"+00000042.50\",\"origDate\":\"2022-07-06\",\"procDate\":\"2022-07-06\",\"merchantId\":\"800000001\",\"merchantName\":\"Parity Coffee\",\"merchantCity\":\"Austin\",\"merchantZip\":\"73301\",\"accountId\":\"00000000001\"},\"confirm\":\"Y\"}",
+          "comparisons": [
+            {
+              "check": "message",
+              "expected": "/^Transaction added successfully\\.  Your Tran ID is \\d+\\.$/",
+              "legacy": "Transaction added successfully.  Your Tran ID is 0000000996722789.",
+              "modern": "Transaction added successfully.  Your Tran ID is 0000000996722789.",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P09-5-legacy.jpg",
+          "modernShot": "screenshots/P09-5-modern.jpg",
+          "legacyMessage": "Transaction added successfully.  Your Tran ID is 0000000996722789.",
+          "modernMessage": "Transaction added successfully.  Your Tran ID is 0000000996722789.",
+          "pass": true
+        },
+        {
+          "n": 6,
+          "title": "Back to menu",
+          "action": "{\"do\":\"back\"}",
+          "comparisons": [],
+          "legacyShot": "screenshots/P09-6-legacy.jpg",
+          "modernShot": "screenshots/P09-6-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 7,
+          "title": "Menu option 07",
+          "action": "{\"do\":\"menu\",\"option\":7}",
+          "comparisons": [
+            {
+              "check": "screen (program)",
+              "expected": "COTRN01C",
+              "legacy": "COTRN01C",
+              "modern": "COTRN01C",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P09-7-legacy.jpg",
+          "modernShot": "screenshots/P09-7-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        },
+        {
+          "n": 8,
+          "title": "Persisted TRANSACT row",
+          "action": "{\"do\":\"transactionView\",\"transactionId\":\"$lastTranId\"}",
+          "comparisons": [
+            {
+              "check": "field typeCd",
+              "expected": "01",
+              "legacy": "01",
+              "modern": "01",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field categoryCd",
+              "expected": "0001",
+              "legacy": "0001",
+              "modern": "0001",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field description",
+              "expected": "Parity harness purchase",
+              "legacy": "Parity harness purchase",
+              "modern": "Parity harness purchase",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field amount",
+              "expected": "+00000042.50",
+              "legacy": "+00000042.50",
+              "modern": "+00000042.50",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field merchantId",
+              "expected": "800000001",
+              "legacy": "800000001",
+              "modern": "800000001",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field transactionId",
+              "expected": "(legacy value)",
+              "legacy": "0000000996722789",
+              "modern": "0000000996722789",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field cardNumber",
+              "expected": "(legacy value)",
+              "legacy": "9680294154603697",
+              "modern": "9680294154603697",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field merchantName",
+              "expected": "(legacy value)",
+              "legacy": "Parity Coffee",
+              "modern": "Parity Coffee",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field origDate",
+              "expected": "(legacy value)",
+              "legacy": "2022-07-06",
+              "modern": "2022-07-06",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            },
+            {
+              "check": "field procDate",
+              "expected": "(legacy value)",
+              "legacy": "2022-07-06",
+              "modern": "2022-07-06",
+              "legacyPass": true,
+              "modernPass": true,
+              "parity": true
+            }
+          ],
+          "legacyShot": "screenshots/P09-8-legacy.jpg",
+          "modernShot": "screenshots/P09-8-modern.jpg",
+          "legacyMessage": "",
+          "modernMessage": "",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}
