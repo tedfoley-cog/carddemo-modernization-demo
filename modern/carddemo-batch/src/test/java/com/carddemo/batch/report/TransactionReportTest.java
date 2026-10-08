@@ -51,6 +51,8 @@ class TransactionReportTest {
         report.finish();
 
         assertThat(lines.get(lines.size() - 1).stripTrailing()).startsWith("Grand Total").endsWith("15.00");
+        assertThat(lines).filteredOn(l -> l.startsWith("Account Total")).singleElement()
+                .satisfies(l -> assertThat(l.stripTrailing()).endsWith("15.00"));
     }
 
     @Test

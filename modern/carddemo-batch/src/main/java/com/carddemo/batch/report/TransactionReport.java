@@ -66,7 +66,11 @@ public final class TransactionReport {
      * is added to the totals a second time; no account total is written for the last card.
      */
     public void finish() {
-        if (!countLastAmountOnce) {
+        if (countLastAmountOnce) {
+            if (!firstTime) {
+                writeAccountTotals();
+            }
+        } else {
             pageTotal = CobolDecimal.s9v2(pageTotal.add(lastAmount));
             accountTotal = CobolDecimal.s9v2(accountTotal.add(lastAmount));
         }

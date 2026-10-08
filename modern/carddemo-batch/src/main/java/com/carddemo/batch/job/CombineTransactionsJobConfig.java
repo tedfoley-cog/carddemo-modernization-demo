@@ -39,9 +39,11 @@ public class CombineTransactionsJobConfig {
         return new StepBuilder("combineTransactionsStep", jobRepository)
                 .tasklet((contribution, chunkContext) -> {
                     Path systran = properties.outDir().resolve(StreamContext.SYSTRAN);
-                    List<CardTransaction> system = Files.exists(systran)
-                            ? FixedWidth.readFixedRecords(systran, codec.layout().length()).stream().map(codec::decode).toList()
-                            : List.of();
+                    if (!Files.exists(systran)) {
+                        throw new IllegalStateException(systran + " not found: COMBTRAN needs the INTCALC hand-off");
+                    }
+                    List<CardTransaction> system = FixedWidth.readFixedRecords(systran, codec.layout().length())
+                            .stream().map(codec::decode).toList();
                     transactions.saveAll(system);
                     chunkContext.getStepContext().getStepExecution().getJobExecution().getExecutionContext()
                             .putLong(StreamContext.RECORDS, system.size());

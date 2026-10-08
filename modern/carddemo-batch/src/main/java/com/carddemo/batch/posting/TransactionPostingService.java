@@ -64,7 +64,7 @@ public class TransactionPostingService {
     RejectReason validateAccount(Account account, CardTransaction t) {
         RejectReason reason = null;
         BigDecimal exposure = fixes.limitCheckUsesCurrentBalance()
-                ? CobolDecimal.s9v2(account.getCurrentBalance().add(t.getAmount()))
+                ? account.getCurrentBalance().add(t.getAmount())
                 : CobolDecimal.s9v2(account.getCurrentCycleCredit().subtract(account.getCurrentCycleDebit()).add(t.getAmount()));
         if (account.getCreditLimit().compareTo(exposure) < 0) {
             reason = RejectReason.OVERLIMIT;
