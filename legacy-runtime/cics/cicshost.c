@@ -55,7 +55,16 @@ static void set_be32(unsigned char *p, int v) {
 static char spec[512];
 static char *toks[64];
 static int ntok;
-static cob_field *param(int i) { return cob_get_param_field(i, "CICSCMD"); }
+/* Parameters are captured at entry: a nested cob_call (file handlers) resets libcob's
+   current-call parameter state, after which cob_get_param_field would see the callee's. */
+static cob_field *pcache[64];
+static int pcount;
+static void capture_params(void) {
+    pcount = cob_get_num_params();
+    if (pcount > 63) pcount = 63;
+    for (int i = 1; i <= pcount; i++) pcache[i] = cob_get_param_field(i, "CICSCMD");
+}
+static cob_field *param(int i) { return (i >= 1 && i <= pcount) ? pcache[i] : NULL; }
 static void parse_spec(void) {
     cob_field *f = param(2);
     int n = f->size < sizeof spec - 1 ? (int)f->size : (int)sizeof spec - 1;
@@ -145,7 +154,7 @@ static int file_cmd(const char *verb) {
 
 /* ---- forwarded commands ---- */
 static int forward(void) {
-    int n = cob_get_num_params();
+    int n = pcount;
     fprintf(rout, "CMD %s\nEIB ", spec); put_hex(eib, EIB_LEN); fputc('\n', rout);
     for (int i = 3; i <= n; i++) {
         cob_field *f = param(i);
@@ -161,7 +170,7 @@ static int forward(void) {
         else if (!strncmp(line, "ARG ", 4) || !strncmp(line, "NUM ", 4)) {
             char *sp; int i = (int)strtol(line + 4, &sp, 10); cob_field *f = param(i + 2);
             if (!f) continue;
-            if (line[0] == 'N') cob_put_s64_param(i + 2, (cob_s64_t)atoll(sp + 1));
+            if (line[0] == 'N') cob_put_s64_param(i + 2, (cob_s64_t)atoll(sp + 1));  /* no nested cob_call here */
             else { unsigned char buf[32768]; int k = get_hex(sp + 1, buf, sizeof buf);
                    memcpy(f->data, buf, (size_t)k < f->size ? (size_t)k : f->size); }
         } else if (!strncmp(line, "KILL", 4)) { fflush(stdout); exit(3); }
@@ -172,6 +181,7 @@ static int forward(void) {
 int CICSCMD(void *a0, void *a1, void *a2, void *a3, void *a4, void *a5, void *a6, void *a7,
             void *a8, void *a9, void *a10, void *a11, void *a12, void *a13, void *a14,
             void *a15, void *a16, void *a17, void *a18, void *a19, void *a20) {
+    capture_params();
     (void)a0;(void)a1;(void)a2;(void)a3;(void)a4;(void)a5;(void)a6;(void)a7;(void)a8;(void)a9;
     (void)a10;(void)a11;(void)a12;(void)a13;(void)a14;(void)a15;(void)a16;(void)a17;(void)a18;
     (void)a19;(void)a20;
