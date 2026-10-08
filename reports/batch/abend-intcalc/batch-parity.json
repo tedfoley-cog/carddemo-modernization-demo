@@ -1,0 +1,74 @@
+[
+ {
+  "artifact": "TRANSACT.dat",
+  "legacy_records": 263,
+  "modern_records": 263,
+  "matched": 263,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "POSTTRAN/COMBTRAN  transaction master (KSDS unload)",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "DALYREJS.PS",
+  "legacy_records": 38,
+  "modern_records": 38,
+  "matched": 38,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "POSTTRAN  rejected daily transactions",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "ACCTDATA.dat",
+  "legacy_records": 50,
+  "modern_records": 50,
+  "matched": 50,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "POSTTRAN/INTCALC  account master (KSDS unload)",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "TCATBALF.dat",
+  "legacy_records": 101,
+  "modern_records": 101,
+  "matched": 101,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "POSTTRAN  category balances (KSDS unload)",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "SYSTRAN.PS",
+  "legacy_records": 50,
+  "modern_records": 50,
+  "matched": 50,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "INTCALC  generated interest transactions",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "RETURN-CODES.txt",
+  "legacy_records": 2,
+  "modern_records": 2,
+  "matched": 2,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "JES  step condition codes (COBOL steps)",
+  "status": "MATCH"
+ }
+]

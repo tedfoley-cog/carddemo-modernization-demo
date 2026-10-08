@@ -1,0 +1,64 @@
+spring:
+  application:
+    name: carddemo-batch
+  main:
+    banner-mode: off
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: always
+  datasource:
+    url: ${CARDDEMO_DB_URL:jdbc:h2:mem:carddemo;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1}
+    username: ${CARDDEMO_DB_USER:sa}
+    password: ${CARDDEMO_DB_PASSWORD:}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 500
+        order_inserts: true
+        order_updates: true
+  flyway:
+    enabled: true
+
+carddemo:
+  batch:
+    job-name: ${CARDDEMO_JOB_NAME:nightlyStream}
+    business-timestamp: ${CARDDEMO_BUSINESS_TIMESTAMP:2022-07-06T10:00:00}
+    interest-run-id: ${CARDDEMO_INTEREST_RUN_ID:2022071800}
+    report-start-date: ${CARDDEMO_REPORT_START_DATE:2022-01-01}
+    report-end-date: ${CARDDEMO_REPORT_END_DATE:2022-07-06}
+    seed-dir: ${seed-dir:${CARDDEMO_SEED_DIR:}}
+    out-dir: ${out:${CARDDEMO_OUT_DIR:out}}
+    load-seeds: ${CARDDEMO_LOAD_SEEDS:false}
+    seed-defaults: ${CARDDEMO_SEED_DEFAULTS:false}
+    export-parity-artifacts: ${CARDDEMO_EXPORT_PARITY:true}
+    legacy-fixes:
+      keep-overlimit-reason: false
+      limit-check-uses-current-balance: false
+      skip-missing-disclosure-group: false
+      unbounded-statement-table: false
+      skip-orphan-xref: false
+      report-no-double-count-last-amount: false
+      update-last-interest-account: false
+      correct-disclosure-open-message: false
+      escape-statement-html: false
+
+logging:
+  level:
+    root: WARN
+    com.carddemo: INFO
+
+---
+spring:
+  config:
+    activate:
+      on-profile: postgres
+  datasource:
+    url: ${CARDDEMO_DB_URL:jdbc:postgresql://localhost:5432/carddemo}
+    username: ${CARDDEMO_DB_USER:carddemo}
+    password: ${CARDDEMO_DB_PASSWORD}

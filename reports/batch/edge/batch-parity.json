@@ -1,0 +1,110 @@
+[
+ {
+  "artifact": "TRANSACT.dat",
+  "legacy_records": 319,
+  "modern_records": 319,
+  "matched": 319,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "POSTTRAN/COMBTRAN  transaction master (KSDS unload)",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "DALYREJS.PS",
+  "legacy_records": 42,
+  "modern_records": 42,
+  "matched": 42,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "POSTTRAN  rejected daily transactions",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "ACCTDATA.dat",
+  "legacy_records": 51,
+  "modern_records": 51,
+  "matched": 51,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "POSTTRAN/INTCALC  account master (KSDS unload)",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "TCATBALF.dat",
+  "legacy_records": 102,
+  "modern_records": 102,
+  "matched": 102,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "POSTTRAN  category balances (KSDS unload)",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "SYSTRAN.PS",
+  "legacy_records": 51,
+  "modern_records": 51,
+  "matched": 51,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "INTCALC  generated interest transactions",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "RETURN-CODES.txt",
+  "legacy_records": 4,
+  "modern_records": 4,
+  "matched": 4,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "JES  step condition codes (COBOL steps)",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "TRANREPT.RPT",
+  "legacy_records": 540,
+  "modern_records": 540,
+  "matched": 540,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "TRANREPT  daily transaction report",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "STATEMNT.PS",
+  "legacy_records": 1288,
+  "modern_records": 1288,
+  "matched": 1288,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "CREASTMT  customer statements (text)",
+  "status": "MATCH"
+ },
+ {
+  "artifact": "STATEMNT.HTML",
+  "legacy_records": 6773,
+  "modern_records": 6773,
+  "matched": 6773,
+  "mismatched": 0,
+  "missing_in_modern": 0,
+  "extra_in_modern": 0,
+  "diffs": [],
+  "description": "CREASTMT  customer statements (HTML)",
+  "status": "MATCH"
+ }
+]

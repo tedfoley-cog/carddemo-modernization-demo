@@ -27,6 +27,10 @@ date range (`2022-01-01`..`2022-07-06`), and an output directory, and produce in
 
 Abend scenarios are part of parity: the modern job must fail at the same step with the same code.
 
+The Java CLI under `modern/` loads seeds only with `--carddemo.batch.load-seeds=true`, and falls back to the bundled
+extracts for files missing from the seed directory only with `--carddemo.batch.seed-defaults=true`. Both are off by
+default so a scheduled run never replaces live data or mixes in sample data; `validation/batch/run_parity.sh` passes both.
+
 ## Coverage
 `python3 -m validation.coverage.cobol_coverage <legacy-run>... --report <dir>` turns GnuCOBOL statement traces into
 paragraph/statement coverage of the legacy programs across all scenarios, listing every unexecuted paragraph.

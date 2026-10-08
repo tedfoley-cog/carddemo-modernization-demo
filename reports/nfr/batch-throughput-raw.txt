@@ -1,0 +1,87 @@
+LEGACY POSTTRAN run1 1.188975652
+LEGACY POSTTRAN run2 1.137280193
+LEGACY POSTTRAN run3 1.154300866
+LEGACY POSTTRAN,INTCALC run1 1.212713536
+LEGACY POSTTRAN,INTCALC run2 1.224885438
+LEGACY POSTTRAN,INTCALC run3 1.229537351
+LEGACY POSTTRAN,INTCALC,TRANREPT run1 1.515107376
+LEGACY POSTTRAN,INTCALC,TRANREPT run2 1.519471787
+LEGACY POSTTRAN,INTCALC,TRANREPT run3 1.561112697
+MODERN h2 run1 wall=30.153080600 exit=0
+   Started CardDemoBatchApplication in 2.62 seconds (process running for 2.939)
+   Loaded 5000 CVACT01Y records from acctdata.txt
+   Loaded 5000 CVACT02Y records from carddata.txt
+   Loaded 5000 CVACT03Y records from cardxref.txt
+   Loaded 5000 CVCUS01Y records from custdata.txt
+   Loaded 51 CVTRA02Y records from discgrp.txt
+   Loaded 0 CVTRA01Y records from tcatbal.txt
+   Loaded 18 CVTRA04Y records from trancatg.txt
+   Loaded 7 CVTRA03Y records from trantype.txt
+   JOB POSTTRAN (postTransactionsJob) RC=0004 records=100000 elapsedMs=16016
+   JOB INTCALC (interestCalculationJob) RC=0000 records=14452 elapsedMs=9416
+   JOB TRANREPT (transactionReportJob) RC=0000 records=40189 elapsedMs=690
+MODERN h2 run2 wall=28.135631418 exit=0
+   Started CardDemoBatchApplication in 2.757 seconds (process running for 3.062)
+   Loaded 5000 CVACT01Y records from acctdata.txt
+   Loaded 5000 CVACT02Y records from carddata.txt
+   Loaded 5000 CVACT03Y records from cardxref.txt
+   Loaded 5000 CVCUS01Y records from custdata.txt
+   Loaded 51 CVTRA02Y records from discgrp.txt
+   Loaded 0 CVTRA01Y records from tcatbal.txt
+   Loaded 18 CVTRA04Y records from trancatg.txt
+   Loaded 7 CVTRA03Y records from trantype.txt
+   JOB POSTTRAN (postTransactionsJob) RC=0004 records=100000 elapsedMs=14665
+   JOB INTCALC (interestCalculationJob) RC=0000 records=14452 elapsedMs=8665
+   JOB TRANREPT (transactionReportJob) RC=0000 records=40189 elapsedMs=584
+MODERN h2 run3 wall=29.153207463 exit=0
+   Started CardDemoBatchApplication in 2.716 seconds (process running for 3.08)
+   Loaded 5000 CVACT01Y records from acctdata.txt
+   Loaded 5000 CVACT02Y records from carddata.txt
+   Loaded 5000 CVACT03Y records from cardxref.txt
+   Loaded 5000 CVCUS01Y records from custdata.txt
+   Loaded 51 CVTRA02Y records from discgrp.txt
+   Loaded 0 CVTRA01Y records from tcatbal.txt
+   Loaded 18 CVTRA04Y records from trancatg.txt
+   Loaded 7 CVTRA03Y records from trantype.txt
+   JOB POSTTRAN (postTransactionsJob) RC=0004 records=100000 elapsedMs=15281
+   JOB INTCALC (interestCalculationJob) RC=0000 records=14452 elapsedMs=8954
+   JOB TRANREPT (transactionReportJob) RC=0000 records=40189 elapsedMs=654
+MODERN postgres run1 wall=29.280434291 exit=0
+   Started CardDemoBatchApplication in 2.737 seconds (process running for 3.035)
+   Loaded 5000 CVACT01Y records from acctdata.txt
+   Loaded 5000 CVACT02Y records from carddata.txt
+   Loaded 5000 CVACT03Y records from cardxref.txt
+   Loaded 5000 CVCUS01Y records from custdata.txt
+   Loaded 51 CVTRA02Y records from discgrp.txt
+   Loaded 0 CVTRA01Y records from tcatbal.txt
+   Loaded 18 CVTRA04Y records from trancatg.txt
+   Loaded 7 CVTRA03Y records from trantype.txt
+   JOB POSTTRAN (postTransactionsJob) RC=0004 records=100000 elapsedMs=15194
+   JOB INTCALC (interestCalculationJob) RC=0000 records=14452 elapsedMs=9066
+   JOB TRANREPT (transactionReportJob) RC=0000 records=40189 elapsedMs=658
+MODERN postgres run2 wall=29.196810211 exit=0
+   Started CardDemoBatchApplication in 2.758 seconds (process running for 3.067)
+   Loaded 5000 CVACT01Y records from acctdata.txt
+   Loaded 5000 CVACT02Y records from carddata.txt
+   Loaded 5000 CVACT03Y records from cardxref.txt
+   Loaded 5000 CVCUS01Y records from custdata.txt
+   Loaded 51 CVTRA02Y records from discgrp.txt
+   Loaded 0 CVTRA01Y records from tcatbal.txt
+   Loaded 18 CVTRA04Y records from trancatg.txt
+   Loaded 7 CVTRA03Y records from trantype.txt
+   JOB POSTTRAN (postTransactionsJob) RC=0004 records=100000 elapsedMs=14811
+   JOB INTCALC (interestCalculationJob) RC=0000 records=14452 elapsedMs=9501
+   JOB TRANREPT (transactionReportJob) RC=0000 records=40189 elapsedMs=647
+MODERN postgres run3 wall=28.703512439 exit=0
+   Started CardDemoBatchApplication in 2.71 seconds (process running for 3.014)
+   Loaded 5000 CVACT01Y records from acctdata.txt
+   Loaded 5000 CVACT02Y records from carddata.txt
+   Loaded 5000 CVACT03Y records from cardxref.txt
+   Loaded 5000 CVCUS01Y records from custdata.txt
+   Loaded 51 CVTRA02Y records from discgrp.txt
+   Loaded 0 CVTRA01Y records from tcatbal.txt
+   Loaded 18 CVTRA04Y records from trancatg.txt
+   Loaded 7 CVTRA03Y records from trantype.txt
+   JOB POSTTRAN (postTransactionsJob) RC=0004 records=100000 elapsedMs=14878
+   JOB INTCALC (interestCalculationJob) RC=0000 records=14452 elapsedMs=8967
+   JOB TRANREPT (transactionReportJob) RC=0000 records=40189 elapsedMs=719
