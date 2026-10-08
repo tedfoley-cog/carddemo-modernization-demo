@@ -8,3 +8,5 @@ batch-app/markers/*
 **/.DS_Store
 runs/
 reports/tmp/
+__pycache__/
+*.pyc
