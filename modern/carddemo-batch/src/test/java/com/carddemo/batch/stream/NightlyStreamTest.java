@@ -36,7 +36,7 @@ class NightlyStreamTest {
     NightlyStreamRunner runner;
 
     @Test
-    void runsAllJobsInJclOrderAndWritesParityArtifacts() throws Exception {
+    void batCmb01_batRpt01_runsAllJobsInJclOrderAndWritesParityArtifacts() throws Exception {
         StreamResult result = runner.run();
 
         assertThat(result.exitCode()).isZero();
@@ -46,7 +46,13 @@ class NightlyStreamTest {
         assertThat(codes).hasSize(4 * 80)
                 .startsWith("POSTTRAN.STEP15.CBTRN02C                RC=0004")
                 .contains("CREASTMT.STEP040.CBSTM03A               RC=0000");
-        assertThat(Files.size(out.resolve("TRANSACT.dat")) % 350).isZero();
+        // BAT-CMB-01: 262 posted + 50 INTCALC system transactions merged into the master.
+        assertThat(Files.size(out.resolve("TRANSACT.dat"))).isEqualTo(312L * 350);
+        assertThat(Files.readString(out.resolve("TRANSACT.dat"))).contains("System");
+        // BAT-RPT-01: report ends with the grand total line.
+        String report = Files.readString(out.resolve("TRANREPT.RPT"));
+        assertThat(report.length() % 133).isZero();
+        assertThat(report.substring(report.length() - 133)).startsWith("Grand Total");
         assertThat(Files.size(out.resolve("STATEMNT.HTML")) % 100).isZero();
         assertThat(EVENTS).singleElement().isInstanceOfSatisfying(TransactionsPostedEvent.class, e -> {
             assertThat(e.transactionsRead()).isEqualTo(300);
