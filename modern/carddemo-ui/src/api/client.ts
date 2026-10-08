@@ -58,7 +58,12 @@ async function request<T>(method: string, path: string, opts: { query?: Query; b
     body: opts.body === undefined ? undefined : JSON.stringify(opts.body),
   });
   const text = await res.text();
-  const data = text ? JSON.parse(text) : null;
+  let data = null;
+  try {
+    data = text ? JSON.parse(text) : null;
+  } catch {
+    data = { message: text };
+  }
   if (!res.ok) {
     if (res.status === 401 && session && path !== '/auth/signon') {
       setSession(null);

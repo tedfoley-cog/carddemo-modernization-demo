@@ -13,7 +13,7 @@ public final class LegacyFormat {
 
     /** PIC +ZZZ,ZZZ,ZZZ.99 (COACTVWC / COACTUPC currency fields), e.g. "+      2,020.00". */
     public static String currency(BigDecimal value) {
-        DecimalFormat f = new DecimalFormat("#,##0.00", DecimalFormatSymbols.getInstance(Locale.US));
+        DecimalFormat f = new DecimalFormat("#,###.00", DecimalFormatSymbols.getInstance(Locale.US)); // Z-suppression: 0 -> ".00"
         String body = f.format(value.abs().setScale(2, RoundingMode.DOWN));
         String sign = value.signum() < 0 ? "-" : "+";
         return sign + " ".repeat(Math.max(0, 14 - body.length())) + body;
