@@ -78,7 +78,7 @@ public class TransactionAddService {
             if (!r.accountId().trim().chars().allMatch(Character::isDigit)) {
                 throw new LegacyRuleException("Account ID must be Numeric...", "accountId", para);
             }
-            long id = Long.parseLong(r.accountId().trim());
+            long id = parseKey(r.accountId(), 11, "Account ID NOT found...", "accountId", P + "READ-CXACAIX-FILE");
             return xrefs.findFirstByAcctIdOrderByCardNumAsc(id).orElseThrow(() -> LegacyRuleException.notFound(
                     "Account ID NOT found...", "accountId", P + "READ-CXACAIX-FILE"));
         }
@@ -86,14 +86,24 @@ public class TransactionAddService {
             if (!r.cardNumber().trim().chars().allMatch(Character::isDigit)) {
                 throw new LegacyRuleException("Card Number must be Numeric...", "cardNumber", para);
             }
-            String card = String.format("%016d", Long.parseLong(r.cardNumber().trim()));
+            String card = String.format("%016d",
+                    parseKey(r.cardNumber(), 16, "Card Number NOT found...", "cardNumber", P + "READ-CCXREF-FILE"));
             return xrefs.findById(card).orElseThrow(() -> LegacyRuleException.notFound(
                     "Card Number NOT found...", "cardNumber", P + "READ-CCXREF-FILE"));
         }
         throw new LegacyRuleException("Account or Card Number must be entered...", "accountId", para);
     }
 
-    /** VALIDATE-INPUT-DATA-FIELDS. */
+    /** ACTIDINI X(11) / CARDNINI X(16): a key longer than the map field cannot exist in the file. */
+    private static long parseKey(String s, int width, String notFound, String field, String para) {
+        String t = s.trim();
+        if (t.length() > width) {
+            throw LegacyRuleException.notFound(notFound, field, para);
+        }
+        return Long.parseLong(t);
+    }
+
+    /** VALIDATE-INPUT-DATA-FIELDS (TCATCD X(4), MIDI X(9)). */
     void validateDataFields(AddRequest r) {
         String para = P + "VALIDATE-INPUT-DATA-FIELDS";
         required(r.typeCd(), "Type CD", "typeCd", para);
@@ -108,7 +118,7 @@ public class TransactionAddService {
         required(r.merchantCity(), "Merchant City", "merchantCity", para);
         required(r.merchantZip(), "Merchant Zip", "merchantZip", para);
         check(digits(r.typeCd()), () -> new LegacyRuleException("Type CD must be Numeric...", "typeCd", para));
-        check(digits(r.categoryCd()),
+        check(digits(r.categoryCd()) && r.categoryCd().trim().length() <= 4,
                 () -> new LegacyRuleException("Category CD must be Numeric...", "categoryCd", para));
         check(r.amount().matches("[-+]\\d{8}\\.\\d{2}.*"),
                 () -> new LegacyRuleException("Amount should be in format -99999999.99", "amount", para));
@@ -120,7 +130,7 @@ public class TransactionAddService {
                 () -> new LegacyRuleException("Orig Date - Not a valid date...", "origDate", P + "CSUTLDTC"));
         check(validDate(r.procDate()),
                 () -> new LegacyRuleException("Proc Date - Not a valid date...", "procDate", P + "CSUTLDTC"));
-        check(digits(r.merchantId()),
+        check(digits(r.merchantId()) && r.merchantId().trim().length() <= 9,
                 () -> new LegacyRuleException("Merchant ID must be Numeric...", "merchantId", para));
     }
 

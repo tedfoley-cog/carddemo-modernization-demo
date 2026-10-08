@@ -34,7 +34,8 @@ public class AccountViewService {
                               String ficoScore, String firstName, String middleName, String lastName,
                               String addressLine1, String addressLine2, String city, String state, String zip,
                               String country, String phone1, String phone2, String governmentId,
-                              String eftAccountId, String primaryCardHolder, String cardNumber) {
+                              String eftAccountId, String primaryCardHolder, String cardNumber)
+            implements java.io.Serializable {
     }
 
     /** COACTVWC 2210-EDIT-ACCOUNT. Returns the 11-digit account id. Shared by COACTUPC/COBIL00C. */

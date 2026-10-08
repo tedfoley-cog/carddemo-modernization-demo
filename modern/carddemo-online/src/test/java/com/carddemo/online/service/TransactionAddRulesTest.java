@@ -46,6 +46,26 @@ class TransactionAddRulesTest {
         assertThatThrownBy(() -> svc.validateKeyFields(card)).hasMessage("Card Number must be Numeric...");
     }
 
+    @Test
+    @DisplayName("ONL-TRA-01 COTRN02C READ-CXACAIX-FILE / READ-CCXREF-FILE: keys wider than the map field are not found")
+    void oversizedKeys() {
+        assertThatThrownBy(() -> svc.validateKeyFields(req("accountId", "123456789012345678901234")))
+                .hasMessage("Account ID NOT found...");
+        var card = new TransactionAddService.AddRequest("", "48591234567890123456789", "01", "0001", "S", "D",
+                "+00000001.00", "2022-07-06", "2022-07-06", "1", "M", "C", "Z", "Y");
+        assertThatThrownBy(() -> svc.validateKeyFields(card)).hasMessage("Card Number NOT found...");
+    }
+
+    @Test
+    @DisplayName("COACTVWC account view is cacheable in Redis (JDK serialization)")
+    void accountViewSerializable() throws Exception {
+        var v = new AccountViewService.AccountView("00000000001", "Y", "", "", "", "", "", "", "", "", "", "", "",
+                "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        try (var out = new java.io.ObjectOutputStream(java.io.OutputStream.nullOutputStream())) {
+            assertThatCode(() -> out.writeObject(v)).doesNotThrowAnyException();
+        }
+    }
+
     @ParameterizedTest(name = "[{index}] {0}=''{1}'' -> {2}")
     @DisplayName("ONL-TRA-01 COTRN02C VALIDATE-INPUT-DATA-FIELDS")
     @CsvSource(delimiter = '|', value = {

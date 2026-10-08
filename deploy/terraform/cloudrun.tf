@@ -103,9 +103,12 @@ resource "google_cloud_run_v2_service" "ui" {
   }
 }
 
-resource "google_cloud_run_v2_service_iam_member" "ui_invokes_api" {
+# The UI's nginx proxy forwards the browser's bearer token, not a Google identity token, so Cloud Run IAM
+# cannot gate the API. Access is restricted by INTERNAL_ONLY ingress (reachable only via the VPC the UI egresses
+# through) and every /api route except sign-on requires the application JWT.
+resource "google_cloud_run_v2_service_iam_member" "api_invoker" {
   name     = google_cloud_run_v2_service.api.name
   location = var.region
   role     = "roles/run.invoker"
-  member   = "serviceAccount:${google_service_account.ui.email}"
+  member   = "allUsers"
 }
